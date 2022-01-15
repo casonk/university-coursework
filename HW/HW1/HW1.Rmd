@@ -1,0 +1,146 @@
+---
+title: "**CSC487**: Data Mining - Homework #1"
+output:
+  pdf_document: 
+    latex_engine: pdflatex
+    extra_dependencies: ["xcolor"]
+fontsize: 12pt
+graphics: yes
+---
+
+```{=latex}
+\begin{center}
+  \color{violet}\textit{\large{Cason Konzer}}\color{black}
+\end{center}
+```
+
+---
+
+```{r include=FALSE}
+options(knitr.graphics.error = FALSE)
+
+library(knitr)
+library(ggplot2)
+```
+
+### 1. Use `Su_raw_matrix.txt` for the following questions *(30 points)*.
+(a) Use `read.delim` function to read `Su_raw_matrix.txt` into a variable called `su`. (Notice that `su` has become a data frame 
+```{r}
+su <- read.delim(file = "Su_raw_matrix.txt")
+```
+(b) Use `mean` and `sd` functions to find mean and standard deviation of `Liver_2.CEL` column.
+```{r}
+m_sd <- function(col)
+{
+    m <- mean(col)
+    sd <- sd(col)
+    return <- rbind(m, sd)
+    colnames(return) <- ""
+    print(return)
+    return
+}
+p_1_b <- m_sd(col = su$Liver_2.CEL)
+```
+(c) Use `colMeans` and `colSums` functions to get the average and total values of each column.
+```{r}
+cm_cs <- function(df)
+{
+    cm <- colMeans(df)
+    cs <- colSums(df)
+    return <- rbind(t(cm), t(cs))
+    rownames(return) <- c("m", "sd")
+    print(return)
+    return
+}
+p_1_c <- cm_cs(df = su)
+```
+
+--- 
+
+### 2. Use `rnorm(n, mean = 0, sd = 1)` function in R to generate 10000 numbers for the following `(mean, sigma)` pairs and plot histogram for each, meaning you need to change the function parameter accordingly. Then comment on how these histograms are different from each other and state the reason. *(20 points)*.
+(a) `mean=0, sigma=0.2`
+```{r # 2 a, fig.show='hide'}
+p_2_a <- rnorm(n = 10000, mean = 0, sd = 0.2)
+hist(p_2_a, xlim = c(-2,2))
+```
+```{r # 2 a_, echo=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p2a.png")
+```
+(b) `mean=0, sigma=0.5`
+```{r # 2 b, fig.show='hide'}
+p_2_b <- rnorm(n = 10000, mean = 0, sd = 0.5)
+hist(p_2_b, xlim = c(-2,2))
+```
+```{r # 2 b_, echo=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p2b.png")
+```
+
+We can clearly see that p_2_a has a much tighter distribution that p_2_b.
+Note: this is because it has a smaller standard deviation. 
+We also can see both samples have sample mean 0 as they were drawn from a random normal distribution with population mean 0.
+
+---
+
+### 3. Perform the steps below with ”dat” dataframe which is just a sample data for you to observe how each plot function (3b through 3e) works. Notice that you need to have `ggplot2` library installed on your system. Please refer slides how to install and import a library. Installation is done only once, but you need to import the library every time you need it by saying `library(ggplot2)`. Then Run the following commands and observe how the plots are generated. *(40 points)*.
+(a) 
+```{r # 3 a}
+dat <- data.frame(cond = factor(rep(c("A", "B"), each = 200)), 
+                  rating = c(rnorm(200), rnorm(200, mean = 0.8)))
+```
+(b) 
+```{r # 3 b, fig.show='hide'}
+plot(ggplot(dat, aes(x = rating, fill = cond)) + 
+       geom_histogram(binwidth = 0.5, alpha = 0.5, position = "identity"))
+```
+```{r # 3 b_, echo=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3b.png")
+```
+(c) 
+```{r # 3 c, fig.show='hide'}
+plot(ggplot(dat, aes(x = rating, fill = cond)) + 
+       geom_histogram(binwidth = 0.5, position = "dodge"))
+```
+```{r # 3 c_, echo=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3c.png")
+```
+(d) 
+```{r # 3 d, fig.show='hide'}
+plot(ggplot(dat, aes(x = rating, colour = cond)) + 
+       geom_density())
+```
+```{r # 3 d_, echo=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3d.png")
+```
+(e) 
+```{r # 3 e, fig.show='hide'}
+plot(ggplot(dat, aes(x = rating, fill = cond)) + 
+       geom_density(alpha = 0.3))
+```
+```{r # 3 e_, echo=FALSE, message=FALSE, warning=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3e.png")
+```
+(f) 
+```{r # 3 f, echo=TRUE, fig.show='hide', message=FALSE, warning=FALSE}
+diabetes <- read.csv("diabetes_train.csv")
+plot(ggplot(diabetes, aes(x = mass, fill = class)) + 
+       geom_histogram(binwidth = 5, alpha = 0.5, position = "identity"))
+plot(ggplot(diabetes, aes(x = mass, fill = class)) + 
+       geom_histogram(binwidth = 5, position = "dodge"))
+plot(ggplot(diabetes, aes(x = mass, color = class)) + 
+       geom_density())
+plot(ggplot(diabetes, aes(x = mass, fill = class)) + 
+       geom_density(alpha = 0.3))
+```
+```{r # 3 f_, echo=FALSE, out.width="69%", fig.align = "center"}
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3f1.png")
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3f2.png")
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3f3.png")
+knitr::include_graphics("C:/Users/cason/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW1/Img/p3f4.png")
+```
+
+---
+
+### 4. By using `quantile()`, calculate 10th, 30th, 50th, 60th percentiles of skin attribute of diabetes data. *(10 points)*.
+```{r #4, echo=TRUE}
+print(quantile(diabetes$skin, probs = c(0.10, 0.30, 0.50, 0.60)))
+```

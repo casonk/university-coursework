@@ -1,0 +1,294 @@
+\documentclass[10pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=0.25in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\usepackage{xcolor}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
+\color{purple}\underline{Cason Konzer}\color{black}
+
+\hrulefill
+
+\underline{\textbf{Supplementary Material}}
+\color{blue}
+
+\begin{itemize}
+  \item The parameter $t$ in the pair $\displaystyle \left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right)$ runs through all rational numbers if $t=q/p$ and $p,q$ run through all pairs of integers.
+  \item Some important trigonometry may be gleaned from Diophantus's method if we compare the angle at $O$ with the angle at $Q$ in the following figure. High school geometry shows that the angle at $Q$ is half the angle at $O$.
+\end{itemize}
+
+\color{black}
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw [-] (-6,0) -- (6,0);
+    \draw [-] (0,-6) -- (0,6);
+    
+    \draw [red] (-5,0) -- (4,3) -- (0,0);
+    \draw (4,0) -- (4,3);
+    \node [above left] at (-5,0) {$Q$};
+    \node [below right] at (0,0) {$O$};
+    \node [above right] at (5,0) {$1$};
+    \node [above left] at (0,1.667) {$t$};
+    \node [above right] at (1,0) {$\theta$};
+    \node [above right] at (-3,0) {$\theta/2$};
+    \node [right] at (6,0) {$X$};
+    \node [above] at (0,6) {$Y$};
+    \draw (0,0) circle [radius=5];
+  \end{tikzpicture}
+\end{center}
+
+\hrulefill
+
+\begin{center}
+  \textbf{Exercises Follow}
+\end{center}
+
+\newpage
+
+\begin{ex} [1.2.3]
+  Show that any integer square leaves remainder $0$ or $1$ on division by $4$.
+\end{ex}
+
+\begin{proof}
+  \ \\
+  Integers take 2 flavors, even and odd. We will approach this by cases. 
+  \begin{itemize}
+    \item \textit{Even} numbers take the form $2k$, $k \in \mathbb{Z} $.
+    \subitem $(2k)^{2} = 4k^{2}$ 
+    \subitem $4k^{2} \ \% \ {4} = 0$
+    \item \textit{Odd} numbers take the form $2k+1$, $k \in \mathbb{Z} $.
+    \subitem $(2k+1)^{2} = 4k^{2}+4k+1 = 4(k^{2}+k)+1$
+    \subitem $(4(k^{2}+k)+1) \ \% \ {4} = ((4k^{2} \ \% \ {4})+(1 \ \% \ {4})) \ \% \ {4} = (0+1) \ \% \ {4} = 1$
+  \end{itemize}
+  As these $2$ flavors encompass all possible integers we have shown that on division by $4$ the integer squares takes remainder $0$, or $1$.
+\end{proof} 
+
+\hrulefill
+% \newpage
+
+\begin{ex} [1.2.4]
+  Deduce from Exercise~1.2.3 that if $(a,b,c)$ is a Pythagorean triple then $a$ and $b$ cannot both be odd.
+\end{ex}
+
+\begin{proof}
+  \ \\
+  To satisfy integer squares we must take $a$ and $b$ such that their sum will leave remainder $0$ or $1$ on division by 4.
+  \begin{itemize}
+    \item \textit{consider} two integers of odd flavor.
+    \subitem  $2i+1$, $2j+1$
+    \item \textit{consider} their squares.
+    \subitem  $4(i^{2}+i)+1$, $4(j^{2}+j)+1$
+    \item \textit{consider} their sum.
+    \subitem  $4(i^{2}+i)+1+4(j^{2}+j)+1 = 4(i^{2}+j^{2}+i+j)+2$
+    \item \textit{consider} their remainder on division by $4$.
+    \subitem $4(i^{2}+j^{2}+i+j)+2 \ \% \ 4 = ((4(i^{2}+j^{2}+i+j) \ \% \ 4) + (2 \ \% \ 4)) \ \% \ 4 = (0+2) \ \% \ 4 = 2$
+  \end{itemize}
+  We can see their sum takes remainder $2$ on division by $4$. From this we know that $c$ is not an integer and thus any $a$ and $b$ odd will not produce a Pythagorean triple.
+\end{proof}
+
+\hrulefill
+% \newpage
+
+\begin{ex} [1.3.1]
+  Deduce that if $(a,b,c)$ is any Pythagorean triple then
+  \[
+    \frac{a}{c}=\frac{p^2-q^2}{p^2+q^2},\qquad\frac{b}{c}=\frac{2pq}{p^2+q^2}
+  \]
+  for some integers $p$ and $q$.
+\end{ex}
+
+\begin{proof}
+  \ \\
+  We know that any Pythagorean triple, $(a,b,c)$,  will satisfy $a^{2}+b^{2}=c^{2}$.
+  \begin{itemize}
+    \item We can divde this equation by $c^2$ to arrive at the following.
+    \subitem  $\displaystyle \frac{a^{2}}{c^{2}}+\frac{b^{2}}{c^{2}}=1$ and $\displaystyle \Bigl(\frac{a}{c}\Bigr)^{2}+\Bigl(\frac{b}{c}\Bigr)^{2}=1$ , a Pythagorean triple with hypotenuse length 1.
+    \item We can now leverage our pair $\displaystyle \left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right)$, as it takes the same form.
+    \subitem $\displaystyle \left(\frac{1-t^2}{1+t^2}\right)^{2}+\left(\frac{2t}{1+t^2}\right)^{2} = \frac{1-2t^{2}+t^{4}+4t^{4}}{(1+t^2)^{2}} = \frac{(1+t^2)^{2}}{(1+t^2)^{2}} = 1$ 
+    \item We can now equeate our two pairs as $1=1$.
+    \subitem $\displaystyle \frac{(1-t^2)^{2}}{(1+t^2)^{2}}+\frac{(2t)^{2}}{(1+t^2)^{2}} = 1 = \frac{(a)^{2}}{(c)^{2}}+\frac{(b)^{2}}{(c)^{2}}$
+    \item We thus have come to the following realization (We arbitraritly choose this pair, it could have been reversed).
+    \subitem $\displaystyle \frac{(a)^{2}}{(c)^{2}}=\frac{(1-t^2)^{2}}{(1+t^2)^{2}}$ , $\displaystyle \frac{(b)^{2}}{(c)^{2}}=\frac{(2t)^{2}}{(1+t^2)^{2}}$
+    \item For both pairs we can take the root of both sides and substitute in $\displaystyle t=\frac{q}{p}$
+    \subitem $\displaystyle \frac{a}{c}=\frac{1-t^2}{1+t^2}=\frac{1-\frac{q^{2}}{p^{2}}}{1+\frac{q^{2}}{p^{2}}}$ , $\displaystyle \frac{b}{c}=\frac{2t}{1+t^2}=\frac{2\frac{q}{p}}{1+\frac{q^{2}}{p^{2}}}$
+    \item A multiplication by $1 = \frac{p^{2}}{p^{2}}$ will bring us to our final form.
+    \subitem $\displaystyle \frac{a}{c}=\frac{p^2-q^2}{p^2+q^2},\qquad\frac{b}{c}=\frac{2pq}{p^2+q^2}$
+  \end{itemize}
+\end{proof}
+
+\hrulefill
+% \newpage
+
+\begin{ex} [1.3.2]
+  Use Exercise~1.3.1 to prove Euclid's formula for Pythagorean triples, assuming $b$ even. (Remember, $a$ and $b$ are not both odd.)
+\end{ex}
+
+\begin{proof}
+  \ \\
+  From 1.3.1, $a=p^{2}-q^{2}$, $b=2pq$, $c=p^2+q^{2}$
+  \begin{itemize}
+    \item Let us verify that Euclid's formula yields Pythagorean triples.
+    \item Consider the squares. 
+    \subitem $a^{2}=(p^{2}-q^{2})^{2}=p^{4}-2p^{2}q^{2}+q^{4}$
+    \subitem $b^{2}=(2pq)^{2}=4p^{2}q^{2}$
+    \subitem $c^{2}=(p^2+q^{2})^{2}=p^{4}+2p^{2}q^{2}+q^{4}$
+    \item Now check that this holds under the Pythagorean theorem $a^{2}+b^{2}=c^{2}$.
+    \subitem $p^{4}-2p^{2}q^{2}+q^{4}+4p^{2}q^{2}=p^{4}+(4p^{2}q^{2}-2p^{2}q^{2})+q^{4}=p^{4}+2p^{2}q^{2}+q^{4}$
+  \end{itemize}
+\end{proof}
+
+\hrulefill
+% \newpage
+
+\begin{ex} [1.3.4]
+  Why does the angle at $Q$ equal $\theta/2$? (Hint: consider angles in the red triangle.)
+\end{ex}
+
+\begin{proof}
+  \ \\
+  Consider the following figure. \\
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (0,0) -- (4,0);
+      \draw [red, ->] (0,0) -- (-5,0);
+      \draw [red, ->] (0,0) -- (4,3);
+      \draw [red, dotted] (-5,0) -- (4,3);
+      \node [above right] at (0.75,0) {$\theta$};
+      \node [above left] at (-0.25,0) {$\pi - \theta$};
+      \node [below] at (0,0) {$O$};
+      \node [left] at (-5,0) {$\overrightarrow{Q}$};
+      \node [above right] at (4,3) {$\overrightarrow{R}$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{itemize}
+    \item Consider the length of the vectors in the figure.
+    \subitem $|\overrightarrow{Q}| = |\overrightarrow{R}| = 1 $, as they are points on the unit circle.
+    \subitem The Triangle $PQR$ is isosceles.
+    \item We thus know the angles $\angle ORQ$ and $\angle OQR$ are equal.
+    \subitem let $\angle ORQ, \angle OQR = \omega $
+    \item We also know that the interior angles of a triangle sum to $\pi$
+    \subitem $\omega + \omega + \pi - \theta = \pi$
+    \subitem $2\omega = \theta$
+    \subitem $\omega = \theta/2$
+  \end{itemize}
+  High school geometry has shown that the angle at $Q$ is half the angle at $O$.
+\end{proof}
+
+\hrulefill
+% \newpage
+
+\begin{ex} [1.3.5]
+  Use Figure~1.7 to show that $\displaystyle t=\tan\theta/2$ and
+  \[
+    \cos\theta=\frac{1-t^2}{1+t^2},\qquad\sin\theta=\frac{2t}{1+t^2}.
+  \]
+\end{ex}
+
+\begin{proof} 
+  \ \\
+  Consider the following figure. \\
+  \begin{center}
+    \begin{tikzpicture}
+      \draw [red] (0,0) -- (-2*5,0);
+      \draw (0,0) -- (0,2*1.69);
+      \draw [red] (-2*5,0) -- (0,2*1.69);
+      \node [right] at (0,1.69) {$t$};
+      \node [below] at (0,0) {$O$};
+      \node [left] at (-2*5,0) {$Q$};
+      \node [below] at (-5,0) {$1$};
+      \node [above right] at (-8.5,0) {$\theta/2$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{itemize}
+    \item We know that for some angle $\displaystyle \omega, \tan{\omega} = \frac{\sin{\omega}}{\cos\omega}$ .
+    \subitem $\displaystyle \tan{\theta/2} = \frac{\sin{\theta/2}}{\cos\theta/2} = \frac{t}{1} = t$ 
+    \item We additionally know slope is $\displaystyle \frac{rise}{run}$.
+    \subitem From above we have solve the slope for this triangle as $\displaystyle \tan{\theta/2} = t$
+  \end{itemize}
+  Consider next the following figure. \\
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (0,0) -- (4,0);
+      \draw [red] (0,0) -- (-5,0);
+      \draw [red] (0,0) -- (4,3);
+      \draw [red] (-5,0) -- (4,3);
+      \draw (4,0) -- (4,3);
+      \node [above right] at (0.75,0) {$\theta$};
+      \node [below] at (0,0) {$O$};
+      \node [left] at (-5,0) {$Q$};
+      \node [above right] at (4,3) {$R$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{itemize}
+    \item Point-Slope form for the equation of a line is as follows: $y-y_{0} = m(x-x_{0})$.
+    \subitem The coordinates of $R$ are unknown, the coordinates of $Q$ can be see as $\left< -1,0 \right>$
+    \item As we now have some coordinates, $\left< x_{0},y_{0} \right>$ and know our slope, we can solve for the equation of the line $QR$.
+    \subitem $y-0 = t(x-(-1)) \ ; \ y = t(x+1)$
+  \end{itemize}
+  We can now leverage the following figure.
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (0,0) -- (2*4,0);
+      \draw [red] (0,0) -- (2*4,2*3);
+      \draw (2*4,0) -- (2*4,2*3);
+      \node [above right] at (0.75,0) {$\theta$};
+      \node [below] at (0,0) {$O$};
+      \node [above right] at (2*4,2*3) {$R$};
+      \node [below] at (2*2,0) {$x$};
+      \node [right] at (2*4,2*1.5) {$y=t(x+1)$};
+      \node [above left] at (4,3) {$1$};
+    \end{tikzpicture}
+  \end{center}
+  \begin{itemize}
+    \item Let us leverage the Pythagorean theorem, $a^{2}+b^{2}=c^{2}$
+    \subitem $x^{2}+(t(x+1))^{2}=1^{2}$
+    \subitem $x^{2}+t^{2}(x^{2}+2x+1))=x^{2}+t^{2}x^{2}+2xt^{2}+t^{2}=1$
+    \item We are looking for the value of $x$ as $x=\cos{\theta}$
+    \subitem $x^{2}+t^{2}x^{2}+t^{2}2x+t^{2}-1=0=x^{2}(1+t^{2})+2xt^{2}+(t^{2}-1)$
+    \item We will now leverage the quadratic equation to solve for $x$, $\displaystyle x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}$.
+    \subitem $\displaystyle x=\frac{-(2t^{2})\pm\sqrt{(2t^{2})^{2}-4(1+t^{2})(t^{2}-1)}}{2(1+t^{2})}$
+    \subitem $\displaystyle x=\frac{-2t^{2}\pm\sqrt{4t^{4}-4(t^{4}-1)}}{2(1+t^{2})}=\frac{-2t^{2}\pm\sqrt{4}}{2(1+t^{2})}$
+    \item Conside the case of subtraction.
+    \subitem $\displaystyle x=\frac{-2t^{2}-2}{2(t^{2}+1))}=\frac{-2(t^{2}+1)}{2(t^{2}+1)}=-1$
+    \subitem This solution is trival and can be identified as point $Q$ from our eariler figure.
+    \item Conside the case of addition.
+    \subitem $\displaystyle x=\frac{-2t^{2}+2}{2(1+t^{2})}=\frac{2(1-t^{2})}{2(1+t^{2})}=\frac{1-t^{2}}{1+t^{2}}=\cos{\theta}$
+    \item We can now substitute our value of $x$ into $y=t(x+1)$ to solve for $y$, a.k.a $\sin{\theta}$
+    \subitem $\displaystyle y=t\Bigl(\frac{1-t^{2}}{1+t^{2}}+1\Bigr)=\frac{t}{1+t^{2}}(1-t^{2}+1+t^{2})=\frac{2t}{1+t^{2}}=\sin{\theta}$
+  \end{itemize}
+  It has been shown that $\displaystyle \tan{\theta/2}=t$ , $\displaystyle \cos{\theta}=\frac{1-t^{2}}{1+t^{2}}$ , and $\displaystyle \sin{\theta}=\frac{2t}{1+t^{2}}$
+\end{proof}
+
+\hrulefill
+
+\begin{center}
+  \textbf{END OF ASSIGNMENT}
+\end{center}
+\end{document}
+

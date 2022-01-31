@@ -302,7 +302,7 @@ cor(mpg, weight)
 ```
 
 ```{=latex}
-We can see that the correlation between vehicle miles per gallon and vehicle weight in the mtcars dataset is \XBB $r_{mpg,weight} =  -0.868$ \XB
+We can see that the correlation between vehicle miles per gallon and vehicle weight in the mtcars dataset is \XBB $r_{mpg,weight} =  -0.868 $ \XB .
 What this explains is that as one variable (weight/mpg) increases, the other (mpg/weight) decreases.
 ```
 

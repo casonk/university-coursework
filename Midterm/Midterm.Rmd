@@ -116,7 +116,7 @@ z_score_scaler(36)
 ```
 
 ```{=latex}
-We can see that z-score normalization transforms the value 36 \XBB $-0.679$ \XB.
+We can see that z-score normalization transforms the value 36 to \XBB $-0.679$ \XB.
 
 \hrulefill
 ```
@@ -136,7 +136,7 @@ min_max_scaler(36)
 ```
 
 ```{=latex}
-We can see that min-max normalization transforms the value 36 \XBB $0.1959$ \XB.
+We can see that min-max normalization transforms the value 36 to \XBB $0.1959$ \XB.
 
 \hrulefill
 ```

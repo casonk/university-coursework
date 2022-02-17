@@ -330,6 +330,11 @@ expectation_df3 = expectation_df3.iloc[:-1,:-1]
 expectation_df3
 ```
 
+```{=latex}
+
+\newpage
+```
+
 ```{python}
 # Compute passing portion of chi squared.
 basketball_ = np.sum(
@@ -357,7 +362,7 @@ chi_squared_
 ```
 
 ```{=latex}
-A $\chi^{2}$ chart will clearly show that a test statistic of  \XBB $1.2315$ \XB given 2 degrees of freedom is not a statistically significant. Thus we settle on the null hypothesis that playing basketball and eating cereal are not correlated.
+A $\chi^{2}$ chart will clearly show that a test statistic of  \XBB $1.231$ \XB given 1 degree of freedom is not a statistically significant. Thus we settle on the null hypothesis that playing basketball and eating cereal are not correlated.
 
 \hrulefill
 ```

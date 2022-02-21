@@ -173,7 +173,7 @@ df1.iloc[0:q]
 ```
 
 ```{=latex}
-We can see that with depth 3 the fitst bin's median is \XBB $20$ \XB.
+We can see that with depth 3 the first bin's median is \XBB $20$ \XB.
 
 \hrulefill
 ```

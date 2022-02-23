@@ -129,14 +129,15 @@ We can see that z-score normalization transforms the value 36 to \XBB $-0.679$ \
 # Create min max scaling function.
 def min_max_scaler(val):
     r = df1['nums'].max() - df1['nums'].min()
-    return (val - df1['nums'].min()) / r
+    base_scale = (val - df1['nums'].min()) / r
+    return (base_scale*9) + 1
 
-# Scale 36.
-min_max_scaler(36)
+# Scale 13.
+min_max_scaler(13)
 ```
 
 ```{=latex}
-We can see that min-max normalization transforms the value 36 to \XBB $0.1959$ \XB.
+We can see that min-max normalization transforms the value 36 to \XBB $1.4939$ \XB.
 
 \hrulefill
 ```
@@ -152,28 +153,25 @@ l = df1.size
 l
 ```
 
-```{python}
-# cut idx.
-q = int(l/3)
-q
+```{=latex}
+\newpage
 ```
 
 ```{python}
 # binning & averaging.
 df1['3bin_median'] = 0
-df1['3bin_median'].iloc[0:q] = df1['nums'].iloc[0:q].median()
-df1['3bin_median'].iloc[q:2*q] = df1['nums'].iloc[q:2*q].median()
-df1['3bin_median'].iloc[2*q:l] = df1['nums'].iloc[2*q:l].median()
+for i in range(0, l, 3):
+  df1['3bin_median'].iloc[i:i+3] = df1['nums'].iloc[i:i+3].median()
 
 df1
 ```
 
 ```{python}
-df1.iloc[0:q]
+df1.iloc[0:3]
 ```
 
 ```{=latex}
-We can see that with depth 3 the first bin's median is \XBB $20$ \XB.
+We can see that with depth 3 the first bin's median is \XBB $13$ \XB.
 
 \hrulefill
 ```

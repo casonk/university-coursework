@@ -76,24 +76,17 @@ l
 ```
 
 ```{python}
-# cut idx.
-q = int(l/3)
-q
-```
-
-```{python}
 # binning & averaging.
 df1['3bin_mean'] = 0
-df1['3bin_mean'].iloc[0:q] = df1['nums'].iloc[0:q].mean()
-df1['3bin_mean'].iloc[q:2*q] = df1['nums'].iloc[q:2*q].mean()
-df1['3bin_mean'].iloc[2*q:l] = df1['nums'].iloc[2*q:l].mean()
+for i in range(0, l, 3):
+    df1['3bin_mean'].iloc[i:i+3] = df1['nums'].iloc[i:i+3].mean()
 
 df1
 ```
 
 
 ```{=latex}
-This technique \XBB generalizes \XB our data into 3 groups, increasing our previous minimum and decreasing our previous maximum.
+This technique \XBB generalizes \XB our data into groups of 3, increasing our previous minimum and decreasing our previous maximum.
 
 \hrulefill
 ```

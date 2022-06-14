@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Question}
+
+\renewcommand{\proofname}{Answer}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+Comments Related to Exercise~3.5.2 \vspace{\baselineskip}
+
+\begin{ex}
+  Suppose we wanted to find the tangent line to the curve
+  \[
+    x^3-y^3=a^3-b^3
+  \]
+  at the point $(a,b)$ without using calculus. What might we do?
+\end{ex}
+
+\begin{proof}
+  We will proceed in four steps:
+  \begin{enumerate}
+    \item[\textbf{Step~1}] Translate the point $(a,b)$ to the origin with the substitution $x=w+a,y=z+b$ to make the rest of the calculation simpler.
+    \begin{align*}
+      (w+a)^3-(z+b)^3                                   &= a^3-b^3 \\
+      w^3+3aw^2+3a^2w+a^3-(z^3+3bz^2+3b^2z+b^3)-a^3+b^3 &= 0 \\
+      w^3+3aw^2+3a^2w-z^3-3bz^2-3b^2z                   &= 0
+    \end{align*}
+    \item[\textbf{Step~2}] Make the substitution $z=mw$ to represent intersecting the translated curve with the line through the origin $z=mw$.
+    \begin{align*}
+      w^3+3aw^2+3a^2w-(mw)^3-3b(mw)^2-3b^2mw  &= 0 \\
+      w^3+3aw^2+3a^2w-m^3w^3-3bm^2w^2-3b^2mw  &= 0
+    \end{align*}
+    \item[\textbf{Step~3}] Choose the slope $m$ so that the intersection multiplicity (at the origin) of the line with the curve is at least two. That is, choose $m$ so that the polynomial
+    \[
+      w^3+3aw^2+3a^2w-m^3w^3-3bm^2w^2-3b^2mw
+    \]
+    is divisible by $w^2$. In other words, set the coefficient on $w$ to zero.
+    \begin{align*}
+      3a^2-3b^2m  &= 0 \\
+      m           &= \frac{a^2}{b^2}
+    \end{align*}
+    \item[\textbf{Step~4}] Use point-slope form.
+    \[
+      y=\frac{a^2}{b^2}(x-a)+b
+    \]
+  \end{enumerate}
+\end{proof}
+
+\begin{ex}
+  Suppose we also want to know if and where this curve intersects the tangebt line away from $(a,b)$. What might we do?
+\end{ex}
+
+\begin{proof}
+  We can divide $w^3+3aw^2-\left(\frac{a^2}{b^2}\right)^3w^3-3b\left(\frac{a^2}{b^2}\right)^2w^2$ by $w^2$ and look at the other factor.
+  \begin{align*}
+    w+3a-\left(\frac{a^2}{b^2}\right)^3w-3b\left(\frac{a^2}{b^2}\right)^2 &= 0 \\
+    \left(\frac{b^6-a^6}{b^6}\right)w+3a\left(\frac{b^3-a^3}{b^3}\right)  &= 0 \\
+    w &= -3a\left(\frac{b^3-a^3}{b^3}\right)\left(\frac{b^6}{b^6-a^6}\right) \\
+      &= -3a\left(\frac{b^3}{a^3+b^3}\right)
+  \end{align*}
+  The $x$-coordinate of the other intersection point is
+  \[
+    a-3a\left(\frac{b^3}{a^3+b^3}\right)=a\frac{a^3+b^3-3b^3}{a^3+b^3}=a\frac{a^3-2b^3}{a^3+b^3}.
+  \]
+  Now, we find the $y$-coordinate by reflecting across the line $x=y$, switching the roles of $x$ and $y$ as well as switching the roles of $a$ and $b$. The $y$-coordinate of the other intersection point is $b\frac{b^3-2a^3}{a^3+b^3}$.
+\end{proof}
+
+\end{document}
+

@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Answer}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+Comments Related to Binomial Coefficients, Differences, and Integer-Valued Polynomials \vspace{\baselineskip}
+
+The question addressed by these comments is: Given a sequence of real numbers
+\[
+  (a_n)_{n=0}^\infty=(a_0,a_1,a_2,\ldots)
+\]
+can we find a polynomial $f(x)$ such that $a_n=f(n)$ for all $n$?
+
+[We will use a technique inspired by the study of integer-valued polynomials. So, taking $(a_n)_{n=0}^\infty$ to be integers is fine.]
+
+\begin{ex}
+  Let $f(x)=2x^2-3x+5$. Find the first five terms of the sequence $(f(n))_{n=0}^\infty$.
+\end{ex}
+
+Let $f(x)$ be a polynomial. Define a new polynomial $\Delta f(x)$ by 
+\[
+  \Delta f(x)=f(x+1)-f(x).
+\]
+
+We write $\Delta^2f(x)=\Delta(\Delta f(x))$, $\Delta^3f(x)=\Delta(\Delta^2f(x))$, and so on.
+
+\begin{ex}
+  Find $\Delta(2x^2-3x+5)$ and $\Delta^2(2x^2-3x+5)$.
+\end{ex}
+
+\begin{ex}
+  Check that if $f(x)$ is a polynomial of positive degree $d$, $\Delta f(x)$ is a polynomial of degree $d-1$.
+\end{ex}
+
+\begin{ex}
+  Check that if $f(x)$ is a polynomial of degree $d$, $\Delta^{d+1}f(x)=0$.
+\end{ex}
+
+\begin{ex}
+  Check that if $f(x)$ and $g(x)$ are polynomials and $c$ is a real number, then
+  \begin{enumerate}[1.]
+    \item $\Delta(f(x)+g(x))=\Delta f(x)+\Delta g(x)$;
+    \item $\Delta cf(x)=c\Delta f(x)$.
+  \end{enumerate}
+\end{ex}
+
+Define the polynomials $p_k(x)$, for $k=0,1,2,\ldots$ by $p_0(x)=1$ and
+\[
+  p_k(x)=\binom{x}{k}=\frac{x(x-1)(x-2)\cdots(x-k+1)}{k!}
+\]
+for $k>1$. Notice that if $n$ is a nonnegative integer then
+\[
+  p_k(n)=
+  \begin{cases}
+    0,            & \text{for } 0\leq n\leq k-1 \\
+    \binom{n}{k}, & \text{for } n\geq k
+  \end{cases}.
+\]
+People sometimes write $p_k(x)=\binom{x}{k}$.
+
+\begin{ex}
+  Check that if $\Delta p_k(x)$ is $p_{k-1}(x)$.
+\end{ex}
+
+Given a sequence $(a_n)_{n=0}^\infty$, define a new sequence $(b_n)_{n=0}^\infty=\Delta(a_n)_{n=0}^\infty$ by
+\[
+  b_n=a_{n+1}-a_n
+\]
+
+We write $\Delta^2(a_n)_{n=0}^\infty=\Delta(\Delta(a_n)_{n=0}^\infty)$, $\Delta^3(a_n)_{n=0}^\infty=\Delta(\Delta^2(a_n)_{n=0}^\infty)$, and so on.
+
+\begin{ex}
+  Check that $\Delta(f(n))_{n=0}^\infty=(\Delta f(n))_{n=0}^\infty$. That is the difference of a sequence given by a polynomial is given by the difference of the polynomial.
+\end{ex}
+
+\begin{ex}
+  Compute
+  \begin{enumerate}[(a)]
+    \item the first five terms of the sequence $\Delta(0,1,4,10,20,35,\ldots)$;
+    \item the first four terms of the sequence $\Delta^2(0,1,4,10,20,35,\ldots)$;
+    \item the first three terms of the sequence $\Delta^3(0,1,4,10,20,35,\ldots)$;
+    \item the first two terms of the sequence $\Delta^4(0,1,4,10,20,35,\ldots)$.
+  \end{enumerate}
+\end{ex}
+
+Assume $(0,1,4,10,20,35,\ldots)$ is given by a polynomial $f(x)$, then the degree $f(x)$ is at least $3$.
+
+\begin{ex}
+  Assume $(0,1,4,10,20,35,\ldots)$ is given by a polynomial $f(x)$. What is the minimum possible degree of $f(x)$?
+\end{ex}
+
+Assume $f(x)$ has that minimum degree.
+
+\begin{ex}
+  Check the following.
+  \begin{enumerate}[(a)]
+    \item $\Delta^3f(x)=p_0(x)$
+    \item $\Delta^2f(x)=p_1(x)+2p_0(x)$
+    \item $\Delta f(x)=p_2(x)+2p_1(x)+p_0(x)$
+    \item $f(x)=p_3(x)+2p_2(x)+p_1(x)+0p_0(x)$
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}
+  How are the coefficients on the $p_k(x)$ in the previous exercise determined?
+\end{ex}
+
+Notice that, given a sequence $(a_n)_{n=0}^\infty$ and a positive integer $d$, this procedure gives a way of finding a polynomial $f(x)$ of degree at most $d$ such that $a_n=f(n)$ when such a polynomial exists. Furthermore, $f(x)$ is a linear combination of the $p_k(x)$ when the sequence consists of integers.
+
+\end{document}
+

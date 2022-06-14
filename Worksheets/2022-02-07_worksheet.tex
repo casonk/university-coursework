@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+MTH 385 \qquad 2022-02-07 Worksheet
+
+\begin{center}
+  \begin{tikzpicture}%[scale=7.5]
+    \draw [->] (-7,0) -- (7,0);
+    \node [right] at (7,0) {$X$};
+    \draw [->] (0,-7) -- (0,7);
+    \node [above] at (0,7) {$Y$};
+    \draw (0,0) circle [radius=5];
+    \node [above left] at (0,0) {$O$};
+    \draw [-] (-3,-4) -- (-3,4);
+    \node [above left] at (-3,0) {$-x$};
+    \draw [-] (3,-4) -- (3,4);
+    \node [above right] at (3,0) {$x$};
+    \draw [-] (-3,-4) -- (5,0);
+    \node [above right] at (5,0) {$R$};
+    \draw [fill] (3,-1) circle [radius=0.05];
+    \node [below right] at (3,-1) {$P$};
+    \draw [red, thick, domain=0:5] plot (\x, {-sqrt(pow(5-\x,3)/(5+\x))});
+  \end{tikzpicture}
+
+  Figure~2.8: Construction of the cissoid
+\end{center}
+
+\begin{ex}
+  I don't think the author of our textbook gives an adequate description of the cissoid. I think part of the description is only implied. How exactly are the points on this curve determined?
+\end{ex}
+
+\begin{ex} [2.5.1]
+  Using $X$ and $Y$ for the horizontal and vertical coordinates, show that the straight line $RP$ in Figure~2.8 has equation
+  \[
+    Y=\frac{\sqrt{1-x^2}}{1+x}(X-1).
+  \]
+\end{ex}
+
+\begin{ex} [2.5.2]
+  Deduce the equation of the cissoid from Exercise~2.5.1.
+\end{ex}
+
+\end{document}
+

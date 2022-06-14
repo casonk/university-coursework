@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+MTH 385 \qquad Homework due 2022-03-21 Solutions
+
+\begin{ex} [5.5.2]
+  Use Cardano's formula to solve $y^3=2$. Do you get the obvious solution?
+\end{ex}
+
+\begin{proof}
+  Evidently, $p=0$ and $q=2$, so
+  \begin{align*}
+    y &= \sqrt[3]{\frac{2}{2}+\sqrt{\left(\frac{2}{2}\right)^2-\left(\frac{0}{3}\right)^3}}+\sqrt[3]{\frac{2}{2}-\sqrt{\left(\frac{2}{2}\right)^2-\left(\frac{0}{3}\right)^3}} \\
+      &= \sqrt[3]{2}.
+  \end{align*}
+  I suspect this is the so called obvious solution.
+\end{proof}
+
+\begin{ex} [5.5.3]
+  Use Cardano's formula to solve $y^3=6y+6$, and check your answer by substitution.
+\end{ex}
+
+\begin{proof}
+  Evidently, $p=0$ and $q=2$.
+  \begin{align*}
+    y &= \sqrt[3]{\frac{6}{2}+\sqrt{\left(\frac{6}{2}\right)^2-\left(\frac{6}{3}\right)^3}}+\sqrt[3]{\frac{6}{2}-\sqrt{\left(\frac{6}{2}\right)^2-\left(\frac{6}{3}\right)^3}} \\
+      &= \sqrt[3]{4}+\sqrt[3]{2} \\
+  \\
+    (\sqrt[3]{4}+\sqrt[3]{2})^3 &= (\sqrt[3]{4})^3+3(\sqrt[3]{4})^2(\sqrt[3]{2})+3(\sqrt[3]{4})(\sqrt[3]{2})^2+(\sqrt[3]{2})^3 \\
+                                &= 4+3\sqrt[3]{32}+3\sqrt[3]{16}+2 \\
+                                &= 3(2\sqrt[3]{4})+3(2\sqrt[3]{2})+6 \\
+                                &= 6\sqrt[3]{4}+6\sqrt[3]{2}+6 \\
+                                &= 6(\sqrt[3]{4}+\sqrt[3]{2})+6
+  \end{align*}
+\end{proof}
+
+\begin{ex} [5.6.2]
+  Use (3) and $\sin\alpha=\cos(\pi/2-\alpha)$, $\cos\alpha=\sin(\pi/2-\alpha)$ to show that
+  \[
+    (\sin\theta+i\cos\theta)^n=\left\{\begin{array}{rl}
+       \sin n\theta+i\cos n\theta & \mbox{when $n=4m+1$} \\
+      -\sin n\theta-i\cos n\theta & \mbox{when $n=4m+3$.}
+    \end{array} \right.
+  \]
+\end{ex}
+
+\begin{proof}
+  \begin{align*}
+    (\sin\theta+i\cos\theta)^n  &= \left[\cos\left(\frac{\pi}{2}-\theta\right)+i\sin\left(\frac{\pi}{2}-\theta\right)\right]^n \\
+                                &= \cos n\left(\frac{\pi}{2}-\theta\right)+i\sin n\left(\frac{\pi}{2}-\theta\right) \\
+                                &= \cos\left(\frac{n\pi}{2}-n\theta\right)+i\sin\left(\frac{n\pi}{2}-n\theta\right) \\
+                                &= \left(\cos\frac{n\pi}{2}\cos n\theta+\sin\frac{n\pi}{2}\sin n\theta\right)+i\left(\sin\frac{n\pi}{2}\cos n\theta-\cos\frac{n\pi}{2}\sin n\theta\right) \\
+    \intertext{When $n$ is odd, $\cos\frac{n\pi}{2}=0$.}
+                                &= \sin\frac{n\pi}{2}\sin n\theta+i\sin\frac{n\pi}{2}\cos n\theta
+  \end{align*}
+  Finally, when $n=4m+1$, $\sin\frac{n\pi}{2}=1$. And, when $n=4m+3$, $\sin\frac{n\pi}{2}=-1$.
+\end{proof}
+
+\textbf{For the rest of the solution set, we will pretend $\sin\theta+i\cos\theta$ is the principal $n$th root of $\sin\theta+i\cos\theta)^n$. That is, we choose $\sqrt[n]{(\sin\theta+i\cos\theta)^n}=\sin\theta+i\cos\theta$ rather than some other $n$th root. We will also follow the textbook's assumption that $\sqrt{\sin^2\theta-1}=\cos\theta$ and $\sqrt{\cos^2\theta-1}=\sin\theta$, freely using the reduction from (1) to (2).}
+
+\begin{ex} [5.6.3]
+  Deduce from Exercise~5.6.2 that (2) is correct for $n=4m+1$ and false for $n=4m+3$, and hence that (1) is a correct relation between $y=\sin n\theta$ and $x=\sin\theta$ only when $n=4m+1$.
+\end{ex}
+
+\begin{proof}
+  When $n=4m+1$,
+  \[
+    \sqrt[n]{\sin n\theta+i\cos n\theta}=\sqrt[n]{(\sin\theta+i\cos\theta)^n}=\sin\theta+i\cos\theta.
+  \]
+  Since $n$ is odd, $\sin n\pi=\sin\pi=0$ and
+  \begin{align*}
+    \frac{1}{2}\sqrt[n]{\sin n\theta+i\cos n\theta}+\frac{1}{2}\sqrt[n]{\sin n\theta-i\cos n\theta} &= \frac{1}{2}\sqrt[n]{\sin n\theta+i\cos n\theta}+\frac{1}{2}\sqrt[n]{\sin n(\pi-\theta)+i\cos n(\pi-\theta)} \\
+      &= \frac{1}{2}(\sin\theta+i\cos\theta)+\frac{1}{2}(\sin(\pi-\theta)+i\cos(\pi-\theta)) \\
+      &= \frac{1}{2}(\sin\theta+i\cos\theta)+\frac{1}{2}(\sin\theta-i\cos\theta) \\
+      &= \sin\theta.
+  \end{align*}
+  When $n=4m+3$, (since $n$ is odd, $\sqrt[n]{-1}=-1$)
+  \[
+    \sqrt[n]{\sin n\theta+i\cos n\theta}=\sqrt[n]{-(\sin\theta+i\cos\theta)^n}=-(\sin\theta+i\cos\theta).
+  \]
+  Thus,
+  \[
+    \frac{1}{2}\sqrt[n]{\sin n\theta+i\cos n\theta}+\frac{1}{2}\sqrt[n]{\sin n\theta-i\cos n\theta}=-\sin\theta
+  \]
+  when $n=4m+3$. Hence, (1) is off by a factor of $-1$ when $n=4m+3$.
+\end{proof}
+
+\begin{ex} [5.6.4]
+  Show that (1) is a correct relation between $y=\cos n\theta$ and $x=\cos\theta$ for all $n$ (de~Moivre (1730)).
+\end{ex}
+
+\begin{proof}
+  Evidently, this reduces to
+  \[
+    \cos\theta=\frac{1}{2}\sqrt[n]{\cos n\theta+i\sin n\theta}+\frac{1}{2}\sqrt[n]{\cos n\theta-i\sin n\theta}
+  \]
+  Apply de~Moivre's formula.
+  \[
+    \sqrt[n]{\cos n\theta+i\sin n\theta}=\sqrt[n]{(\cos\theta+i\sin\theta)^n}=\cos\theta+i\sin\theta
+  \]
+  And,
+  \begin{align*}
+    \frac{1}{2}\sqrt[n]{\cos n\theta+i\sin n\theta}+\frac{1}{2}\sqrt[n]{\cos n\theta-i\sin n\theta} &= \frac{1}{2}\sqrt[n]{\cos n\theta+i\sin n\theta}+\frac{1}{2}\sqrt[n]{\cos n(-\theta)+i\sin n(-\theta)} \\
+      &= \frac{1}{2}(\cos\theta+i\sin\theta)+\frac{1}{2}(\cos(-\theta)+i\sin(-\theta)) \\
+      &= \frac{1}{2}(\cos\theta+i\sin\theta)+\frac{1}{2}(\cos\theta-i\sin\theta) \\
+      &= \cos\theta.
+  \end{align*}
+\end{proof}
+
+\end{document}
+

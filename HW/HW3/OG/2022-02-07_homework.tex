@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+MTH 385 \qquad Homework due 2022-02-07
+
+\begin{ex} [2.3.3]
+  By finding some parallels and similar triangles in Figure~2.5, show that the diagonal $x$ of the regular pentagon of side $1$ satisfies $x/1=1/(x-1)$.
+\end{ex}
+
+\begin{center}
+  \begin{tikzpicture}[scale=7.5]
+    \draw [-] (-0.5,-0.951) -- (-0.809,0) -- (0,0.588) -- (0.809,0) -- (0.5,-0.951) -- (-0.5,-0.951) -- (-0.809,0) -- (0,0.588) -- (0.809,0) -- (0.5,-0.951) -- (-0.5,-0.951) -- (0.809,0) -- (-0.809,0) -- (0.5,-0.951);
+    \node [above left] at (-0.405,0.294) {$1$};
+    \node [above] at (0,0) {$x$};
+  \end{tikzpicture}
+
+  Figure~2.5: The regular pentagon
+\end{center}
+
+\begin{ex} [2.3.4]
+  Deduce from Exercise~2.3.3 that the diagonal of the pentagon is $(1+\sqrt{5})/2$ and hence that the regular pentagon is constructible.
+\end{ex}
+
+\begin{ex} [2.4.2]
+  By introducing suitable coordinate axes, show that a curve with the above ``constant sum'' property indeed has an equation of the form
+  \[
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}=1.
+  \]
+  (It is a good idea to start with the two square root terms, representing the distances $F_1P$ and $F_2P$, on opposite sides of the equation.) Show also that any equation of this form is obtainable by suitable choice of $F_1$, $F_2$, and $F_1P+F_2P$.
+\end{ex}
+
+Another interesting property of the lines from the foci to a point $P$ on the ellipse is that they make equal angles with the tangent at $P$. It follows that a light ray from $F_1$ to $P$ is reflected through $F_2$. A simple proof of this can be based on the shortest-path property of reflection, shown in Figure~2.7 and discovered by the Greek scientist Heron around 100 \textsc{ce}.
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw [-] (-6,0) -- (6,0);
+    \node [above] at (-5,0) {$L$};
+    \node [below left] at (-4,-2) {$F_1$};
+    \node [below right] at (4,-4) {$F_2$};
+    \draw [fill] (4,4) circle [radius=0.05];
+    \node [above right] at (4,4) {$\overline{F_2}$};
+    \draw [-] (-4,-2) -- (-1.333,0) -- (4,-4);
+    \draw [-,dotted] (-1.333,0) -- (4,4);
+    \node [above] at (-1.333,0) {$P$};
+    \draw [-] (-4,-2) -- (1,0) -- (4,-4);
+    \node [above] at (1,0) {$P'$};
+  \end{tikzpicture}
+
+  Figure~2.7: The shortest-path property
+\end{center}
+
+\textbf{Shortest-path property.} The path $F_1PF_2$ of reflection in the line $L$ from $F_1$ to $F_2$ is shorter than any other path $F_1P'F_2$ from $F_1$ to $L$ to $F_2$.
+
+\begin{ex} [2.4.3]
+  Prove the shortest-path property, by considering the two paths $F_1PF_2$ and $F_1P'F_2$, where $\overline{F_2}$ is the reflection of the point $F_2$ in the line $L$.
+\end{ex}
+
+Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangent, it is enough to show that $F_1PF_2$ is shorter than $F_1P'F_2$ for any other point $P'$ on the tangent at $P$.
+
+\begin{ex} [2.4.4]
+  Prove this, using the fact that $F_1PF_2$ has the same length for all points $P$ on the ellipse.
+\end{ex}
+
+\end{document}
+

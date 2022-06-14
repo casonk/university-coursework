@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[margin=1in]{geometry}
+
+%\usepackage{mathtools}
+%\usepackage{multicol}
+\usepackage{tikz}
+
+\pagestyle{empty} 
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+
+\begin{document}
+
+MTH 385 \qquad Homework due 2022-04-04 Solutions
+
+Like the binomial theorem, the multinomial theorem can be proved combinatorially by considering the number of ways a term $a_1^{q_1}a_2^{q_2}\cdots a_n^{q_n}$ can arise from the factors of $(a_1+a_2+\cdots+a_n)^p$.
+
+\begin{ex} [5.9.4 rewritten]
+  Prove the formula for the multinomial coefficient
+  \[
+    \binom{p}{q_1,q_2,\ldots,q_n}=\frac{p!}{q_1!q_2!\cdots q_n!}
+  \]
+  by observing that the coefficient equals the number of ways of writing a $p$-element set as a disjoint union of subsets of sizes $q_1,q_2,\ldots,q_n$.
+\end{ex}
+
+\begin{proof}
+  Here are two approaches:
+  \begin{enumerate}[1.]
+    \item We can choose the $q_1$ elements of the first subset, then choose the $q_2$ elements of the second subset from the $p-q_1$ remaining elements, and so on. This yields the following calculation.
+    \begin{align*}
+      \binom{p}{q_1,q_2,\ldots,q_n} &= \binom{p}{q_1}\binom{p-q_1}{q_2}\cdots\binom{q_{n-1}+q_n}{q_{n-1}} \\
+        &= \frac{p!}{q_1!(p-q_1)!}\cdot\frac{(p-q_1)!}{q_2!(p-q_1-q_2)!}\cdots\frac{(q_{n-1}+q_n)!}{q_{n-1}!(q_n)!} \\
+        &= \frac{p!}{q_1!q_2!\cdots q_n!}
+    \end{align*}
+    \item We can determine such a disjoint union from an irredundant list of the elements of the $p$-element set by taking the first $q_1$ elements for the first subset, the next $q_2$ for the second, and so on. Notice that any particular disjoint union is represented by $q_1!q_2!\cdots q_n!$ lists since we may freely rearrange the first $q_1$ entries, the next $q_2$ entries, and so on. Thus, counting the lists gives a $q_1!q_2!\cdots q_n!$-fold over-count. The desired formula is an immediate consequence of this analysis.
+  \end{enumerate}
+\end{proof}
+
+As we now know, all conic sections may be given by the following standard form equations (from Section~2.4):
+\[
+  \frac{x^2}{a^2}+\frac{y^2}{b^2}=1\text{ (ellipse)},\qquad y=ax^2\text{ (parabola)},\qquad  \frac{x^2}{a^2}-\frac{y^2}{b^2}=1\text{ (hyperbola)}.
+\]
+The reduction of an arbitrary quadratic equation in $x$ and $y$ to one of these forms depends on suitable choice of origin and axes, as Fermat and Descartes discovered. The main steps are outlined in the following exercises.
+
+\begin{ex} [6.2.1]
+  Show that a \emph{quadratic form} $ax^2+bxy+cy^2$ may be converted to a form $a'x'^2+b'y'^2$ by suitable choice of $\theta$ in the substitution
+  \begin{align*}
+    x &= x'\cos\theta-y'\sin\theta, \\
+    y &= x'\sin\theta+y'\cos\theta,
+  \end{align*}
+  by checking that the coefficient of $x'y'$ is $(c-a)\sin2\theta+b\cos2\theta$.
+\end{ex}
+
+\begin{proof}
+  \begin{align*}
+    ax^2 &+ bxy+cy^2 \\
+      &= a(x'\cos\theta-y'\sin\theta)^2+b(x'\cos\theta-y'\sin\theta)(x'\sin\theta+y'\cos\theta)+c(x'\sin\theta+y'\cos\theta)^2 \\
+      &= (a\cos^2\theta+b\cos\theta\sin\theta+c\sin^2\theta)x'^2 \\
+      & \qquad + (2(c-a)\cos\theta\sin\theta+b(\cos^2\theta-\sin^2\theta))x'y' \\
+      & \qquad\qquad + (a\sin^2\theta-b\sin\theta\cos\theta+c\cos^2\theta)y'^2 \\
+      &= (a\cos^2\theta+b\cos\theta\sin\theta+c\sin^2\theta)x'^2 \\
+      & \qquad + ((c-a)\sin2\theta+b\cos2\theta)x'y' \\
+      & \qquad\qquad + (a\sin^2\theta-b\sin\theta\cos\theta+c\cos^2\theta)y'^2
+    \end{align*}
+  To convert to the form $a'x'^2+b'y'^2$, we solve $(c-a)\sin2\theta+b\cos2\theta=0$.
+  \begin{align*}
+    (c-a)\sin2\theta+b\cos2\theta &= 0 \\
+    (c-a)\sin2\theta &= -b\cos2\theta \\
+    \tan2\theta &= \frac{b}{a-c} \\
+    \theta &= \frac{1}{2}\arctan\left(\frac{b}{a-c}\right)
+  \end{align*}
+\end{proof}
+
+\begin{ex} [6.2.2]
+  Deduce from Exercise~6.2.1 that, by suitable rotation of axes, any quadratic curve may be expressed in the form $a'x'^2+by'^2+c'x'+d'y'+e'$.
+\end{ex}
+
+\begin{proof}
+  It suffices to notice that the substitution
+  \begin{align*}
+    x &= x'\cos\left(\frac{1}{2}\arctan\left(\frac{b}{a-c}\right)\right)-y'\sin\left(\frac{1}{2}\arctan\left(\frac{b}{a-c}\right)\right), \\
+    y &= x'\sin\left(\frac{1}{2}\arctan\left(\frac{b}{a-c}\right)\right)+y'\cos\left(\frac{1}{2}\arctan\left(\frac{b}{a-c}\right)\right),
+  \end{align*}
+  is linear. So, it converts $ax^2+bxy+cy^2$ to $a'x'^2+b'y'^2$ while leaving the degrees of the rest below two.
+
+  [The effect of this rotation of the coordinate axes is to align them with the axes of symmetry of the curve when the curve has at most two such axes. That is, the alignment takes place when the curve is not a circle or pair of perpendicular lines.]
+\end{proof}
+
+\begin{ex} [6.2.3]
+  If $b'=0$, but $a'\neq0$, show that the substitution $x'=x''+f$ gives either standard-form parabola, or the ``double line'' $x''^2=0$. \\
+  (Why is this called a ``double line,'' and is it a section of a cone?)
+\end{ex}
+
+\begin{proof}
+  We will show that there is a choice of translations that give either standard-form parabola, or the ``double line'' when the curve us a conic section.
+
+  Assume $d'\neq0$. And, complete the square.
+  \[
+    a'x'^2+c'x'+d'y'+e'= a'\left(x'+\frac{c'}{2a'}\right)^2+e'-\frac{c'^2}{4a'}+d'y'
+  \]
+  Choose $x'=x''-\frac{c'}{2a'}$ and $y'=y''+\frac{1}{d'}\left(\frac{c'^2}{4a'}-e'\right)$ to convert to the form $a''x''^2=y''$. So, the curve is a standard parabola after this change if coordinates.
+
+  If $d'=0$, we can still complete the square. But, when $e'-\frac{c'^2}{4a'}\neq0$ the curve is a pair of distinct parallel lines. Such lines do not form a conic section.
+
+  When $d'=0=e'-\frac{c'^2}{4a'}$, completing the square produces the double line. These double lines are intersections of a cone and a plane tangent to the cone.
+
+  [The effect of this translation of the coordinate axes is to place the vertex of a parabola at the origin or make the double line the doubled $y$-axis.]
+\end{proof}
+
+\begin{ex} [6.2.4]
+  If both $a'$ and $b'$ are nonzero, show that a shift of origin gives the standard form for either an ellipse or a hyperbola, or else a pair of lines.
+\end{ex}
+
+\begin{proof}
+  In this case, we can complete the square in each variable.
+  \[
+    a'x'^2+by'^2+c'x'+d'y'+e'=a'\left(x'+\frac{c'}{2a'}\right)^2+b'\left(x'+\frac{d'}{2b'}\right)^2+e'-\frac{c'^2}{4a'}-\frac{d'^2}{4b'}
+  \]
+  Let $x'=x''-\frac{c'}{2a'}$ and $y'=y''-\frac{d'}{2b'}$. Then, divide by 
+
+  If $e'-\frac{c'^2}{4a'}-\frac{d'^2}{4b'}\neq0$, divide by $e'-\frac{c'^2}{4a'}-\frac{d'^2}{4b'}$ to get the standard form of an ellipse, the standard form of a hyperbola, or an equation of the form $-\frac{x^2}{a^2}-\frac{y^2}{b^2}=1$ which does not correspond to a conic section.
+
+  If $e'-\frac{c'^2}{4a'}-\frac{d'^2}{4b'}=0$ we get the equation of a curve consisting of two distinct intersecting lines or one of the form $\frac{x^2}{a^2}+\frac{y^2}{b^2}=0$. In this last case, we get the intersection of a cone with a plane that meets that curve only at the vertex of the cone.
+
+  [The effect of this translation of the coordinate axes is to place the origin at the center.]
+\end{proof}
+
+\end{document}
+

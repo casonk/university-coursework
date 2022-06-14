@@ -1,0 +1,104 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Rectangular Map.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Rectangular Map.png}
+      Illustrated here is a function $ f $, mapping a point $ z \in \C $ to $ w \in \C $ where $ f(z) = z -1 +i $.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Polar Coordinates.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Polar Coordinates.png}
+      Illustrated here are points $ z, \bar{z} \in \C $, with $ \vartheta $, $ -\vartheta $  representing the argument, and $ |z| $, $ |\bar{z}| $ representing the norm of $ z, \bar{z} $ respectively.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Regions.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Regions.png}
+      Illustrated here are closed regions where a point $ z $ may lie on the parametric curve $ \gamma $,
+      and open regions where $ z $ can always be surronded by an open disc, as it cannot lie on $ \gamma $.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Parameterization.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Parameterization.png}
+      Illustrated here are simple loops  $ \gamma_{1}(t),\gamma_{2}(t) $ which are shown mapped by $ f $ to $ \Gamma_{1}(t),\Gamma_{2}(t) $. Below is a curve $ \Gamma(t) $,
+looping around the point $ w $ three times, with a winding number of $ k = 3 $.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=.72\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/CRG.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/CRG.png}
+      Illustrated here is first a point $ z $, which when input into the $ f $ machine will output $ w $.
+      Second, a point $ \zeta $ replaces $ z $ and is input into the $ f' $ machine, with output $ \omega $.
+      At this point it is necessacray to consider $ \zeta $ in the $ u,iv $ plane.
+      $ \vartriangle z_{1} = \vartriangle x $ and $ \vartriangle z_{2} = \vartriangle y $.
+      These are the changes in the real and imaginary input respective point $ z_{1} $ and $ z_{2} $ are chosen to specifcally move along these axis.
+      Notice $ u(x,y) + iv(x,y) = \mu + \nu $, $ \vartriangle u_{1,2} $ will move along the real axis, while $ \vartriangle v_{1,2} $ will move along the imaginary axis.
+      First taking ratios of $ \frac{\vartriangle u,v_{1}}{\vartriangle x} $ and $ \frac{\vartriangle u,v_{2}}{\vartriangle y} $ then taking the limit we arrive at the $ (C.R) $ equations.
+      Do notice that $ \vartriangle u_{2} $ travels along the negative real axis, hence the attributed sign.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Mobius.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Mobius.png}
+      Illustrated here is the geometric movement involved in a $ m\ddot{o}bius $ transformation,
+      seen as the composition of an inversion, translation, and dialation, we visually see that there exists an inverse function.
+      While this is only for one point $ z $, we can perform the same operation on a curve $ \gamma $.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Reimann.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Reimann.png}
+      Illustrated here is a visual interpretation of the $ m\ddot{o}bius $ transformation
+      as a function that maps the surface of the Reimann spehere to the surface of the Reimann sphere.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Angles.png}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Angles.png}
+      Illustrated here are two curves $ \gamma_{1,2} $ that map to $ \Gamma_{1,2} $ in a specific way,
+      such that the angles between the intersecting curves are preserved at the points $ z_0 $ and $ w_0 $.}
+
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+      \centering
+      \includegraphics[width=1\textwidth]{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Escher.jpg}
+      \caption{\label{C:/Users/cason/OneDrive - Umich/Math/CV/Project (Geometry & Mapping w C)/Escher.jpg}
+      M. C. Escher: "Prentententoonstelling" (1956); Copyright 2003 Cordon Art B.V.-Baarn-Holland. All rights reserved}
+
+\end{figure*}

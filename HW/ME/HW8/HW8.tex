@@ -1,0 +1,319 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#8}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: Bayesian credible intervals, hypothesis testing, size = level of significance,
+    power curve, likelihood ratio, Neyman-Pearson most powerful test.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ \ds X_{1}, \dots X_{50} $ be a sample of $ iid \sim Poisson(\theta) $ random variables,
+where $ \theta $ has the prior distribution 
+
+$ \pi(\theta) \sim Exponential(5) $. 
+Determine a $ 98\% $ Bayesian credible interval for $ \theta $ when $ \ds \sum_{i=1}^{n=50} X_{i} = 170 $. \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Recall the posterior for $ n $ $ iid $ samples from $ f(x | \theta) \sim Poisson(\theta) $, $ \pi(\theta) \sim Exponential(\lambda) $ is \dots \\ 
+
+$ \ds f(\theta | \overrightarrow{X}) \sim Gamma( \Sigma_{X} + 1, \frac{\lambda}{n\lambda + 1} ) $. \\
+
+\noindent
+For our question \dots
+
+\begin{itemize}
+    \item $ \ds f(\theta | \overrightarrow{X}) \sim Gamma( 170 + 1, \frac{5}{50 \cdot 5 + 1} ) \sim Gamma( 171, \frac{5}{251} ) $.
+    \item $ \ds {\XBB \texttt{qgamma(p = c(0.01, 0.99), shape = 171, scale = (5/251))}} = (2.830, 4.041) = (L(\overrightarrow{X}),U(\overrightarrow{X})) $.
+\end{itemize}
+
+\noindent
+Our $ 98\% $ Bayesian credible interval for $ \theta $ when $ \ds \sum_{i=1}^{n=50} X_{i} = 170 $ is $ (2.830, 4.041) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ \ds X_{1}, \dots X_{25} $ be a sample of $ iid \sim Bernoulli(p) $ random variables,
+where $ p $ has the prior distribution 
+
+$ \pi(p) \sim Uniform[0,1] $. 
+Determine a $ 96\% $ Bayesian credible interval for $ p $ when $ \ds \sum_{i=1}^{n=25} X_{i} = 10 $. \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Recall the posterior for $ n $ $ iid $ samples from $ f(x | \theta) \sim Bernoulli(p) $, $ \pi(\theta) \sim Uniform[0,1] $ is \dots \\ 
+
+$ \ds f(\theta | \overrightarrow{X}) \sim Beta( \Sigma_{X} + 1, n - \Sigma_{X} + 1 ) $. \\
+
+\noindent
+For our question \dots
+
+\begin{itemize}
+    \item $ \ds f(\theta | \overrightarrow{X}) \sim Beta( 10 + 1, 25 - 10 + 1 ) \sim Beta( 11, 16 ) $.
+    \item $ \ds {\XBB \texttt{qbeta(p = c(0.02, 0.98), shape1 = 11, shape2 = 16)}} = (0.226, 0.603) = (L(\overrightarrow{X}),U(\overrightarrow{X})) $.
+\end{itemize}
+
+\noindent
+Our $ 96\% $ Bayesian credible interval for $ p $ when $ \ds \sum_{i=1}^{n=25} X_{i} = 10 $ is $ (0.226, 0.603) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ \ds X_{1}, \dots X_{25} $ be a sample of $ iid \sim Bernoulli(p) $ random variables, \\
+
+\[
+    \text{Suppose we test the hypotheses:}
+    \left\{ 
+        \begin{array}{rl}
+            H_{0} : p = 0.6 \\
+            H_{A} : p > 0.6
+        \end{array}.
+    \right.
+\]
+
+Using the test, ``Reject $ H_{0} $ if $ \ds \sum_{i=1}^{n=25} X_{i} \ge 20 $,'' Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The level of significance, $ \alpha $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+$ H_{0} $ is true if $ p = 0.6 $. \\
+
+\begin{itemize}
+    \item $ \ds {\XBB \texttt{1 - pbinom(q = 20, size = 25, prob = 0.6)}} = 0.0095 = \alpha $.
+\end{itemize}
+
+\noindent
+The level of significance of this test is $ 0.0095 $ . \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The power of this test for $ p = 0.7, 0.8, 0.9, 1.0 $.  \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds {\XBB \texttt{1 - pbinom(q = 20, size = 25, prob = c(0.7,0.8,0.9,1.0))}} \\ = (0.090, 0.421, 0.902, 1.000) = Power(p = 0.7, 0.8, 0.9, 1.0) $.
+\end{itemize}
+
+\noindent
+We can see that our power is low when $ p $ is close to the null hypothesis. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ \ds X_{1}, \dots X_{10} $ be a sample of $ iid \sim Exponential(\theta) $ random variables, \\
+
+\[
+    \text{Suppose we test the hypotheses:}
+    \left\{ 
+        \begin{array}{rl}
+            H_{0} : \theta = 5 \\
+            H_{A} : \theta = 8
+        \end{array}.
+    \right.
+\]
+
+Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The form of the Neyman-Pearson most powerful test. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds f(x | \theta) = \frac{1}{\theta}e^{-x / \theta} , \ x > 0 $.
+    \item $ \ds L(\theta) = \frac{e^{-\Sigma_{X} / \theta}}{\theta^{n}} $.
+    \item $ \ds \frac{L(5)}{L(8)} = \frac{8^{n} \cdot e^{-\Sigma_{X} / 5}}{5^{n} \cdot e^{-\Sigma_{X} / 8}} = 1.6^{n} e^{(\Sigma_{X} / 8) - (\Sigma_{X} / 5)} = 1.6^{n} e^{-3\Sigma_{X} / 40} $.
+    \item $ \ds 1.6^{n} e^{-3\Sigma_{X} / 40} < k \Rightarrow n \cdot \ln(1.6) -3\Sigma_{X} / 40 < k $.
+    \item $ \ds -3\Sigma_{X} / 40 < k - n \cdot \ln(1.6) \Rightarrow \Sigma_{X} > (-40/3)(k - n \cdot \ln(1.6)) \Rightarrow \Sigma_{X} > k_{\alpha} $.
+\end{itemize}
+
+\noindent
+Our form is ``Reject $ H_{0} $ if $ \Sigma_{X} > k_{\alpha} $.''
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) The actual test at level $ \alpha = 0.05$ . \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\begin{itemize}
+    \item $ \ds \Sigma_{X} \sim Gamma(10, 5) $.
+    \item $ \ds Power(H_{0} : \theta = 5) = P \Bigl(\Sigma_{X} > k_{0.05} \ | \ \theta = 5 \Bigr) = 0.05 \Rightarrow P \Bigl(\Sigma_{X} < k_{0.05} \ | \ \theta = 5 \Bigr) = 1 - 0.05 $
+    \item $ \ds {\XBB \texttt{qgamma(shape = 10, scale = 5, p = (1 - 0.05))}} = 78.53 = k_{0.05} $.
+\end{itemize}
+
+\noindent
+Our test is thus ``Reject $ H_{0} $ if $ \Sigma_{X} > 78.53 $.'' \\
+
+\vspace{2.5mm}
+
+\newpage
+
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(c) The power of this test. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\begin{itemize}
+    \item $ \ds Power(H_{A} : \theta = 8) = P \Bigl(\Sigma_{X} > 78.53 \ | \ \theta = 8 \Bigr) = 1 - P \Bigl(\Sigma_{X} < 78.53 \ | \ \theta = 8 \Bigr) = \beta_{0.05} $
+    \item $ \ds {\XBB \texttt{1 - pgamma(shape = 10, scale = 8, q = 78.53)}} = 0.481 = \beta_{0.05} $.
+\end{itemize}
+
+\noindent
+Our power is thus $ \beta_{0.05} = 0.481 $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+5. Let $ \ds X_{1}, \dots X_{15} $ be a sample of $ iid \sim Normal(\mu = 10, \sigma^{2} = \theta) $ random variables, \\
+
+\[
+    \text{Suppose we test the hypotheses:}
+    \left\{ 
+        \begin{array}{rl}
+            H_{0} : \theta = 6 \\
+            H_{A} : \theta = 2
+        \end{array}.
+    \right.
+\]
+
+Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     5a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The form of the Neyman-Pearson most powerful test at significance level $ \alpha $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize} 
+    \item $ \ds f(x | \theta) = \frac{1}{\ds \sqrt{2\pi\theta}}e^{\ds -(x-10)^{2}/2\theta} $.
+    \item $ \ds L(\theta) = \frac{1}{\ds (2\pi\theta)^{15/2}}e^{\ds -\frac{1}{2\theta} \sum_{i=1}^{15} (x_{i}-10)^{2}} $.
+    \item $ \ds \frac{L(6)}{L(2)} = \frac{ \ds \frac{ e^{\ds -\frac{1}{12} \sum_{i=1}^{15} (x_{i}-10)^{2}} }{\ds (12\pi)^{15/2}}}{ \ds \frac{e^{\ds -\frac{1}{4} \sum_{i=1}^{15} (x_{i}-10)^{2}}}{\ds (4\pi)^{15/2}} } = \frac{ e^{\ds \Bigl( \frac{3}{12} - \frac{1}{12} \Bigr) \sum_{i=1}^{15} (x_{i}-10)^{2}} }{\ds (3)^{15/2}} = \frac{ e^{\ds \frac{1}{6} \sum_{i=1}^{15} (x_{i}-10)^{2}} }{\ds (3)^{15/2}} $.
+    \item $ \ds \frac{ e^{\ds \frac{1}{6} \sum_{i=1}^{15} (x_{i}-10)^{2}} }{\ds (3)^{15/2}} < k \Rightarrow e^{\ds \frac{1}{6} \sum_{i=1}^{15} (x_{i}-10)^{2}} < (3)^{15/2} \cdot k $.
+    \item $ \ds \frac{1}{6} \sum_{i=1}^{15} (x_{i}-10)^{2} < \ln \bigl( (3)^{15/2} \cdot k \bigr) \Rightarrow \sum_{i=1}^{15} (x_{i}-10)^{2} < 6 \cdot \ln \bigl( (3)^{15/2} \cdot k \bigr) $.
+\end{itemize}
+
+\noindent
+Our form is ``Reject $ H_{0} $ if $ \ds \sum_{i=1}^{15} (x_{i}-10)^{2} < k_{\alpha} $.''
+
+\vspace{2.5mm}
+
+\newpage
+
+%%%%%%%%%     5b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) The actual test at level $ \alpha = 0.05$ . (Your answer will be ``Reject $ H_{0} $ if ...'') \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\begin{itemize}
+    \item $ \ds \frac{1}{\sigma^{2}} \sum_{i=1}^{n} (x_{i}-10)^{2} \sim \chi_{n}^{2} $.
+    \item $ \ds \sum_{i=1}^{15} (x_{i}-10)^{2} \sim \theta \cdot \chi_{15}^{2} $.
+    \item $ \ds Power(H_{0} : \theta = 6) = P \Bigl(\sum_{i=1}^{15} (x_{i}-10)^{2} < k_{0.05} \ | \ \theta = 6 \Bigr) = 0.05 $
+    \item $ \ds {\XBB \texttt{6 * qchisq(df = 15, p = 0.05)}} = 43.566 = k_{0.05} $.
+\end{itemize}
+
+\noindent
+Our test is thus ``Reject $ H_{0} $ if $ \ds \sum_{i=1}^{15} (x_{i}-10)^{2} < 43.566 $.'' \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     5c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(c) The power of this test. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\begin{itemize}
+    \item $ \ds Power(H_{A} : \theta = 2) = P \Bigl(\sum_{i=1}^{15} (x_{i}-10)^{2} < 43.566 \ | \ \theta = 2 \Bigr) = \beta_{0.05} $
+    \item $ \ds {\XBB \texttt{pchisq(df = 15, q = (43.566 / 2))}} = 0.886 = \beta_{0.05} $.
+\end{itemize}
+
+\noindent
+Our power is thus $ \beta_{0.05} = 0.886 $. \\
+
+\vspace{2.5mm}
+
+\end{document}

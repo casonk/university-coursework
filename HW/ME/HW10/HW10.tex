@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{tikz}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#10}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: $ \chi^{2} $ test for goodness of fit, linear models, estimators of 
+    $ \beta, \sigma^{2} $ and their distributions.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. A six-sided die is rolled 100 times. The numbers that come up are \dots \\ 
+
+\begin{center}
+    \begin{tabular}{ c||c|c|c|c|c|c } 
+     number    & 1  & 2  & 3  & 4  & 5  & 6  \\ 
+     \hline
+     frequency & 20 & 15 & 17 & 11 & 18 & 19 \\ 
+    \end{tabular}
+\end{center}
+
+We want to use the $ \chi^{2} $ test to decide whether there is suffcient evidence at level of significance $ \alpha = 0.05 $ 
+to conclude that the die is unfair, i.e., that some numbers are more likely than others. \\
+
+State $ H_{0} $ and $ H_{A} $ in statistical language, describe the test you will use, carry out the test,
+and state the conclusion. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We want to test for a (un)fair die, and thus that all sides have equal probablility, are hypotheses are thus \dots \\
+
+\begin{center}
+    $ H_{0} : p_{1} = p_{2} = p_{3} = p_{4} = p_{5} = p_{6} = 1/6 $ vs. $ H_{A} : \lnot H_{0} $. \\
+\end{center} 
+
+\noindent
+Our test is know as a $ \chi^{2} $ test for categorical data, 
+as we have 6 categories we test on a $ \chi^{2} $ statistic with 5 degrees of freedom. \\
+
+\noindent
+Now to carry out the test in \textbf{R} \dots \\
+
+\begin{itemize}
+    \item $ \ds {\XBB \texttt{ c(20, 15, 17, 11, 18, 19) -> Oi }} $.
+    \item $ \ds {\XBB \texttt{ c(100, 100, 100, 100, 100, 100) / 6 -> Ei }} $.
+    \item $ \ds {\XBB \texttt{ sum( (Oi - Ei)} \verb|^| \texttt{2 / Ei ) -> T }} $.
+    \item $ \ds {\XBB \texttt{ qchisq(p = (1 - 0.05), df = 5) -> t }} $. \\
+\end{itemize}
+
+\noindent
+Our test is of the form ``Reject $ H_{0} $ if $ T > t $''. \\
+
+Our results are $ T = 3.2 $ and $ t = 11.0705 $
+
+As $ 3.2 < 11.0705 $ we fail to reject $ H_{0} $ with a $ 95\% $ confidence. 
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Use the $ \chi^{2} $ test to decide, at level of significance $ \alpha = 0.05 $, whether the data supports
+or refutes the claim that the 60 data points below came from an exponentially distributed population.  \\
+
+\begin{center}
+    0.105, 0.183, 0.219, 0.313, 0.326, 0.345, 0.454, 0.461, 0.467, 0.551, \\
+    0.603, 0.757, 0.802, 0.824, 0.826, 0.844, 0.987, 1.087, 1.159, 1.180, \\
+    1.249, 1.252, 1.317, 1.326, 1.390, 1.398, 1.580, 1.618, 1.653, 1.660, \\
+    1.759, 1.850, 1.875, 2.638, 2.691, 2.811, 2.823, 2.828, 2.924, 3.108, \\
+    3.323, 3.671, 3.792, 3.797, 4.574, 4.855, 4.924, 5.098, 5.287, 5.346, \\
+    6.000, 6.335, 6.491, 6.625, 7.125, 7.586, 8.028, 9.071, 10.783, 11.034 
+\end{center}
+
+The data was put in order from least to greatest and sorted into 6 groups of 10
+only to make it easier to read. The sum of these numbers is 176.0. \\
+
+Divide the positive real numbers into 5 intervals in such a way that the probability of
+landing in a given interval is 0.2, and use those intervals to perform the test. \\
+
+Since you will be estimating a parameter, you will substract one additional degree to
+freedom when performing the $ \chi^{2} $ test. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We first need the $ MLE $ for a random variable distibuted on $ Exponential(\lambda) $. \\
+
+This is $ \hat{\lambda}_{MLE} = \overline{X} = \Sigma_{X} / n = 176 / 60 $. \\
+
+\noindent
+We thus are testing the following hypotheses \dots \\
+
+\begin{center}
+    $ H_{0} : X_{i} \sim Exponential(\lambda = 176 / 60) $ vs. $ H_{A} : \lnot H_{0} $. \\
+\end{center} 
+
+\noindent
+Our test is know as a $ \chi^{2} $ test for categorical data, 
+as we have 5 categories we test on a $ \chi^{2} $ statistic with 4 degrees of freedom. \\
+
+We can now use \textbf{R} to compute our data categories of equal probability interval 0.2, 
+and then carry out the test, leveraging the expected outcomes from our interval assumption \dots \\
+
+\begin{itemize}
+    \item $ \ds {\XBB \texttt{ pexp(q = c(0.2, 0.4, 0.6, 0.8, 1.0), rate = 60 / 176) * 60 -> cuts }} $.
+\end{itemize}
+
+We find the following cuts, $ (0, 3.955), (3.955, 7.648), (7.648, 11.099), (11.099, 14.322), (14.322,17.333) $, 
+from which we can then count our observations for each category. \\
+
+\begin{itemize}
+    \item $ \ds {\XBB \texttt{ c(44, 12, 4, 0, 0) -> Oi }} $.
+    \item $ \ds {\XBB \texttt{ c(60, 60, 60, 60, 60) / 5 -> Ei}} $.
+    \item $ \ds {\XBB \texttt{ sum( (Oi - Ei)} \verb|^| \texttt{2 / Ei ) -> T }} $.
+    \item $ \ds {\XBB \texttt{ qchisq(p = (1 - 0.05), df = 4) -> t }} $. \\
+\end{itemize}
+
+\noindent
+Our test is of the form ``Reject $ H_{0} $ if $ T > t $''. \\
+
+Our results are $ T = 114.6667 $ and $ t = 9.487729 $
+
+As $ 114.666 > 9.487729 $ we reject $ H_{0} $ with a $ 95\% $ confidence. 
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Find the equation of the line that best fits the points \dots \\
+
+\begin{center}
+    \{(-4, 5), (-4, 4), (-3, 2), (-2, 3), (-2, 1), (0, 1), (0, 2), (1, 3), (1, 0), (2, 0), (2, -1), (3, 1)\}
+\end{center}
+
+(in the sense of least squares). Sketch a graph containing these points and your line. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+We can use \textbf{R} to compute our regression. 
+
+\begin{itemize}
+    \item $ \ds {\XBB \texttt{ c(-4, -4, -3, -2, -2, 0, 0, 1, 1, 2, 2, 3) -> X }} $.
+    \item $ \ds {\XBB \texttt{ c(5, 4, 2, 3, 1, 1, 2, 3, 0, 0, -1, 1) -> Y }} $.
+    \item $ \ds {\XBB \texttt{ lm(Y} \verb|~| \texttt{X) -> reg }} $.
+    \item $ \ds {\XBB \texttt{ plot(reg) }} $.
+\end{itemize}
+
+\noindent
+\textbf{R} outputs our coefficients $ \hat{\beta}_{0} = 1.4769 $ and $ \hat{\beta}_{1} = -0.5462 $, thus our equation is $ \hat{Y} = 1.4769 - 0.5462X $. \\
+
+\noindent
+Sketching the situation \dots \\
+
+\begin{center}
+    \begin{tikzpicture}[domain=-5:4]
+
+        \draw[<->] (-5,0) -- (4,0) node[right] {$ X $};
+        \draw[<->] (0,-2) -- (0,5) node[above] {$ Y $};
+
+        \foreach \Point in {
+            (-4, 5), (-4, 4), (-3, 2), (-2, 3), (-2, 1), (0, 1), (0, 2), (1, 3), (1, 0), (2, 0), (2, -1), (3, 1)
+            }
+            {
+            \node[color=violet] at \Point {\textbullet};
+        }
+
+        \draw[color=blue, <->] plot (\x, {1.4769 - 0.5462*\x}) node[right] {$ \hat{Y} = 1.4769 - 0.5462X $};
+    \end{tikzpicture}
+\end{center}
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Suppose the data in \#3 came from a population satisfying the model in which $ Y_{1}, \dots , Y_{12} $ are \\ independent, 
+$ \sim Normal(\mu_{k} = \beta_{0} + \beta_{1}x_{k}, \sigma^{2}) $. Test the hypotheses at level of significance $ \alpha = 0.01 $ \dots \\
+
+\begin{center}
+    $ H_{0} : \beta_{1} = 0 $ vs. $ H_{A} : \beta_{1} \ne 0 $. \\
+\end{center} 
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+From the previous problem we can conduct this test easily in \textbf{R} with the command {\XBB \texttt{ summary(reg) }}. \\
+
+\noindent
+From the command we can see that the p-value given when conducting a two tailed t-test against the null hypothesis is 0.00213. 
+Thus the hypothesis is rejected for $ \alpha > 0.00123 $, hence we reject the $ H_{0} $ at $ \alpha = 0.01 $.  
+
+\vspace{2.5mm}
+
+\end{document}

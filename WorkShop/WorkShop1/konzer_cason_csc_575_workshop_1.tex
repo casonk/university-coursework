@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Beamer Sildes  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% https://en.wikibooks.org/wiki/LaTeX/Presentations
+
+\documentclass{beamer}
+% \mode<presentation> {
+\mode<handout> {
+
+    %%%%%  Themes  %%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \usetheme{AnnArbor}
+    % \usetheme{Antibes}
+    % \usetheme{Bergen}
+    % \usetheme{Berkeley}
+    % \usetheme{Berlin}
+    % \usetheme{CambridgeUS}
+    % \usetheme{Copenhagen}
+    % \usetheme{Darmstadt}
+    % \usetheme{Dresden}
+    % \usetheme{Frankfurt}
+    % \usetheme{Goettingen}
+    % \usetheme{Hannover}
+    % \usetheme{Ilmenau}
+    % \usetheme{JuanLesPins}
+    % \usetheme{Luebeck}
+    % \usetheme{Madrid}
+    % \usetheme{Malmoe}
+    % \usetheme{Marburg}
+    % \usetheme{Montpellier}
+    % \usetheme{PaloAlto}
+    % \usetheme{Pittsburgh}
+    % \usetheme{Rochester}
+    % \usetheme{Singapore}
+    % \usetheme{Szeged}
+    % \usetheme{Warsaw}
+    % \usetheme{boxes}
+    \usetheme{default}
+
+    %%%%%  Color Themes  %%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \usecolortheme{default}
+    % \usecolortheme{albatross}
+    % \usecolortheme{beaver}
+    % \usecolortheme{beetle}
+    % \usecolortheme{crane}
+    % \usecolortheme{dolphin}
+    % \usecolortheme{dove}
+    % \usecolortheme{fly}
+    % \usecolortheme{lily}
+    % \usecolortheme{orchid}
+    % \usecolortheme{rose}
+    % \usecolortheme{seagull}
+    % \usecolortheme{seahorse}
+    % \usecolortheme{whale}
+    % \usecolortheme{wolverine}
+
+    %%%%%  Outer Themes  %%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \useoutertheme{infolines}
+    % \useoutertheme{miniframes}
+    % \useoutertheme{shadow}
+    % \useoutertheme{sidebar}
+    % \useoutertheme{smoothbars}
+    % \useoutertheme{smoothtree}
+    % \useoutertheme{split}
+    % \useoutertheme{tree}
+
+    %%%%%  Inner Themes  %%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \useinnertheme{rectangles}
+    % \useinnertheme{circles}
+    % \useinnertheme{inmargin}
+    % \useinnertheme{rounded}
+}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[fleqn]{mathtools}
+\usepackage{caption}
+\usepackage{wallpaper}
+\usepackage{xcolor}
+\definecolor{umblue}{HTML}{00274C}
+\definecolor{ummaize}{HTML}{FFCB05}
+\usepackage{colortbl}
+\usepackage{graphicx} 
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{url}			       
+\usepackage{hyperref}
+
+% \setbeamercolor{alerted text}{fg=orange}
+% \setbeamercolor{background canvas}{bg=white}
+% \setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+% \setbeamercolor{block body}{bg=normal text.bg!90!black}
+% \setbeamercolor{block body example}{bg=normal text.bg!90!black}
+% \setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+% \setbeamercolor{block title}{bg=blue}
+% \setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+% \setbeamercolor{fine separation line}{}
+\setbeamercolor{frametitle}{fg=umblue}
+\setbeamercolor{item projected}{fg=umblue}
+% \setbeamercolor{normal text}{bg=black,fg=yellow}
+% \setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+% \setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+% \setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+% \setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+% \setbeamercolor{section in sidebar}{fg=brown}
+% \setbeamercolor{section in sidebar shaded}{fg=grey}
+% \setbeamercolor{separation line}{}
+% \setbeamercolor{sidebar}{bg=red}
+% \setbeamercolor{sidebar}{parent=palette primary}
+% \setbeamercolor{structure}{bg=ummaize, fg=umblue}
+% \setbeamercolor{subsection in sidebar}{fg=brown}
+% \setbeamercolor{subsection in sidebar shaded}{fg=grey}
+\setbeamercolor{title}{fg=umblue}
+% \setbeamercolor{titlelike}{fg=umblue}
+
+% \setbeamertemplate{page number in foot}[appendixframenumber]
+\setbeamertemplate{footline}[frame number]
+% \setbeamertemplate{blocks}[rounded][shadow=true]
+% \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+% \setbeamertemplate{sidebar canvas left}[horizontal shading][left=white!40!black,right=black]
+\setbeamertemplate{itemize item}{\color{umblue}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{umblue}$\ast$}
+
+\setbeamerfont*{footline}{family=\sffamily, size=\large}
+% \setbeamerfont{title}{family=\rmfamily\addfontfeatures{Scale=1.18, Numbers={Lining, Proportional}}}
+\usefonttheme[onlymath]{serif}
+
+\beamertemplatenavigationsymbolsempty
+
+\hypersetup{pdfstartview={Fit}} % fits the presentation to the window when first displayed
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\XUMB}{\color{umblue}}
+\newcommand{\XUMM}{\color{ummaize}}
+
+\newcommand{\ds}{\displaystyle}
+
+% Use pause in math enviornments
+\makeatletter
+\renewrobustcmd{\beamer@@pause}[1][]{
+  \unless\ifmeasuring@
+  \ifblank{#1}
+    {\stepcounter{beamerpauses}}
+    {\setcounter{beamerpauses}{#1}}
+  \onslide<\value{beamerpauses}->\relax
+  \fi
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Title Page  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[Workshop 1]{CSC 575 Workshop 1 - Friendly Sort}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+\institute[UM FLINT]{\normalsize{\textit{\href{mailto:casonk@umich.edu}{casonk@umich.edu}}}}
+\titlegraphic{\includegraphics[scale = 0.5]{C:/Users/cason/OneDrive - Umich/TeMpLaTeX/University_of_Michigan_Flint.png}}
+\date[]{\today} 
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%  Begin Slides  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%  Introduction  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Materials}
+
+\begin{frame}
+
+    \frametitle{Materials}
+
+    The materials can be found at these locations 
+
+    \vspace{2.5mm}
+    \begin{itemize}
+        \item \XV\textit{\large{\href{https://youtube.com}{YouTube Video}}}\XB
+        \item \XV\textit{\large{\href{https://umich-my.sharepoint.com/:f:/g/personal/casonk_umich_edu/EtqLFGQpc6REmjXmrwATvgsBm2_5YP5BmIwHlNsdCIsSkw?e=wKOc47}{Shared Microsoft OneDrive}}}\XB
+        \item \XV\textit{\large{\href{https://drive.google.com/drive/folders/1jGFwkrPJtFuzBKKYkiXPAQZEeKZ2S8tR?usp=sharing}{Shared Google Drive}}}\XB
+    \end{itemize}
+
+\end{frame}
+
+\end{document} 
+

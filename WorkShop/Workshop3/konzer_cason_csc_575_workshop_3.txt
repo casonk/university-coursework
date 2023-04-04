@@ -1,0 +1,38 @@
+Youtube Link:
+https://youtu.be/GZLSmGtB7Gg
+
+Repository Links:
+https://umich-my.sharepoint.com/:f:/g/personal/casonk_umich_edu/EowkLIGd-RVGsobVXZtum0MBk25G4taRHPlRAHKnd5MKUQ?e=8J49hs
+https://drive.google.com/drive/folders/1DDmc5UmoVXOOu7jOyl1UgvuIHD99sH2t?usp=sharing
+https://github.com/casonk/CSC575-Algorithm_and_Complexity_Analysis/tree/main/WorkShop/WorkShop3
+
+Paper Citation:
+@article{Mehri,
+author = {Sanei-Mehri, Seyed-Vahid and Das, Apurba and Hashemi, Hooman and Tirthapura, Srikanta},
+title = {Mining Largest Maximal Quasi-Cliques},
+year = {2021},
+issue_date = {October 2021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {15},
+number = {5},
+issn = {1556-4681},
+url = {https://doi.org/10.1145/3446637},
+doi = {10.1145/3446637},
+abstract = {Quasi-cliques are dense incomplete subgraphs of a graph that generalize the notion of cliques. Enumerating quasi-cliques from a graph is a robust way to detect densely connected structures with applications in bioinformatics and social network analysis. However, enumerating quasi-cliques in a graph is a challenging problem, even harder than the problem of enumerating cliques. We consider the enumeration of top-k degree-based quasi-cliques and make the following contributions: (1)&nbsp;we show that even the problem of detecting whether a given quasi-clique is maximal (i.e., not contained within another quasi-clique) is NP-hard. (2)&nbsp;We present a novel heuristic algorithm KernelQC to enumerate the k largest quasi-cliques in a graph. Our method is based on identifying kernels of extremely dense subgraphs within a graph, followed by growing subgraphs around these kernels, to arrive at quasi-cliques with the required densities. (3)&nbsp;Experimental results show that our algorithm accurately enumerates quasi-cliques from a graph, is much faster than current state-of-the-art methods for quasi-clique enumeration (often more than three orders of magnitude faster), and can scale to larger graphs than current methods.},
+journal = {ACM Trans. Knowl. Discov. Data},
+month = {apr},
+articleno = {81},
+numpages = {21},
+keywords = {Quasi-Clique enumeration, Dense subgraph mining, Large-scale graphs, heuristic algorithms, In-complete subgraphs}
+}
+
+Paper Link:
+https://doi.org/10.1145/3446637
+
+Additional Resources:
+https://d1b10bmlvqabco.cloudfront.net/attach/hsoyaw6eh1215z/hcf60z2lm1mde/hy4775493rba/clique.pdf
+https://www.geeksforgeeks.org/proof-that-clique-decision-problem-is-np-complete/
+https://en.wikipedia.org/wiki/Clique_problem
+https://www.youtube.com/watch?v=5PJDPIjIpYA
+https://dl.acm.org/doi/10.1145/1081870.1081898

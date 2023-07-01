@@ -1,2 +1,4 @@
 # CSC565-Computer_System_Architecture
-Intro to Hardware Descriptive Languages, Study of Microprocessors, CPUs, GPUs 
+
+Techniques for high performance and cost measurement. Memory system design including cache and virtual memory. Pipelining. Characteristics of numerical applications and their
+effects on computer architecture. Vector computers. Multiprocessors and multiprocessor algorithms.

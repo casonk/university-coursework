@@ -1,0 +1,159 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\usetikzlibrary{automata,positioning}
+
+\linespread{1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass: \ \paprTitle}
+\rhead{\today}
+\lfoot{\hmwkTitle}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.25pt}
+\renewcommand\footrulewidth{0.25pt}
+
+\setlength\columnseprule{.25pt}
+\setlength{\columnsep}{2.5pc}
+\setcounter{secnumdepth}{0}
+
+
+\newcommand{\hmwkTitle}{Case Summary\ \#2}
+\newcommand{\paprTitle}{\\ Wipro and MBH Solutions}
+\newcommand{\hmwkDueDate}{June 9, 2023 @ 23:59, EST}
+\newcommand{\hmwkClass}{CIS 562 - Enterprise Architecture}
+\newcommand{\hmwkAuthorName}{\textbf{Cason Konzer}}
+
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\Large{\textit{\paprTitle}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+\newpage
+
+\section{Summary}
+In this case study we will be focusing on self-service HR (Human Resource) ERP (Enterprise Resource Planning) function implementations from Wipro and MBH (MBH Solutions) in the early 2000s. 
+
+\subsection{Compare and contrast the self-service implementation between Wipro and MBH.}
+Generally speaking the analysis of self-service implement between Wipro and MBH take drastically different angles, giving little basis for a sound comparison. 
+Granted, in this analysis we can see that (at least from the case study) Wipro drives their implementation from key (and strategic) objectives as well as success factors, while MHB is most concerned with limitations and their remedies through a well thought out integration strategy.
+
+In this light, I find MBH to take an implementation which is more grounded in reality, yet lacking clear measurable with respect to CSFs (Critical Success Factors).
+On the other hand, Wipro's solution is given a subtle obfuscation of their integration technique in terms of information flow, allowing them to give oversight to the finer details. 
+
+Clear from the study is that both implementations utilize a web-based self-service function.
+In the case of Wipro, their underlying architecture seems to be built upon a decentralized SOA (Service Oriented Architecture), while MBH takes a nested approach. 
+Building here, Wipro decouples the self-service and back-office components form the service, allowing either to interact independently with the HR ERP function. 
+MBH, in an opposite manner, keeps the back-office component coupled, either with the self-service component or otherwise the HR ERP function.
+From this perspective I find Wipro's implementation to be superior, as they remove a horizontal layer in which MBH is dependant upon. 
+
+\subsection{Are the measures used by Wipro (i.e., costs, returns, and cycle time) appropriate for evaluating their self-service implementation?}
+To build upon the previous Q\&A, I will re-iterate that CSFs alone are not all encompassing to evaluate an ERP function's implementation.
+Even if Wipro was to excel on all measures, despite their relevance, without a clear evaluation of the CSF cause and effects, it will be unclear weather the improvement is driven by the functions integration or otherwise confounding variables. 
+
+With this said, it becomes evermore clear that while useful, the measures alone (most all of them!) are not independently appropriate for evaluating success of the implementations. 
+I will admit that some measure (i.e., collaboration among HR \& IT, increased information access, budgeting or funding, executive commitment, amy time/place access, and consistent look, feel, and interface) are implementation specific and can be decoupled from confounding variables. 
+Here, I find the measure appropriate, but for the others, without business and market context they are not useful alone. 
+
+\subsection{What would happen to the self-service implementation at MBH if the company decided to adapt the SOA model? Does self-service implementation make it easier or more difficult to implement SOA? Explain.}
+If MBH was to adapt a fully SOA rather than a nested SOA, they would then be in a situation where it is easier to implement their application. 
+To elaborate, in their current coupled model, they need manage 2 interfaces and optimize by decreasing the updates to the more complex interface. 
+
+On the topic of self-service implementation, I believe there is a general ease to implementation of SOAs. 
+What is crucial in this integration is minimal changes to the service queries, such as to minimize the parallel effort of adaptation requirements to the application clients. 
+In today's could architectures SOAs are commonly referred to as `Data Mesh' with a clear focus on self-service implementations \url{https://www.thoughtworks.com/en-us/what-we-do/data-and-ai/data-mesh}
+
+
+% Wipro's key objectives: 
+% Improve services to employees and managers
+% focus on becoming more strategic by expanding services
+% aligning HR activities with business strategies
+% attracting and retaining key talent to support business direction
+
+% MHB's key objectives: 
+% Implementation of self-service HR as a function
+
+
+% Wipro's Strategy:
+% specialization in patterns of information flow, pulling (infotainment) and pushing (intellectual)
+% Enablement of bonding through inward-outward and outward-inward strategies
+% Promote bonding atmosphere to encourage relationship building
+
+% MHB's Strategy:
+% HR self-service as a separate entity and layer of a larger ERP system
+
+
+% Wipro's Implementation:
+% self-service design
+% SOA through Web Based - HTML, JavaScript, JSPs, Oracle 8s, and Netscape Enterprise Serer 4.0/1
+% Gradual / Phased strategy
+
+% MHB's Implementation:
+% gradual step-by-step process
+% integration into existing architecture
+% Web-Based
+% decoupling of self-service from back-office
+
+% Wipro's self-service objectives:
+% increase information access
+% enable strategic HR
+% reduce administrative costs
+% eliminate process steps, approvals, forms
+% improve service to employees and managers
+
+% MHB's self-service objectives:
+% increase information flow
+% retain original back office capabilities
+
+
+% Wipro's Success Factors:
+% Collaboration Among HR and IT
+% Adequate Budgeting or Funding
+% CEO/Hih-Level Executive Commitment
+% Strategic Plan that Prioritizes Applications
+% Process Design or ReEngineering
+% Marketing-Employee Communications
+% Corporate Standards for Technology Solutions
+% Business Case
+% Any Time and Any Place Access
+% Metrics
+% Consistent Look and Feel
+% Consistent Interface Across Media
+% Costs
+% Returns
+% Cycle Time
+
+% MHB's Success Factors:
+% user satisfaction
+
+
+\end{document}

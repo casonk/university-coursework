@@ -1,0 +1,11 @@
+Vilde Christiansen, Moutaz Haddara, Marius Langseth,
+Factors Affecting Cloud ERP Adoption Decisions in Organizations,
+Procedia Computer Science,
+Volume 196,
+2022,
+Pages 255-262,
+ISSN 1877-0509,
+https://doi.org/10.1016/j.procs.2021.12.012.
+(https://www.sciencedirect.com/science/article/pii/S1877050921022353)
+Abstract: This paper summarizes research on the adoption of cloud enterprise resource planning (ERP) systems in small and medium-size organizations (SMEs) and large enterprises (LEs) that have employed the diffusion of innovation (DOI), and the theory and technology, organization, and environment (TOE) framework. Based on a systematic literature review, this paper concludes on 13 primary factors that are the most common influencers when adopting cloud ERP at the organizational level. These factors are categorized and discussed through the DOI, and the TOE framework. The perceived relative advantage, compatibility, complexity, trialability, and observability are identified as innovation characteristics influencing the decision to adopt cloud ERP. The technological factors are identified as system quality, security, vendor lock-in, and data accessibility, while the organizational factors are identified as a financial advantage and top management support. Finally, competitive and regulatory pressures and support are environmental factors affecting the adoption decisions. Out of the 13 factors identified, vendor lock-in, relative advantage, top management support, and competitive and regulatory environment were the most common factors affecting the decision to adopt cloud ERP. Finally, this review identifies a gap related to the lack of studies in the context of LEs, and a lack of differentiation between small and medium-size organizations, which may be fulfilled by future research.
+Keywords: ERP Systems; Cloud computing; Adoption; Implementation; SMEs; LEs

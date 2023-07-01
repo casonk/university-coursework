@@ -1,0 +1,88 @@
+Magic Quadrant for Cloud ERP for Product-Centric Enterprises
+
+https://www.infor.com/resources/gartner-names-cloudsuite-solutions-as-leader
+
+https://www.gartner.com/doc/reprints?id=1-2B8H178L&ct=220926&st=sb
+
+@Article{       magic_cloud_erp, 
+title           = {Magic Quadrant for Cloud ERP for Product-Centric Enterprises}, 
+journal         = {Gartner}, 
+publisher       = {Gartner, Inc}, 
+author          = {Leiter, Greg and John, Dixie and Anderson, Robert and Faith, Tim}, 
+year            = {2022}, 
+month           = {September},
+} 
+
+
+Magic Quadrant for Warehouse Management Systems
+
+https://www.gartner.com/doc/reprints?id=1-2A7DIFDN&ct=220602&st=sb
+
+@Article{       magic_wms, 
+title           = {Magic Quadrant for Warehouse Management Systems}, 
+journal         = {Gartner}, 
+publisher       = {Gartner, Inc}, 
+author          = {Tunstall, Simon and Klappich, Dwight and Narang, Rishabh}, 
+year            = {2022}, 
+month           = {June},
+} 
+
+
+Critical Capabilities for Cloud ERP for Product-Centric Enterprises
+
+https://www.infor.com/resources/gartner-evaluates-composable-cloud-erps
+
+https://www.gartner.com/doc/reprints?id=1-2B97W8H4&ct=220928&st=sb
+
+
+Constellation Research: Infor OS powers next-gen ERP with a rich platform
+
+https://www.infor.com/resources/constellation-research-infor-os-overview
+
+https://dam.infor.com/api/public/content/22e0a6c9c592478e8683237d3c17c481?v=717fa026&_ga=2.112474884.1071568788.1669644049-1660869730.1667406654
+
+@Article{       info_os_next_gen, 
+title           = {Critical Capabilities for Cloud ERP for Product-Centric Enterprises}, 
+url             = {https://www.infor.com/resources/constellation-research-infor-os-overview},
+journal         = {Constellation Research}, 
+publisher       = {Constellation Research}, 
+author          = {Mueller, Holger}, 
+year            = {2022}, 
+month           = {September},
+} 
+
+
+Enterprise artificial intelligence and machine learning with Infor OS
+
+https://www.infor.com/resources/enterprise-ai-and-ml-with-infor-os
+
+https://dam.infor.com/api/public/content/04cefa8ef7e3469a81548374e4c33905?v=7b85cf75
+
+@Misc{          infor_eai_ml_os, 
+title           = {Enterprise artificial intelligence and machine learning with Infor OS}, 
+url             = {https://www.infor.com/resources/enterprise-ai-and-ml-with-infor-os},
+journal         = {Infor}, 
+publisher       = {Infor}, 
+year            = {2023}, 
+} 
+
+
+Enterprise Resource Planning (ERP)
+
+https://www.infor.com/solutions/erp
+
+
+
+Infor Wiki
+
+https://en.wikipedia.org/wiki/Infor
+
+@Misc{          wikipedia_infor,
+title           = {Infor}, 
+url             = {https://en.wikipedia.org/wiki/Infor}, 
+journal         = {Wikipedia}, 
+publisher       = {Wikimedia Foundation, Inc}, 
+author          = {Wikipedia},
+year            = {2023}, 
+month           = {April},
+} 

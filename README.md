@@ -1,2 +1,2 @@
-# CSC535_Advanced_Computer_Networking
-CSC535_Advanced_Computer_Networking
+# CSC535-Advanced_Computer_Networking
+CSC535-Advanced_Computer_Networking

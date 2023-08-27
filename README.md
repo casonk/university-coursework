@@ -1,0 +1,2 @@
+# CSC582_Advanced_Database_Concepts_and_Applications
+CSC582_Advanced_Database_Concepts_and_Applications

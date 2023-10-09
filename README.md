@@ -1,2 +1,2 @@
 # CSC582-Advanced_Database_Concepts_and_Applications
-CSC582-Advanced_Database_Concepts_and_Applications
+Active database concepts, triggers, design and implementation issues; temporal database time representation and dimension; multimedia databases; deductive databases' interpretation of rules and use of relational operations; distributed databases' parallel and distributed technology; data management techniques; XML and Internet databases; object oriented databases.

@@ -1,2 +1,2 @@
 # CSC535-Advanced_Computer_Networking
-CSC535-Advanced_Computer_Networking
+Advanced topics in computer networking. May include layered network architecture, transmission techniques on wired and wireless mediums, transmission impairments, bandwidth limitations, signaling techniques, error correction and detection, transmission protocols, contention-based medium access protocols, queuing theory, routing algorithms, internetworking, connection management, performance issues, application-level protocol standards, communication of multimedia over computer networks.

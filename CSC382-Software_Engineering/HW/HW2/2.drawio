@@ -399,10 +399,10 @@
                 <mxCell id="ylemCj7u5r1lWfcAkgnr-174" value="&lt;span&gt;Pays With CreditCard&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="340" y="510" width="170" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="ylemCj7u5r1lWfcAkgnr-175" value="&lt;span&gt;Selcets Paper Recipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="ylemCj7u5r1lWfcAkgnr-175" value="&lt;span&gt;Selects Paper Recipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="340" y="580" width="170" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="ylemCj7u5r1lWfcAkgnr-176" value="&lt;span&gt;Selcets Digital Recipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="ylemCj7u5r1lWfcAkgnr-176" value="&lt;span&gt;Selects Digital Recipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="340" y="640" width="170" height="55" as="geometry"/>
                 </mxCell>
                 <mxCell id="ylemCj7u5r1lWfcAkgnr-177" value="&lt;span&gt;System Auto Timed Exit&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">

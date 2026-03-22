@@ -280,7 +280,7 @@ Create Table SUGGESTION (
 		FOREIGN KEY(HID) REFERENCES HISTORY(HID) ON DELETE CASCADE,
 		PRIMARY KEY(HID, SRank)
 );
--- (Create The Sugguestion Table: What Did The Engine Sugguest A User View, Given Their Search History)
+-- (Create The Suggestion Table: What Did The Engine Suggest A User View, Given Their Search History)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
 Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('991138807671032','Banks','Blue Dream',4);Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('98728455064807','n/a','Gorilla Glue',6);
 Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('979294893573094','Other Consumer Services','Mary Jane',8);Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('97728915020775','Major Banks','Blue Dream',1);
@@ -307,7 +307,7 @@ Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('564583164598874','
 Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('549467479661982','n/a','Gorilla Glue',7);Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('54541646083227','Major Pharmaceuticals','Gorilla Glue',6);
 Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('531922464080786','Oil And Gas Production','Cannabis Indica',2);Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('531625517530764','Construction/Ag Equipment/Trucks','Gorilla Glue',5);
 Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('507858255173890','Business Services','Blue Dream',8);Insert into SUGGESTION (HID,RETURNEDKEY,TITLE,SRANK) values ('473550132583975','n/a','Gorilla Glue',7);
--- (Populate The Sugguestion Table)
+-- (Populate The Suggestion Table)
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 Create Table COMPANY (
@@ -678,7 +678,7 @@ ORDER BY AMOUNT)
 SELECT NAME, AMOUNT
 FROM ADVERTISERS
 WHERE AMOUNT >= ALL (SELECT AMOUNT FROM ADVERTISERS);
--- 1 Row (The Company wity the most Advertisments)
+-- 1 Row (The Company wity the most Advertisements)
 ---------------------------------------------------------------------------------------------------------------------------------------------------- 
 -- Select ads that are made by a company AND paid for --
 SELECT *
@@ -689,14 +689,14 @@ WHERE PaidAd = 1;
 SELECT DISTINCT HID
 FROM RELATEDTO
 WHERE PaidAd = 1;
--- 20 Rows (All Historical Searches That Saw Advertisments)
+-- 20 Rows (All Historical Searches That Saw Advertisements)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
 SELECT HID, COUNT(HID) AS AMOUNT
 FROM RELATEDTO
 WHERE PaidAd = 1
 GROUP BY HID
 ORDER BY AMOUNT;
--- 20 Rows (All Historical Searches That Saw Advertisments, With The Amount Of Ads)
+-- 20 Rows (All Historical Searches That Saw Advertisements, With The Amount Of Ads)
 ---------------------------------------------------------------------------------------------------------------------------------------------------- 
 -- Select all targets of company --
 SELECT *
@@ -849,8 +849,8 @@ WHERE NAME = '&biz';
 rollback;
 -- (DELETES ALL INSTANCES OF GIVEN COMPANY FROM THE TARGETS LIST)
 ----------------------------------------------------------------------------------------------------------------------------------------------------
--- Use PL/SQL to itterate through the searches users are likely to make... --
--- compile each time a search is likely to be made, reguardless of user, and count the amount of times it appears --
+-- Use PL/SQL to iterate through the searches users are likely to make... --
+-- compile each time a search is likely to be made, regardless of user, and count the amount of times it appears --
 DECLARE
   CURSOR c IS (SELECT SEARCHID, COUNT(*) AS amount FROM LIKELYTO GROUP BY SEARCHID);
   x c%ROWTYPE;

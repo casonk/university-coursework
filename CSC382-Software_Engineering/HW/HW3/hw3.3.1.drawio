@@ -37,7 +37,7 @@
                 <mxCell id="11" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
                     <mxGeometry y="156" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="- View Advertisment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
+                <mxCell id="12" value="- View Advertisement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
                     <mxGeometry y="182" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="13" value="- Select Event    " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
@@ -49,7 +49,7 @@
                 <mxCell id="15" value="- Purchase Event Ticket (Credit / Cash)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
                     <mxGeometry y="260" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="- Acquire Event Ticket / Reciept (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
+                <mxCell id="16" value="- Acquire Event Ticket / Receipt (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="6">
                     <mxGeometry y="286" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="Collaborators" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" vertex="1" parent="1">
@@ -79,7 +79,7 @@
                 <mxCell id="25" value="- Bluetooth Module" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="17">
                     <mxGeometry y="208" width="260" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="- Advertisment DataBase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="17">
+                <mxCell id="26" value="- Advertisement DataBase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="17">
                     <mxGeometry y="234" width="260" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="17">

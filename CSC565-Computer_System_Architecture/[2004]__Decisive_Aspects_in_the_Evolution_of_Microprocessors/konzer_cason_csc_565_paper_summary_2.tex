@@ -143,7 +143,7 @@ For a more detailed view on caches we defer the reader to \cite[Section~6.3]{Bry
 What is mentioned by \cite{Sima} is that processor performance has been growing faster than that of memory performance, and thus advancements in memory performance is an area of research requiring continued attention. 
 In summary, the first bottleneck encountered outside of the processor is the memory. 
 
-Within the processor there are additional bottlenecks form serving useable instructions. 
+Within the processor there are additional bottlenecks form serving usable instructions. 
 The processor bottleneck is that of CTIs, which must be handled intelligently in order to minimize the number of flushed, or otherwise irrelevant, instructions served. 
 CTIs come in two general flavors: unconditional and conditional branches. 
 In both cases, a branch indicates a transition to new instructions within the program, specified by the BTA. 
@@ -166,7 +166,7 @@ If though the condition is true, the processor need additionally calculate the B
 In a similar manner, using \emph{adding dedicated hardware}, one can conceive implementations in which the BTA can be calculated, and the condition can be checked, during the decode stage.
 But, in order to check a condition, the condition itself must be known. 
 As it may be the case the condition is not known until completion of the decode stage, attempts at \emph{redesigning the processor} have been made in order to make the condition known earlier. 
-When \emph{redesigning the processor}, engineers have implemented a half cycle decode stage to make the condition known, and utilized the first half of the execute stage to preform condition checking. 
+When \emph{redesigning the processor}, engineers have implemented a half cycle decode stage to make the condition known, and utilized the first half of the execute stage to perform condition checking. 
 A downside to this implementation is that now the condition need be evaluated in only half of the execution cycle, making the implementation infeasible in highly clocked processors \cite{Sima}.
 In any case, \emph{delayed branching} can be still used to fill these bubbles, or delay slots, with useful instructions. 
 
@@ -187,7 +187,7 @@ Upon study one realizes that this inequality is infeasible when $n_{ir} \le 1$, 
 These processors began production around the early 1990s, utilizing the issue of multiple instructions per clock cycle \cite{Sima}. 
 
 \subsection{\textbf{V.B}: \emph{Introduction and Evolution of Issue Parallelism : Overall Implications of Introducing Superscalar Issue}}
-Once we begin to exploit \emph{issue parallelism}, our pervious exploitations of \emph{temporal parallelism} become increasingly important. 
+Once we begin to exploit \emph{issue parallelism}, our previous exploitations of \emph{temporal parallelism} become increasingly important. 
 Bottlenecks imposed by the memory subsystem, and processing of CTIs, become stressed, or \emph{aggregated}, and require continued attention. 
 Sima proposes some generalizations, assuming fixed $f_{c}$, which help to frame the aggravation of the microprocessor when comparing \emph{superscalars} with \emph{pipelined} counterparts:
 \begin{enumerate}

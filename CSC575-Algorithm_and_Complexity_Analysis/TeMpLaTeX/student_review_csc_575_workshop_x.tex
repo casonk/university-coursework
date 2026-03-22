@@ -1,0 +1,307 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{multicol}
+
+\usetikzlibrary{positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\ReviewAuthorName}
+\chead{\ReviewClass: \ \ReviewTitle}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.25pt}
+\renewcommand\footrulewidth{0.25pt}
+
+% \setlength\parindent{0pt}
+\setlength\columnseprule{.25pt}
+\setlength{\columnsep}{2.5pc}
+\setcounter{secnumdepth}{0}
+
+%
+% Review Details
+%   - Base Author
+%   - Title
+%   - Due date
+%   - Class
+%   - Review Author
+%
+
+\newcommand{\WorkShopAuthorName}{Student Name}
+\newcommand{\ReviewTitle}{\\ WorkShop\ \#X: Review for \WorkShopAuthorName}
+\newcommand{\ReviewDueDate}{Due Date}
+\newcommand{\ReviewClass}{CSC 575 - Algorithm \& Complexity Analysis}
+\newcommand{\ReviewAuthorName}{\textbf{Anonymous}}
+
+%
+% Various Helper Commands
+%
+
+% Display Style
+\newcommand{\ds}{\displaystyle}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\ReviewClass:\ \ReviewTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \ReviewDueDate}\\
+    % \vspace{0.1in}\large{\textit{\ReviewClassInstructor\ \ReviewClassTime}}
+    \vspace{3in}
+}
+
+\author{\ReviewAuthorName}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\pagebreak
+
+
+\rhead{Novelty}
+\textbf{\large Criteria 1: Novelty} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Work is duplicated partially or entirely from another source without citation, or duplicates the work of another student or alumni. (Results in a 0 on the entire assignment). \\
+    \hline
+    1      & Work is duplicated entirely from another source, but this source is cited and is not another student or alumni’s work (50\% penalty on all other categories). \\
+    \hline
+    2      & Work builds upon one or more outside sources, but these sources are cited and the student’s work extends upon them in some valuable way. \\
+    \hline
+    3      & Work is mostly or entirely original work, and well-cited for areas where it builds upon prior work. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Completeness}
+\textbf{\large Criteria 2: Completeness} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Includes none of the required components. (Results in a 0 on the entire assignment). \\
+    \hline
+    1      & At least 33\% of the required elements are visibly completed and presented. \\
+    \hline
+    2      & At least 66\% of the required elements are visibly completed and presented. \\
+    \hline
+    3      & All of the required elements are visibly completed and presented. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Clarity}
+\textbf{\large Criteria 3: Clarity} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Presentation is so unclear that the work is virtually impossible to understand or duplicate the results. (Results in a 0 on the entire assignment). \\
+    \hline
+    1      & It is possible to follow the high-level ideas of what was done, but duplicating the results would require significant effort. Critical details are glossed over, making it nearly impossible to evaluated correctness. \\
+    \hline
+    2      & High-level ideas and most of the details are easy to understand. It is possible to evaluate most of the work, but at least one aspect is glossed over in such a way that Correctness cannot be easily evaluated. \\
+    \hline
+    3      & All details are easy to understand. Is it possible to evaluate the correctness of the entire work and to duplicate the results. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Correctness}
+\textbf{\large Criteria 4: Correctness} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Most results presented are either provably incorrect or so unclearly presented (low Clarity score) that correctness cannot be evaluated. \\
+    \hline
+    1      & Much of the work is provably correct, but important elements either include critical errors or are so unclearly presented that correctness cannot be evaluated. \\
+    \hline
+    2      & Most of the work is provably correct, but at least one important element includes errors. These errors are easy to comprehend due to the clarity of presentation, and could be corrected. \\
+    \hline
+    3      & All of the work is provably correct. No significant errors exist, and the presentation is clear enough to see this. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Balance of Coverage}
+\textbf{\large Criteria 5: Balance of Coverage} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Presentation consistently spends too much time reiterating easy-to-understand details while glossing over more complex concepts that could have used the time. \\
+    \hline
+    1      & Presentation makes an effort to spend the most time on the more complex concepts, but there are a couple elements where this could be improved. \\
+    \hline
+    2      & Presentation makes an effort to spend the most time on the more complex concepts, but there is one element where this could be improved. \\
+    \hline
+    3      & Presentation spends the most time on the more complex concepts, with no clear areas for major improvement on this. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Overall Timing}
+\textbf{\large Criteria 6: Overall Timing} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Presentation is over 50\% longer or shorter than recommended. \\
+    \hline
+    1      & Presentation is no more than 50\% longer or shorter than recommended. \\
+    \hline
+    2      & Presentation is no more than 25\% longer or shorter than recommended. \\
+    \hline
+    3      & Presentation is no more than 10\% longer or shorter than recommended. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Visualization}
+\textbf{\large Criteria 7: Visualization} \\
+\hspace{1cm} \\
+\begin{tabular}{|p{0.075\linewidth}||p{0.875\linewidth}|}
+    \hline
+    \textbf{Points} & \textbf{Description} \\
+    \hline
+    \hline
+    0      & Presentation provides no visual aids whatsoever. \\
+    \hline
+    1      & Visual aids are provided, but are too confusing to be valuable. Text is too small, images fail to help explain the concept, etc. \\
+    \hline
+    2      & Visual aids are provided and generally enhance the presentation, but there are areas for improvement either in their construction or how they used in the presentation. \\
+    \hline
+    3      & Visual aids are provided and consistently enhance the presentation, providing examples and illustrating points very effectively. \\
+    \hline
+\end{tabular} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } xx \\
+
+\pagebreak
+
+
+\rhead{Total}
+\textbf{\large Total Scoring;} \\
+
+\hspace{1cm} \\
+\textbf{\large Points: } xx \\
+
+\hspace{1cm} \\
+\textbf{\large Reasoning: } see individual criteria. \\
+
+\hspace{1cm} \\
+\textbf{\large Comments: } see individual criteria. \\
+
+\pagebreak
+
+
+\end{document}

@@ -1,0 +1,723 @@
+---
+title: '**CSC487**: Data Mining - Homework #4'
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    extra_dependencies:
+    - xcolor
+    - hyperref
+    - tikz
+    - array
+  word_document: default
+  html_document:
+    df_print: paged
+fontsize: 12pt
+graphics: yes
+geometry: "left=1cm,right=1cm,top=1cm,bottom=2cm"
+---
+
+```{=latex}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{center}
+  \XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB \\
+\end{center}
+\hrulefill
+\hfill
+
+\newpage
+
+```
+
+```{r include=FALSE}
+
+options(knitr.graphics.error = FALSE)
+library(knitr)
+library(ggplot2)
+
+```
+
+```{python include=FALSE}
+
+from sklearn import svm
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+plt.rcParams['figure.figsize'] = [12, 12]
+plt.rcParams.update({"font.size": 16})
+plt.rcParams.update({"text.usetex": True})
+import pandas as pd
+import numpy as np
+
+```
+
+Please use the table below for questions 1 through 3. Notice that Count column is NOT an attribute. It just tells how many times a row occurs in our database and status is our target variable.
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{5em}|m{2cm}|m{2cm}|m{2cm}||m{2cm}|} 
+    \hline
+    department & age & salary & status & count \\
+    \hline
+    \hline
+    sales & 31\_35 & 46K\_50K & senior & 30 \\
+    \hline
+    sales & 26\_30 & 26K\_30K & junior & 40 \\
+    \hline
+    sales & 31\_35 & 31K\_35K & junior & 40 \\
+    \hline
+    systems & 21\_25 & 46K\_50K & junior & 20 \\
+    \hline
+    systems & 31\_35 & 66K\_70K & senior & 5 \\
+    \hline
+    systems & 26\_30 & 46K\_50K & junior & 3 \\
+    \hline
+    systems & 41\_45 & 66K\_70K & senior & 3 \\
+    \hline
+    marketing & 36\_40 & 46K\_50K & senior & 10 \\
+    \hline
+    marketing & 31\_35 & 41K\_45K & junior & 4 \\
+    \hline
+    secretary & 46\_50 & 36K\_40K & senior & 4 \\
+    \hline
+    secretary & 26\_30 & 26K\_30K & junior & 6 \\
+    \hline
+\end{tabular}
+\end{center}
+\vspace{2.5mm}
+
+```
+
+```{python}
+
+# load in the data...
+data = {
+    'department' : ['sales', 'sales', 'sales', 'systems', 
+                    'systems', 'systems', 'systems', 'marketing', 
+                    'marketing', 'secretary', 'secretary'],
+    'age' : ['31_35', '26_30', '31_35', '21_25', 
+             '31_35', '26_30', '41_45', '36_40', 
+             '31_35', '46_50', '26_30'],
+    'salary' : ['46K_50K', '26K_30K', '31K_35K', '46K_50K', 
+                '66K_70K', '46K_50K', '66K_70K', '46K_50K', 
+                '41K_45K', '36K_40K', '26K_30K'],
+    'status' : ['senior', 'junior', 'junior', 'junior', 
+                'senior', 'junior', 'senior', 'senior', 
+                'junior', 'senior', 'junior'],
+    'count' : [30, 40, 40, 20, 5, 3, 3, 10, 4, 4, 6]
+}
+df1 = pd.DataFrame(data)
+
+# preview the data...
+df1
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+### 1. Given a data tuple having the values "systems", "26_30", and "46K_50K" for the attributes department, age, and salary, respectively, what would a naive Bayesian classification of the status? *(20 points total)*
+
+---
+
+Given the data we have there is only one status that fits our situation
+
+```{python}
+
+# mask for the given conditions and preview the satisfactory data. 
+dpt_mask = df1["department"] == "systems"
+age_mask = df1["age"] == "26_30"
+sal_mask = df1["salary"] == "46K_50K"
+df1[dpt_mask & age_mask & sal_mask]
+
+```
+
+
+```{=latex}
+
+Thus the naive Bayesian classification predicts \XBB junior \XB status.
+
+Using Bayes' Theorem, $ \ds P(junior|dpt=systems,age=16\_30,sal=46K\_50K) = \frac{\ds \frac{1}{6} \cdot \frac{6}{11}}{\ds \frac{1}{11}} = 1 $.
+
+\hrulefill
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+### 2. Split your diabetes data into two parts for training and testing purposes. Namely, reserve last 10 rows of the diabetes_train.csv for the test set. Then fit a SVM classifier on the bigger portion of this data and test it on these 10 rows you had reserved. *(20 points)*
+
+---
+
+```{python include=FALSE}
+
+# read in the data...
+df2 = pd.read_csv(
+  "C:\\OneDriveSchool_Personal\\OneDrive - Umich\\Computer_Science\\Classes\\Winter_2022\\Data_Mining\\Data\\Diabetes\\diabetes_train.csv"
+  )
+
+```
+
+```{python}
+
+# read in the data...
+# df2 = pd.read_csv(my_data_path.csv)
+
+```
+
+```{python}
+
+# preview the data...
+df2
+
+```
+
+```{python}
+
+# split the data into training set...
+diabetes_train = df2.iloc[:-10]
+diabetes_train
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+```{python}
+
+# split the data into testing set...
+diabetes_test = df2.iloc[-10:]
+diabetes_test
+
+```
+
+```{python}
+
+# split data sets into attributes & labels
+diabetes_train_X = diabetes_train.iloc[:,:-1]
+diabetes_train_y = diabetes_train.iloc[:,-1]
+diabetes_test_X = diabetes_test.iloc[:,:-1]
+diabetes_test_y = diabetes_test.iloc[:,-1]
+
+```
+
+```{python}
+
+# train the model on the training set...
+svm_clf = svm.SVC(C=1000, gamma=0.00001, kernel='rbf')
+svm_clf.fit(diabetes_train_X, diabetes_train_y)
+
+```
+
+```{python}
+
+# use the model to predict on the test set & evaluate...
+svm_clf_predictions = svm_clf.predict(diabetes_test_X)
+confusion_matrix(diabetes_test_y, svm_clf_predictions)
+
+```
+
+```{=latex}
+
+From the confusion matrix we can see \XBB 3 true positives, 4 true negatives, and 3 false positives \XB.
+
+\hrulefill
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+### 3. Draw the ROC curve based on the table below and fill the empty columns based on threshold at each step. *(20 points)*
+
+---
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}||m{1cm}|m{1cm}|} 
+    \hline
+    tuple \# & class & prob & TP & FN & FP & TN & TPR & FPR \\
+    \hline
+    \hline
+    1  & p & 0.95 &  &  &  &  &  &  \\
+    \hline
+    2  & n & 0.85 &  &  &  &  &  &  \\
+    \hline
+    3  & p & 0.78 &  &  &  &  &  &  \\
+    \hline
+    4  & p & 0.66 &  &  &  &  &  &  \\
+    \hline
+    5  & n & 0.60 &  &  &  &  &  &  \\
+    \hline
+    6  & p & 0.55 &  &  &  &  &  &  \\
+    \hline
+    7  & n & 0.53 &  &  &  &  &  &  \\
+    \hline
+    8  & n & 0.52 &  &  &  &  &  &  \\
+    \hline
+    9  & n & 0.51 &  &  &  &  &  &  \\
+    \hline
+    10 & p & 0.40 &  &  &  &  &  &  \\
+    \hline
+\end{tabular}
+\end{center}
+\vspace{2.5mm}
+
+\begin{center}
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}||m{1cm}|m{1cm}|} 
+    \hline
+    tuple \# & class & prob & TP & FN & FP & TN & TPR & FPR \\
+    \hline
+    \hline
+    1  & p & 0.95 & 1 & 4 & 0 & 5 & 0.2 & 0.0 \\
+    \hline
+    2  & n & 0.85 & 1 & 4 & 1 & 4 & 0.2 & 0.2 \\
+    \hline
+    3  & p & 0.78 & 2 & 3 & 1 & 4 & 0.4 & 0.2 \\
+    \hline
+    4  & p & 0.66 & 3 & 2 & 1 & 4 & 0.6 & 0.2 \\
+    \hline
+    5  & n & 0.60 & 3 & 2 & 2 & 3 & 0.6 & 0.4 \\
+    \hline
+    6  & p & 0.55 & 4 & 1 & 2 & 3 & 0.8 & 0.4 \\
+    \hline
+    7  & n & 0.53 & 4 & 1 & 3 & 2 & 0.8 & 0.6 \\
+    \hline
+    8  & n & 0.52 & 4 & 1 & 4 & 1 & 0.8 & 0.8 \\
+    \hline
+    9  & n & 0.51 & 4 & 1 & 5 & 0 & 0.8 & 1.0 \\
+    \hline
+    10 & p & 0.40 & 5 & 0 & 5 & 0 & 1.0 & 1.0 \\
+    \hline
+\end{tabular}
+\end{center}
+\vspace{2.5mm}
+
+```
+
+```{python echo=FALSE}
+
+ax = plt.gca()
+ax.plot([0.0,1.0],[0.0,1.0],c='black',linestyle='dashed',zorder=1)
+ax.scatter([0.0,0.2,0.2,0.2,0.4,0.4,0.6,0.8,1.0,1.0],
+  [0.2,0.2,0.4,0.6,0.6,0.8,0.8,0.8,0.8,1.0],
+  c='blue',zorder=2,s=69)
+ax.plot([0.0,0.0,0.2,0.4,1.0],[0.0,0.2,0.6,0.8,1.0],c='red',zorder=3,linewidth=2)
+plt.title('$ROC$ $Curve$')
+plt.xlabel('$FPR$')
+plt.ylabel('$TPR$')
+
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+### 4. Please use the data shown for questions below. *(20 points)*
+
+---
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|} 
+    \hline
+      & a  & b & c & d & e & f & g & h \\
+    \hline
+    \hline
+    x & 2  & 2 & 8 & 5 & 7 & 6 & 1 & 4 \\
+    \hline
+    y & 10 & 5 & 4 & 8 & 5 & 4 & 2 & 9 \\
+    \hline
+\end{tabular}
+\end{center} 
+\vspace{2.5mm}
+
+```
+
+```{python echo=FALSE}
+
+plt.clf()
+ax = plt.gca()
+#labels = ['a','b','c','d','e','f','g','h']
+#ax.scatter(xs,ys,label=labels)
+ax.scatter(2,10,label='$a$',s=111)
+ax.scatter(2,5,label='$b$',s=111)
+ax.scatter(8,4,label='$c$',s=111)
+ax.scatter(5,8,label='$d$',s=111)
+ax.scatter(7,5,label='$e$',s=111)
+ax.scatter(6,4,label='$f$',s=111)
+ax.scatter(1,2,label='$g$',s=111)
+ax.scatter(4,9,label='$h$',s=111)
+plt.legend()
+plt.title('$The$ $Datas$')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+#### a.) If *h* and *c* are selected as the initial centers for your *k*-means clustering, assign memberships for other points, and compute the means (centroids) of your initial clusters. You can use Manhattan distance.
+
+--- 
+
+```{python}
+
+xs = np.array([2,2,8,5,7,6,1,4])
+ys = np.array([10,5,4,8,5,4,2,9])
+cx = 8
+cy = 4
+cx_diff = np.abs(cx -xs)
+cy_diff = np.abs(cy -ys)
+c_dist = cx_diff + cy_diff
+c_dist
+hx = 4
+hy = 9
+hx_diff = np.abs(hx -xs)
+hy_diff = np.abs(hy -ys)
+h_dist = hx_diff + hy_diff
+h_dist
+
+```
+
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|} 
+    \hline
+      $p_{i}$              &     a     &     b     & \XBB c \XB &     d     &      e     &      f     &      g      & \XR h \XB \\
+    \hline
+    \hline
+    \XBB d($p_{i}$, c) \XB &     12    &     7     & \XBB * \XB &     7     & \XBB 2 \XB & \XBB 2 \XB & \XBB 9 \XB &     *     \\
+    \hline
+    \XR  d($p_{i}$, h) \XB & \XR 3 \XB & \XR 6 \XB &      *     & \XR 2 \XB &      7     &      7     &      11     & \XR * \XB \\
+    \hline
+\end{tabular}
+\end{center}
+\vspace{2.5mm}
+
+We can see that cluster within initial center c contains, \XBB\{c,e,f,g\}\XB, 
+and cluster with initial center h contains, \XR\{a,b,d,h\}\XB. Moving forward we will 
+reference cluster $\XBB C_{1} \XB$ as that with initial center c, 
+and cluster $\XR C_{2} \XB$ as that with initial center h. To now compute the 
+means, or centroids, of $\XBB C_{1} \XB$ and $\XR C_{2} \XB$, we will take the average 
+x and y values for the points within the clusters. We will reference the centroid
+of $\XBB C_{1} \XB$ as $\XBB z_{1} \XB$ and the center of $\XR C_{2} \XB$ as $\XR z_{2} \XB$. 
+
+\vspace{2.5mm}
+
+$\XBB \ds z_{1} = \Bigl(\frac{8 + 7 + 6 + 1}{4}, \frac{4 + 5 + 4 + 2}{4}\Bigr) = (5.5, 3.75) \XB$.
+
+$\XR \ds z_{2} = \Bigl(\frac{2 + 2 + 5 + 4}{4}, \frac{10 + 5 + 8 + 9}{4}\Bigr) = (3.25, 8) \XB$.
+
+\vspace{2.5mm}
+
+```
+
+```{python}
+
+z1xs = np.array([8,7,6,1])
+z1ys = np.array([4,5,4,2])
+z1x = np.mean(z1xs)
+z1y = np.mean(z1ys)
+z1x, z1y
+z2xs = np.array([2,2,5,4])
+z2ys = np.array([10,5,8,9])
+z2x = np.mean(z2xs)
+z2y = np.mean(z2ys)
+z2x, z2y
+
+```
+
+```{python echo=FALSE}
+
+plt.clf()
+ax = plt.gca()
+ax.scatter(2,10,label='$a$',zorder=2,s=111)
+ax.scatter(2,5,label='$b$',zorder=2,s=111)
+ax.scatter(8,4,label='$c$',zorder=2,s=111)
+ax.scatter(5,8,label='$d$',zorder=2,s=111)
+ax.scatter(7,5,label='$e$',zorder=2,s=111)
+ax.scatter(6,4,label='$f$',zorder=2,s=111)
+ax.scatter(1,2,label='$g$',zorder=2,s=111)
+ax.scatter(4,9,label='$h$',zorder=2,s=111)
+ax.scatter(5.5,3.75,label='$z_{1}$',color='blue',zorder=2,s=111,alpha=0.69)
+ax.scatter(3.25,8,label='$z_{2}$',color='red',zorder=2,s=111,alpha=0.69)
+ax.plot([3.25,4],[8,9],color='red',zorder=1,linestyle='dotted')
+ax.plot([3.25,2],[8,10],color='red',zorder=1,linestyle='dotted')
+ax.plot([3.25,2],[8,5],color='red',zorder=1,linestyle='dotted')
+ax.plot([3.25,5],[8,8],color='red',zorder=1,linestyle='dotted')
+ax.plot([5.5,8],[3.75,4],color='blue',zorder=1,linestyle='dotted')
+ax.plot([5.5,7],[3.75,5],color='blue',zorder=1,linestyle='dotted')
+ax.plot([5.5,6],[3.75,4],color='blue',zorder=1,linestyle='dotted')
+ax.plot([5.5,1],[3.75,2],color='blue',zorder=1,linestyle='dotted')
+plt.legend()
+plt.title('$The$ $Centroids$')
+plt.xlabel('$x$')
+plt.ylabel('$y$')
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+#### b.) Based on the centroids you found above reassign the memberships by using Manhattan distance.
+
+--- 
+
+```{python}
+
+xs = np.array([2,2,8,5,7,6,1,4])
+ys = np.array([10,5,4,8,5,4,2,9])
+z1x = 5.5
+z1y = 3.75
+z1x_diff = np.abs(z1x - xs)
+z1y_diff = np.abs(z1y - ys)
+z1_dist = z1x_diff + z1y_diff
+z1_dist
+z2x = 3.25
+z2y = 8
+z2x_diff = np.abs(z2x - xs)
+z2y_diff = np.abs(z2y - ys)
+z2_dist = z2x_diff + z2y_diff
+z2_dist
+
+```
+
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|} 
+    \hline
+      $p_{i}$           & a  & b & c & d & e & f & g & h \\
+    \hline
+    \hline
+    \XBB d($p_{i}$, $z_{1}$) \XB &     9.75      &     4.75     & \XBB 2.75 \XB &     4.75     & \XBB 2.75 \XB & \XBB 0.75 \XB & \XBB 6.25 \XB &     6.75     \\
+    \hline
+    \XR d($p_{i}$, $z_{2}$) \XB & \XR 3.25 \XB  & \XR 4.25 \XB &      8.75     & \XR 1.75 \XB &      6.75     &      6.75     &      8.25     & \XR 1.75 \XB \\
+    \hline
+\end{tabular}
+\end{center}
+\vspace{2.5mm}
+
+We can now see that we have clusters $\XBB C_{1} = \{c, e, f, g \} \XB$ and $\XR C_{2} = \{a, b, d, h \} \XB$.
+In fact, our clusters are unchanged.
+
+```
+
+```{=latex}
+
+\newpage
+
+```
+
+### 5. Given the distance matrix below answer the following questions. Notice that this is a distance matrix, meaning the distance between any pair of points can be found by checking the corresponding cell to them. *(20 points)*
+
+---
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{0.5cm}||m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|} 
+    \hline
+      & a & b & c & d & e & f & g & h \\
+    \hline
+    \hline
+    a & 0 & 5 & 8 & 4 & 7 & 8 & 8 & 2 \\
+    \hline
+    b & 5 & 0 & 6 & 4 & 5 & 4 & 3 & 4 \\
+    \hline
+    c & 8 & 6 & 0 & 5 & 1 & 2 & 7 & 6 \\
+    \hline
+    d & 4 & 4 & 5 & 0 & 4 & 4 & 7 & 1 \\
+    \hline
+    e & 7 & 5 & 1 & 4 & 0 & 1 & 7 & 5 \\
+    \hline
+    f & 8 & 4 & 2 & 4 & 1 & 0 & 5 & 5 \\
+    \hline
+    g & 8 & 3 & 7 & 7 & 7 & 5 & 0 & 8 \\
+    \hline
+    h & 2 & 4 & 6 & 1 & 5 & 5 & 8 & 0 \\
+    \hline
+\end{tabular}
+\end{center} 
+\vspace{2.5mm}
+
+```
+
+#### a.) Perform hierarchical clustering using *single link* measure for the above and draw the final dendrogram.
+
+--- 
+
+```{r include=FALSE}
+distc = read.delim("C:\\OneDriveSchool_Personal\\OneDrive - Umich\\Computer_Science\\Classes\\Winter_2022\\Data_Mining\\Data\\hw4_distances.csv", header = T, row.names=1, sep=',')
+distc = as.dist(distc)
+```
+
+
+```{=latex}
+
+\begin{center}
+
+Itteration 1
+
+\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|} 
+    \hline
+          & a & b & c:e:f & d:h & g \\
+    \hline
+    \hline
+    a     & 0 & 5 &   7   &  2  & 8 \\
+    \hline
+    b     & 5 & 0 &   4   &  4  & 3 \\
+    \hline
+    c:e:f & 7 & 4 &   0   &  4  & 5 \\
+    \hline
+    d:h   & 2 & 4 &   4   &  0  & 7 \\
+    \hline
+    g     & 8 & 3 &   5   &  7  & 0 \\
+    \hline
+\end{tabular}
+
+Itteration 2
+
+\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|} 
+    \hline
+          & a:d:h & b & c:e:f & g \\
+    \hline
+    \hline
+    a:d:h &   0   & 4 &   4   & 7 \\
+    \hline
+    b     &   4   & 0 &   4   & 3 \\
+    \hline
+    c:e:f &   4   & 4 &   0   & 5 \\
+    \hline
+    g     &   7   & 3 &   5   & 0 \\
+    \hline
+\end{tabular}
+
+Itteration 3
+
+\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|} 
+    \hline
+          & a:d:h & b:g & c:e:f \\
+    \hline
+    \hline
+    a:d:h &   0   &  4  &   4   \\
+    \hline
+    b:g   &   4   &  0  &   4   \\
+    \hline
+    c:e:f &   4   &  4  &   0   \\
+    \hline
+\end{tabular}
+
+\end{center} 
+\vspace{2.5mm}
+
+```
+
+```{=latex}
+
+\begin{center}
+\begin{tikzpicture}
+[
+level 1/.style = {red,  sibling distance = 4.20cm, level distance = 2.5cm},
+level 2/.style = {blue, sibling distance = 1.25cm, level distance = 2.5cm},
+level 3/.style = {teal, sibling distance = 0.75cm, level distance = 2.5cm},
+edge from parent path =  {(\tikzparentnode\tikzparentanchor) .. controls +(0,-1) and +(0,1) .. (\tikzchildnode\tikzchildanchor)}
+]
+
+\node {\Large \{a, b, c, d, e, f, g, h \}}
+    child {node {\large \{a, d, h \}}
+    child {node {       $\ast$}
+    child {node {       \{a\}}}}
+    child {node {       \{d, h\}}
+    child {node {       \{d\}}}
+    child {node {       \{h\}}}}}
+    child {node {\large \{b, g \}}
+    child {node {       $\ast$}
+    child {node {       \{b\}}}}
+    child {node {       $\ast$}
+    child {node {       \{g\}}}}}
+    child {node {\large \{c, e, f \}}
+    child {node {       $\ast$}
+    child {node {       \{c\}}}}
+    child {node {       $\ast$}
+    child {node {       \{e\}}}}
+    child {node {       $\ast$}
+    child {node {       \{f\}}}}};
+
+\end{tikzpicture}
+\end{center}
+
+```
+
+#### b.) Determine whether a point is *core* based on $\epsilon=6$ and $minPts=2$.
+
+--- 
+
+To meet this requirement we must have 2 points within a distance of 6 for a point to be considered *core*.
+
+```{=latex}
+
+\begin{center}
+\begin{tabular}{|m{0.5cm}||m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|} 
+    \hline
+      &     a     &     b     &     c     &     d     &     e     &     f     &     g     &     h     \\
+    \hline
+    \hline
+    a &     0     & \XR 5 \XB &     8     & \XR 4 \XB &     7     &     8     &     8     & \XR 2 \XB  \\
+    \hline
+    b & \XR 5 \XB &     0     & \XR 6 \XB & \XR 4 \XB & \XR 5 \XB & \XR 4 \XB & \XR 3 \XB & \XR 4 \XB  \\
+    \hline
+    c &     8     & \XR 6 \XB &     0     & \XR 5 \XB & \XR 1 \XB & \XR 2 \XB &     7     & \XR 6 \XB  \\
+    \hline
+    d & \XR 4 \XB & \XR 4 \XB & \XR 5 \XB &     0     & \XR 4 \XB & \XR 4 \XB &     7     & \XR 1 \XB  \\
+    \hline 
+    e &     7     & \XR 5 \XB & \XR 1 \XB & \XR 4 \XB &     0     & \XR 1 \XB &     7     & \XR 5 \XB  \\
+    \hline
+    f &     8     & \XR 4 \XB & \XR 2 \XB & \XR 4 \XB & \XR 1 \XB &     0     & \XR 5 \XB & \XR 5 \XB  \\
+    \hline
+    g &     8     & \XR 3 \XB &     7     &     7     &     7     & \XR 5 \XB &     0     &     8     \\
+    \hline
+    h & \XR 2 \XB & \XR 4 \XB & \XR 6 \XB & \XR 1 \XB & \XR 5 \XB & \XR 5 \XB &     8     &     0     \\
+    \hline
+\end{tabular}
+\end{center} 
+\vspace{2.5mm}
+
+```
+
+It is easy to see that under this requirement all points are *core*.
+

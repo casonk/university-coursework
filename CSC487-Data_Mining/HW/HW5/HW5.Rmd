@@ -1,0 +1,475 @@
+---
+title: '**CSC487**: Data Mining - Homework #5'
+output:
+  pdf_document:
+    latex_engine: pdflatex
+    extra_dependencies:
+    - xcolor
+    - hyperref
+    - tikz
+    - array
+  word_document: default
+  html_document:
+    df_print: paged
+fontsize: 12pt
+graphics: yes
+geometry: "left=1cm,right=1cm,top=1cm,bottom=2cm"
+---
+
+```{=latex}
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{center}
+  \XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB \\
+\end{center}
+\hrulefill
+\hfill
+
+\newpage
+```
+```{r include=FALSE}
+
+options(knitr.graphics.error = FALSE)
+library(knitr)
+library(ggplot2)
+
+```
+
+Refer to the table below for questions 1-4 and suppose the minimum support is 2.
+
+```{=latex}
+\begin{center}
+\begin{tabular}{|m{1.25cm}||m{2.5cm}|} 
+    \hline
+    TID & Basket \\
+    \hline
+    \hline
+    T1 & A,B,E \\
+    \hline
+    T2 & B,D \\
+    \hline
+    T3 & B,C \\
+    \hline
+    T4 & A,B,D \\
+    \hline
+    T5 & A,C \\
+    \hline
+    T6 & B,C \\
+    \hline
+    T7 & A,C \\ 
+    \hline
+    T8 & A,B,C,E \\
+    \hline
+    T9 & A,B,C \\
+    \hline
+\end{tabular}
+\end{center}
+\vspace{2.5mm}
+```
+```{=latex}
+\newpage
+```
+### 1. Compute the confidences for the following rules. *(20 points total)*
+
+------------------------------------------------------------------------
+
+#### a.) $\{ A, B \} \Rightarrow E$.
+
+------------------------------------------------------------------------
+
+Given $\{ A, B \}$ is observed, we have the following baskets bought:
+
+$\left< \{ A, B, E \}, \{ A, B, D \}, \{ A, B, C, E \}, \{ A, B, C \} \right>$
+
+Of these four baskets two contain $E$. Our confidence is thus \XBB $P( E | \{A, B\} ) = 2 / 4 = 0.5$ \XB
+
+#### b.) $A \Rightarrow \{ B, E \}$.
+
+------------------------------------------------------------------------
+
+Given $A$ is observed, we have the following baskets bought:
+
+$\left< \{ A, B, E \}, \{ A, B, D \}, \{ A, C \}, \{ A, C \}, \{ A, B, C, E \}, \{ A, B, C \} \right>$
+
+Of these six baskets two contain $\{ B, E \}$. Our confidence is thus \XBB $P( \{ B, E \} | A ) = 2 / 6 = 0.333$ \XB
+
+```{=latex}
+\hrulefill
+
+\newpage
+```
+### 2. Apply the Apriori procedure by using join operations as described on slide (see slide1) #15. You need to report all frequent k-itemsets. *(25 points)*
+
+------------------------------------------------------------------------
+
+```{=latex}
+\begin{center}
+\begin{tabular}{|m{1.5cm}|m{2cm}|m{2.5cm}|m{3cm}|} 
+    \hline
+    k=1 & k=2 & k=3 & k=4 \\
+    \hline
+    \hline
+    \XBB \{A\} : 6 \XB & \XBB \{A, B\} : 4 \XB & \XBB \{A, B, C\} : 2 \XB & \XR \{A, B, C, E\} : 1 \XB \\
+    \hline
+    \XBB \{B\} : 7 \XB & \XBB \{A, C\} : 4 \XB & \XBB \{A, B, E\} : 2 \XB &  \\
+    \hline
+    \XBB \{C\} : 6 \XB & \XR  \{A, D\} : 1 \XB & \XR  \{B, D, E\} : 0 \XB &  \\
+    \hline
+    \XBB \{D\} : 2 \XB & \XBB \{A, E\} : 2 \XB &                          &  \\
+    \hline
+    \XBB \{E\} : 2 \XB & \XBB \{B, C\} : 4 \XB &                          &  \\
+    \hline
+                       & \XBB \{B, D\} : 2 \XB &                          &  \\
+    \hline
+                       & \XBB \{B, E\} : 2 \XB &                          &  \\
+    \hline
+                       & \XR  \{C, D\} : 0 \XB &                          &  \\
+    \hline
+                       & \XR  \{C, E\} : 1 \XB &                          &  \\
+    \hline
+                       & \XR  \{D, E\} : 0 \XB &                          &  \\
+    \hline
+\end{tabular}
+\end{center}
+
+All \XBB Blue \XB item sets are frequent. 
+
+\hrulefill
+```
+```{=latex}
+\newpage
+```
+### 3. Draw the FP-Tree (see slide #28). *(25 points)*
+
+------------------------------------------------------------------------
+
+```{=latex}
+We have the header table and ordered sets as follows: 
+
+\begin{center}
+\begin{tabular}{|m{1.25cm}||m{2cm}|} 
+    \hline
+    Item & Frequency \\
+    \hline
+    B & 7 \\
+    \hline
+    A & 6 \\
+    \hline
+    C & 6 \\
+    \hline
+    D & 2 \\
+    \hline
+    E & 2 \\
+    \hline
+\end{tabular}
+\begin{tabular}{|m{1.25cm}||m{2.5cm}|} 
+    \hline
+    TID & Ordered Set \\
+    \hline
+    T1 & \{B, A, E\} \\
+    \hline
+    T2 & \{B, D\} \\
+    \hline
+    T3 & \{B, C\} \\
+    \hline
+    T4 & \{B, A, D\} \\
+    \hline
+    T5 & \{A, C\} \\
+    \hline
+    T6 & \{B, C\} \\
+    \hline
+    T7 & \{A, C\} \\
+    \hline
+    T8 & \{B, A, C, E\} \\
+    \hline
+    T9 & \{B, A, C\} \\
+    \hline
+\end{tabular}
+\end{center}
+
+The growth tree can the be visualized as follows: 
+
+\begin{center}
+\begin{tikzpicture}
+[
+level 1/.style = {red,  sibling distance = 6cm, level distance = 3.75cm},
+level 2/.style = {blue, sibling distance = 3cm, level distance = 3cm},
+level 3/.style = {teal, sibling distance = 1.5cm, level distance = 2.25cm},
+level 4/.style = {violet, sibling distance = 0.75cm, level distance = 1.5cm},
+edge from parent path =  {(\tikzparentnode\tikzparentanchor) .. controls +(0,-1) and +(0,1) .. (\tikzchildnode\tikzchildanchor)}
+]
+
+\node {\{\}}
+       child {node{A:2}
+       child {node{C:2}}}
+       child {node{B:7}
+       child {node{D:1}}
+       child {node{C:2}}
+       child {node{A:4}
+       child {node{E:1}}
+       child {node{D:1}}
+       child {node{C:2}
+       child {node{E:1}}}}};
+
+\end{tikzpicture}
+\end{center}
+\hrulefill
+```
+```{=latex}
+\newpage
+```
+### 4. Import this table by preparing an appropriate input format for Weka and run Apriori algorithm. Please use either .arff or csv format by inspecting sample Weka files. Please report the association rules you find. *(15 points)*
+
+------------------------------------------------------------------------
+
+Best rules found:
+
+1.  B=n 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+2.  E=y 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+3.  D=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+4.  E=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+5.  B=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+6.  B=n 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+7.  B=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+8.  D=y 2 ==\> C=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+9.  E=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+10. D=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+11. A=y C=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+12. B=y E=y 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+13. A=y E=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+14. E=y 2 ==\> A=y B=y 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+15. B=n C=y 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+16. A=y B=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+17. B=n 2 ==\> A=y C=y 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+18. B=n D=n 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+19. A=y B=n 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+20. B=n 2 ==\> A=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+21. B=n E=n 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+22. A=y B=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+23. B=n 2 ==\> A=y E=n 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+24. D=n E=y 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+25. A=y E=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+26. E=y 2 ==\> A=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+27. A=n C=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+28. A=n D=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+29. A=n D=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+30. A=n C=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+31. A=n C=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+32. A=n D=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+33. C=n D=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+34. B=y D=y 2 ==\> C=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+35. D=y 2 ==\> B=y C=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+36. C=n E=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+37. D=n E=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+38. B=y E=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+39. E=y 2 ==\> B=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+40. D=y E=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+41. B=y D=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+42. D=y 2 ==\> B=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+43. B=n D=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+44. B=n C=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+45. B=n 2 ==\> C=y D=n 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+46. B=n E=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+47. B=n C=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+48. B=n 2 ==\> C=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+49. B=n E=n 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+50. B=n D=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+51. B=n 2 ==\> D=n E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+52. D=y E=n 2 ==\> C=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+53. C=n E=n 2 ==\> D=y 2 \<conf:(1)\> lift:(4.5) lev:(0.17) [1] conv:(1.56)
+
+54. C=n D=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+55. D=y 2 ==\> C=n E=n 2 \<conf:(1)\> lift:(4.5) lev:(0.17) [1] conv:(1.56)
+
+56. A=y B=y C=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+57. B=y D=n E=y 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+58. A=y D=n E=y 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+59. A=y B=y E=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+60. D=n E=y 2 ==\> A=y B=y 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+61. B=y E=y 2 ==\> A=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+62. A=y E=y 2 ==\> B=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+63. E=y 2 ==\> A=y B=y D=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+64. B=n C=y D=n 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+65. A=y B=n D=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+66. A=y B=n C=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+67. B=n D=n 2 ==\> A=y C=y 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+68. B=n C=y 2 ==\> A=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+69. A=y B=n 2 ==\> C=y D=n 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+70. B=n 2 ==\> A=y C=y D=n 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+71. B=n C=y E=n 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+72. A=y B=n E=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+73. A=y B=n C=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+74. B=n E=n 2 ==\> A=y C=y 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+75. B=n C=y 2 ==\> A=y E=n 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+76. A=y B=n 2 ==\> C=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+77. B=n 2 ==\> A=y C=y E=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+78. B=n D=n E=n 2 ==\> A=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+79. A=y B=n E=n 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+80. A=y B=n D=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+81. B=n E=n 2 ==\> A=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+82. B=n D=n 2 ==\> A=y E=n 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+83. A=y B=n 2 ==\> D=n E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+84. B=n 2 ==\> A=y D=n E=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+85. A=n C=y D=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+86. A=n B=y D=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+87. A=n B=y C=y 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+88. A=n D=n 2 ==\> B=y C=y 2 \<conf:(1)\> lift:(2.25) lev:(0.12) [1] conv:(1.11)
+
+89. A=n C=y 2 ==\> B=y D=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+90. A=n C=y E=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+91. A=n B=y C=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+92. A=n C=y 2 ==\> B=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+93. A=n D=n E=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+94. A=n B=y D=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+95. A=n D=n 2 ==\> B=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+96. A=n D=n E=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+97. A=n C=y E=n 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+98. A=n C=y D=n 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+99. A=n D=n 2 ==\> C=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+100. A=n C=y 2 ==\> D=n E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+101. C=n D=y E=n 2 ==\> B=y 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+102. B=y D=y E=n 2 ==\> C=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+103. B=y C=n E=n 2 ==\> D=y 2 \<conf:(1)\> lift:(4.5) lev:(0.17) [1] conv:(1.56)
+
+104. B=y C=n D=y 2 ==\> E=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+105. D=y E=n 2 ==\> B=y C=n 2 \<conf:(1)\> lift:(3) lev:(0.15) [1] conv:(1.33)
+
+106. C=n E=n 2 ==\> B=y D=y 2 \<conf:(1)\> lift:(4.5) lev:(0.17) [1] conv:(1.56)
+
+107. C=n D=y 2 ==\> B=y E=n 2 \<conf:(1)\> lift:(1.8) lev:(0.1) [0] conv:(0.89)
+
+108. B=y D=y 2 ==\> C=n E=n 2 \<conf:(1)\> lift:(4.5) lev:(0.17) [1] conv:(1.56)
+
+109. D=y 2 ==\> B=y C=n E=n 2 \<conf:(1)\> lift:(4.5) lev:(0.17) [1] conv:(1.56)
+
+110. B=n D=n E=n 2 ==\> C=y 2 \<conf:(1)\> lift:(1.5) lev:(0.07) [0] conv:(0.67)
+
+111. B=n C=y E=n 2 ==\> D=n 2 \<conf:(1)\> lift:(1.29) lev:(0.05) [0] conv:(0.44)
+
+```{=latex}
+
+The list goes on \dots
+
+\hrulefill
+
+\newpage
+```
+### 5. Using Weka, implement Apriori and FP-Growth algorithms on Supermarket data, which is a sample data set coming with Weka installation. You can find it under Weka folder in your system. Please report your results with screen shots. You don't have to report all. Top of the results is enough for this question. *(15 points)*
+
+------------------------------------------------------------------------
+
+```{r echo=FALSE, fig.align="center", warning=FALSE, out.width="90%"}
+knitr::include_graphics("C:/OneDriveSchool_Personal/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW5/_img/associate.PNG")
+```
+
+```{r echo=FALSE, fig.align="center", warning=FALSE, out.width="90%"}
+knitr::include_graphics("C:/OneDriveSchool_Personal/OneDrive - Umich/Computer_Science/Classes/Winter_2022/Data_Mining/HW/HW5/_img/growth.PNG")
+```
+
+```{=latex}
+\hrulefill
+```

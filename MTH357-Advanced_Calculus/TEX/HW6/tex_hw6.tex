@@ -1,0 +1,178 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{url}
+\usepackage{xcolor}
+
+\usepackage{pgfplots}
+
+\usepackage[left = 1cm, top = 1cm, bottom = 2cm, right = 1cm, nohead, nofoot]{geometry}
+
+\pgfplotsset{width=20cm, compat=1.9}
+
+\newcommand{\C}{\mathbb{C}}  % Complex
+\newcommand{\R}{\mathbb{R}}  % Real
+\newcommand{\Z}{\mathbb{Z}}  % Integers
+\newcommand{\N}{\mathbb{N}}  % Naturals
+
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\K}{\mathbb{K}}
+
+\title{$\A$dvanced $\C$alculus}
+\author{$\C$ason $\K$onzer}
+\date{November 5, 2021}
+
+
+
+\begin{document}
+\maketitle
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        Problem #1       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\underline{}}
+\label{sec: Problem 1}
+
+\noindent
+Verify that $ u(x,t) = \cos{4t}\sin{3x} $ satisfies the wave equation for an appropriate choice of $ c $. \\
+\vspace{2.5mm}
+
+\hrule 
+
+\vspace{7.5mm}
+
+\begin{itemize}
+    \item \textit{Wave Equation} $ u_{tt} = c^2u_{xx} $
+    \item $ u_{tt} $
+    \subitem $ u_{t} = -4\sin{4t}\sin{3x} $
+    \subitem $ u{tt} = -16\cos{4t}\sin{3x} $
+    \item $ u_{xx} $
+    \subitem $ u_{x} = 3\cos{4t}\cos{3x} $
+    \subitem $ u_{xx} = -9\cos{4t}\sin{3x} $
+    \item $ \displaystyle c^2 = \dfrac{u_{tt}}{u_{xx}} $
+    \subitem $ \displaystyle c^2 = \dfrac{-16\cos{4t}\sin{3x}}{-9\cos{4t}\sin{3x}} $ 
+    \subitem $ \displaystyle c^2 = \dfrac{16}{9} $ 
+    \item \textit{Verify} $ u_{tt} = c^2u_{xx} $
+    \subitem $ \displaystyle -16cos{4t}sin{3x} = -\dfrac{16}{9}9\cos{4t}\sin{3x} $
+    \subitem $ -16\cos{4t}\sin{3x} = -16\cos{4t}\sin{3x} $
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        Problem #2       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\underline{}}
+\label{sec: Problem 2}
+
+\noindent
+Verify that $ u(x,t) = e^{-25t}\sin{\omega x} $ satisfies the heat equation for an appropriate choice of $ c $.  \\
+\vspace{2.5mm}
+
+\hrule 
+
+\vspace{7.5mm}
+
+\begin{itemize}
+    \item \textit{Heat Equation} $ u_{t} = c^2u_{xx} $
+    \item $ u_{t} $
+    \subitem  $ u_{t} = -25e^{-25t}\sin{\omega x} $
+    \item $ u_{xx} $
+    \subitem $ u_{x} = \omega e^{-25t}\cos{\omega x} $
+    \subitem $ u_{xx} = -\omega^2 e^{-25t}\sin{\omega x} $ 
+    \item $ \displaystyle c^2 = \dfrac{u_{t}}{u_{xx}} $
+    \subitem $ c^2 = \dfrac{-25e^{-25t}\sin{\omega x}}{-\omega^2 e^{-25t}\sin{\omega x}} $  
+    \subitem $ \displaystyle c^2 = \dfrac{25}{\omega^2} $
+    \item \textit{Verify} $ u_{t} = c^2u_{xx} $
+    \subitem $ -25e^{-25t}\sin{\omega x} = -\dfrac{25}{\omega^2}\omega^2 e^{-25t}\sin{\omega x} $
+    \subitem $ -25e^{-25t}\sin{\omega x} = -25e^{-25t}\sin{\omega x} $
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        Problem #3       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\underline{}}
+\label{sec: Problem 3}
+
+\noindent
+Verify that $ u(x,t) = v(x+ct) + w(x-ct) $ satisfies the wave equation for any twice differentiable functions $ v(z) $ and $ w(z) $.  \\
+\vspace{2.5mm}
+
+\hrule 
+
+\vspace{7.5mm}
+
+\begin{itemize}
+    \item \textit{Wave Equation} $ u_{tt} = c^2u_{xx} $
+    \item $ u_{tt} $
+    \subitem $ u_{t} = cv_{t}(x+ct) - cw_{t}(x-ct) $
+    \subitem $ u_{tt} = c^2v_{tt}(x+ct) + c^2w_{tt}(x-ct) $
+    \item $ u_{xx} $
+    \subitem $ u_{x} = v_{x}(x+ct) + w_{x}(x-ct) $
+    \subitem $ u_{xx} = v_{xx}(x+ct) + w_{xx}(x-ct) $
+    \item $ \displaystyle c^2 = \dfrac{u_{tt}}{u_{xx}} $
+    \subitem $ \displaystyle c^2 = \dfrac{c^2v_{tt} + c^2w_{tt}}{v_{xx} + w_{xx}} $ 
+    \item \textit{Verify} $ u_{tt} = c^2u_{xx} $
+    \subitem $ \displaystyle c^2v_{tt} + c^2w_{tt} = \dfrac{c^2v_{tt} + c^2w_{tt}}{v_{xx} + w_{xx}}v_{xx} + w_{xx} $
+    \subitem $ c^2v_{tt} + c^2w_{tt} = c^2v_{tt} + c^2w_{tt} $
+    \item We have here $ v(z(x,t)) $ where $ z = x + ct $ and $ w(\overline{z}(x,t)) $ where $ \overline{z} = x - ct $
+    \subitem $ u_{tt} = c^2v(z_{tt}) + c^2w(\overline{z}_{tt}) $ and $ u_{xx} = v(z_{xx}) + w(\overline{z}_{xx}) $
+    \subitem Granted, $ v_{zz} $ and $ w_{\overline{z}\overline{z}} $ exist, $ z_{tt}, z_{xx}, \overline{z}_{tt}, $ and $ \overline{z}_{xx} $ exist, and $ u_{tt} $ and $ u_{xx} $ exist.
+    \subitem It follows $ u(x,t) = v(x+ct) + w(x-ct) $ solves the wave equation for any twice differentiable functions $ v(z) $ and $ w(z) $.
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%        Problem #4       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\underline{}}
+\label{sec: Problem 4}
+
+\noindent
+Verify that $ u(x,y) = A\ln{(x^2 + y^2)} + B $ satisfies the Laplace equation. 
+Find $ A $ and $ B $ such that $ u $ satisfies the boundary conditions: $ u = 7 $ on the circle $ x^2 + y^2 = 1 $ and $ u = 0 $ on the circle $ x^2 + y^2 = e^2 $.  \\
+\vspace{2.5mm}
+
+\hrule 
+
+\vspace{7.5mm}
+
+\begin{itemize}
+    \item \textit{Laplace Equation} $ \triangledown^2u = 0 $
+    \item  $ u_{xx} $
+    \subitem $ \displaystyle u_{x} = \dfrac{2 A x}{x^2+y^2} $
+    \subitem $ \displaystyle u_{xx} = \dfrac{2 A \left(x^2+y^2-2x^2\right)}{\left(x^2+y^2\right)^2} $
+    \subitem $ \displaystyle u_{xx} = -\dfrac{2 A \left(x^2-y^2\right)}{\left(x^2+y^2\right)^2} $
+    \item  $ u_{yy} $
+    \subitem $ \displaystyle u_{y} = \dfrac{2 A y}{x^2+y^2} $
+    \subitem $ \displaystyle u_{yy} = \dfrac{2 A \left(x^2+y^2-2y^2\right)}{\left(x^2+y^2\right)^2} $
+    \subitem $ \displaystyle u_{yy} = \dfrac{2 A \left(x^2-y^2\right)}{\left(x^2+y^2\right)^2} $
+    \item \textit{Verify} $ \triangledown^2u $
+    \subitem $ \triangledown^2u = u_{xx} + u_{yy} $
+    \subitem $ \displaystyle \triangledown^2u =-\dfrac{2 A \left(x^2-y^2\right)}{\left(x^2+y^2\right)^2} + \dfrac{2 A \left(x^2-y^2\right)}{\left(x^2+y^2\right)^2} $
+    \subitem  $ \triangledown^2u = 0 $
+    \item \textit{Let} $ u = 7 $ on $ x^2 + y^2 = 1 $
+    \subitem $ 7 = A\ln{1} + B $
+    \subitem $ 7 = B $
+    \subitem Any constants $ A,B $ such that $ B=7 $ satisfy the boundary condition. 
+    \item \textit{Let} $ u = 0 $ on $ x^2 + y^2 = e^2 $
+    \subitem $ 0 = A\ln{e^2} + B $
+    \subitem $ -B = 2A $
+    \subitem Any constants $ A,B $ such that $ B=-2A $ satisfy the boundary condition. 
+\end{itemize}
+
+\newpage
+
+
+\end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  Comments - November 5, 2021 Advanced Calculus Written Home Work #5  %%%%%%%%%%%%%

@@ -2253,7 +2253,7 @@
                         <mxRectangle x="312" y="457" width="100" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="1tjvA5nx_kLvqwXjxX8M-54" value="+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calander" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=3;whiteSpace=wrap;html=1;shadow=1;glass=0;" vertex="1" parent="1tjvA5nx_kLvqwXjxX8M-53">
+                <mxCell id="1tjvA5nx_kLvqwXjxX8M-54" value="+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calendar" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=3;whiteSpace=wrap;html=1;shadow=1;glass=0;" vertex="1" parent="1tjvA5nx_kLvqwXjxX8M-53">
                     <mxGeometry y="29" width="131" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="1tjvA5nx_kLvqwXjxX8M-55" value="+ student_ad(UUID)&lt;br&gt;+ university_ad(week)&lt;br&gt;+ product_ad(product)" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=3;whiteSpace=wrap;html=1;shadow=1;glass=0;" vertex="1" parent="1tjvA5nx_kLvqwXjxX8M-53">
@@ -3892,7 +3892,7 @@
                         <mxRectangle x="-259" y="696" width="131" height="134" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="_TPP5dzqlTflztB1yIpD-10" value="+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calander" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="_TPP5dzqlTflztB1yIpD-9" vertex="1">
+                <mxCell id="_TPP5dzqlTflztB1yIpD-10" value="+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calendar" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="_TPP5dzqlTflztB1yIpD-9" vertex="1">
                     <mxGeometry y="26" width="100" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="_TPP5dzqlTflztB1yIpD-11" value="+ student_ad(UUID)&lt;br&gt;+ university_ad(week)&lt;br&gt;+ product_ad(product)" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="_TPP5dzqlTflztB1yIpD-9" vertex="1">
@@ -5912,7 +5912,7 @@
                         <mxRectangle x="20" y="20" width="100" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="tnxk1ejCwdU7jUmmgRjN-4" value="+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calander" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="tnxk1ejCwdU7jUmmgRjN-3" vertex="1">
+                <mxCell id="tnxk1ejCwdU7jUmmgRjN-4" value="+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calendar" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="tnxk1ejCwdU7jUmmgRjN-3" vertex="1">
                     <mxGeometry y="29" width="131" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="tnxk1ejCwdU7jUmmgRjN-5" value="+ student_ad(UUID)&lt;br&gt;+ university_ad(week)&lt;br&gt;+ product_ad(product)" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="tnxk1ejCwdU7jUmmgRjN-3" vertex="1">
@@ -6069,7 +6069,7 @@
                         <mxRectangle x="20" y="20" width="100" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="mZRvgF9HypEUMql4bWqA-33" value="Knows:&lt;br&gt;+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calander&lt;br&gt;&lt;br&gt;Does:&lt;br&gt;+ student_ad(UUID)&lt;br&gt;+ university_ad(week)&lt;br&gt;+ product_ad(product)" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="mZRvgF9HypEUMql4bWqA-32" vertex="1">
+                <mxCell id="mZRvgF9HypEUMql4bWqA-33" value="Knows:&lt;br&gt;+ Card UUID&lt;br&gt;+ Product Trends&lt;br&gt;+ University Calendar&lt;br&gt;&lt;br&gt;Does:&lt;br&gt;+ student_ad(UUID)&lt;br&gt;+ university_ad(week)&lt;br&gt;+ product_ad(product)" style="text;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;whiteSpace=wrap;html=1;shadow=1;glass=0;" parent="mZRvgF9HypEUMql4bWqA-32" vertex="1">
                     <mxGeometry y="29" width="283" height="137" as="geometry"/>
                 </mxCell>
                 <mxCell id="mZRvgF9HypEUMql4bWqA-34" value="Purpose/Definition" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;shadow=1;glass=0;labelBackgroundColor=none;fontColor=#143642;strokeColor=#0F8B8D;strokeWidth=2;swimlaneFillColor=#FFCCE6;fillColor=#FAE5C7;whiteSpace=wrap;html=1;" parent="mZRvgF9HypEUMql4bWqA-1" vertex="1">

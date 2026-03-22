@@ -1,0 +1,216 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[left = 2cm, top = 2cm, bottom = 2cm, right = 2cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+\begin{document}
+
+\title{\textbf{MTH385}: History of Mathematics - Homework \#7}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+
+\hrulefill
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Consider the intersection of two circles. Fortunately, it is easy to reduce these two quadratic equations to the case handled in Exercise~5.3.4.
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.3.5]
+  The equations of any two circles can be written in the form
+  \begin{align*}
+    (x - a)^{2} + (y - b)^{2} &= r^{2} \\
+    (x - c)^{2} + (y - d)^{2} &= s^{2}
+  \end{align*}
+  Explain why. Now subtract one of these equations from the other, and hence show that their common solutions can be found by rational operations and square roots.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  The form given describes circles with center $ (a, b), (c, d) $ and radius $ r, s $, as all circles have a center and radius, they can be written in this form.
+
+  We will first expand the squares and then subtract our two equations \dots
+
+  \begin{itemize}
+    \item $ \ds x^{2} - 2ax + a^{2} + y^{2} - 2by + b^{2} = r^{2} $.
+    \item $ \ds x^{2} - 2cx + c^{2} + y^{2} - 2dy + d^{2} = s^{2} $.
+    \item $ \ds 2x(c - a) + 2y(c - b) + (c^{2} + d^{2} - a^{2} - b^{2}) = r^{2} - s^{2} $.
+  \end{itemize}
+
+  Invoking the quadratic equation \dots
+
+  \begin{itemize}
+    \item $ \ds 2x(c - a) + 2y(c - b) + (c^{2} + d^{2} + s^{2} - a^{2} - b^{2} - r^{2}) = 0 $.
+  \end{itemize}
+
+  As subtracting these equations is equivalent to setting them equal, we have found a solution to their intersection which consists of only rational operations and square roots, 
+  as we only perform rational operations and the square roots of the coefficents must exist to have pur centers and radai. 
+
+\end{proof}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+When a sequence of quadratic equations is solved, the solution may involve \emph{nested} square roots, such as $ \sqrt{(5 + \sqrt{5}) / 2} $. This very number, in fact, occurs in the icosahedron, as one sees from Pacioli's construction in Section~2.2.
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.3.6]
+  Show that the diagonal of a golden rectangle (which is also the diameter of an icosahedron of edge length $ 1 $) is $ \sqrt{(5 + \sqrt{5}) / 2} $.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  Consider the \textit{golden rectangle}. \\
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (-3.23,-2) -- (-3.23,2);
+      \draw (3.23,-2) -- (3.23,2);
+      \draw (-3.23,-2) -- (3.23,-2);
+      \draw (-3.23,2) -- (3.23,2);
+      \node [above] at (0,2) {$ \ds \frac{1 + \sqrt{5}}{2} $};
+      \node [right] at (3.23,0) {$1$};
+    \end{tikzpicture}
+  \end{center}
+
+  The diagonal is the hypotenus of a right triangle thus we will invoke the Pythagorean theorem.
+
+  \begin{itemize}
+    \item $ \ds D^{2} = 1^{2} + \Bigl( \frac{1 + \sqrt{5}}{2} \Bigr)^{2} =  1 + \frac{1 + 2\sqrt{5} + 5}{4} = \frac{5 + \sqrt{5}}{2} $.
+    \item $ \ds D = \sqrt{(5 + \sqrt{5})/2} $.
+  \end{itemize}
+
+  As the \textit{golden rectangle} is used to construct the edges of the icosahedron of edge length $ 1 $ the diagonals are equivalent.
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We know from Exercise~5.4.1 that $ \sqrt[3]{2} $ is not in $ F_{0} $, but if it is constructible it will occur in some $ F_{k + 1} $. A contradiction now ensues by considering (hypothetically) the first such $ F_{k + 1} $.
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.4.3]
+  Show that if $ a, b, c \in F_{k} $ but $ \sqrt{c} \notin F_{k} $, then $ a + b\sqrt{c} = 0 \Leftrightarrow a = b = 0 $. (For $ k = 0 $ this is in the \emph{Elements}, Book X, Prop. 79.)
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  For arbitrary $ k $ \dots
+
+  \begin{itemize}
+    \item $ \ds a + b\sqrt{c} = 0 \Rightarrow a = -b\sqrt{c} \Rightarrow a \notin F_{k}, \text{ as } \sqrt{c} \notin F_{k} \Rightarrow a = b = 0 $.
+    \item $ \ds a = b = 0 \Rightarrow a + b\sqrt{c} = 0 + 0\sqrt{c} = 0 $.
+  \end{itemize}
+
+  The first direction leverages that $ \sqrt{c} $ would need exist in the same field as $ a $ for $ a = -b\sqrt{c} $ to hold. \\
+  The second direction follows elementary algebra.
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.4.4]
+  Suppose $ \sqrt[3]{2} = a + b\sqrt{c} $, where $ a, b, c \in F_{k} $, but that $ \sqrt[3]{2} \notin F_{k} $. (We know that $ \sqrt[3]{2} \notin F_{0} $ from Exercise~5.4.1.) Cube both sides and deduce from Exercise~5.4.3 that
+  \[
+    2 = a^{3} + 3ab^{2}c \quad \text{and} \quad 0 = 3a^{2}b + b^{3}c.
+  \]
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  We will first expand and then group like terms.
+
+  \begin{itemize}
+    \item $ \ds (a + b\sqrt{c})^{3} = (a^{2} + 2ab\sqrt{c} + b^{2}c)(a+b\sqrt{c}) = a^{3} + 2a^{2}b\sqrt{c} + ab^{2}c + a^{2}b\sqrt{c} + 2ab^{2}c + b^{3}c\sqrt{c} $.
+    \item $ \ds 2 = (\sqrt[3]{2})^{3} = (a^{3} + 3ab^{2}c) + \sqrt{c}(3a^{2}b + b^{3}c) $.
+    \item $ \ds 2 \in F_{k} \Rightarrow (a^{3} + 3ab^{2}c) + \sqrt{c}(3a^{2}b + b^{3}c) \in F_{k} $.
+    \item $ \ds \sqrt{c} \notin F_{k} \Rightarrow (3a^{2}b + b^{3}c) = 0 $.
+  \end{itemize}
+
+  As $ 2 $ is integer, we know $ 2 $ is in all $ F_{k} $. 
+  Thus our right hand side must be in the taken $ F_{k} $. 
+  But if the coefficents on $ \sqrt{c} $ is non zero, then it is implied that $ \sqrt{c} \in F_{k} $, which is a contradiction.
+  Thus the coefficent on $ \sqrt{c} $ must be zero, and $ 2 = a^{3} + 3ab^{2}c $ alone.
+
+\end{proof}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.4.5]
+  Deduce from Exercise~5.4.4 that $ \sqrt[3]{2} = a - b\sqrt{c} $ also, and explain why this is a contradiction.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  We will first expand and then group like terms.
+
+  \begin{itemize}
+    \item $ \ds (a - b\sqrt{c})^{3} = (a^{2} - 2ab\sqrt{c} + b^{2}c)(a - b\sqrt{c}) = a^{3} - 2a^{2}b\sqrt{c} + ab^{2}c - a^{2}b\sqrt{c} + 2ab^{2}c - b^{3}c\sqrt{c} $.
+    \item $ \ds 2 = (\sqrt[3]{2})^{3} = (a^{3} + 3ab^{2}c) - \sqrt{c}(3a^{2}b + b^{3}c) $.
+    \item $ \ds 2 \in F_{k} \Rightarrow (a^{3} + 3ab^{2}c) - \sqrt{c}(3a^{2}b + b^{3}c) \in F_{k} $.
+    \item $ \ds \sqrt{c} \notin F_{k} \Rightarrow (3a^{2}b + b^{3}c) = 0 $.
+  \end{itemize}
+
+  Adding the two results we will arrive at our contraditcion \dots
+
+  \begin{itemize}
+    \item $ \ds \sqrt[3]{2} + \sqrt[3]{2} = a - b\sqrt{c} + a + b\sqrt{c} = 2a \Rightarrow \sqrt[3]{2} = a \Rightarrow \sqrt[3]{2} \in F_{k} $.
+  \end{itemize}
+
+  As $ a $ is taken in $ F_{k} $, and $ \sqrt[3]{2} $ is given not in $ F_{k} $, our equations implying that $ \sqrt[3]{2} $ is in $ F_{k} $ is the contraditcion.
+
+\end{proof}
+
+
+\end{document}
+

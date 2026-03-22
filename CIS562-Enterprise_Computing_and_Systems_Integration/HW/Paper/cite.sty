@@ -1,0 +1,175 @@
+%     C I T E . S T Y
+%
+%     version 3.0  (Oct 1992)
+%
+%     Compressed, sorted lists of numerical citations: [11-16]
+%     see also OVERCITE.STY and DRFTCITE.STY
+%
+%     Copyright (C) 1989-1992 by Donald Arseneau
+%     These macros may be freely transmitted, reproduced, or modified for
+%     non-commercial purposes provided that this notice is left intact.
+%
+%     Instructions follow \endinput.
+%  ------------------------------------
+%
+%  \@citen contains the code that parses the list of names, ignoring
+%  spaces after commas, writes the aux file \citation, and formats the
+%  number list.  \citen can be used by itself to give citation numbers
+%  without the other formatting; e.g., "See also ref.~\citen{junk}."
+%
+\def\citen{\protect\p@citen}
+
+\def\p@citen#1{%
+\edef\@tempa{\@ignspaftercomma,#1, \@end, }% ignore spaces in parameter list
+\edef\@tempa{\expandafter\@ignendcommas\@tempa\@end}%
+\if@filesw \immediate \write \@auxout {\string \citation {\@tempa}}\fi
+\@tempcntb\m@ne    % \@tempcntb tracks higest number
+\let\@h@ld\relax   % nothing held from list yet
+\let\@citea\@empty % no punctuation preceding first
+\let\@celt\over    % not expandable, but identifiable
+\def\@cite@list{}% % empty list to start
+\@for \@citeb:=\@tempa \do{\@make@cite@list}% make a sorted list of numbers
+% After sorted citelist is made, execute it to compress citation ranges.
+\@tempcnta\m@ne    % no previous number
+\let\@celt\@compress@cite \@cite@list % output number list with compression
+\@h@ld}% output anything held over
+
+% For each citation, check if it is defined and if it is a number.
+% if a number: insert it in the sorted \@cite@list
+% otherwise: output it immediately.
+%
+\begingroup \catcode`\*=7 % funny catcode for comparisons
+\gdef\@make@cite@list{%
+ \expandafter\let \expandafter\@B@citeB \csname b@\@citeb \endcsname
+ \ifx\@B@citeB\relax % undefined: output ? and warning
+    \@citea {\bf ?}\let\@citea\citepunct
+    \@warning {Citation `\@citeb' on page \thepage\space undefined}%
+ \else %  defined
+    \if *\ifnum\z@<0\@B@citeB *\else @\fi % a positive number, put in list
+       \@tempcnta\@B@citeB \relax
+       \ifnum \@tempcnta>\@tempcntb % new highest, add to end (efficiently)
+          \edef\@cite@list{\@cite@list \@celt{\@B@citeB}}%
+          \@tempcntb\@tempcnta
+       \else % arbitrary number: insert appropriately
+          \edef\@cite@list{\expandafter\@sort@celt \@cite@list \@gobble @}%
+       \fi
+    \else % citation is not a number, output immediately
+       \@citea \@B@citeB \let\@citea\citepunct
+ \fi\fi}
+\endgroup % restore * catcode
+
+% Check if each number follows previous and can be put in a range
+%
+\def\@compress@cite#1{%  % This is executed for each number
+  \advance\@tempcnta\@ne % Now \@tempcnta is one more than the previous number
+  \ifnum #1=\@tempcnta   % Number follows previous--hold on to it
+     \ifx\@h@ld\relax    % first pair of successives
+        \edef \@h@ld{\@citea #1}%
+     \else               % compressible list of successives
+        \edef \@h@ld{\hbox{--}\penalty\@highpenalty #1}%
+%        use \hbox to avoid easy \exhyphenpenalty breaks
+     \fi
+  \else   %  non-successor -- dump what's held and do this one
+     \@h@ld \@citea #1\let\@h@ld\relax
+  \fi \@tempcnta#1\let\@citea\citepunct
+}
+
+% \@sort@celt inserts number (\@tempcnta) into list of \@celt{num} (#1{#2})
+% \@celt must not be expandable; list should end with two vanishing tokens.
+%
+\def\@sort@celt#1#2{\ifx \@celt #1% parameters are \@celt{num}
+     \ifnum #2<\@tempcnta % number goes later in list
+        \@celt{#2}%
+        \expandafter\expandafter\expandafter\@sort@celt % continue
+     \else % number goes here
+        \@celt{\number\@tempcnta}\@celt{#2}% stop comparing
+  \fi\fi}
+
+%%    To put space after the comma, use:
+\def\citepunct{,\penalty\@highpenalty\hskip.13emplus.1emminus.1em}%
+%%    For no space after comma, use:
+%% \def\citepunct{,\penalty\@highpenalty}%
+%%
+
+% Make \cite robust. \p@cite is the default \cite.
+%
+\def\cite{\protect\p@cite}
+
+\def\p@cite{\@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+
+%  Make \@citex refer to \citen:
+%
+\def\@citex[#1]#2{\@cite{\p@citen{#2}}{#1}}%
+
+%  Replacement for \@cite.  Give one normal space before the citation,
+%  set high penalties for linebreaks,
+%
+\def\@cite#1#2{\leavevmode\unskip
+  \ifnum\lastpenalty=\z@ \penalty\@highpenalty \fi % highpenalty before
+  \ [{\multiply\@highpenalty 3 #1% % triple-highpenalties within list
+      \if@tempswa,\penalty\@highpenalty\ #2\fi % and before note.
+    }]\spacefactor\@m}
+
+% for ignoring spaces in the input:
+\def\@ignspaftercomma#1, {\ifx\@end#1\@empty\else
+   #1,\expandafter\@ignspaftercomma\fi}
+\def\@ignendcommas,#1,\@end{#1}
+
+\let\nocitecount\relax  % in case \nocitecount was used for drftcite
+
+\endinput
+%
+%
+%                        CITE.STY
+%
+%   Modify LaTeX's normal citation mechanism to:
+%
+%   o Sort citation numbers into ascending order; print non-numbers before
+%     numbers.  Compress lists of three or more consecutive numbers to one
+%     number range which can be split, with difficulty, after the dash.
+%     All numbers should be greater than zero.
+%     E.g., if you used to get [7,5,6,?,4,9,8,Einstein,6], then this style
+%     will give you [?,Einstein,4-6,6-9].
+%
+%   o Allow, but strongly discourage, line breaks within a series of
+%     citations.  Each number is separated by a comma and a small space.
+%     A break at the beginning of an optional note is discouraged also.
+%
+%   o Always put an interword space before the citation and allow a
+%     highpenalty break there (unless you specifically forbid it with ~).
+%     E.g.,   Something really stupid \cite{Larry,Curly,Moe}.
+%                                    ^-- This space doesn't matter.
+%
+%   o Ignore spaces after the commas in the parameter list.
+%
+%   o define \citen to get just the numbers (and write to the aux file)
+%     without the brackets and extra formatting.
+%
+%   Linebreaks are allowed with triple-highpenalties after dashes
+%   and commas; these may have to be taken if TeX sees no other
+%   viable breakpoints.  If you think citations are being split
+%   unnecessarily, try using \sloppy or a sloppypar environment.
+%
+%   Although each \cite command sorts its numbers, better compression
+%   into ranges can usually be achieved by carefully selecting the order
+%   of the \bibitem entries, or the order of initial citations when using
+%   bibtex.  Having the entries presorted will also save processing time,
+%   especially for long lists of numbers.
+%
+%   See also overcite.sty and drftcite.sty for superscript and draft
+%   (draught) mode citations.
+%
+%   ROBUST!
+%
+% Version 1991: Ignore spaces after commas in the parameter list. Move most of
+% \citen into \@cmpresscites for speed.
+% Version 1992: Use \citepunct for commas so it is easier to change.
+%
+% Version 3.0 (1992):  Rewrite, including sorting.  Make entries like "4th"
+% be treated properly as text.
+%
+% Send problem reports to asnd@triumfcl.bitnet or asnd@Reg.triumf.ca
+%
+% test integrity:
+% brackets: round, square, curly, angle:   () [] {} <>
+% backslash, slash, vertical, hat, tilde:   \ / | ^ ~

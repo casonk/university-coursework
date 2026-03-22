@@ -1,0 +1,211 @@
+\documentclass{article}
+% \usepackage[left = 1cm, top = 1cm, bottom = 1cm, right = 1cm]{geometry}
+\usepackage[margin=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[fontsize=11pt]{fontsize}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multicol}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+% \topmargin=1in
+% \bottommargin=1in
+% % \topmargin=-0.45in
+% \evensidemargin=1in
+% \oddsidemargin=1in
+% % \textwidth=6.5in
+% % \textheight=9.0in
+% \headsep=0.25in
+
+\linespread{1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass: \ \paprTitle}
+\rhead{\today}
+\lfoot{\hmwkTitle}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.25pt}
+\renewcommand\footrulewidth{0.25pt}
+
+% \setlength\parindent{0pt}
+\setlength\columnseprule{.25pt}
+\setlength{\columnsep}{2.5pc}
+\setcounter{secnumdepth}{0}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Paper Summary\ \#1}
+\newcommand{\paprTitle}{\\ Decisive Aspects in the Evolution of Microprocessors}
+\newcommand{\hmwkDueDate}{January 27, 2023 @ 11:59 PM, EST}
+\newcommand{\hmwkClass}{CSC 565 - Computer System Architecture}
+% \newcommand{\hmwkClassTime}{Section X}
+% \newcommand{\hmwkClassInstructor}{Professor Name}
+\newcommand{\hmwkAuthorName}{\textbf{Cason Konzer}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\Large{\textit{\paprTitle}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+
+
+\section{Summary}
+
+In this paper summary we will discuss the work of \cite{Sima} 
+up until section \textbf{IV.A}.
+A condensed summary is provided by the journal's prelog \cite{Falk}.
+
+The paper is acronym (and variable) heavy, so let us first set the nomenclature. 
+
+\begin{itemize}
+    \item[] General:
+    \item ILP: Instruction Level Parallelism.
+    \item ISA: Instruction Set Architecture.
+    \item SIMD: Single Instruction Multiple Data.
+    % \item SMT: Simultaneous Multithreading.
+    % \item CMP: Chip Multiprocessing.
+    \item[] \dotfill
+    \item[] Technical:
+    \item \(f_{c}\): Clock Frequency.
+    \subitem \(\ast\) \emph{Clock Cycles per Second, measured in \(\dagger\)Hz where \(\dagger\) is a large metric prefix such as (G)iga}. 
+    \item \(c_{i}\): Issue Cycle \(i\).
+    \subitem \(\ast\) \emph{Clock Cycle with at least 1 Instruction Issued}. 
+    \item II (\(s_{i}\)): Issue Interval \(i\).
+    \subitem \(\ast\) \emph{Time Between Issue Cycle \(i\) and \(i+1\) }.
+    % \item \(n_{ir}\): Issue Rate of the Processor.\ 
+    % \subitem \(\ast\) \emph{Maximum \# of Instructions Issued in a Clock Cycle}.
+    % \item \(n_{\text{IPII}}^{i}\): \# of Instructions Issues in the Issue Interval \(s_{i}\).
+    % \item \(n_{\text{CPII}}^{i}\): Length of the Issue Interval \(s_{i}\) in Clock Cycles.
+    % \item \(n_{\text{IPC}}^{i}\): Instructions Issued per Clock Cycle in the Issue Interval \(s_{i}\).
+    \item IPII (\(\overline{n}_\text{IPII}\)): Average \# Instructions Issued per Issue Interval.
+    \item CPII (\(\overline{n}_\text{CPII}\)): Average \# Clock Cycles per Issue Interval.
+    \item IPC (\(\overline{n}_\text{IPC}\)): Average \# of Instructions Issued per Clock Cycle.
+    \subitem \(\ast\) \emph{(Per Cycle) Throughput of the Processor}.
+    \subitem \(\ast\) \emph{Execution Width of the Processor}.
+    \item \(P_{pa}\): Absolute Processor Performance.
+    \subitem \(\ast\) \emph{Usually Represented in Instructions per Second}.
+    \subitem \(\ast\) \emph{Sometimes Represented in Data Operations per Second}.
+    \item OPI: Average \# Data Operations per Instruction.
+    \item OPC: Average \# of Data Operations Processed per Clock Cycle.
+\end{itemize}
+With the terminology in place, let us dive into the sections. 
+
+\subsection{\emph{Abstract}}
+In brevity, Sima highlights that performance demands in the computing space have driven key technological advancements in clock frequencies and microarchitecture. 
+With the paper focusing on the side of microarchitecture, he elaborates on the historical development of ILP, introducing \emph{temporal, issue, \& intrainstruction} parallelism. 
+Specifically noted is that advancements within one domain of parallelism prompted similar innovations along others, due to their arising bottlenecks imposed. 
+In conclusion, it is reiterated, the content is based on historical evolution (prior to 2004) of microarchitecture.
+
+\subsection{\textbf{I}: \emph{Introduction}}
+As a result of the advancements in microarchitectures, comes performance increases. 
+At the time of writing, IPC is considered to be approaching limits, driving techniques to leverage ILP at the compiler level, as well as use of parallelism via multiprocessing and multithreading. 
+This is stated and the use ILP in addition to use of higher-than-instruction parallelism \cite{Sima}. 
+In general, advancements in microarchitecture drive \(P_{pa}\), and the article takes a clear focus on ILP. 
+The introduction rounds itself off with an outline of the remaining sections. 
+
+\subsection{\textbf{II}: \emph{Design Space of Increasing Processor Performance}}
+Given the well defined layout of the content, Sima now dives into the nomenclature we mention at the onset, along with two key ways of measuring performance. 
+First \emph{relative performance measures} are recalled, with reference to those commonly used, such as Hennessy and Patterson's CPU time \cite{Hennessy}, which measures running time for a specific program.  
+The benefit of this kind of measure is the ability to compare across ISAs, in comparison to \emph{absolute performance measures} such as \(P_{pa}\) which provide a more isolated view of performance potential within a select ISA \cite{Sima}, of which the later is the focus within the work. 
+Foundational to understanding the many variables aforementioned is to know how they are related, laid out in the first five equations. 
+\begin{multicols}{2}
+\begin{equation}
+    P_{pa} = f_{c} \times \text{IPC}
+\end{equation}
+\begin{equation}
+    \text{IPC} = \frac{\text{IPII}}{\text{CPII}}
+\end{equation}
+\begin{equation}
+    \text{OPC} = \text{IPC} \times \text{OPI}
+\end{equation}
+\begin{equation}
+    \text{OPC} = \frac{\text{IPII} \times \text{OPI}}{\text{CPII}}
+\end{equation}
+\begin{equation}
+    P_{pa} = \frac{f_{c} \times \text{IPII} \times \text{OPI}}{\text{CPII}}
+\end{equation}
+\end{multicols}
+
+(1) provides a high level picture of what is meant by \emph{absolute processor performance}, the average instructions per second. 
+IIs are detailed with the subtlety that not all clock cycles issue instructions, thus allowing a decomposition of IPC into its base components CPII <\emph{temporal parallelism}> and IPII <\emph{issue parallelism}> (2). 
+Notes are made here that in processors issuing an instruction in every clock cycle $\text{CPII} = 1$, and $\text{IPII} > 1$ is the distinguishing factor between superscalers and scalers such that $\text{IPII} = 1$.
+
+Discussion now shifts into one of focus on execution of data operations rather than instructions alone. 
+It is explained that often it is the case instructions perform exactly one data operation, but in the context of control or SIMD instructions none or many operations can be executed respectively \cite{Sima}.
+This triggers further decomposition of IPC into the ratio OPC/OPI, expressed similar to (3), which is substituted into (2) and solved for OPC in (4). 
+Here OPI is revealed as \emph{intrainstruction parallelism} and OPC combines the three aspects microarchitectures can exploit to leverage ILP. 
+A brief aside is made to comment on the chronology of microarchitecture evolutions such that the move from sequential to pipelined processors later pushed the advances from scaler to superscalers last followed by increases in average data operations per instruction.
+In addition, $f_{c}$ is classified as a dimension outside of ILP exploitations, interestingly driving its own set of evolutions into multi-core processors when hitting a `power wall' \cite{Bryant}.
+Last $P_{pa}$ is redefined as $f_{c} \times OPC$, exposing one formula for \emph{absolute processor performance} along a total of four dimensions. 
+In all cases but when $OPC = 1$ this definition contradicts the prior, and thus a distinguishing notation such as $P_{pa}^{I}$ and $P_{pa}^{O}$ would bring clarity to the matter. 
+
+\subsection{\textbf{III}: \emph{Increasing the Clock Frequency and its Implications}}
+Starting in \textbf{III.A}, $f_{c}$ is given an intrinsic upper bound determined by \emph{worst case path length} which in turn describes the advancements in increased frequencies via minimization of such length. 
+This is primarily achieved through increased pipeline lengths, which in turn bring their own challenges with increased \emph{misprediction penalties} and \emph{execution unit latency} \cite{Sima}. 
+This idea is well described in \cite{Hennessy} as increases in the number of pipeline stages most often increases the execution of a single instruction while increasing instruction throughput. In designing longer pipelines balancing stage latency minimized the \emph{worst case path length} and hence the maximum stage latency driving further increases in throughput. 
+Due to the engineering overhead, and diminishing return on investment, an \emph{optimal design point} is sought for maximizing profits by limiting throughput. 
+Following discussion of increased clock frequencies in Intel processors the article dives into resulting bottlenecks in \textbf{III.B}.
+
+Three subsystems are identified as the key bottlenecks requiring advancements: \emph{bus, memory, \& I/O}.
+Advancements in the \emph{bus} subsystems focus on increased data width and frequency; In the \emph{memory} subsystem evolution was driven by new components, cache enhancement via their organization, levels, capacity, and latency; The \emph{I/O} subsystem increased storage capacity, and in terms of displays, resolution, while decreasing access times \cite{Sima}. 
+These advancements are mentioned in passing and limited detail before switching gears to the article's more technical content.
+
+\subsection{\textbf{IV.A}: \emph{Introduction and Evolution of Utilizing Temporal Parallelism : Overview of Possible Approaches to Introduce Temporal Parallelism}}
+This subsection alone reemphasizes the definition of \emph{temporal parallelism} as defined in \textbf{II}, followed by breaking it's advancements into methodological processes. 
+This evolution is presented again in chronological order, via means of \emph{prefetching, pipelining execution units, \& pipelining processors}. 
+The first advancement to \emph{sequential} processing came from the overlap of write and fetch stages in processor stages, as not until the decode stage were dependencies from the write stage retrieved (\emph{prefetching}). 
+Evolution followed with the introduction of pipelining, first with the execution units, and second the processor as a whole. 
+Both first and in parallel, word length extensions allowed for the development of new ISAs building in backwards compatibility for their legacy counterparts \cite{Sima}. 
+Pipelined processors containing pipelined execution units set the convention for today's microarchitectures.
+
+\section{Conclusion}
+Sima's work provides an elegant overview within the evolution of microarchitectures. 
+Truly there is more than can be covered within one journal article, and thus many details are left to the reader's independent study. 
+Of the paper's focus, explanation is provided in depth, focusing on ILP along three main dimensions: \emph{temporal, issue, \& intrainstruction} parallelism. 
+The foundational concepts of microarchitecture analysis are presented, and regards are given with respect to increases in clock frequencies and the separate evolutions they drive.
+The summary we provide leaves off at the evolution of \emph{temporal parallelism}, while the work itself continues to explore \emph{issue \& intrainstruction} dimensions. 
+
+\newpage
+
+\bibliography{./konzer_cason_csc_565_paper_summary_1.bib}{}
+\bibliographystyle{ieeetr} % abbrv, acm, alpha, apalike, ieeetr, plain, siam, unsrt, tugboat
+\end{document}

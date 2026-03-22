@@ -1,0 +1,371 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\dm}{\displaymath}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#7}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: Pivotal quantities, confidence intervals.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots X_{10} $ be a sample of $ iid \sim Normal(0,\theta) $ random variables. \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+%%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Show that $ \ds T = \frac{1}{\theta} \sum_{i=1}^{n} X_{i}^{2} $ is a pivotal quantity and find its distribution. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+A pivotal quantities distribution is does not depend on $ \theta $. \\
+
+\begin{itemize}
+    \item $ \ds \frac{1}{\sigma^{2}} \sum_{i=1}^{n} (X_{i} - \overline{X})^{2} \sim \chi_{n-1}^{2}  $. \\
+    \item $ \ds f_{T}(t) = \frac{1}{\theta} \sum_{i=1}^{10} (X_{i} - 0)^{2} \sim \chi_{9}^{2}  $. \\
+\end{itemize}
+
+\noindent
+As the chi squared distribution depends only on the sample size $ n $, $ T $ is a pivotal quantity. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) Determine a $ 99\% $ confidence interval for $ \theta $ based on $ T $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds \mathbb{P} \Bigl( a \le \frac{1}{\theta} \sum_{i=1}^{10} X_{i}^{2} \le b \Bigr) = 0.99 $. \\
+    \item $ \ds \mathbb{P} \Bigl( \frac{1}{b} \sum_{i=1}^{10} X_{i}^{2} \le \theta \le \frac{1}{a} \sum_{i=1}^{10} X_{i}^{2} \Bigr) = 0.99 $. \\
+    \item $ \ds {\XBB \texttt{qchisq(p = c(0.005, 0.995), df = 9)}} = (1.735, 23.589) = (a, b) $.
+    \item $ \ds L(\overrightarrow{X}) = 0.042 \sum_{i=1}^{10} X_{i}^{2} $. \\
+    \item $ \ds U(\overrightarrow{X}) = 0.576 \sum_{i=1}^{10} X_{i}^{2} $. \\
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) Suppose that $ \ds \sum_{i=1}^{10} X_{i}^{2} = 27.3 $. 
+What is the $ 99\% $ confidence interval for $ \theta $? \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds L(\overrightarrow{X}) = 0.042 \cdot 27.3 = 1.157 $. \\
+    \item $ \ds U(\overrightarrow{X}) = 0.576 \cdot 27.3 = 15.735 $. \\
+\end{itemize}
+
+\noindent
+Our $ 99\% $ confidence interval is thus $ (1.157, 15.735) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1d     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(d) Determine a $ 99\% $ confidence interval for $ \text{SD}(X) = \sqrt{\theta} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+As we know the interval for the variance, the requested is the roots of the above bounds. \\
+
+\begin{itemize}
+    \item $ \ds L^{*}(\overrightarrow{X}) = \sqrt{L(\overrightarrow{X})} = \sqrt{1.157} = 1.076 $. \\
+    \item $ \ds U^{*}(\overrightarrow{X}) = \sqrt{U(\overrightarrow{X})} = \sqrt{15.735} = 3.967 $. \\
+\end{itemize}
+
+\noindent
+Our confidence interval is thus $ (1.076, 3.967) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ X_{1}, \dots X_{6} $ be a sample of $ iid \sim Uniform[\theta, 1] $ random variables. \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Show that $ \ds T = \frac{1 - X_{(1)}}{1 - \theta} $ is a pivotal quantity and find its cdf. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+A pivotal quantities distribution is does not depend on $ \theta $. \\
+
+\noindent
+
+\begin{itemize}
+    \item $ \ds \mathbb{P} \Bigl( X_{(1)} > m \Bigr) = \Bigl[ 1 - F_{X_{i}} \Bigr]^{n} = \Bigl[ 1 - \frac{m - \theta}{1 - \theta} \Bigr]^{n} $. \\
+    \item $ \ds \mathbb{P} \Bigl( \frac{1 - X_{(1)}}{1 - \theta} \le t \Bigr) = \mathbb{P} \Bigl( -X_{(1)} \le t(1 - \theta) - 1 \Bigr) = \mathbb{P} \Bigl( X_{(1)} > 1 - t(1 - \theta) \Bigr) = \Bigl[ 1 - \frac{t - \theta}{1 - \theta} \Bigr]^{n} $. \\
+    \item Make the substitution $ \ds t = \frac{1 + \theta}{t} + \theta $  
+    \item $ \ds \mathbb{P} \Bigl( X_{(1)} > 1 - \Bigl( \frac{1 + \theta}{t} - \theta \Bigr)(1 - \theta) \Bigr) = \Biggl[ 1 - \frac{\ds \frac{1 + \theta}{t} + \theta - \theta}{1 - \theta} \Biggr]^{n} $. \\
+    \item $ \ds \mathbb{P} \Bigl( X_{(1)} > 1 - \frac{1 + \theta}{t} \Bigr) = \Bigl[ 1 - \frac{1}{t} \Bigr]^{n} $. \\
+\end{itemize}
+
+\noindent
+We can see that $ T $ is independent of $ \theta $. \\
+
+\vspace{2.5mm}
+
+\newpage
+
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) Determine a $ 85\% $ confidence interval for $ \theta $ based on $ T $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds \mathbb{P} \Bigl( \frac{1 - X_{(1)}}{1 - \theta} \le a \Bigr) = 0.075 = a^{6} \Rightarrow a = 0.075^{1/6} = 0.649 $. \\
+    \item $ \ds \mathbb{P} \Bigl( \frac{1 - X_{(1)}}{1 - \theta} \le b \Bigr) = 0.925 = b^{6} \Rightarrow b = 0.925^{1/6} = 0.987 $. \\
+    \item $ \ds \mathbb{P} \Bigl( 0.649 \le \frac{1 - X_{(1)}}{1 - \theta} \le 0.987 \Bigr) = 0.85 $. \\
+    \item $ \ds \mathbb{P} \Bigl( 1 - \frac{1- X_{(1)}}{0.649} \le \theta \le 1 - \frac{1- X_{(1)}}{0.987} \Bigr) = 0.85 $. \\
+    \item $ \ds L(\overrightarrow{X}) = 1 - \frac{1- X_{(1)}}{0.649} $. \\
+    \item $ \ds U(\overrightarrow{X}) = 1 - \frac{1- X_{(1)}}{0.987} $. \\
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) Suppose that $ \overrightarrow{X} = \langle 0.527, 0.803, 0.842, 0.880, 0.474, 0.558 \rangle $. 
+Find the $ 85\% $ confidence interval for $ \theta $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds X_{(1)} = 0.474 $. \\
+    \item $ \ds L(\overrightarrow{X}) = 1 - \frac{1- 0.474}{0.649} = 0.190 $. \\
+    \item $ \ds U(\overrightarrow{X}) = 1 - \frac{1- 0.474}{0.987} = 0.467 $. \\
+\end{itemize}
+
+\noindent
+Our $ 85\% $ confidence interval is thus $ (0.190, 0.467) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ T = X_{1}, \dots X_{8} $ be a sample of $ iid \sim Gamma(4, \theta) $ random variables. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Show that $ \ds \frac{2}{\theta} \sum_{i=1}^{n} X_{i} $ is a pivotal quantity and find its distribution. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+A pivotal quantities distribution is does not depend on $ \theta $. \\
+
+\begin{itemize}
+    \item Let $ \ds L = \sum_{i=1}^{8} X_{i} \sim Gamma(32, \theta) $
+    \item $ \ds F_{L}(l) = P\Bigl( \frac{2L}{\theta} \le l \Bigr) = F_{L}(l) = P\Bigl( L \le \frac{\theta l}{2} \Bigr) \sim \chi_{64}^{2} $. \\
+\end{itemize}
+
+\noindent
+As the chi squared distribution depends only on the sample size $ n $, $ L $ is a pivotal quantity. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) Determine a $ 95\% $ confidence interval for $ \theta $ based on $ T $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds \mathbb{P} \Bigl( a \le \sum_{i=1}^{8} X_{i} \le b \Bigr) = 0.95 $. \\
+    \item $ \ds \mathbb{P} \Bigl( \frac{1}{b} \sum_{i=1}^{8} X_{i} \le \theta \le \frac{1}{a} \sum_{i=1}^{8} X_{i} \Bigr) = 0.95 $. \\
+    \item $ \ds {\XBB \texttt{qchisq(p = c(0.025, 0.975), df = 64)}} = (43.776, 88.004) = (a, b) $.
+    \item $ \ds L(\overrightarrow{X}) = 0.0114 \sum_{i=1}^{8} X_{i} $. \\
+    \item $ \ds U(\overrightarrow{X}) = 0.0228 \sum_{i=1}^{8} X_{i} $. \\
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) Suppose that $ \overrightarrow{X} = \langle 17.40, 15.95, 15.17, 7.92, 11.54, 10.46, 8.47, 15.54 \rangle $.
+Find a $ 95\% $ confidence interval for $ \theta $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds \sum_{i=1}^{8} X_{i} = 102.45 $
+    \item $ \ds L(\overrightarrow{X}) = 0.0114 \cdot 102.45 = 1.164 $. \\
+    \item $ \ds U(\overrightarrow{X}) = 0.0228 \cdot 102.45 = 2.340 $. \\
+\end{itemize}
+
+\noindent
+Our $ 95\% $ confidence interval is thus $ (1.164, 2.340) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1}, \dots X_{6} $ be a sample of $ iid \sim Normal(\mu, \theta) $ random variables. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Why is $ \ds T = \frac{(n-1)S^{2}}{\theta} $ a pivotal quantity? 
+What is the distribution of $ \ds \frac{(n-1)S^{2}}{\theta} $? \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+$ T $ is a pivotal quantity as its distribution does not depend on $ \theta $.
+
+\begin{itemize}
+    \item $ \ds \frac{(n-1)S^{2}}{\sigma^{2}} = \frac{1}{\sigma^{2}} \sum_{i=1}^{n} (X_{i} - \overline{X})^{2} \sim \chi_{n-1}^{2}  $. \\
+    \item $ \ds f_{T}(t) = \frac{1}{\theta} \sum_{i=1}^{6} (X_{i} - \overline{X})^{2} \sim \chi_{5}^{2}  $. \\
+\end{itemize}
+\noindent
+Conclusion. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) Determine a $ 93\% $ confidence interval for $ \theta $ based on $ T $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+Intro. \\
+
+\begin{itemize}
+    \item $ \ds \mathbb{P} \Bigl( a \le \frac{5S^{2}}{\theta} \le b \Bigr) = 0.93 $. \\
+    \item $ \ds \mathbb{P} \Bigl( \frac{5S^{2}}{b} \le \theta \le \frac{5S^{2}}{a} \Bigr) = 0.93 $. \\
+    \item $ \ds {\XBB \texttt{qchisq(p = c(0.035, 0.965), df = 5)}} = (0.969, 11.985) = (a, b) $.
+    \item $ \ds L(\overrightarrow{X}) = \frac{5S^{2}}{11.985} $. \\
+    \item $ \ds U(\overrightarrow{X}) = \frac{5S^{2}}{0.969} $. \\
+\end{itemize}
+
+\noindent
+Conclusion. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(c) Suppose that $ \overrightarrow{X} = \langle 0.71, 0.62, 2.28, 1.01, 10.01, 7.64 \rangle $.
+Find a $ 95\% $ confidence interval for $ \theta $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\begin{itemize}
+    \item $ \ds S(\overrightarrow{X}) = 4.075 $
+    \item $ \ds S^{2}(\overrightarrow{X}) = 16.604 $
+    \item $ \ds L(\overrightarrow{X}) = \frac{5(16.604)}{11.985} = 6.927 $. \\
+    \item $ \ds U(\overrightarrow{X}) = \frac{5(16.604)}{0.969} = 85.643 $. \\
+\end{itemize}
+
+\noindent
+Our $ 93\% $ confidence interval is thus $ (6.927, 85.643) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+5. A pollster chooses $ 500 $ citizens at random, and asks whether each plans to vote `yes' or `no' on proposition $ X $.
+In the sample, $ 375 $ indicate a `yes' vote. \\
+
+Find a $ 95\% $ confidence interval for the proportion of the total population who plan to vote `yes.'
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+\vspace{2.5mm}
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We will leveralge the general form of symmetric confidence intervals \dots \\
+
+$ \ds CI = sample \ statistic \pm (critical \ value) (standard \ error) $.  \\
+
+\noindent
+Given our sample is sufficently large our sampling distribution is approximately normally distributed, by the central limit theorem. \\
+
+\noindent
+From our sample we can construct an estimate for the probablity of a voter panning to vote `yes,' our sample statistic \dots \\ 
+
+$ \hat{p} = 375/500 = 0.75 $. \\
+
+\noindent
+For the normal distribution we can solve for values $ (a,b) $, where $ a = -b $ and $ | a | = | b | $ is our critical value \dots \\
+
+$ \ds {\XBB \texttt{qnorm(p = c(0.025, 0.975), mean = 0, sd = 1)}} = (-1.96, 1.96) = (a, b) $. \\
+
+\noindent
+From our sample statistic we can construct our standard error \dots \\ 
+
+$ \ds SE = \sqrt{ \ds \frac{\hat{p}(1 - \hat{p})}{n}} = \sqrt{ \ds \frac{(0.75)(0.25)}{500}} = 0.194 $ \\
+
+\noindent
+We now have the necessacary information to construct our $ 95\% $ confidence interval \dots \\
+
+CI: $ 0.75 \pm (1.96)(0.194) = 0.75 \pm 0.038 $. \\
+
+\noindent
+Our $ 95\% $ confidence interval is thus $ (0.712, 0.788) $.
+\end{document}

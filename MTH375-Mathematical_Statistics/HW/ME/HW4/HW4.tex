@@ -1,0 +1,377 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#4}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: Rao-Blackwell Theorem, Exponential Families of Distributions, UMVUEs, Lehman-Sheff\'e Theorem.
+
+\newpage
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid $ $ Binomial(k=1, p) $ random variables. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+%%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Write out the likelihood function $ L(p | x_{1}, \dots x_{n}) $, and find a sufficient statistic for $ p $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We know that for each $ X_{i} $ its $ pmf $ is $ f(x_{i}; p) = p^{x_{i}}(1 - p)^{1 - x_{i}} $. \\
+
+With this we can compute the likelihood function $ L(p | x_{1}, \dots, x_{n}) = f(x_{1}; p) \cdots f(x_{n}; p) $.
+
+\begin{itemize}
+    \item $ \ds L(p) = p^{x_{1}}(1 - p)^{1 - x_{1}} \cdots p^{x_{n}}(1 - p)^{1 - x_{n}} $.
+    \item $ \ds L(p) = p^{x_{1} + . + . + x_{n}}(1 - p)^{n - x_{1} - . - . - x_{n}} $.
+    \item $ \ds L(p) = p^{\sum_{i=1}^{n} x_{i}}(1 - p)^{n - \sum_{i=1}^{n} x_{i}} $.
+\end{itemize} 
+
+\noindent
+We can now see that $ \ds T = \sum_{i=1}^{n} x_{i} $ is a sufficient statistic for $ p $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) Use your answer to (a) to find an UMVUE for $ p $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+For each $ X_{i} $ we have $ E( X_{i} ) = kp = p $. \\
+
+Thus \dots
+
+\begin{itemize}
+    \item $ \ds E( T ) = n E( X_{i} ) = np $.
+    \item $ \ds np \cdot \frac{1}{n} = p $.
+    \item $ \ds T \cdot \frac{1}{n} = \overline{X} $.
+    \item $ \ds E( \overline{X} ) = E ( T ) \cdot \frac{1}{n} = np \cdot \frac{1}{n} = p $.
+\end{itemize}
+
+\noindent
+We can now see that $ \overline{X} $ is an UMVUE for $ p $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+(c) Evaluate $ E(\overline{X}^{2}) $. Hint: Use $ E(\overline{X}) $ and $ V(\overline{X}) $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We know $ V(\overline{X}) = E(\overline{X}^{2}) - E(\overline{X})^{2} $. \\
+
+\noindent
+For each $ X_{i} $ we have $ V( X_{i} ) = kpq = p(1 - p) $. \\
+
+Thus \dots
+
+\begin{itemize}
+    \item $ \ds V(\overline{X}) = V\Bigl( \frac{T}{n} \Bigr) = \frac{V( T )}{n^{2}} = \frac{nV( X_{i})}{n^{2}} = \frac{p(1-p)}{n} $.
+    \item $ \ds E(\overline{X})^{2} = p^{2} $.
+    \item $ \ds E(\overline{X}^{2}) = V(\overline{X}) + E(\overline{X})^{2} = \frac{p(1-p)}{n} + p^{2} $.
+\end{itemize}
+\vspace{2.5mm}
+
+%%%%%%%%%     1d     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(d) Use your answer to (c) to find an UMVUE for $ p^{2} $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Some simplification implies \dots
+
+\begin{itemize}
+    \item $ \ds E(\overline{X}^{2}) = \frac{p(1-p)}{n} + p^{2} = \frac{p - p^{2} + np^{2}}{n} = \frac{p + p^{2}(n - 1)}{n} $.
+    \item $ \ds E(\overline{X}) + p^{2}(n - 1) = nE(\overline{X}^{2}) $.
+    \item $ \ds p^{2}(n-1) = nE(\overline{X}^{2}) - E(\overline{X}) $.
+    \item $ \ds p^{2} = \frac{nE(\overline{X}^{2}) - E(\overline{X})}{n - 1} = E \Biggl( \frac{n\overline{X}^{2} - \overline{X}}{n - 1} \Biggr) $.
+\end{itemize}
+
+\noindent
+We can now see that $ \ds \frac{n\overline{X}^{2} - \overline{X}}{n - 1} $ is an UMVUE for $ p^{2} $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ $ Normal(\mu, 1) $ random variables. We know $ \overline{X} $ is UMVUE for $ \mu $.
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Find an UMVUE for $\mu^{2} $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We know $ \ds E(X_{i}) = \mu $, $ \ds E(\overline{X}) = \frac{nE(X_{i})}{n} = \mu $, $ \ds V(X_{i}) = 1^{2} $ and $ \ds V(\overline{X}) = \frac{nV(X_{i})}{n^{2}} = \frac{1}{n} $. \\
+
+Thus $ \ds \overline{X} \sim N(\mu,\frac{1}{n}) $. \\
+
+From above $ \ds E(\overline{X}^{2}) = V(\overline{X}) + E(\overline{X})^{2} $. 
+
+\begin{itemize}
+    \item $ \ds E(\overline{X}^{2}) = \frac{1}{n} + \mu^{2} $.
+    \item $ \ds E(\overline{X}^{2}) - \frac{1}{n} = \mu^{2} $.
+    \item $ \ds E\Bigl( \overline{X}^{2} - \frac{1}{n} \Bigr) = \mu^{2} $.
+\end{itemize}
+
+\noindent
+We can now see that $ \ds \overline{X}^{2} - \frac{1}{n} $ is an UMVUE for $ \mu^{2} $. \\
+
+\vspace{2.5mm}
+\newpage
+
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) Use the MGF of $ \overline{X} $ to compute $ E(\overline{X}^{3}) $. 
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We need to solve for the third moment of $ \overline{X} $. \\
+
+\begin{itemize}
+    \item $ \ds M_{\overline{X}}(t) = e^{\mu t + t^{2} / 2 } $.
+    \item $ \ds M_{\overline{X}}^{'}(t) = (\mu + t/2)e^{\mu t + t^{2} / 2 } = \mu e^{\mu t + t^{2}} + \frac{t}{2} e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{2}(t) = \mu (\mu + t/2) e^{\mu t + t^{2}} + \frac{1}{2} e^{\mu t + t^{2}} + \frac{t}{2} (\mu + t/2) e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{2}(t) = \Bigl( \mu^{2} + \frac{\mu t}{2} \Bigr) e^{\mu t + t^{2}} + \frac{1}{2} e^{\mu t + t^{2}}  \Bigl( \frac{\mu t}{2} + \frac{t^{2}}{2} \Bigr) e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{2}(t) = \mu^{2} e^{\mu t + t^{2}} + \frac{\mu t}{2} e^{\mu t + t^{2}} + \frac{1}{2} e^{\mu t + t^{2}}  \frac{\mu t}{2} e^{\mu t + t^{2}} + \frac{t^{2}}{2} e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{2}(t) = \mu^{2} e^{\mu t + t^{2}} + \mu t e^{\mu t + t^{2}} + \frac{1}{2} e^{\mu t + t^{2}} + \frac{t^{2}}{2} e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{3}(t) = \mu^{2} (\mu + t/2) e^{\mu t + t^{2}} + \mu e^{\mu t + t^{2}} + \mu t (\mu + t/2) e^{\mu t + t^{2}} + \frac{1}{2} (\mu + t/2) e^{\mu t + t^{2}} + \frac{2t}{2} e^{\mu t + t^{2}} + \frac{t^{2}}{2} (\mu + t/2) e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{3}(t) =  \Bigl( \mu^{3} + \frac{\mu^{2} t}{2} \Bigr) e^{\mu t + t^{2}} + \mu e^{\mu t + t^{2}} + \Bigl( \mu^{2}t + \frac{\mu t^{2}}{2} \Bigr) e^{\mu t + t^{2}} + \Bigl( \frac{\mu}{2} + \frac{t}{4} \Bigr) e^{\mu t + t^{2}} + \frac{2t}{2} e^{\mu t + t^{2}} + \Bigl( \frac{\mu t^{2}}{2} + \frac{t^{3}}{4} \Bigr) e^{\mu t + t^{2}} $.
+    \item $ \ds M_{\overline{X}}^{3}(0) =  \mu^{3} + \mu + \frac{\mu}{2} = \mu^{3} + \frac{3\mu}{2} = E(\overline{X}^{3}) $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) Use (b) to find an UMVUE for $ \mu^{3} $. 
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We have $ \ds \mu^{3} = E(\overline{X}^{3}) - \frac{3\mu}{2} $ \\
+
+Thus \dots
+
+\begin{itemize}
+    \item $ \ds \mu^{3} = E(\overline{X}^{3}) - \frac{3E(\overline{X})}{2} = E \Biggl( \overline{X}^{3} - \frac{3\overline{X}}{2} \Biggr)$
+\end{itemize}
+
+\noindent
+We can now see that $ \ds \overline{X}^{3} - \frac{3\overline{X}}{2} $ is an UMVUE for $ \mu^{3} $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with common pdf $ f(x_{i}; \theta) $. \\
+
+\begin{center}
+    $ \ds f(x_{i}; \theta) = \frac{3x_{i}^{2}}{\theta^{3}} \quad $ for $ \quad 0 \le x_{i} \le \theta $. 
+\end{center}
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) the likelihood function $ L(\theta | x_{1}, \dots x_{n}) $, and find a sufficient statistic $ T $ for $ \theta $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+We can compute the likelihood function $ L(\theta | x_{1}, \dots, x_{n}) = f(x_{1}; \theta) \cdots f(x_{n}; \theta) $. 
+
+\begin{itemize}
+    \item $ \ds L(\theta) = \frac{3x_{1}^{2}}{\theta^{3}} \cdots \frac{3x_{n}^{2}}{\theta^{3}} = \Bigl( \frac{3}{\theta^{3}} \Bigr)^{n} \prod_{i=1}^{n} x_{i}^{2} \quad $ for $ \quad 0 \le x_{i} \le \theta $. 
+\end{itemize}
+
+\noindent
+We can now see that $ \ds T = \max\{X_{i},...,X_{n}\} $ is a sufficient statistic for $ \theta $, as $ T $ provides the lower bound on $ \theta $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) Find the pdf of $ T $, $ E(T)$ , and an UMVUE for $ \theta $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We will first solve for the $CDFs$ of $X_{i}$ and $T$ then the requested \dots 
+
+\begin{itemize}
+    \item $ \ds F_{X_{i}} = \int_{0}^{x_{i}} \frac{3x^{2}}{\theta^{3}} \,dx = \frac{x^{3}}{\theta^{3}} \Big|_{0}^{x_{i}} = \frac{x_{i}^{3}}{\theta^{3}} $.
+\end{itemize}
+
+\begin{itemize}
+    \item $ \ds F_{T} = P(T \le t) = P(X_{1} \le t \ \& \cdots \& \ X{n} \le t) = \Bigl( F_{X_{i}} \Bigr)^{n} = \Bigl( \frac{m^{3}}{\theta^{3}} \Bigr)^{n} = \frac{m^{3n}}{\theta^{3n}} $.
+\end{itemize}
+
+\begin{itemize}
+    \item $ \ds f_{T} = \frac{d}{dx} \Bigl[ \frac{m^{3n}}{\theta^{3n}} \Bigr] = \frac{3nm^{3n-1}}{\theta^{3n}} $.
+\end{itemize}
+
+\begin{itemize}
+    \item $ \ds E(T) = \int_{0}^{\theta} \frac{3nm^{3n}}{\theta^{3n}} \, dm = \frac{3nm^{3n + 1}}{(3n + 1)\theta^{3n}} \Big|_{0}^{\theta} = \frac{3n\theta^{3n + 1}}{(3n + 1)\theta^{3n}} - \frac{3n(0)^{3n + 1}}{(3n + 1)\theta^{3n}} = \frac{3n\theta}{3n + 1} $.
+\end{itemize}
+
+\begin{itemize}
+    \item $ \ds T^{*} = \frac{3n+1}{3n}T $; $ \ds E(T^{*}) = E \Bigl( \frac{3n+1}{3n}T \Bigr) = \frac{3n+1}{3n} E( T ) = \theta $
+\end{itemize}
+
+\noindent
+We can now see that $ \ds T^{*} = \max\{X_{i},...,X_{n}\} \frac{3n+1}{3n} $ is an UMVUE for $ \theta $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with common pdf $ f(x_{i}; \theta_{1}, \theta_{2}) $. \\
+
+\begin{center}
+    $ \ds f(x_{i}; \theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{i} - \theta_{2}) / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2} $. 
+\end{center}
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) Show that the pair $ \ds \bigl( \sum_{k=1}^{n} X_{k} , X_{(1)} \bigr) $ is sufficient for $ (\theta_{1}, \theta_{2}) $. We use the notation $ X_{(1)} = \min\{ X{1}, \dots, X{n} \} $, the $1^{st}$ order statistic.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We can compute the likelihood function $ L(\theta_{1}, \theta_{2} | x_{1}, \dots, x_{n}) = f(x_{1}; \theta_{1}, \theta_{2}) \cdots f(x_{n}; \theta_{1}, \theta_{2}) $. 
+
+\begin{itemize}
+    \item $ \ds L(\theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{1} - \theta_{2}) / \theta_{1}} \cdots \frac{1}{\theta_{1}}e^{-(x_{n} - \theta_{2}) / \theta_{1}} = \frac{1}{\theta_{1}^{n}} \Bigl( e^{\theta_{2} / \theta_{1} - x_{1} / \theta_{1}} \cdots  e^{\theta_{2} / \theta_{1} - x_{n} / \theta_{1}} \Bigr) $.
+    \item $ \ds L(\theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}^{n}} \Bigl( e^{n \theta_{2} / \theta_{1} - \sum_{k=1}^{n} x_{k} / \theta_{1}} \Bigr) \quad $ for $ \quad  x_{i} > \theta_{2} $.
+\end{itemize}
+
+As this likelihood function is an exponential family of ditributions, it is straightforward to see that the pair $ \ds \bigl( \sum_{k=1}^{n} X_{k} , X_{(1)} \bigr) $ is sufficient for $ (\theta_{1}, \theta_{2}) $. \\
+
+For clarity, $ X_{(1)} $ is in this pair as $ \theta_{2} $ has an upperbound of $ X_{(1)} $ and appears in the term $ \ds \frac{n\theta_{2}}{\theta_{1}} $ within our family. \\
+
+\vspace{2.5mm}
+\newpage
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) Find a pair $ (T_{1}, T_{2}) $ which is an UMVUE for $ (\theta_{1}, \theta_{2}) $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+We will first solve for $ F( x_{i}; \theta_{1}, \theta_{2} ) $. 
+
+\begin{itemize}
+    \item $ \ds F_{X_{i}} = \int_{\theta_{2}}^{x_{i}} \frac{1}{\theta_{1}}e^{\theta_{2} / \theta_{1} - x / \theta_{1}} \,dx = -e^{\theta_{2} / \theta_{1} - x / \theta_{1}} \Big|_{\theta_{2}}^{x_{i}} = e^{\theta_{2} / \theta_{1} - \theta_{2} / \theta_{1}} -e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} = 1 - e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} $.
+\end{itemize}
+
+\noindent
+Next we will need $ F_{X_{(1)}} $. 
+
+\begin{itemize}
+    \item $ \ds F_{X_{(1)}}(m) = P(\min\{ X{1}, \dots, X{n} \} \le m) = 1 - P(\min\{ X{1}, \dots, X{n} \} > m) $.
+    \item $ \ds F_{X_{(1)}}(m) = 1 - [ P(X_{i} > m)]^{n} = 1 - [ 1 - F_{X_{i}}(m) ]^{n} =  1 - (e^{\theta_{2} / \theta_{1} - m / \theta_{1}})^{n} =  1 - e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}} $.
+\end{itemize}
+
+\noindent
+Following $ f_{X_{(1)}} $ \dots
+
+\begin{itemize}
+    \item $ \ds f_{X_{(1)}}(m) = \frac{d}{dm} [ F_{X_{(1)}}(m) ] = \frac{d}{dm} \bigl[ 1 - e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}} \bigr] = \frac{n}{\theta_{1}}e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}}  $.
+\end{itemize}
+
+\noindent
+Continuing, we will now solve for $ E( X_{(1)} ) $. 
+
+\begin{itemize}
+    \item $ \ds E( X_{(1)} ) = \int_{\theta_{2}}^{\infty} \frac{nm}{\theta_{1}}e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}} \, dm = - \frac{nm + \theta_{1}}{n} e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}} \Big|_{\theta_{2}}^{\infty} $.
+    \item $ \ds E( X_{(1)} ) = \frac{n\theta_{2} + \theta_{1}}{n} e^{n\theta_{2} / \theta_{1} - n\theta_{2} / \theta_{1}} - \infty e^{- \infty / \theta_{1}} = \frac{n\theta_{2} + \theta_{1}}{n} e^{0} - \infty \frac{e^{1 / \theta_{1}}}{e^{\infty}}  $.
+    \item $ \ds E( X_{(1)} ) = \frac{n\theta_{2} + \theta_{1}}{n} - \frac{\infty}{e^{\infty}} = \frac{n\theta_{2} + \theta_{1}}{n} = \theta_{2} + \frac{\theta_{1}}{n} $ ; As $ \ds \lim_{m \to \infty} \frac{m}{e^{m}} = 0 $
+\end{itemize} \XB
+
+\noindent
+We will now solve for $ E( X_{i} ) $. 
+
+\begin{itemize}
+    \item $ \ds E( X_{i} ) = \int_{\theta_{2}}^{\infty} \frac{x_{i}}{\theta_{1}}e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} \,dx = -(x_{i} + \theta_{1}) e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} \Big|_{\theta_2}^{\infty} $.
+    \item $ \ds E( X_{i} ) = (\theta_{2} + \theta_{1}) e^{\theta_{2} / \theta_{1} - \theta_{2} / \theta_{1}} - (\infty + \theta_{1}) e^{\theta_{2} / \theta_{1} - \infty / \theta_{1}} = (\theta_{2} + \theta_{1}) e^{0} - \infty e^{\theta_{2} - \infty / \theta_{1}} $.
+    \item $ \ds E( X_{i} ) = \theta_{2} + \theta_{1} - \infty e^{-\infty / \theta_{1}} = \theta_{2} + \theta_{1} - \frac{\infty e^{1 / \theta_{1}}}{e^{\infty}} = \theta_{2} + \theta_{1} - \frac{\infty}{e^{\infty}} $.
+    \item As $ \ds \lim_{x_{i} \to \infty} \frac{x_{i}}{e^{x_{i}}} = 0 \ ; \ E( X_{i} ) = \theta_{2} + \theta_{1} $.
+\end{itemize}
+
+\noindent
+We can now see $ \ds E\Bigl( \sum_{k=1}^{n} X_{k} \Bigr) = n E( X_{k} ) = n\theta_{2} + n\theta_{1} $ and $ \ds E( X_{(1)} ) = \theta_{2} + \frac{\theta_{1}}{n} $. \\
+\newpage
+
+\noindent
+We will solve these two equations for solutions to $ \theta_{1} $ and $ \theta_{2} $ \dots
+
+\begin{itemize}
+    \item $ \ds n( \theta_{1} + \theta_{2} ) = E\Bigl( \sum_{k=1}^{n} X_{k} \Bigr) \ ; \ \theta_{1} + \theta_{2} = E ( \overline{X} ) \ ; \ \theta_{2} = E ( \overline{X} ) - \theta_{1}  $.
+    \item $ \ds \theta_{2} + \frac{\theta_{1}}{n} = E( X_{(1)} ) \ ; \ \theta_{2} = E( X_{(1)} ) - \frac{\theta_{1}}{n} = E ( \overline{X} ) - \theta_{1} = \theta_{2} $.
+    \item $ \ds \theta_{1} - \frac{\theta_{1}}{n} = E ( \overline{X} ) - E( X_{(1)} ) \ ; \ n\theta_{1} - \theta_{1} = nE ( \overline{X} ) - nE( X_{(1)} ) $.
+    \item $ \ds \theta_{1}(n - 1) = n \big( E ( \overline{X} ) - E( X_{(1)} ) \bigr) \ ; \ \theta_{1} = \frac{n \big( E ( \overline{X} ) - E( X_{(1)} ) \bigr)}{n-1} $.
+    \item $ \ds \theta_{1} = \frac{n \big( E ( \overline{X} - X_{(1)} ) \bigr)}{n-1} = E \Biggl( \frac{n(\overline{X} - X_{(1)})}{n - 1} \Biggr) $.
+    \item $ \ds \theta_{2} = E ( \overline{X} ) - \theta_{1} = E ( \overline{X} ) - E \Biggl( \frac{n(\overline{X} - X_{(1)})}{n - 1} \Biggr) = \frac{(n-1)E(\overline{X})}{n - 1} - E \Biggl( \frac{n(\overline{X} - X_{(1)})}{n - 1} \Biggr) $.
+    \item $ \ds \theta_{2} = E \Biggl( \frac{(n-1)\overline{X}}{n-1} \Biggr) - E \Biggl( \frac{n(\overline{X} - X_{(1)})}{n - 1} \Biggr) = E \Biggl( \frac{n\overline{X} - \overline{X} - n\overline{X} + nX_{(1)} }{n - 1} \Biggr) $.
+    \item $ \ds \theta_{2} = E \Biggl( \frac{nX_{(1)} - \overline{X}}{n - 1} \Biggr) $.
+\end{itemize}
+
+\noindent
+We can now see that the pair $ \ds (T_{1}, T_{2}) = \Biggl( \frac{n(\overline{X} - X_{(1)})}{n - 1}, \frac{nX_{(1)} - \overline{X}}{n - 1} \Biggr)$ is an UMVUE for $ (\theta_{1}, \theta_{2}) $.
+
+\vspace{2.5mm}
+
+
+\end{document}

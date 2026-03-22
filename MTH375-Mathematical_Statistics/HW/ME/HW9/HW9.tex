@@ -1,0 +1,331 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#9}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: Uniformly Most Powerful (UMP) test of hypotheses.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots , X_{n} $ be $ iid \sim Exponential(\theta) $ random variables, Determine \dots \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+%%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The form of the UMP test of the hypotheses $ H_{0} : \theta = \theta_{0} $ vs. $ H_{A} : \theta > \theta_{0} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+I will first state the general form then elaborate on the requested solution. \\
+
+\begin{itemize}
+    \item $ \ds f(x; \theta) = \frac{1}{\theta} e^{-x/\theta} $.
+    \item $ \ds \frac{L(\theta_{0})}{L(\theta_{A})} = \Bigl( \frac{\theta_{A}}{\theta_{0}} \Bigr)^{n} e^{\ds \Sigma_{X} \Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr)} < k $.
+    \item $ \ds \Sigma_{X} \Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) < \ln(k) - n\ln\Bigl( \frac{\theta_{A}}{\theta_{0}} \Bigr) $.
+\end{itemize}
+
+\noindent
+Thus if $ \theta_{A} > \theta_{0} $, our form is $ \Sigma_{X} > k_{\alpha} $ as $ \ds \Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) < 0 $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The form of the UMP test of the hypotheses $ H_{0} : \theta = \theta_{0} $ vs. $ H_{A} : \theta < \theta_{0} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds \Sigma_{X} \Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) < \ln(k) - n\ln\Bigl( \frac{\theta_{A}}{\theta_{0}} \Bigr) $.
+\end{itemize}
+
+\noindent
+Thus if $ \theta_{A} < \theta_{0} $, our form is ``Reject $ H_{0} $ if $ \Sigma_{X} < k_{\alpha} $'' as $ \ds \Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) > 0 $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) The sampling distribution of the statistic defining the UMP test. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+As $ X_{i} \sim Exponential(\theta) $, $ \Sigma_{X} \sim Gamma(n, \theta) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ X_{1}, \dots , X_{10} $ be $ iid \sim Binomial(1, \theta) $ random variables, Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The form of the UMP test of the hypotheses $ H_{0} : \theta = 0.6 $ vs. $ H_{A} : \theta < 0.6 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+I will first state the general form then elaborate on the requested solution. \\
+
+\begin{itemize}
+    \item $ \ds f(x; \theta) = \binom{1}{x} \theta^{x} (1 - \theta)^{1 - x} $.
+    \item $ \ds \frac{L(\theta_{0})}{L(\theta_{A})} = \Bigl( \frac{\theta_{0}}{\theta_{A}} \Bigr)^{\ds \Sigma_{x}} \Bigl( \frac{1 - \theta_{0}}{1 -\theta_{A}} \Bigr)^{\ds n - \Sigma_{x}} < k $.
+    \item $ \ds \Sigma_{X} \ln\Bigl( \frac{\theta_{0}}{\theta_{A}} \Bigr) + (n - \Sigma_{x})\ln\Bigl( \frac{1 - \theta_{0}}{1 -\theta_{A}} \Bigr)  < \ln(k) $.
+    \item $ \ds \Sigma_{X} \Biggl( \ln\Bigl( \frac{\theta_{0}}{\theta_{A}} \Bigr) - \ln\Bigl( \frac{1 - \theta_{0}}{1 -\theta_{A}} \Bigr) \Biggr) < \ln(k) - n\ln\Bigl( \frac{1 - \theta_{0}}{1 -\theta_{A}} \Bigr) $.
+\end{itemize}
+
+\noindent
+Thus if $ \theta_{A} < \theta_{0} $, our form is ``Reject $ H_{0} $ if $ \Sigma_{X} < k_{\alpha} $'' as $ \ds \ln\Bigl( \frac{\theta_{0}}{\theta_{A}} \Bigr) > \ln\Bigl( \frac{1 - \theta_{0}}{1 -\theta_{A}} \Bigr) $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The UMP test at level of significance $ \alpha = 0.05 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Our goal is to find $ k_{\alpha} $. \\
+
+\begin{itemize}
+    \item As $ X_{i} \sim Binomial(1, \theta) $, $ \Sigma_{X} \sim Binomial(n, \theta) $.
+    \item $ \ds k_{\alpha} = {\XBB \texttt{qbinom(size = $ n $, prob = $ \theta $, p = $ \alpha $)}} $.
+    \item $ \ds {\XBB \texttt{qbinom(size = 10, prob = 0.6, p = 0.05)}} = 3 = k_{0.05} $.
+\end{itemize}
+
+\noindent
+Our test is thus ``Reject $ H_{0} $ if $ \Sigma_{X} < 3 $.'' \\
+
+\vspace{2.5mm}
+
+\newpage 
+
+%%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) If we reject $ H_{0} $ given in a run of this experiment, the data came out to be, 
+$ \overrightarrow{x}  = \left\{ 0, 0, 1, 0, 1, 0, 1, 0, 1, 0 \right\} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+``Reject $ H_{0} $ if $ \Sigma_{X} < 3 $.''
+
+\begin{itemize}
+    \item $ \ds \Sigma_{X} = {\XBB \texttt{sum(0, 0, 1, 0, 1, 0, 1, 0, 1, 0)}} = 4 $.
+\end{itemize}
+As $ \Sigma_{X} = 4 \nless 3 $, we fail to Reject $ H_{0} $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ X_{1}, \dots , X_{10} $ be $ iid \sim Normal(\mu=0, \sigma^{2}=\theta) $ random variables, Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The form of the UMP test of the hypotheses $ H_{0} : \theta = 5 $ vs. $ H_{A} : \theta < 5 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+I will first state the general form then elaborate on the requested solution. \\
+
+\begin{itemize}
+    \item $ \ds f(x; \theta) = \frac{1}{\sqrt{2\pi\theta}} e^{\ds -\frac{x^{2}}{2\theta}} $.
+    \item $ \ds \frac{L(\theta_{0})}{L(\theta_{A})} = \Bigl( \frac{\theta_{A}}{\theta_{0}} \Bigr)^{\ds n/2} e^{\ds -\frac{\Sigma_{X^{2}}}{2}\Bigl( \frac{1}{\theta_{0}} - \frac{1}{\theta_{A}} \Bigr)} < k $.
+    \item $ \ds \frac{n}{2}\ln\Bigl( \frac{\theta_{A}}{\theta_{0}} \Bigr) + \frac{\Sigma_{X^{2}}}{2}\Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) < \ln(k) $.
+    \item $ \ds \Sigma_{X^{2}}\Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) < 2\ln(k) - n\ln\Bigl( \frac{\theta_{A}}{\theta_{0}} \Bigr) $.
+\end{itemize}
+
+\noindent
+Thus if $ \theta_{A} < \theta_{0} $, our form is ``Reject $ H_{0} $ if $ \Sigma_{X^{2}} < k_{\alpha} $'' as $ \ds \Bigl( \frac{1}{\theta_{A}} - \frac{1}{\theta_{0}} \Bigr) > 0 $. \\
+
+\vspace{2.5mm}
+
+\newpage 
+
+%%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The UMP test at level of significance $ \alpha = 0.01 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Our goal is to find $ k_{\alpha} $. \\
+
+\begin{itemize}
+    \item As $ X_{i} \sim Normal(\mu=0, \sigma^{2}=\theta) $, $\ds \frac{\Sigma_{X^{2}}}{\theta} \sim \chi^{2}_{n} $.
+    \item $ \ds k_{\alpha} = {\XBB \theta \cdot \texttt{qchisq(df = $ n $, p = $ \alpha $)}} $.
+    \item $ \ds {\XBB \texttt{5*qchisq(df = 10, p = 0.01)}} = 12.79 = k_{0.01} $.
+\end{itemize}
+
+\noindent
+Our test is thus ``Reject $ H_{0} $ if $ \Sigma_{X^{2}} < 12.79 $.'' \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) If we reject $ H_{0} $ given in a run of this experiment, the data came out to be,
+
+$ \overrightarrow{x}  = \left\{ 5.98, 1.94, 1.19, -3.28, -0.28, 3.43, -2.25, 0.39, 1.02, -2.19 \right\} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+``Reject $ H_{0} $ if $ \Sigma_{X^{2}} < 12.79 $.''
+
+\begin{itemize}
+    \item $ \ds \Sigma_{X^{2}} = $ {\XBB \texttt{sum(c(5.98, 1.94, 1.19, -3.28, -0.28, 3.43, -2.25, 0.39, 1.02, -2.19)}\verb|^|\texttt{2})} $ = 74.59 $.
+\end{itemize}
+As $ \Sigma_{X^{2}} = 74.59 \nless 12.79 $, we fail to Reject $ H_{0} $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1}, \dots , X_{10} $ be $ iid \sim f(x; \theta) = \theta x^{\theta - 1} $ random variables, Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The form of the UMP test of the hypotheses $ H_{0} : \theta = 2 $ vs. $ H_{A} : \theta > 2 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+I will first state the general form then elaborate on the requested solution. \\
+
+\begin{itemize}
+    \item $ \ds f(x; \theta) = \theta x^{\theta - 1} $.
+    \item $ \ds \frac{L(\theta_{0})}{L(\theta_{A})} = \Bigl( \frac{\theta_{0}}{\theta_{A}} \Bigr)^{n} \Pi_{X}^{\ds (\theta_{0} - \theta_{A})} < k $.
+    \item $ \ds (\theta_{0} - \theta_{A}) \Sigma_{\ln(X)} < \ln(k) - n\ln\Bigl( \frac{\theta_{0}}{\theta_{A}} \Bigr) $.
+\end{itemize}
+
+\noindent
+Thus if $ \theta_{A} > \theta_{0} $, our form is  ``Reject $ H_{0} $ if $ -\Sigma_{\ln(X)} < k_{\alpha} $'' as $ (\theta_{0} - \theta_{A}) < 0 $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) The UMP test at level of significance $ \alpha = 0.04 $; Given the statistic $ \ds T = - \sum_{k=1}^{10} \ln(X_{i}) \sim Gamma(10, 1/\theta) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+Our goal is to find $ k_{\alpha} $. \\
+
+\begin{itemize}
+    \item Given $\ds -\Sigma_{\ln(X)} \sim Gamma(10, 1/\theta) $.
+    \item $ \ds k_{\alpha} = {\XBB \texttt{qgamma(shape = 10, scale = $ 1 / \theta $, p = $ \alpha $)}} $.
+    \item $ \ds {\XBB \texttt{qgamma(shape = 10, scale = 0.5, p = 0.04)}} = 2.60 = k_{0.04} $.
+\end{itemize}
+
+\noindent
+Our test is thus ``Reject $ H_{0} $ if $ -\Sigma_{\ln(X)} < 2.60 $.'' \\
+
+\vspace{2.5mm}
+
+\newpage
+
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(c) If we reject $ H_{0} $ given in a run of this experiment, the data came out to be,
+
+$ \overrightarrow{x}  = \left\{ 0.912, 0.839, 0.978, 0.789, 0.690, 0.502, 0.862, 0.691, 0.587, 0.557 \right\} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+``Reject $ H_{0} $ if $ -\Sigma_{\ln(X)} < 2.60 $.''
+
+\begin{itemize}
+    \item $ \ds -\Sigma_{\ln(X)} = $ 
+    \subitem {\XBB \texttt{-sum(log(c(0.912, 0.839, 0.978, 0.789, 0.690, 0.502, 0.862, 0.691, 0.587, 0.557)))}} 
+    \subitem $ \quad \ \ \ = 3.22 $.
+\end{itemize}
+As $ -\Sigma_{\ln(X)} = 3.22 \nless 2.60 $, we fail to Reject $ H_{0} $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     Extra credit:     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+Extra credit: Show that, in problem 4, $ \ds T = - \sum_{k=1}^{10} \ln(X_{i}) \sim Gamma(10, 1/\theta) $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+\vspace{2.5mm} 
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\begin{itemize}
+    \item $ \ds f(x; \theta) = \theta x^{\theta - 1} $.
+    \item Thumped \dots
+    \item $ \ds Y = -\ln(X_{i}) = \frac{1}{\theta}e^{-x/\theta} \sim Exponential(1/\theta) $.
+    \item $ \ds T = - \sum_{k=1}^{10} \ln(X_{i}) = \Sigma_{Y} \sim Gamma(10, 1/\theta) $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+
+\end{document}

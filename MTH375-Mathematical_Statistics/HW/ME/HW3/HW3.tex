@@ -1,0 +1,380 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 2.5cm, top = 3cm, bottom = 3cm, right = 2.5cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#3}
+\date{}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: Likelihood function, sufficient statistic, Fisher-Neyman Lemma.
+
+\newpage
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid $ $ Gamma(\theta, 1) $ random variables with $ \theta \in (0, \infty) $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+%%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(a) Determine the likelihood function $ L(\theta | x_{1}, \dots x_{n}) $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent
+We know that the $ pdf $ for an $ X \sim Gamma(\alpha, \beta) $ is $ \displaystyle f_{X}(x) = \frac{\beta^{\alpha}}{(\alpha - 1)!}x^{\alpha - 1}e^{-\beta x} $. \\
+
+\noindent
+We thus have the $ pdf $ for our $ \displaystyle X_{i} \sim Gamma(\theta, 1) = f_{X_{i}}(x_{i}) = \frac{1}{(\theta - 1)!}x_{i}^{\theta - 1}e^{-x_{i}} $. \\
+
+\noindent
+We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
+\begin{itemize}
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{1}{(\theta - 1)!}x_{1}^{\theta - 1}e^{-x_{1}} \cdot \frac{1}{(\theta - 1)!}x_{2}^{\theta - 1}e^{-x_{2}} \cdots \frac{1}{(\theta - 1)!}x_{n}^{\theta - 1}e^{-x_{n}} $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{x_{1}^{\theta - 1} \cdot x_{2}^{\theta - 1} \cdots x_{n}^{\theta - 1}}{((\theta - 1)!)^{n}}e^{-x_{1} -x_{2} - . - . - . -x_{n}} = \frac{ x_{1}^{\theta} x_{1}^{-1} \cdot x_{2}^{\theta} x_{2}^{-1} \cdots x_{n}^{\theta} x_{n}^{-1}}{((\theta - 1)!)^{n}}e^{-\sum_{i=1}^{n} x_{i}} $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ x_{1}^{\theta} \cdot x_{2}^{\theta} \cdots x_{n}^{\theta}}{((\theta - 1)!)^{n}(x_{1} \cdot x_{2} \cdots x_{n})}e^{-\sum_{i=1}^{n} x_{i}} = \frac{ \prod_{i=1}^{n} x_{i}^{\theta}}{((\theta - 1)!)^{n}\prod_{i=1}^{n} x_{i}}e^{-\sum_{i=1}^{n} x_{i}} $
+\end{itemize}
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     1b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(b) Use the Fisher–Neyman factorization lemma to determine a sufficient statistic $ S $ for $ \theta $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent
+From the Fisher–Neyman factorization lemma we will factorize the likelihood function into $ g(S, \theta) \cdot h(X_{1}, \dots , X_{n}) $. \\
+
+\begin{itemize}
+    \item $ \displaystyle g(S, \theta) = \frac{ \prod_{i=1}^{n} x_{i}^{\theta}}{((\theta - 1)!)^{n}\prod_{i=1}^{n} x_{i}} $
+    \item $ \displaystyle h(X_{1}, \dots , X_{n}) = e^{-\sum_{i=1}^{n} x_{i}} $
+\end{itemize}
+
+\noindent
+We can now see that $ \displaystyle S = \prod_{i=1}^{n} x_{i} $ is a sufficient statistic for $ \theta $.
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB \\
+
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ $ Beta(4, \theta) $ random variables with $ \theta \in (0, \infty) $.
+
+A $ Beta(a,b) $ random variable $ X $ has $ pdf $ \dots \\
+\begin{center}
+    $ \displaystyle f_{X}(x) = \frac{\Gamma(a + b)}{\Gamma(a)\Gamma(b)}x^{a - 1}(1 - x)^{b - 1} $ for $ 0 \leq x \leq 1 $. \\
+\end{center}
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(a) Determine the likelihood function $ L(\theta | x_{1}, \dots x_{n}) $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+We know the $ pdf $ for our $ \displaystyle X_{i} \sim Beta(4, \theta) $ is $ \displaystyle f_{X_{i}}(x_{i}) = \frac{\Gamma(4 + \theta)}{\Gamma(4)\Gamma(\theta)}x_{i}^{3}(1 - x_{i})^{\theta - 1} $ for $ 0 \leq x \leq 1 $. \\
+
+We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
+\begin{itemize}
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{\Gamma(4 + \theta)}{\Gamma(4)\Gamma(\theta)}x_{1}^{3}(1 - x_{1})^{\theta - 1} \cdot \frac{\Gamma(4 + \theta)}{\Gamma(4)\Gamma(\theta)}x_{2}^{3}(1 - x_{2})^{\theta - 1} \cdots \frac{\Gamma(4 + \theta)}{\Gamma(4)\Gamma(\theta)}x_{n}^{3}(1 - x_{n})^{\theta - 1} $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \bigl( \Gamma(4 + \theta) \bigr)^{n}}{ \bigl( \Gamma(4)\Gamma(\theta) \bigr)^{n}} (x_{1}^{3} \cdot x_{2}^{3} \cdots x_{n}^{3})((1 - x_{1})^{\theta - 1} \cdot (1 - x_{2})^{\theta - 1} \cdots (1 - x_{n})^{\theta - 1}) $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \bigl( \Gamma(4 + \theta) \bigr)^{n}}{ \bigl( \Gamma(4)\Gamma(\theta) \bigr)^{n}} \Bigl( \prod_{i=1}^{n} x_{i}^{3} \Bigr) \Biggl( \frac{(1 - x_{1})^{\theta}}{1 - x_{1}} \cdot \frac{(1 - x_{2})^{\theta}}{1 - x_{2}} \cdots \frac{(1 - x_{n})^{\theta}}{1 - x_{n}} \Biggr) $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \bigl( \Gamma(4 + \theta) \bigr)^{n}}{ \bigl( \Gamma(4)\Gamma(\theta) \bigr)^{n}} \Bigl( \prod_{i=1}^{n} x_{i}^{3} \Bigr) \Biggl( \frac{ \prod_{i=1}^{n} (1 - x_{i})^{\theta} }{ \prod_{i=1}^{n} (1 - x_{i}) } \Biggr) $
+\end{itemize}
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(b) Use the Fisher–Neyman factorization lemma to determine a sufficient statistic \\
+$ S $ for $ \theta $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+From the Fisher–Neyman factorization lemma we will factorize the likelihood function into $ g(S, \theta) \cdot h(X_{1}, \dots , X_{n}) $. \\
+
+\begin{itemize}
+    \item $ \displaystyle g(S, \theta) = \frac{ \bigl( \Gamma(4 + \theta) \bigr)^{n} \prod_{i=1}^{n} (1 - x_{i})^{\theta}}{ \bigl( \Gamma(4)\Gamma(\theta) \bigr)^{n}\prod_{i=1}^{n} (1 - x_{i})} $
+    \item $ \displaystyle h(X_{1}, \dots , X_{n}) = \prod_{i=1}^{n} x_{i}^{3} $
+\end{itemize}
+
+\noindent
+We can now see that $ \displaystyle S = \prod_{i=1}^{n} (1 - x_{i}) $ is a sufficient statistic for $ \theta $.
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ $ Beta(\theta_{1}, \theta_{2}) $ random variables with $ \theta \in \mathbb{R}^{+} \times \mathbb{R}^{+} $.
+Use the Fisher–Neyman factorization lemma to determine a sufficient statistic $ S $ for $ \overrightarrow{\theta} $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+We know the $ pdf $ for our $ \displaystyle X_{i} \sim Beta(\theta_{1}, \theta_{2}) $ is $ \displaystyle f_{X_{i}}(x_{i}) = \frac{\Gamma(\theta_{1} + \theta_{2})}{\Gamma(\theta_{1})\Gamma(\theta_{2})}x^{\theta_{1} - 1}(1 - x)^{\theta_{2} - 1} $ for $ 0 \leq x \leq 1 $. \\
+
+We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
+\begin{itemize}
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{\Gamma(\theta_{1} + \theta_{2})}{\Gamma(\theta_{1})\Gamma(\theta_{2})}x_{1}^{\theta_{1} - 1}(1 - x_{1})^{\theta_{2} - 1} \cdots \frac{\Gamma(\theta_{1} + \theta_{2})}{\Gamma(\theta_{1})\Gamma(\theta_{2})}x_{n}^{\theta_{1} - 1}(1 - x_{n})^{\theta_{2} - 1} $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \bigl( \Gamma(\theta_{1} + \theta_{2}) \bigr)^{n}}{ \bigl( \Gamma(\theta_{1})\Gamma(\theta_{2}) \bigr)^{n}} (x_{1}^{\theta_{1} - 1} \cdots x_{n}^{\theta_{1} - 1})((1 - x_{1})^{\theta_{2} - 1} \cdots (1 - x_{n})^{\theta_{2} - 1}) $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \bigl( \Gamma(\theta_{1} + \theta_{2}) \bigr)^{n}}{ \bigl( \Gamma(\theta_{1})\Gamma(\theta_{2}) \bigr)^{n}} \Biggl( \frac{x_{1}^{\theta_{1}}}{x_{1}} \cdots \frac{x_{n}^{\theta_{1}}}{x_{n}} \Biggr) \Biggl( \frac{(1 - x_{1})^{\theta_{2}}}{(1 - x_{1})} \cdots \frac{(1 - x_{n})^{\theta_{2}}}{(1 - x_{n})} \Biggr) $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \bigl( \Gamma(\theta_{1} + \theta_{2}) \bigr)^{n}}{ \bigl( \Gamma(\theta_{1})\Gamma(\theta_{2}) \bigr)^{n}} \Biggl( \frac{ \prod_{i=1}^{n} x_{i}^{\theta_{1}}}{ \prod_{i=1}^{n} x_{i}} \Biggr) \Biggl( \frac{ \prod_{i=1}^{n} (1 - x_{i})^{\theta_{2}}}{ \prod_{i=1}^{n} (1 - x_{i})} \Biggr) $
+\end{itemize}
+
+\noindent
+From the Fisher–Neyman factorization lemma we will factorize the likelihood function into $ g(S, \theta) \cdot h(X_{1}, \dots , X_{n}) $. \\
+
+\begin{itemize}
+    \item $ \displaystyle g(S, \theta) = \frac{ \bigl( \Gamma(\theta_{1} + \theta_{2}) \bigr)^{n} \bigl( \prod_{i=1}^{n} x_{i}^{\theta_{1}} \bigr) \bigl( \prod_{i=1}^{n} (1 - x_{i})^{\theta_{2}} \bigr) }{ \bigl( \Gamma(\theta_{1})\Gamma(\theta_{2}) \bigr)^{n} \bigl( \prod_{i=1}^{n} x_{i} \bigr) \bigl( \prod_{i=1}^{n} (1 - x_{i}) \bigr) } $
+    \item $ \displaystyle h(X_{1}, \dots , X_{n}) = 1 $
+\end{itemize}
+
+\noindent
+We can now see that $ \displaystyle S = \Bigl( \prod_{i=1}^{n} x_{i} , \ \prod_{i=1}^{n} (1 - x_{i}) \Bigr) $ is a sufficient statistic for $ \overrightarrow{\theta} = (\theta_{1}, \theta_{2}) $.
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB \\
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with $ pdf $: $ f_{X}(x) = \theta x^{\theta - 1} $ for $ x \in (0, 1) $ and $ \theta \in (0, \infty) $.
+Use the Fisher–Neyman factorization lemma to determine a sufficient statistic $ S $ for $ \theta $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+We know the $ pdf $ for our $ \displaystyle X_{i} $ is $ \displaystyle f_{X_{i}}(x_{i}) = \theta x^{\theta - 1} $ for $ x \in (0, 1) $ and $ \theta \in (0, \infty) $. \\
+
+We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
+\begin{itemize}
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \theta x_{1}^{\theta - 1} \cdot \theta x_{2}^{\theta - 1} \cdots \theta x_{n}^{\theta - 1} = \theta^{n} \Bigl( \frac{x_{1}^{\theta}}{x_{1}} \cdot \frac{x_{2}^{\theta}}{x_{2}} \cdots \frac{x_{n}^{\theta}}{x_{n}} \Bigr) $
+    \item $ \displaystyle L(\theta | x_{1}, \dots x_{n}) = \frac{ \theta^{n} \prod_{i=1}^{n} x_{i}^{\theta} }{ \prod_{i=1}^{n} x_{i} } $
+\end{itemize}
+
+\noindent
+From the Fisher–Neyman factorization lemma we will factorize the likelihood function into $ g(S, \theta) \cdot h(X_{1}, \dots , X_{n}) $. \\
+
+\begin{itemize}
+    \item $ \displaystyle g(S, \theta) = \frac{ \theta^{n} \prod_{i=1}^{n} x_{i}^{\theta} }{ \prod_{i=1}^{n} x_{i} } $
+    \item $ \displaystyle h(X_{1}, \dots , X_{n}) = 1 $
+\end{itemize}
+
+\noindent
+We can now see that $ \displaystyle S = \prod_{i=1}^{n} x_{i} $ is a sufficient statistic for $ \theta $.
+
+
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB \\
+%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+5. Consider the family of distributions with $ \displaystyle pmf $: $p_{X}(x) = 
+\begin{cases} 
+    p & \text{if} \  x = -1 \\
+    2p &  \text{if} \ x = 0 \\
+    1 - 3p & \text{if} \ x = 1
+\end{cases} $ \\ 
+
+Here $ p $ is an unknown paramater and $ \displaystyle 0 \leq p \leq \frac{1}{3} $. \\
+
+Let $ X_{1},\dots,X_{n} $ be $ iid $ with common $ pmf $ a member of this family. Consider the statistics: 
+\begin{center}
+    $ A = \quad \text{the number of $i$ with } X_{i} = -1 $, \\
+    $ B = \quad \text{the number of $i$ with } X_{i} = 0 $, \\
+    $ C = \quad \text{the number of $i$ with } X_{i} = 1 $. \\
+\end{center}
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     5i     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(i) Write down the joint $ pmf $ of $ X_{1},\dots,X_{n} $. This is most easily done using the statistics $ A, B, C $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+$ p_{X_{1}, \dots, X_{n}}(x_{1}, \dots, x_{n}) = p^{A} \cdot (2p)^{B} \cdot (1 - 3p)^{C} = p^{A} \cdot 4p^{B} \cdot (1 - 3p)^{C} = 4p^{A + B} \cdot (1 - 3p)^{C} $. \\ 
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     5ii     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(ii) Use the Fisher-Neyman lemma to show that $ C $ is a sufficient statistic for $ p $. \\
+(Hint: Use the fact that $ A + B + C = n $.) 
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+We know that $ A + B = n - C $. \\ 
+
+\noindent
+Thus we have $ \displaystyle L(p | x_{1}, \dots x_{n}) = p_{X_{1}, \dots, X_{n}}(x_{1}, \dots, x_{n}) = 4p^{n - C} \cdot (1 - 3p)^{C} = \frac{4p^{n} \cdot (1 - 3p)^C}{p^{C}} $. \\
+
+\noindent
+From the Fisher–Neyman factorization lemma we will factorize the likelihood function into $ \displaystyle L(p | x_{1}, \dots x_{n}) = \Bigl( g(S, p) = \frac{4p^{n} \cdot (1 - 3p)^C}{p^{C}} \Bigr) \cdot \Bigl( h(X_{1}, \dots , X_{n}) = 1 \Bigr) $. \\
+
+\noindent
+We can now see that $ \displaystyle S = C $ is a sufficient statistic for $ p $. \\
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     5iii     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+(iii) Does it appear that $ A $ is also sufficient for $ p $? Explain why or why not. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+$ A $ does not appear to be sufficient, as without knowing $ C $ we are unable to determine the expansion of $ (1 -3p)^{C} $. \\
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+%%%%%%%%%     #6     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+6. Let $ X_{1}, X_{2}, X_{3} $ be a sample of $ iid $, $ Bin(1,p) $. Let $ T = X_{1} + X_{2} + 2X_{3} $. 
+The purpose of this problem is to determine whether $ T $ is a sufficient statistic for $ p $.
+Recall that the definition says that $ T $ is sufficient for $ p $ if for all $ p \in [0, 1] $: \\
+\begin{center}
+    $ p_{X_{1}, X_{2}, X_{3} | T}(x_{1}, x_{2}, x_{3} | T = x_{1} + x_{2} + 2x_{3}) $ does not depend on $ p $. \\
+\end{center}
+Let’s examine one particular instance of this definition. \\ 
+\indent Compute $ p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) $. Does it depend on $ p $? Is $ T $ a sufficient statistic for $ p $?
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB
+% \vspace{5mm}
+
+\textit{Solution}:
+\vspace{2.5mm}
+
+\noindent 
+We know that $ \displaystyle p_{X_{1}, X_{2}, X_{3} | T}(x_{1}, x_{2}, x_{3} | T = x_{1} + x_{2} + 2x_{3}) = \frac{p_{X_{1}, X_{2}, X_{3}}(x_{1}, x_{2}, x_{3})}{p_{T}(T = x_{1} + x_{2} + 2x_{3})} $
+
+\noindent 
+It follows that $ \displaystyle p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) = \frac{p_{X_{1}, X_{2}, X_{3}}(0, 0, 1)}{p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2)} $ \\
+
+\noindent
+We can see that there are only two sums such that $ T = 2 $. 
+\begin{itemize}
+    \item $ (x_{1} = 1, x_{2} = 1, x_{3} = 0) $.
+    \item $ (x_{1} = 0, x_{2} = 0, x_{3} = 1) $.
+\end{itemize}
+
+\noindent
+Thus we have $ p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2) = p_{X_{1}, X_{2}, X_{3}}(1, 1, 0) + p_{X_{1}, X_{2}, X_{3}}(0, 0, 1) $
+\begin{itemize}
+    \item $ p_{X_{1}, X_{2}, X_{3}}(1, 1, 0) = p^{1 + 1 + 0} \cdot (1 - p)^{0 + 0 + 1} = p^{2}(1 - p)^{1} $.
+    \item $ p_{X_{1}, X_{2}, X_{3}}(0, 0, 1) = p^{0 + 0 + 1} \cdot (1 - p)^{1 + 1 + 0} = p^{1}(1 - p)^{2} $.
+    \item $ p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2) = p^{2}(1 - p)^{1} + p^{1}(1 - p)^{2} = p(1 - p)(p + 1 - p) = p(1 - p) $.
+\end{itemize}
+
+\noindent
+We can now solve for $ p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) $. \\ 
+
+$ \displaystyle \frac{p_{X_{1}, X_{2}, X_{3}}(0, 0, 1)}{p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2)} = \frac{p(1 - p)^{2}}{p(1 - p)} = 1 - p $. \\
+
+\noindent
+We can see that this example of the conditional $ pmf $ does depend on $ p $ and thus $ T $ is not a sufficient statistic for $ p $.
+
+% \XV
+% \hspace{25mm}\rule{100mm}{0.11mm}\XB \\
+\end{document}

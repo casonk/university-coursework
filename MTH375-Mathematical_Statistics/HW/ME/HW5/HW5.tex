@@ -1,0 +1,392 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#5}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: $ MOM $ and $ MLE $ estimators.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Negative \ Binomial(r = 4, p = \theta) $ random variables
+with $ \theta \in [0, 1] $. \\ 
+
+Determine the $ MLE $ and the $ MOM $ estimators of $ \theta $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We will first find the likelihood and log-likelihood function then sent the derivative to zero to find the $ MLE $. \\
+
+\begin{itemize}
+    \item $ \ds p_{X}(x) = \binom{x - 1}{r - 1}p^{r}(1 - p)^{x - r} = \binom{x - 1}{3}\theta^{4}(1 - \theta)^{x - 4} = \frac{(x - 1)(x - 2)}{3!}\theta^{4}(1 - \theta)^{x - 4} $.
+    \item $ \ds L(\theta) = \frac{(x_{1} - 1)(x_{1} - 2)}{6} \cdot \frac{(x_{2} - 1)(x_{2} - 2)}{6} \cdots \frac{(x_{n} - 1)(x_{n} - 2)}{6} \theta^{4n}(1 - \theta)^{(x_{1} - 4) + (x_{2} - 4) + \cdots + (x_{n} - 4)} $.
+    \item $ \ds L(\theta) = \frac{\prod_{i=1}^{n} (x_{i} - 1)(x_{i} - 2)}{6^{n}} \theta^{4n}(1 - \theta)^{\sum_{i = 1}^{n} x_{i} - 4} \ ; \ Let \ \prod_{i=1}^{n} (x_{i} - 1)(x_{i} - 2) = \Pi_{x}  \ \& \ \sum_{i = 1}^{n} x_{i} = \Sigma_{x} $.
+    \item $ \ds L(\theta) = \frac{\Pi_{x}}{6^{n}} \theta^{4n}(1 - \theta)^{\Sigma_{x} - 4n} $.
+    \item $ \ds \ell(\theta) = \ln(L(\theta)) = \ln(\Pi_{x}) - n\ln(6) + 4n\ln(\theta) + (\Sigma_{x} - 4n)\ln(1 - \theta) $.
+    \item $ \ds \ell_{\theta} = \frac{d\ell}{d\theta}  = \frac{4n}{\theta} - \frac{\Sigma_{x} - 4n}{1 - \theta} $.
+    \item $ \ds \ell_{\theta} = 0 \Rightarrow \frac{4n}{\hat{\theta}} = \frac{\Sigma_{x} - 4n}{1 - \hat{\theta}} \Rightarrow 4n - 4n\hat{\theta} = \Sigma_{x}\hat{\theta} - 4n\hat{\theta} \Rightarrow 4n = \Sigma_{x}\hat{\theta} \Rightarrow 4 = \overline{X}\hat{\theta}$.
+    \item $ \ds \hat{\theta}_{MLE} = \frac{4}{\overline{X}} $.
+\end{itemize}
+
+\noindent
+We will now find the expected value, $ E(X_{i}) $ then set equal to $ \overline{X} $ to find the $ MOM $. \\
+
+\begin{itemize}
+    \item $ \ds E(X_{i}) = \frac{r}{p} = \frac{4}{\hat{\theta}} = \overline{X} \Rightarrow 4 = \overline{X}\hat{\theta} $.
+    \item $ \ds \hat{\theta}_{MOM} = \frac{4}{\overline{X}} $.
+\end{itemize}
+
+\noindent
+In this problem the $ MLE $ and $ MOM $ estimators of $ \theta $ are the same. \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Normal(\mu = 0, \sigma^{2} = \theta) $ random variables
+with $ \theta > 0 $. Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The MLE $ \hat{\theta} $ of $ \theta $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We will first find the likelihood and log-likelihood function then sent the derivative to zero to find the $ MLE $. \\
+
+\begin{itemize}
+    \item $ \ds f_{X}(x) = \frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-(x - \mu)^{2}/2\sigma^{2}} = \frac{1}{\sqrt{2\pi\theta}}e^{-x^{2}/2\theta} $.
+    \item $ \ds L(\theta) = \frac{1}{(2\pi\theta)^{n/2}}e^{-(x_{1}^{2} + x_{2}^{2} + \cdots + x_{n}^{2})/2\theta} = \frac{1}{(2\pi\theta)^{n/2}}e^{-\Sigma_{x^{2}}/2\theta} \ ; \ Where \ \Sigma_{x^{2}} = \sum_{i=1}^{n} x_{i}^{2} $.
+    \item $ \ds \ell(\theta) = -\frac{n}{2}\ln(2\pi\theta) - \frac{\Sigma_{x^{2}}}{2\theta} $.
+    \item $ \ds \ell_{\theta} = -\frac{2n\pi}{4\pi\theta} + \frac{\Sigma_{x^{2}}}{2\theta^{2}} = \frac{\Sigma_{x^{2}}}{2\theta^{2}} -\frac{n}{2\theta} = \frac{1}{2\theta^{2}}\Bigl[ \Sigma_{x^{2}} - n\theta \Bigr] $.
+    \item $ \ds \ell_{\theta} = 0 \Rightarrow \Sigma_{x^{2}} = n\hat{\theta} $.
+    \item $ \ds \hat{\theta}_{MLE} = \frac{\Sigma_{x^{2}}}{n} $.
+\end{itemize}
+
+\noindent
+We now have the MLE $ \hat{\theta} $ of $ \theta $ is $ \ds \frac{\Sigma_{x^{2}}}{n} $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) $ E(\hat{\theta}) $ and $ V(\hat{\theta}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+First find $ E(X_{i}) $, then $ E(X_{i})^{2} $, $ V(X_{i}) $ and $ E(X_{i}^{2}) $ to last find $ E(\hat{\theta}) $. \\
+
+\begin{itemize}
+    \item $ \ds E(X_{i}) = 0 \ ; \ E(X_{i})^{2} = 0^{2} \ ; \ V(X_{i}) = \theta $.
+    \item $ \ds E(X_{i}^{2}) = V(X_{i}) + E(X_{i})^{2} = \theta $.
+    \item $ \ds E(\hat{\theta}) = E\Bigl( \frac{\Sigma_{x^{2}}}{n} \Bigr) = E(X_{i}^{2}) = \theta $.
+\end{itemize}
+
+\noindent 
+Next find the $ mgf $ of $ X_{i} $, then find $ E(X_{i}^{4}) $ and $ V(X_{i}^{2}) $, to last find $ V(\hat{\theta}) $. \\
+
+\begin{itemize}
+    \item $ \ds E(X_{i}^{2})^{2} = \theta^{2} $.
+    \item $ \ds M_{X_{i}}(t) = e^{\theta t^{2} / 2} $.
+    \item $ \ds M_{X_{i}}^{'}(t) = \theta t e^{\theta t^{2} / 2} $.
+    \item $ \ds M_{X_{i}}^{''}(t) = \theta e^{\theta t^{2} / 2} + \theta^{2} t^{2} e^{\theta t^{2} / 2} $.
+    \item $ \ds M_{X_{i}}^{(3)}(t) = \theta^{2} t e^{\theta t^{2} / 2} + 2 \theta^{2} t e^{\theta t^{2} / 2} + \theta^{3} t^{3} e^{\theta t^{2} / 2} $.
+    \item $ \ds M_{X_{i}}^{(4)}(t) = \theta^{2} e^{\theta t^{2} / 2} + \theta^{3} t^{2} e^{\theta t^{2} / 2} + 2 \theta^{2} e^{\theta t^{2} / 2} + 2 \theta^{3} t^{2} e^{\theta t^{2} / 2} + 3\theta^{3} t^{2} e^{\theta t^{2} / 2} + \theta^{4} t^{4} e^{\theta t^{2} / 2} $.
+    \item $ \ds M_{X_{i}}^{(4)}(0) = \theta^{2} e^{0} + 2 \theta^{2} e^{0} = 3\theta^{2} = E(X_{i}^{4})$.
+    \item $ \ds V(\hat{\theta}) = V \Bigl( \frac{\Sigma_{x^{2}}}{n} \Bigr) = \frac{1}{n^{2}} \cdot V(\Sigma_{x^{2}}) = \frac{1}{n^{2}} \cdot nV(X_{i}^{2}) = \frac{V(X_{i}^{2})}{n} $.
+    \item $ \ds V(X_{i}^{2}) = E(X_{i}^{4}) - E(X_{i}^{2})^{2} = 3\theta^{2} - \theta^{2} = 2\theta^{2} \Rightarrow V(\hat{\theta}) = \frac{2\theta^{2}}{n} $.
+\end{itemize}
+
+\noindent
+Thus we have $ \ds E(\hat{\theta}) = \theta $ and $ \ds V(\hat{\theta}) = \frac{2\theta^{2}}{n} $. \\
+
+\vspace{2.5mm} 
+
+%%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) The $ MLE $ of $ SD(X_{i}) = \sqrt{\theta} $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+By the invariance principal, as $ \hat{\theta} $ is the $ MLE $ of $ \theta $, $ \tau(\hat{\theta}) $ is the $ MLE $ of $ \tau(\theta) $. \\
+
+\begin{itemize}
+    \item $ \ds \hat{\theta}_{MLE} = \frac{\Sigma_{x^{2}}}{n} $.
+    \item $ \ds \sqrt{\hat{\theta}} = \sqrt{\frac{\Sigma_{x^{2}}}{n}} $
+\end{itemize}
+
+\noindent
+Thus $ \ds \sqrt{\frac{\Sigma_{x^{2}}}{n}} $ is the $ MLE $ of $ SD(X_{i}) = \sqrt{\theta} $. \\
+
+\vspace{2.5mm} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Recall the family of distributions with $ \displaystyle pmf $: $p_{X}(x) = 
+\begin{cases} 
+    p & \text{if} \  x = -1 \\
+    2p &  \text{if} \ x = 0 \\
+    1 - 3p & \text{if} \ x = 1
+\end{cases} $ \\ 
+
+Here $ p $ is an unknown paramater and $ \displaystyle 0 \leq p \leq \frac{1}{3} $. \\
+
+Let $ X_{1}, \dots , X_{n} $ be  $ iid $ with common pmf be a member of this family. \\
+
+$ A = \text{the number of $i$ with } X_{i} = -1 $, $ B = \text{the number of $i$ with } X_{i} = 0 $, $ C = \text{the number of $i$ with } X_{i} = 1 $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     3i     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(i) Find the $ MOM $ estimator of $ p $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+Find the expected value, $ E(X_{i}) $ then set equal to $ \overline{X} $ to find the $ MOM $. \\
+
+\begin{itemize}
+    \item $ \ds E(X_{i}) = p \cdot -1 + 2p \cdot 0 + (1 - 3p) \cdot 1 = -p + 1 -3p = 1 - 4p $
+    \item $ \ds 1 - 4\hat{p} = \overline{X} \Rightarrow \hat{p} = \frac{\overline{X} - 1}{-4} $
+    \item $ \ds \hat{p}_{MOM} = \frac{1 - \overline{X}}{4} $
+\end{itemize}
+
+\noindent
+Thus $ \ds \frac{1 - \overline{X}}{4} $ is the $ MOM $ estimator of $ p $. \\
+
+\vspace{2.5mm}
+\newpage
+
+%%%%%%%%%     3ii     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(ii) Find the $ MLE $ estimator of $ p $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Find the likelihood and log-likelihood function then sent the derivative to zero to find the $ MLE $. \\
+
+\begin{itemize}
+    \item $ \ds L(p) = 2^{2} \cdot p^{A + B} \cdot (1 - 3p)^{C} $.
+    \item $ \ds \ell(p) = 2\ln(2) + (A + B)\ln(p) + C\ln(1 - 3p) $.
+    \item $ \ds \ell_{p} = \frac{A + B}{p} - \frac{3C}{1 - 3p} $.
+    \item $ \ds \ell_{p} = 0 \Rightarrow \frac{A + B}{\hat{p}} = \frac{3C}{1 - 3\hat{p}} \Rightarrow A + B - 3A\hat{p} - 3B\hat{p} = 3C\hat{p} \Rightarrow A + B = 3\hat{p}(A + B + C) = 3\hat{p}n $.
+    \item $ \ds \hat{p}_{MLE} = \frac{A + B}{3n} $.
+\end{itemize}
+
+\noindent
+Thus $ \ds \frac{A + B}{3n} $ is the $ MLE $ estimator of $ p $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3iii     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(iii) A random sample of size 100 from this distribution produced 23: -1’s, 38: 0’s and 39: 1’s. \\
+Evaluate the $ MOM $ and $ MLE $ estimates of $ p $ for this data set. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+This problem is plug and play \dots \\
+
+\begin{itemize}
+    \item $ \ds \hat{p}_{MOM} = \frac{1 - \overline{X}}{4} = \frac{1 - \frac{39 + 0 -23}{100}}{4} = \frac{1}{4} - \frac{16}{400} = \frac{84}{400} = 0.21 $.
+    \item $ \ds \hat{p}_{MLE} = \frac{A + B}{3n} = \frac{23 + 38}{3 \cdot 100} = \frac{61}{300} \approx 0.2033 $.
+\end{itemize}
+
+\noindent
+The $ MOM $ estimator of $ p $ evaluates to $ 0.21 $ while the $ MLE $ estimator of $ p $ evaluates to $ \approx 0.2033 $. \\
+
+We can see they estimate similar values of $ p $ for this dataset. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Gamma(\alpha = \alpha, \beta = \theta) $ random variables
+with $ \alpha $ know and $ \theta > 0 $. \\
+
+Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The $ MLE $ $ \hat{\theta} $ of $ \theta $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We will first find the likelihood and log-likelihood function then sent the derivative to zero to find the $ MLE $. \\
+
+\begin{itemize}
+    \item $ \ds f_{X}(x) = \frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-x/\beta} = \frac{1}{\theta^{\alpha}\Gamma(\alpha)}x^{\alpha - 1}e^{-x/\theta} $.
+    \item $ \ds L(\theta) = \frac{1}{\theta^{n\alpha}\Gamma(\alpha)^{n}}x_{1}^{\alpha - 1} \cdot x_{2}^{\alpha - 1} \cdots x_{n}^{\alpha - 1}e^{-(x_{1} + x_{2} + \cdots + x_{n})/\theta} $.
+    \item $ \ds L(\theta) = \frac{1}{\theta^{n\alpha}\Gamma(\alpha)^{n}} \Pi_{x}^{\alpha - 1} e^{-\Sigma_{x}/\theta} \ ; \ Where \ \Pi_{x} = \prod_{i=1}^{n} x_{i} \ \& \ \Sigma_{x} = \sum_{i=1}^{n} x_{i} $.
+    \item $ \ds \ell(\theta) = -n\alpha\ln(\theta) - n\ln(\Gamma(\alpha)) + (\alpha - 1)\ln(\Pi_{x}) - \frac{\Sigma_{x}}{\theta} $.
+    \item $ \ds \ell_{\theta} = -\frac{n\alpha}{\theta} + \frac{\Sigma_{x}}{\theta^{2}} = \frac{n}{\theta^{2}} \Bigl[ \overline{X} - \alpha\theta \Bigr] $.
+    \item $ \ds \ell_{\theta} = 0 \Rightarrow \overline{X} = \alpha\hat{\theta} $.
+    \item $ \ds \hat{\theta} = \frac{\overline{X}}{\alpha} $.
+\end{itemize}
+
+\noindent
+Thus $ \ds \frac{\overline{X}}{\alpha} $ is the $ MLE $ estimator of $ \theta $. \\
+
+\vspace{2.5mm}
+\newpage
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) $ E(\hat{\theta}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+First find $ E(X_{i}) $ then use to find $ E(\hat{\theta}) $. \\
+
+\begin{itemize}
+    \item $ \ds E(X_{i}) = \alpha\beta = \alpha\theta $
+    \item $ \ds E(\hat{\theta}) = E \Bigl( \frac{\overline{X}}{\alpha} \Bigr) = E \Bigl( \frac{\Sigma_{x}}{n\alpha} \Bigr) = \frac{1}{\alpha}E(X_{i}) = \frac{\alpha\theta }{\alpha} $
+    \item $ \ds E(\hat{\theta}) = \theta $
+\end{itemize}
+
+\noindent
+We can see the expected value of the $ MLE $ estimator of $ \theta $ is $ \theta $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(c) If $ \hat{\theta} $ is UMVUE for $ \theta $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+We will first ensure $ \hat{\theta} $ is a sufficient statistic for $ \theta $. \\
+
+\begin{itemize}
+    \item $ \ds L(\theta) = \frac{1}{\theta^{n\alpha}\Gamma(\alpha)^{n}} \Pi_{x}^{\alpha - 1} e^{-\Sigma_{x}/\theta} = c(\theta) \cdot h(x_{1}, \dots, x_{n}) \cdot e^{q(\theta)t(x_{1}, \dots, x_{n})}$.
+    \item $ \ds c(\theta) = \frac{1}{\theta^{n\alpha}\Gamma(\alpha)^{n}} $.
+    \item $ \ds h(x_{1}, \dots, x_{n}) = \Pi_{x}^{\alpha - 1} $.
+    \item $ \ds q(\theta) = \frac{1}{\theta} $.
+    \item $ \ds t(x_{1}, \dots, x_{n}) = -\Sigma_{x} $.
+\end{itemize}
+
+\noindent
+Thus $ \Sigma_{x} $ being sufficient implies $ \hat{\theta} $ is sufficient. \\
+
+\noindent
+Then as $ \ds E(\hat{\theta}) = \theta $, $ \hat{\theta} $ is UMVUE for $ \theta $. \\
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+5. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with common pdf $ f(x_{i}; \theta_{1}, \theta_{2}) $. \\
+
+\begin{center}
+    $ \ds f(x_{i}; \theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{i} - \theta_{2}) / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2} $. 
+\end{center} 
+
+Here $ \theta_{1} > 0 $, and $ \theta_{2} $ can be any real number.
+
+Determine the $ MLE $ and the $ MOM $ estimators of $ (\theta_{1}, \theta_{2}) $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We will first find the likelihood and log-likelihood function, then sent the parital derivatives to zero, last solve the system of equations to find the $ MLE $.
+
+\begin{itemize}
+    \item $ \ds L(\theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}^{n}} e^{n \theta_{2} / \theta_{1} - \Sigma_{x} / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2},  \quad Where \ \Sigma_{x} = \sum_{k=1}^{n} x_{k} $.
+    \item $ \ds \ell(\theta_{1}, \theta_{2}) = -n\ln(\theta_{1}) + \frac{n\theta_{2}}{\theta_{1}} - \frac{\Sigma_{x}}{\theta_{1}} $.
+    \item $ \ds \ell_{\theta_{1}} = -\frac{n}{\theta_{1}} - \frac{n\theta_{2}}{\theta_{1}^{2}} + \frac{\Sigma_{x}}{\theta_{1}^{2}} = \frac{-n}{\theta_{1}^{2}} \Bigl[ \theta_{1} + \theta_{2} - \overline{X} \Bigr] $.
+    \item $ \ds \ell_{\theta_{1}} = 0 \Rightarrow \hat{\theta}_{1} + \hat{\theta}_{2}  = \overline{X} \Rightarrow \hat{\theta}_{1} = \overline{X} - \hat{\theta}_{2}  $.
+    \item $ \ds \ell(\theta_{2}) = -n\ln(\overline{X} - \theta_{2}) + \frac{n\theta_{2}}{\overline{X} - \theta_{2}} - \frac{\Sigma_{x}}{\overline{X} - \theta_{2}} $.
+    \item $ \ds \ell_{\theta_{2}} = \frac{n}{\overline{X} - \theta_{2}} + \frac{n\overline{X}}{(\overline{X} - \theta_{2})^{2}} - \frac{\Sigma_{x}}{(\overline{X} - \theta_{2})^{2}} = \frac{n}{(\overline{X} - \theta_{2})^{2}} \Bigl[ \overline{X} - \theta_{2} + \overline{X} - \overline{X}  \Bigr] $.
+    \item $ \ds \ell_{\theta_{2}} = 0 \Rightarrow \overline{X} - \hat{\theta}_{2} = 0 $.
+    \item As we have the constraint $ x_{i} > \theta_{2} $ we know that $ \overline{X} - \theta_{2} > 0 $.
+    \item We minimize $ \overline{X} - \hat{\theta}_{2} $ such that $ x_{i} > \hat{\theta}_{2} $ when $ \hat{\theta}_{2} = \min\{X_{1}, \dots , X_{n}\} = X_{(1)} $.
+    \item Thus $ \hat{\theta}_{2} = X_{(1)} \ \& \ \hat{\theta}_{1} = \overline{X} - X_{(1)} $.
+\end{itemize}
+
+We have $ \overrightarrow{\theta}_{MLE} = \bigl( \overline{X} - X_{(1)}, X_{(1)} \bigr) $.
+
+\newpage
+
+\noindent
+Find the expected value, $ E(X_{i}) $ then set equal to $ \overline{X} $, and find the expected squared value, $ E( X_{i}^{2} ) $ then set equal to $ \ds \frac{\Sigma_{x^{2}}}{n} $, last solve the system of equations to find the $ MOM $.
+
+\begin{itemize}
+    \item $ \ds E( X_{i} ) = \hat{\theta}_{2} + \hat{\theta}_{1} = \overline{X} \Rightarrow \hat{\theta}_{2} = \overline{X} - \hat{\theta}_{1} $
+    \item $ \ds E( X_{i}^{2} ) = \int_{\theta_{2}}^{\infty} \frac{x_{i}^{2}}{\theta_{1}}e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} \,dx = -(x_{i}^{2} + 2\theta_{1}x_{i} + 2\theta_{1}^{2}) e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} \Big|_{\theta_2}^{\infty} $.
+    \item $ \ds E( X_{i}^{2} ) = (\theta_{2}^{2} + 2\theta_{1}\theta_{2} + 2\theta_{1}^{2}) e^{\theta_{2} / \theta_{1} - \theta_{2} / \theta_{1}} -(\infty^{2} + 2\theta_{1}\infty + 2\theta_{1}^{2}) e^{\theta_{2} / \theta_{1} - \infty / \theta_{1}} $.
+    \item $ \ds E( X_{i}^{2} ) = (\theta_{2}^{2} + 2\theta_{1}\theta_{2} + 2\theta_{1}^{2}) e^{0} -(\infty) e^{-\infty} = \theta_{2}^{2} + 2\theta_{1}\theta_{2} + 2\theta_{1}^{2} - \frac{\infty}{e^{\infty}} \ ; \ Note: \ \lim_{x_{i} \to \infty} \frac{x_{i}}{e^{x_{i}}} = 0 $.
+    \item $ \ds E( X_{i}^{2} ) = \hat{\theta}_{2} + 2\hat{\theta}_{1}\hat{\theta}_{2} + 2\hat{\theta}_{1}^{2} = (\hat{\theta}_{2} + \hat{\theta}_{1})^{2} + \hat{\theta}_{1}^{2} = \overline{X}^{2} + \hat{\theta}_{1}^{2} = \frac{\Sigma_{x^{2}}}{n} \Rightarrow \hat{\theta}_{1}^{2} = \frac{\Sigma_{x^{2}}}{n} - \overline{X}^{2} $.
+    \item $ \ds \hat{\theta}_{1} = \sqrt{\frac{\Sigma_{x^{2}}}{n} - \overline{X}^{2}} \Rightarrow \hat{\theta}_{2} = \overline{X} - \sqrt{\frac{\Sigma_{x^{2}}}{n} - \overline{X}^{2}} $.
+\end{itemize}
+
+We have $ \ds \overrightarrow{\theta}_{MOM} = \Biggl( \sqrt{\frac{\Sigma_{x^{2}}}{n} - \overline{X}^{2}}, \overline{X} - \sqrt{\frac{\Sigma_{x^{2}}}{n} - \overline{X}^{2}} \Biggr) $.
+
+
+\end{document}

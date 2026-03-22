@@ -1,0 +1,411 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#2}
+\date{}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}:  Estimator, bias, unbiased estimator, standard error, MSE, $\delta$-method.
+
+\newpage
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots , X_{n} $ and $ Y_{1}, \dots , Y_{n} $be two random samples with the same mean $ \mu $ and variance $ \sigma^2 $.
+
+(The pdf of $ X_{i} $ and $ Y_{j} $ are not specified.)
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+%%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(a) Show that $ T = \frac{1}{2}\overline{X} + \frac{1}{2}\overline{Y} $ and $ U = \frac{1}{3}\overline{X} + \frac{2}{3}\overline{Y} $ are both unbiased estimators of $ \mu $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We have $ \displaystyle \overline{X} = \frac{\sum_{i=1}^{n} X_{i}}{n} $ and $ \displaystyle \overline{Y} = \frac{\sum_{j=1}^{n} Y_{j}}{n} $. \\
+
+\noindent
+We know for each $ X_{i} $ and $ Y_{j} $ that $ E(X_{i}) = E(Y_{j}) = \mu $. \\
+
+\noindent
+It follows that $ \displaystyle E(\overline{X}) = E(\overline{Y}) = \frac{n \cdot \mu}{n} = \mu $. \\
+
+\noindent
+Thus $ \displaystyle E(T) = \frac{1}{2}\mu + \frac{1}{2}\mu = \mu $ and $ \displaystyle  E(U) = \frac{1}{3}\mu + \frac{2}{3}\mu = \mu $. \\
+
+\noindent
+It follows that $ T $ and $ U $ are unbiased estimators of $ \mu $ as $ Bias(T;\mu) = Bias(U;\mu) = \mu - \mu = 0 $. \\
+
+%%%%%%%%%     1b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(b) Evaluate $ MSE(T; \mu) $ and $ MSE(U; \mu) $. According to the $ MSE $ criterion, is $ T $ or $ U $ the better estimator of $ \mu $?
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+We know that for unbiased estimators $ MSE(S;\theta) = V(S) $. \\
+
+\noindent
+We also know that for each $ X_{i} $ and $ Y_{j} $ that $ V(X_{i}) = V(Y_{j}) = \sigma^{2} $. \\
+
+\noindent
+It follows that $ \displaystyle V(\overline{X}) = V(\overline{Y}) = \frac{n \cdot \sigma^{2}}{n^{2}} = \frac{\sigma^{2}}{n} $. \\
+
+\noindent
+We can now compute $ V(T) $ and $ V(U) $. \\
+
+\noindent
+$ \displaystyle V(T) = V(\frac{\overline{X}}{2} + \frac{\overline{Y}}{2}) = \frac{V(\overline{X})}{4} + \frac{V(\overline{Y})}{4} = \frac{\sigma^2}{4n} + \frac{\sigma^2}{4n} = \frac{\sigma^2}{2n} $. \\
+
+\noindent
+$ \displaystyle V(U) = V(\frac{\overline{X}}{3} + \frac{2\overline{Y}}{3}) = \frac{V(\overline{X})}{9} + \frac{V(\overline{4Y})}{9} = \frac{\sigma^2}{9n} + \frac{4\sigma^2}{9n} = \frac{5\sigma^2}{9n} $. \\
+
+\noindent
+Thus $ \displaystyle MSE(T; \mu) = \frac{9\sigma^2}{18n} $ and $ \displaystyle MSE(U; \mu) = \frac{10\sigma^{2}}{18n} $. \\
+
+\noindent
+We can now see that $ T $ is a better estimator of $ \mu $ than $ U $ for all sample sizes as the $ MSE $ is closer to $ 0 $ for all sample sizes $ n $; both are consistent estimators. \\
+
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2. Let $ X_{1},\dots,X_{n} $ be a random sample uniform on $ [0,\theta] $. 
+
+(Hint: We know $ f_{X_{i}} $, $ E(X_{i}) $ and $ V(X_{i}) $; use them all.)
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(a) Show that $ T = 2\overline{X} $ is an unbiased estimator of $ \theta $, and evaluate $ MSE(T; \theta) $.
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We know that $ \displaystyle f_{X_{i}} = \frac{1}{\theta - 0} = \frac{1}{\theta} $, $ \displaystyle E(X_{i}) = \frac{0 + \theta}{2} = \frac{\theta}{2} $, $ \displaystyle V(X_{i}) = \frac{(\theta - 0)^{2}}{12} = \frac{\theta^2}{12} $. \\
+
+\noindent 
+We also know that $ \displaystyle \overline{X} = \frac{\sum_{i=1}^{n} X_{i}}{n} $. \\
+
+\noindent 
+We can evaluate $ \displaystyle E(\overline{X}) = \frac{\theta n}{2n} = \frac{\theta}{2} $. \\
+
+\noindent 
+It follows nicely that $ \displaystyle E(T) = E(2\overline{X}) = 2E(\overline{X}) = \frac{2\theta n}{2n} = \theta $. \\
+
+\noindent 
+We can now show that $ T $ is an unbiased estimator of $ \theta $ as $ Bias(T;\theta) = \theta - \theta = 0 $. \\
+
+\noindent 
+As $ T $ is an unbiased of  $ \theta $, we know that $ MSE(T; \theta) = V(T) $. \\
+
+\noindent 
+We can evaluate $ \displaystyle V(\overline{X}) = \frac{nV(X_{i})}{n^2} = \frac{\theta^{2}}{12n} $. \\
+
+\noindent 
+It follows that $ \displaystyle V(T) = V(2\overline{X}) = 4V(\overline{X}) = \frac{4\theta^{2}}{12n} = \frac{\theta^{2}}{3n} $. \\
+
+\noindent 
+We can now see that $ \displaystyle MSE(T; \theta) = \frac{\theta^{2}}{3n} $ and that $ T $ is a consistent estimator of $ \theta $. \\
+
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(b) Let $ M = max\{X_{1},...,X_{n}\} $. Find the $ pdf $ of $ M $. \\
+(Hint: Use the fact that $ F_{m} = P(M \leq m) = P(X_{1} \leq m \ \& \cdots \& \ X_{n} \leq m) $.) 
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We know that $ P(M \leq m) = P(X_{1} \leq m \ \& \cdots \& \ X_{n} \leq m) = (F_{X_{i}})^{n} $. \\
+
+\noindent 
+We also know that $ \displaystyle F_{X_{i}} = \int_{0}^{x} \frac{1}{\theta} \,dx = \frac{x}{\theta} \Big|_{0}^{x} = \frac{x}{\theta} $. \\
+
+\noindent 
+It then follows that $ \displaystyle F_{m} = \Bigl( \frac{x}{\theta} \Bigr)^{n} = \frac{x^{n}}{\theta^{n}} $. \\
+
+\noindent 
+We can now see that $ \displaystyle f_{m} = \frac{d}{dx}[F_{m}] = \frac{d}{dx} \Bigl[ \frac{x^{n}}{\theta^{n}} \Bigr] = \frac{nx^{n-1}}{\theta^{n}} $. \\
+\newpage
+
+%%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(c) Compute $ E(M) $ and $ V(M) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+From probability we know that $ \displaystyle E(M) = \int_{0}^{\theta} xf_{m}(x) \, dx = \int_{0}^{\theta} \frac{nx^{n}}{\theta^{n}} \, dx = \frac{n}{\theta^{n}} \int_{0}^{\theta} x^{n} \, dx $. \\
+
+\noindent 
+Thus $ \displaystyle E(M) = \frac{n}{\theta^{n}} \Bigl[ \frac{x^{n + 1}}{n + 1} \Big|_{0}^{\theta} \Bigr] = \frac{n}{\theta^{n}} \Bigl[ \frac{\theta^{n + 1}}{n + 1} - \frac{0^{n + 1}}{n + 1} \Bigr] = \frac{n\theta^{n + 1}}{(n + 1)\theta^{n}} = \frac{n\theta}{n + 1} $. \\
+
+\noindent 
+We will now solve for $ V(M) = E(M^{2}) - E(M)^{2} $. \\
+
+\noindent 
+It is straight forward that $ \displaystyle E(M)^{2} = \frac{n^{2}\theta^{2}}{(n + 1)^{2}} $. \\
+
+\noindent 
+By $ RUS $, $ \displaystyle E(M^{2}) = \int_{0}^{\theta} x^{2}f_{m}(x) \, dx = \int_{0}^{\theta} \frac{nx^{n+1}}{\theta^{n}} = \frac{n}{\theta^{n}} \int_{0}^{\theta} x^{n + 1} \, dx $. \\
+
+\noindent
+Thus $ \displaystyle E(M) = \frac{n}{\theta^{n}} \Bigl[ \frac{x^{n + 2}}{n + 2} \Big|_{0}^{\theta} \Bigr] = \frac{n}{\theta^{n}} \Bigl[ \frac{\theta^{n + 2}}{n + 2} - \frac{0^{n + 2}}{n + 2} \Bigr] = \frac{n\theta^{n + 2}}{(n + 2)\theta^{n}} = \frac{n\theta^{2}}{n + 2} $. \\
+
+\noindent 
+We now have $ \displaystyle V(M) = \frac{n\theta^{2}}{n + 2} - \frac{n^{2}\theta^{2}}{(n + 1)^{2}} = \frac{n\theta^{2}(n + 1)^{2} - n^{2}\theta^{2}(n + 2)}{(n + 2)(n + 1)^{2}} $ 
+
+$ \displaystyle = \frac{n\theta^{2}(n^{2} + 2n + 1) - (n^{3}\theta^{2} + 2n^{2}\theta^{2})}{(n + 2)(n + 1)^{2}} = \frac{n^{3}\theta^{2} + 2n^{2}\theta^{2} + n\theta^{2} - n^{3}\theta^{2} - 2n^{2}\theta^{2}}{(n + 2)(n + 1)^{2}} $. 
+
+$ \displaystyle = \frac{n\theta^{2}}{(n + 2)(n + 1)^{2}} $. \\
+\newpage
+
+%%%%%%%%%     2d     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(d) Using your answers to (c), find an unbiased estimator $ M^{*} $ of $ \theta $ based on $ M $, and evaluate $ MSE(M^{*}; \theta) $. According to the $ MSE $ criterion, which is a better estimator of $ \theta $, $ T $ or $ M^{*} $?  \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We can obtain an unbiased estimator $ M^{*} $ of $ \theta $ by solving $ \displaystyle E(M) = \frac{n\theta}{n + 1} $ for $ \theta $. \\
+
+\noindent
+$ \displaystyle \theta = \frac{(n + 1)E(M)}{n} = E\Bigl( \frac{(n + 1)M}{n} \Bigr) = E\Biggl( \frac{(n + 1)max\{X_{1},...,X_{n}\}}{n} \Biggr) $. \\
+
+\noindent
+We now have an unbiased estimator $ \displaystyle M^{*} = \frac{(n + 1)max\{X_{1},...,X_{n}\}}{n} $ for $ \theta $. \\
+
+\noindent
+Now we will solve for $ \displaystyle MSE(M^{*}) = V(M^{*}) = V\Bigl( \frac{(n + 1)M}{n} \Bigr) = \frac{(n + 1)^{2}}{n^{2}} V(M) $. \\
+
+$ \displaystyle = \frac{(n + 1)^{2}}{n^{2}} \cdot \frac{n\theta^{2}}{(n + 2)(n + 1)^{2}} = \frac{\theta^{2}}{n(n + 2)} $. \\
+
+\noindent
+As $ \displaystyle \lim_{n \to \infty} \frac{\theta^{2}}{n(n + 2)} = 0 $, We can say that $ M^{*} $ is a consistent estimator of $ \theta $. \\
+
+Last, as $ \displaystyle \frac{\theta^{2}}{n(n + 2)} = \frac{\theta^{2}}{n^{2} + 2n} < \frac{\theta^{2}}{3n} $ for all $ n > 1 $, \\
+
+we find that $ M^{*} $ is a better estimator of $ \theta $ than $ T $. \\
+
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ X_{1}, \dots, X_{n} $ be a sample of $ iid $ $ Bin(1, \theta) $ random variables, and let $ T = \overline{X}(1 - \overline{X}) $ be an estimator of $ V(X_{i}) = \theta(1 - \theta) $. 
+
+(Hint: We know $ f_{X_{i}} $, $ E(X_{i}) $ and $ V(X_{i}) $; use them all.) \\
+
+\begin{center}
+    $ \displaystyle f_{X_{i}} = \binom{1}{x} \theta^{x}(1 - \theta)^{1-x} \ \ $; 
+    $ \ \ E(X_{i}) =  \theta \ \ $; 
+    $ \ \ V(X_{i}) =  \theta(1 - \theta) $. 
+\end{center}
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+%%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(a) Determine $ E(T) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We will first let $ \displaystyle \sum_{i=1}^{n} X_{i} = \Sigma $ as shorthand. \\
+
+\noindent 
+We can see that $ \displaystyle \Sigma \sim Bin(n, \theta) $. \\
+
+\noindent
+It follows that $ E(\Sigma) = n\theta $ and $ V(\Sigma) = n\theta(1 - \theta) $. \\
+
+\noindent
+We can now solve for $ \displaystyle E(\overline{X}) = \frac{E(\Sigma)}{n} = \theta $ and $ \displaystyle V(\overline{X}) = \frac{V(\Sigma)}{n^2} = \frac{\theta(1 - \theta)}{n} $. \\
+
+\noindent
+We know $ V(\overline{X}) = E(\overline{X}^{2}) - E(\overline{X})^{2} $ and $ E(\overline{X}^{2}) = V(\overline{X}) + E(\overline{X})^{2} $. \\
+
+\noindent
+It is straightforward that $ E(\overline{X})^{2} = \theta^{2} $. \\
+
+\noindent
+We will now solve for $ \displaystyle E(\overline{X}^{2}) = \frac{V(\Sigma)}{n^2} = \frac{\theta(1 - \theta)}{n} + \theta^{2} $. \\
+
+\noindent
+We can now see that $ E(T) = E(\overline{X}(1 - \overline{X})) = E(\overline{X} - \overline{X}^{2}) = E(\overline{X}) - E(\overline{X}^2) $. \\
+
+\noindent
+By substitution, $ \displaystyle E(T) = \theta - \frac{\theta(1 - \theta)}{n} - \theta^{2} = \frac{n\theta - \theta + \theta^{2} - n\theta^{2}}{n} = \frac{\theta(n - 1) - \theta^{2}(n - 1)}{n} $. \\
+
+\noindent
+Furter simplification arrives at $ \displaystyle E(T) = \frac{\theta(1 - \theta)(n - 1)}{n} $. \\
+\newpage
+
+%%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(b) Determine $ Bias(T; \theta(1 - \theta)) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+$ \displaystyle Bias(T; \theta(1 - \theta)) = E(T) - \theta(1 - \theta) = \frac{\theta(1 - \theta)(n - 1)}{n} - \theta(1 - \theta) = \frac{\theta(1 - \theta)(n - 1) - n\theta(1 - \theta)}{n} $. \\
+
+\noindent
+Simplification provides our solution, $ \displaystyle Bias(T; \theta(1 - \theta)) = \frac{\theta(1 - \theta)(n - 1 - n)}{n} = -\frac{\theta(1 - \theta)}{n} $. \\
+
+%%%%%%%%%     3c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(c) Determine the asymptotic bias of $ T $ for estimating $ \theta(1 - \theta) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We can see that $ T $ is an asymptotically unbiased estimator for $ \theta(1 - \theta) $ as $ \displaystyle \lim_{n \to \infty} -\frac{\theta(1 - \theta)}{n} = 0 $. \\
+
+%%%%%%%%%     3d     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(d) Determine an unbiased estimator of $ \theta(1 - \theta) $ based on $ T $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+As $ \displaystyle E(T) = \frac{\theta(1 - \theta)(n - 1)}{n} $ We can solve for $ \theta(1 - \theta) $ to find an unbiased estimator. \\
+
+$ \displaystyle \theta(1 - \theta) = \frac{nE(T)}{n - 1} = E\Bigl( \frac{nT}{n - 1} \Bigr) = E\Bigl( \frac{n\overline{X}(1 - \overline{X})}{n - 1} \Bigr) $. \\
+
+\noindent
+We can now see that $ \displaystyle \frac{n\overline{X}(1 - \overline{X})}{n - 1} $ is an unbiased estimator of $ \theta(1 - \theta) $. \\
+
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1}, \dots, X_{n} $ be a sample of $ iid $ $ N(0, \sigma^{2}) $ random variables, and let $ \displaystyle T = \frac{1}{n} \sum_{i=1}^{n} X_{i}^{2} $. 
+
+(Hint: the $ mgf $ of $ X_{i} $ is $ \displaystyle M(t) = e^{\sigma^{2}t^{2}/2} $.) \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(a) Is $ T $ an unbiased estimator of $ \sigma^{2} $? \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We know that $ V(X_{i}) = E(X_{i}^{2}) - E(X_{i})^{2} $ and that $ E(X_{i}) = 0 $ . \\
+
+\noindent
+We can then see that $ E(X_{i}^{2}) = V(X_{i}) + E(X_{i})^{2} = \sigma^{2} + 0^{2} = \sigma^{2} $. \\
+
+\noindent
+It follows nicely that $ \displaystyle E(T) = \frac{nE(X_{i}^{2})}{n} = \sigma^{2} $. \\
+
+\noindent
+We can now see that $ T $ is an unbiased estimator of $ \sigma^{2} $ as $ Bias(T; \sigma^{2}) = \sigma^{2} - \sigma^{2} = 0 $. \\
+\newpage
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(b) Find $ MSE(T; \sigma^{2}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+We know $ MSE(T; \sigma^{2}) = V(T) $. as $ T $ is unbiased. \\
+
+\noindent
+Notice $ \displaystyle V(T) = V\Bigl( \frac{1}{n} \sum_{i=1}^{n} X_{i}^{2} \Bigr) = \frac{1}{n^{2}} \sum_{i=1}^{n} V(X_{i}^{2}) = \frac{1}{n^{2}} \sum_{i=1}^{n} E(X_{i}^{4}) - E(X_{i}^{2})^{2} = \frac{E(X_{i}^{4}) - E(X_{i}^{2})^{2}}{n} $ \\
+
+\noindent
+Differentiating the $ mgf $, $ \displaystyle M(t) = e^{\sigma^{2}t^{2}/2} \ ; \ M'(t) = \sigma^{2}te^{\sigma^{2}t^{2}/2} \ ; \ M^{2}(t) = \sigma^{2}e^{\sigma^{2}t^{2}/2} + \sigma^{4}t^{2}e^{\sigma^{2}t^{2}/2} $.\\
+
+$ \displaystyle M(t)^{3} = \sigma^{4}te^{\sigma^{2}t^{2}/2} + 2\sigma^{4}te^{\sigma^{2}t^{2}/2} + \sigma^{6}t^{3}e^{\sigma^{2}t^{2}/2} = 3\sigma^{4}te^{\sigma^{2}t^{2}/2} + \sigma^{6}t^{3}e^{\sigma^{2}t^{2}/2} $ \\
+
+$ \displaystyle M(t)^{4} = 3\sigma^{4}e^{\sigma^{2}t^{2}/2} + 3\sigma^{6}t^{2}e^{\sigma^{2}t^{2}/2} + 3\sigma^{6}t^{2}e^{\sigma^{2}t^{2}/2} + \sigma^{8}t^{4}e^{\sigma^{2}t^{2}/2} $ \\
+
+$ \displaystyle M(t)^{4} = 3\sigma^{4}e^{\sigma^{2}t^{2}/2} + 6\sigma^{6}t^{2}e^{\sigma^{2}t^{2}/2} + \sigma^{8}t^{4}e^{\sigma^{2}t^{2}/2} $ \\
+
+$ \displaystyle M(0)^{4} = 3\sigma^{4}e^{\sigma^{2}(0)^{2}/2} + 6\sigma^{6}(0)^{2}e^{\sigma^{2}(0)^{2}/2} + \sigma^{8}(0)^{4}e^{\sigma^{2}(0)^{2}/2} = 3\sigma^{4} = E(X_{i}^{4}). $ \\
+
+\noindent
+From above, $ E(X_{i}^{2}) = \sigma^{2} $, Thus $ E(X_{i}^{2})^{2} = (\sigma^{2})^{2} = \sigma^{4} $. \\ 
+
+\noindent
+We can now solve $ \displaystyle MSE(T; \sigma^{2}) = V(T) = \frac{E(X_{i}^{4}) - E(X_{i}^{2})^{2}}{n} = \frac{3\sigma^{4} - \sigma^{4}}{n} = \frac{2\sigma^{4}}{n} $. \\
+
+\noindent
+In conclusion we say that $ T $ is a consistent estimator of $ \sigma^{2} $ as $ \displaystyle \lim_{n \to \infty} \frac{2\sigma^{4}}{n} = 0 $. \\  
+
+%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+5. Let $ X_{1}, \dots, X_{n} $ be a sample of $ iid $ $ Exp(\beta) $ random variables. Use the $ \delta $-Method to determine the approximate standard error of $ \hat{\beta^{2}} = \overline{X}^{2} $. \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} \\
+
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent 
+Recall the $ \delta $-Method, given a function $ g $ and $ SE(S) $, $ SE(g(S)) \approx |g'(E(S))| \cdot SE(S) $. \\
+
+\noindent
+Here we will apply the $ \delta $-Method for $ S = \overline{X} \ ; \ g(S) = S^{2} \ ; \ g'(S) = 2S $ . \\
+
+\noindent
+For shorthand we will us $ \displaystyle \Sigma = \sum_{i=1}^{n} X_{i} $ as $ \Sigma \sim Gamma(n, \beta) $. \\ 
+
+\noindent
+It follows that $ \displaystyle E(\overline{X}) = E\Bigl( \frac{\Sigma}{n} \Bigr) = \frac{n\beta}{n} = \beta $. \\
+
+\noindent
+Similarly $ \displaystyle V(\overline{X}) = V\Bigl( \frac{\Sigma}{n} \Bigr) = \frac{n\beta^{2}}{n^{2}} = \frac{\beta^{2}}{n} \ ; \ SE(\overline{X}) = \sqrt{V(\overline{X})} = \sqrt{\frac{\beta^{2}}{n}} = \frac{\beta}{\sqrt{n}} $. \\
+
+\noindent
+Now $ \displaystyle SE(\hat{\beta^{2}}) = SE(g(\overline{X})) \approx |g'(E(\overline{X}))| \cdot SE(\overline{X}) = |g'(\beta)| \cdot \frac{\beta^{2}}{\sqrt{n}} = |2\beta| \cdot \frac{\beta}{\sqrt{n}}  $. \\
+
+\noindent
+We now have an approximate of $ SE(\hat{\beta^{2}}) $, given as $ \displaystyle SE(\hat{\beta^{2}}) \approx \frac{2\beta}{\sqrt{n}} $. \\
+
+
+\end{document}

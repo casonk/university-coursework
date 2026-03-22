@@ -1,0 +1,415 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage[left = 1cm, top = 2cm, bottom = 3cm, right = 1cm]{geometry}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\dm}{\displaymath}
+
+\begin{document}
+
+\title{\textbf{MTH375}: Mathematical Statistics - Homework \#6}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+\hrulefill
+\vfill 
+    \underline{Key Concepts}: Bayesian statistics, prior and posterior distiributions, 
+    Bayesian estimators for squared error loss function and absolute error loss function.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Binomial(n = 1, p = \theta) $ random variables
+with prior distribution $ \theta \sim Beta(1, 2) $, determine \dots \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm}
+
+%%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The posterior distribution $ f(\theta | \overrightarrow{x}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Find the likelihood function, then use in conjunction with the prior to find the posterior. \\
+
+\begin{itemize}
+    \item $ \ds f_X(x ; \theta) = \binom{1}{x} \theta^{x} (1 - \theta)^{1 - x} = \theta^{x} (1 - \theta)^{1 - x} $. \\
+    \item $ \ds L(\theta) = \theta^{\Sigma_{x}} (1 - \theta)^{n - \Sigma_{x}} $. \\
+    \item $ \ds \pi(\theta ; \alpha = 1, \beta = 2) = \frac{\Gamma(3)}{\Gamma(1)\Gamma(2)} \theta^{0} (1 - \theta)^{1} = 
+    \frac{\Gamma(3)(1 - \theta)}{\Gamma(1)\Gamma(2)} $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) = \frac{ \ds \frac{ \Gamma(3)(1 - \theta) \theta^{\Sigma_{x}} (1 - \theta)^{n - \Sigma_{x} } }{\Gamma(1)\Gamma(2)}}{ \ds \int_{0}^{1}\frac{ \Gamma(3)(1 - \theta) \theta^{x} \theta^{\Sigma_{x}} (1 - \theta)^{n - \Sigma_{x}} }{ \Gamma(1)\Gamma(2)} \, d\theta } = 
+    \frac{ \theta^{\Sigma_{x}} (1 - \theta)^{n + 1 - \Sigma_{x}} }{ \ds \int_{0}^{1} (1 - \theta)^{n + 1 - \Sigma_{x}} \, d\theta} = k \cdot \theta^{\Sigma_{x}} (1 - \theta)^{n + 1 - \Sigma_{x}} $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) \sim Beta(1 + \Sigma_{x}, n + 2 - \Sigma_{x}) $. \\
+\end{itemize}
+
+\vspace{2.5mm}
+
+\newpage
+
+%%%%%%%%%     1b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The Bayesian estimator of $ \theta $ for the squared error loss. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds E ( Beta(1 + \Sigma_{x}, n + 2 - \Sigma_{x}) ) = \frac{1 + \Sigma_{x}}{n + 3}$.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     1c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) Suppose that $ n = 10, \sum_{k=1}^{10} x_{i} = 7 $. Compute the Bayesian estimate of $ \theta $ 
+for square error loss, and the Bayesian estimate for $ \theta $ for absolute error loss.. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+\noindent
+The Bayesian estimator of $ \theta $ for the absolute error loss is the median of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds 1 + \Sigma_{x} = 1 + 7 = 8 = \alpha $.
+    \item $ \ds n + 2 - \Sigma_{x} = 10 + 2 - 7 = 5 = \beta $.
+    \item $ \ds \hat{\theta}_{SE} = \frac{8}{8 + 5} = \frac{8}{13} = 0.615 $.
+    \item $ \ds \hat{\theta}_{AE} = $ {\XBB \texttt{qbeta(p = 0.5, shape1 = 8, shape2 = 5)}} $ \approx 0.621 $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+2.  Let $ X_{1}, \dots , X_{50} $ be a sample of $ iid \ Geometric(\theta) $ random variables
+with prior distribution \\ $ \theta \sim Beta(5, 10) $ and $\sum_{k=1}^{50} x_{i} = 149 $, determine \dots \\ 
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The posterior distribution $ f(\theta | \overrightarrow{x}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Find the likelihood function, then use in conjunction with the prior to find the posterior. \\
+
+\begin{itemize}
+    \item $ \ds f_X(x ; \theta) = \theta (1 - \theta)^{x - 1} $. \\
+    \item $ \ds L(\theta) = \theta^{50} (1 - \theta)^{\Sigma_{x} - 50} = \theta^{50} (1 - \theta)^{149 - 50} = \theta^{50} (1 - \theta)^{99} $. \\
+    \item $ \ds \pi(\theta ; \alpha = 5, \beta = 10) = \frac{ \Gamma(15) }{ \Gamma(5)\Gamma(10) } \theta^{4} (1 - \theta)^{9} $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) = \frac{ \ds \frac{ \Gamma(15) }{ \Gamma(5)\Gamma(10) } \theta^{4} (1 - \theta)^{9} \theta^{50} (1 - \theta)^{99} }{ \ds\int_{0}^{1} \frac{ \Gamma(15) }{ \Gamma(5)\Gamma(10) } \theta^{4} (1 - \theta)^{9} \theta^{50} (1 - \theta)^{99} \, d\theta } = 
+    \frac{ \ds \theta^{54} (1 - \theta)^{108} }{ \ds\int_{0}^{1} \theta^{54} (1 - \theta)^{108} \, d\theta } = k \cdot \theta^{54} (1 - \theta)^{108}$. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) \sim Beta(55, 109) $. \\
+\end{itemize}
+
+\vspace{2.5mm}
+
+\newpage 
+
+%%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The value of the Bayesian estimator of $ \theta $ for the squared error loss. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds \hat{\theta}_{SE} = \frac{55}{55 + 109} = \frac{55}{164} = 0.335 $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) . The value of the Bayesian estimator of $ \theta $ for the absolute error loss. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the absolute error loss is the median of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds \hat{\theta}_{AE} = $ {\XBB \texttt{qbeta(p = 0.5, shape1 = 55, shape2 = 109)}} $ = 0.335 $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+3. Let $ X_{1}, \dots , X_{60} $ be a sample of $ iid \ Exponential(1 / \theta) $ random variables
+with prior distribution \\ $ \theta \sim Gamma(\alpha, \beta) $, determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The posterior distribution $ f(\theta | \overrightarrow{x}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+Find the likelihood function, then use in conjunction with the prior to find the posterior. \\
+
+\begin{itemize} 
+    \item $ \ds f_X(x ; \theta) = \theta e^{-\theta x} $. \\
+    \item $ \ds L(\theta) = \theta^{60} e^{-\theta\Sigma_{x}} $. \\
+    \item $ \ds \pi(\theta ; \alpha, \beta) = \frac{ 1 }{ \beta^{\alpha} \Gamma(\alpha) } \theta^{\alpha - 1} e^{-\theta / \beta} $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) = \frac{ \ds \frac{ 1 }{ \beta^{\alpha} \Gamma(\alpha) } \theta^{\alpha - 1} e^{-\theta / \beta} \theta^{60} e^{-\theta\Sigma_{x}} }{ \ds \int_{0}^{\infty} \frac{ 1 }{ \beta^{\alpha} \Gamma(\alpha) } \theta^{\alpha - 1} e^{-\theta / \beta} \theta^{60} e^{-\theta\Sigma_{x}} \, d\theta } = 
+    \frac{ \ds \theta^{\alpha + 59} e^{-\theta / \beta - \theta\Sigma_{x}} }{ \ds \int_{0}^{\infty} \theta^{\alpha + 59} e^{-\theta / \beta - \theta\Sigma_{x}} \, d\theta } = k \cdot \theta^{\alpha + 59} e^{-\theta( 1 / \beta + \Sigma_{x})} $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) \sim Gamma(\alpha + 60, 1 / \beta + \Sigma_{x}) $. \\
+\end{itemize} 
+
+\newpage
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) The Bayesian estimator of $ \theta $ for the squared error loss. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds E(Gamma(\alpha + 60, 1 / \beta + \Sigma_{x})) = (\alpha + 60) \cdot (1 / \beta + \Sigma_{x}) $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(c) . The value of the Bayesian estimator of $ \theta $ for the squared error loss when \\ 
+$ \sum_{k=1}^{60} x_{i} = 143.1, \alpha = 3.5, \beta = 6 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds \hat{\theta}_{SE} = (3.5 + 60) \cdot (1 / 6 + 143.1) = (63.5) \cdot (859.6 / 6) = 9097.43$.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     3d     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(d) . The value of the Bayesian estimator of $ \theta $ for the absolute error loss when \\ 
+$ \sum_{k=1}^{60} x_{i} = 143.1, \alpha = 3.5, \beta = 6 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+The Bayesian estimator of $ \theta $ for the absolute error loss is the median of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds \hat{\theta}_{AE} = $ {\XBB \texttt{qgamma(p = 0.5, shape = 63.5, scale = (859.6/6))}} $ = 9049.72 $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+4. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Binomial(n = 2, p = \theta) $ random variables
+with prior distribution \\ $ \theta \sim Uniform[0, 1] $, determine \dots \\
+
+Determine \dots \\
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The posterior distribution $ f(\theta | \overrightarrow{x}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Find the likelihood function, then use in conjunction with the prior to find the posterior. \\
+
+\begin{itemize} 
+    \item $ \ds f_X(x ; \theta) =  \binom{2}{x} \theta^{x} (1 - \theta)^{2 - x} = \frac{2}{x(2 - x)} \theta^{x} (1 - \theta)^{2 - x} $. \\
+    \item $ \ds L(\theta) = \frac{2^{n}}{\pi_{x(2 - x)}} \theta^{\Sigma_{x}} (1 - \theta)^{2n - \Sigma_{x}} $. \\
+    \item $ \ds \pi(\theta) = \frac{ 1 }{ 1 - 0 } = 1 $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) = \frac{ \ds \frac{2^{n}}{\pi_{x(2 - x)}} \theta^{\Sigma_{x}} (1 - \theta)^{2n - \Sigma_{x}} }{ \ds \int_{0}^{\infty} \frac{2^{n}}{\pi_{x(2 - x)}} \theta^{\Sigma_{x}} (1 - \theta)^{2n - \Sigma_{x}} \, d\theta } = 
+    k \cdot \theta^{\Sigma_{x}} (1 - \theta)^{2n - \Sigma_{x}} $. \\
+    \item $ \ds f(\theta | \overrightarrow{x}) \sim Beta(\Sigma_{x} + 1, 2n + 1 - \Sigma_{x}) $. \\
+\end{itemize} 
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) The Bayesian estimator of $ \theta $ for the squared error loss. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds E(Beta(\Sigma_{x} + 1, 2n + 1 - \Sigma_{x})) = \frac{ \Sigma_{x} + 1 }{ 2(n + 1) } $.
+\end{itemize}
+
+\newpage
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(c) The value of the Bayesian estimator of $ \theta $ for the squared error loss when \\ 
+$ n = 10 $ and $ \sum_{k=1}^{10} x_{i} = 17 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds \hat{\theta}_{SE} = \frac{ 17 + 1 }{ 2(10 + 1) } = \frac{ 18 }{ 22 } = 0.81\overline{81} $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%     4d     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(d) The value of the Bayesian estimator of $ \theta $ for the absolute error loss when \\ 
+$ n = 10 $ and $ \sum_{k=1}^{10} x_{i} = 17 $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+The Bayesian estimator of $ \theta $ for the absolute error loss is the median of the posterior distribution. \\
+
+\begin{itemize}
+    \item $ \ds 1 + \Sigma_{x} = 1 + 17 = 18 = \alpha $.
+    \item $ \ds 2n + 1 - \Sigma_{x} = 2(10) + 1 - 17 = 4 = \beta $.
+    \item $ \ds \hat{\theta}_{AE} = $ {\XBB \texttt{qbeta(p = 0.5, shape1 = 18, shape2 = 4)}} $ \approx 0.8279 $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\XBB\hrulefill\XB \\
+
+5. Let $ X_{1}, \dots , X_{10} $ be a sample of $ iid \ Binomial(n = 1, p = \theta) $ random variables
+with prior pdf \\ 
+\begin{center}
+    $\pi(\theta) = 
+    \begin{cases} 
+        1/3 & \text{if} \ \theta = 0.5 \\
+        2/3 & \text{if} \ \theta = 0.8
+    \end{cases} $. \\ 
+\end{center}
+
+
+
+\XBB\hrulefill\XB 
+\vspace{5mm} 
+
+%%%%%%%%%     5a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(a) The posterior distribution $ f(\theta | \overrightarrow{x}) $. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\
+
+\noindent
+Find the likelihood function, then use in conjunction with the prior to find the posterior. \\
+
+\begin{itemize}
+    \item $ \ds f_X(x ; \theta) = \binom{1}{x} \theta^{x} (1 - \theta)^{1 - x} = \theta^{x} (1 - \theta)^{1 - x} $. \\
+    \item $ \ds L(\theta) = \theta^{\Sigma_{x}} (1 - \theta)^{10 - \Sigma_{x}} $. \\
+    \item $ \ds \pi(\theta) = \begin{cases} 
+        1/3 & \text{if} \ \theta = 0.5 \\
+        2/3 & \text{if} \ \theta = 0.8
+    \end{cases} $. \\ 
+    \item $ \ds f(\theta | \overrightarrow{x}) = \frac{ \ds \pi(\theta) \theta^{\Sigma_{x}} (1 - \theta)^{10 - \Sigma_{x}} }{ \ds \sum_{\Theta} \pi(\theta) \theta^{\Sigma_{x}} (1 - \theta)^{10 - \Sigma_{x}} } = 
+    \frac{ \ds \pi(\theta) \theta^{\Sigma_{x}} (1 - \theta)^{10 - \Sigma_{x}} }{ \ds \frac{1}{3} \Bigl( \frac{1}{2} \Bigr)^{\Sigma_{x}} \Bigl( 1 - \frac{1}{2} \Bigr)^{10 - \Sigma_{x}} + \frac{2}{3} \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( 1 - \frac{4}{5} \Bigr)^{10 - \Sigma_{x}} } $. \\ 
+    \item $ \ds f(\theta | \overrightarrow{x}) = \frac{ \ds 3 \pi(\theta) \theta^{\Sigma_{x}} (1 - \theta)^{10 - \Sigma_{x}} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{2} \Bigr)^{10 - \Sigma_{x}} + 2 \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} } = 
+    \frac{ \ds 3 \pi(\theta) \theta^{\Sigma_{x}} (1 - \theta)^{10 - \Sigma_{x}} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{10} + 2 \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} } $. \\  \vspace{2.5mm} 
+    \item $ \ds f(\theta | \overrightarrow{x}) = \begin{cases} 
+        \frac{ \ds \Bigl( \frac{1}{2} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{2} \Bigr)^{10 - \Sigma_{x}} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{10} + 2 \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} } = 
+        \frac{ \ds \Bigl( \frac{1}{2} \Bigr)^{11} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{11} + \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} } & \text{if} \ \theta = 0.5 \\
+        \ & \ \\
+        \frac{ \ds 2 \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{10} + 2 \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} } = 
+        \frac{ \ds \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{11} + \Bigl( \frac{4}{5} \Bigr)^{\Sigma_{x}} \Bigl( \frac{1}{5} \Bigr)^{10 - \Sigma_{x}} } & \text{if} \ \theta = 0.8
+    \end{cases} $. \\ 
+\end{itemize}
+
+\newpage
+
+\vspace{2.5mm}
+
+%%%%%%%%%     5b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+(b) Suppose that $ \sum_{k=1}^{10} x_{i} = 6 $. Compute the Bayesian estimate of $ \theta $ for square error loss, and the Bayesian estimate for $ \theta $ for absolute error loss. \\
+\vspace{2.5mm} \\
+\textit{Solution}:
+\vspace{2.5mm} \\ 
+
+\noindent
+The Bayesian estimator of $ \theta $ for the squared error loss is the mean of the posterior distribution. \\
+\noindent
+The Bayesian estimator of $ \theta $ for the absolute error loss is the median of the posterior distribution. \\
+
+\begin{itemize} 
+    \item $ \ds f(\theta | \overrightarrow{x}) = \begin{cases} 
+        \frac{ \ds \Bigl( \frac{1}{2} \Bigr)^{11} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{11} + \Bigl( \frac{4}{5} \Bigr)^{6} \Bigl( \frac{1}{5} \Bigr)^{4} } = 
+        0.53793 & \text{if} \ \theta = 0.5 \\
+        \ & \ \\
+        \frac{ \ds \Bigl( \frac{4}{5} \Bigr)^{6} \Bigl( \frac{1}{5} \Bigr)^{4} }{ \ds \Bigl( \frac{1}{2} \Bigr)^{11} + \Bigl( \frac{4}{5} \Bigr)^{6} \Bigl( \frac{1}{5} \Bigr)^{4} } = 
+        0.46207 & \text{if} \ \theta = 0.8
+    \end{cases} $. \\ 
+    \item As our posterior distribution can only take two values, our mean and median turn out the same.
+    \item $ \ds \hat{\theta}_{SE} = \hat{\theta}_{AE} = (0.53793 + 0.46207) / 2 = 0.5 $.
+\end{itemize}
+
+\vspace{2.5mm}
+
+\end{document}

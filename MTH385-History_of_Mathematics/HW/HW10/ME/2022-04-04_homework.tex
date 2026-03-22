@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[left = 2cm, top = 2cm, bottom = 2cm, right = 2cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+\begin{document}
+
+\title{\textbf{MTH385}: History of Mathematics - Homework \#10}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+
+\hrulefill
+
+\newpage
+
+Like the binomial theorem, 
+the multinomial theorem can be proved combinatorially by considering the number of ways a term 
+$ a_{1}^{q_{1}} a_{2}^{q_{2} }\cdots a_{n}^{q_{n}} $ 
+can arise from the factors of $ ( a_{1} + a_{2} + \cdots + a_{n})^{p} $.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.9.4 rewritten]
+  Prove the formula for the multinomial coefficient
+  \[
+    \binom{p}{q_{1}, q_{2}, \ldots, q_{n}} = \frac{p!}{q_{1}!q_{2}! \cdots q_{n}!}
+  \]
+  by observing that the coefficient equals the number of ways of writing a 
+  $ p $-element set as a disjoint union of subsets of sizes $ q_{1}, q_{2}, \ldots, q_{n} $.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  \begin{itemize}
+    \item We know a single combination takes the form $ \ds \binom{p}{q} = \frac{p!}{(p - q)! q!} $.
+    \item If we are to then take then remaining $ p - q $ items and choose again we have $ \ds \binom{p-q}{r} = \frac{(p - q)!}{(p - q - r)! r!} $.
+    \item Extending now to the general case \dots
+    \item[$\ast$] $ \ds \binom{p}{q_{1}, q_{2}, \dots, q_{n}} = \binom{p}{q_{1}} \cdot \binom{p}{q_{2}} \cdots \binom{p}{q_{n}} = \frac{p!(p - q_{1})! (p - q_{1} - q_{2})! \cdots (p - q_{1} - q_{2} - \cdots - q_{n + 1})!}{(p - q_{1})! q_{1}! (p - q_{1} - q_{2})! q_{2}! \cdots (p - q_{1} - q_{2} - \cdots - q_{n})! q_{n}!} $.
+    \item[$\ast$] In the numerator all but the $ p! $ cancels with the corresponding term in the denemonator.
+    \item[$\ast$] In the denemonator the $ (p - q_{1} - q_{2} - \cdots - q_{n})! = 0! = 1 $ as $ q_{1} + q_{2} + \dots + q_{n} = n $.
+    \item[$\ast$] Thus the denemonator contains only the $ q_{i} !'s $.
+    \item As a result we are left with the requested formula. 
+  \end{itemize}
+
+\end{proof}
+
+\newpage
+
+As we now know, all conic sections may be given by the following standard form equations (from Section~2.4):
+\[
+  \frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} = 1\text{ (ellipse)},\qquad y = ax^{2} \text{ (parabola)}, \qquad \frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = 1\text{ (hyperbola)}.
+\]
+The reduction of an arbitrary quadratic equation in $ x $ and $ y $ to one of these forms depends 
+on suitable choice of origin and axes, as Fermat and Descartes discovered. 
+The main steps are outlined in the following exercises.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [6.2.1]
+  Show that a \emph{quadratic form} $ \ds ax^{2} + bxy + cy^{2} $ may be converted to a form 
+  $ \ds a'x'^{2} + b'y'^{2} $ by suitable choice of $ \theta $ in the substitution
+  \begin{align*}
+    x &= x' \cdot \cos(\theta) - y' \cdot \sin(\theta), \\
+    y &= x' \cdot \sin(\theta) + y' \cdot \cos(\theta),
+  \end{align*}
+  by checking that the coefficient of $ x' y' $ is $ (c - a) \cdot \sin(2\theta) + b \cdot \cos(2\theta) $.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  \begin{itemize}
+    \item The substitution leaves us with the following \dots
+    \subitem $ \ds x^{2} = x'^{2} \cdot \cos^{2}(\theta) - 2 x'y' \cdot \sin(\theta) \cos(\theta) + y'^{2} \cdot \sin^{2}(\theta) $.
+    \subitem $ \ds xy = x'^{2} \cdot \sin(\theta) \cos(\theta) + x'y' \cdot \cos^{2}(\theta) - x'y' \cdot \sin^{2}(\theta) - y'^{2} \cdot \sin(\theta) \cos(\theta) $.
+    \subitem $ \ds y^{2} = x'^{2} \cdot \sin^{2}(\theta) + 2 x'y' \cdot \sin(\theta) \cos(\theta) + y'^{2} \cdot \cos^{2}(\theta) $.
+    \item Our equation thus becomes \dots
+    \subitem $ \ds ax^{2} + bxy + cy^{2} $
+    \subitem $ \ds = $
+    \subitem $ \ds a ( x'^{2} \cdot \cos^{2}(\theta) - 2 x'y' \cdot \sin(\theta) \cos(\theta) + y'^{2} \cdot \sin^{2}(\theta) ) + $
+    \subitem $ \ds b ( x'^{2} \cdot \sin(\theta) \cos(\theta) + x'y' \cdot \cos^{2}(\theta) - x'y' \cdot \sin^{2}(\theta) - y'^{2} \cdot \sin(\theta) \cos(\theta) ) + $
+    \subitem $ \ds c ( x'^{2} \cdot \sin^{2}(\theta) + 2 x'y' \cdot \sin(\theta) \cos(\theta) + y'^{2} \cdot \cos^{2}(\theta) ) $
+    \subitem $ \ds = $
+    \subitem $ \ds x'^{2} ( a \cdot \cos^{2}(\theta) + b \cdot \sin(\theta) \cos(\theta) + c \cdot \sin^{2}(\theta) ) + $
+    \subitem $ \ds x'y' ( 2c \cdot \sin(\theta) \cos(\theta) - 2a \cdot \sin(\theta) \cos(\theta) + b \cdot \cos^{2}(\theta) - b \cdot \sin^{2}(\theta)) + $
+    \subitem $ \ds y'^{2} ( a \cdot \sin^{2}(\theta) - b \cdot \sin(\theta) \cos(\theta) + c \cdot \cos^{2}(\theta) ) $
+  \end{itemize}
+
+  \newpage
+
+  \begin{itemize}
+    \item Notice \dots
+    \subitem $ \ds 2c \cdot \sin(\theta) \cos(\theta) - 2a \cdot \sin(\theta) \cos(\theta) = (c - a) \cdot 2 \cdot \sin(\theta) \cos(\theta) = (c - a) \cdot \sin(2\theta) $.
+    \subitem $ \ds b \cdot \cos^{2}(\theta) - b \cdot \sin^{2}(\theta) = b \cdot ( \cos^{2}(\theta) - \sin^{2}(\theta) ) = b \cdot \cos(2\theta) $.
+    \item If $ \ds ax^{2} + bxy + cy^{2} = a'x'^{2} + b'y'^{2} $, the coefficient on $ x'y' $ must be $ 0 $. Thus \dots
+    \subitem $ \ds (c - a) \cdot \sin(2\theta) + b \cdot \cos(2\theta) = 0 $.
+    \subitem $ \ds (c - a) \cdot \sin(2\theta) = - b \cdot \cos(2\theta) $.
+    \subitem $ \ds \tan(2\theta) = - b / (c - a) $.
+    \subitem $ \ds 2\theta =  \tan^{-1}(b / (a - c)) $.
+    \subitem $ \ds \theta =  \tan^{-1}(b / (a - c)) / 2 $.
+    \item Letting \dots
+    \subitem $ \ds a' = a \cdot \cos^{2}(\theta) + b \cdot \sin(\theta) \cos(\theta) + c \cdot \sin^{2}(\theta) $.
+    \subitem $ \ds b' = a \cdot \sin^{2}(\theta) - b \cdot \sin(\theta) \cos(\theta) + c \cdot \cos^{2}(\theta) $.
+    \subitem $ \ds \theta =  \tan^{-1}(b / (a - c)) / 2 $.
+    \item We arrive at the requested conversion.
+  \end{itemize}
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [6.2.2]
+  Deduce from Exercise~6.2.1 that, by suitable rotation of axes, any quadratic curve may be expressed in the form $ a'x'^{2} + by'^{2} + c'x' + d'y' + e' $.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  \begin{itemize}
+    \item Assuming we are dealing with a generic quadratic curve, we have \dots
+    \subitem $ \ds ( ax^{2} + bxy + cy^{2} ) + ( dx + ey + f ) $.
+    \item Under the prior substitution, with same assumptions for $ \theta, a', b' $, we have the following \dots
+    \subitem $ \ds ( a'x'^{2} + b'y'^{2} ) + ( d ( x' \cdot \cos(\theta) - y' \cdot \sin(\theta) ) + e( x' \cdot \sin(\theta) + y' \cdot \cos(\theta) ) + f ) $
+    \subitem $ \ds = a'x'^{2} + b'y'^{2} + ( d \cdot \cos(\theta) + e \cdot \sin(\theta)) \cdot x' + ( e \cdot \cos(\theta) - d \cdot \sin(\theta) ) \cdot y' + f $.
+    \item Letting \dots
+    \subitem $ \ds c' = d \cdot \cos(\theta) + e \cdot \sin(\theta) $.
+    \subitem $ \ds d' = e \cdot \cos(\theta) - d \cdot \sin(\theta) $.
+    \subitem $ \ds e' = f $.
+    \item We deduce the expression through rotation via $ \theta $.
+  \end{itemize}
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [6.2.3]
+  If $ b' = 0 $, but $ a' \neq 0 $, show that the substitution $ x' = x'' + f $ gives either standard-form parabola, 
+  or the ``double line'' $ x''^{2} = 0 $. \\
+  (Why is this called a ``double line,'' and is it a section of a cone?)
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  \begin{itemize}
+    \item If $ b' = 0 $, but $ a' \neq 0 $, we have \dots
+    \subitem $ \ds a'x'^{2} + c'x' + d'y' + e' = 0 $.
+    \item By substitution \dots 
+    \subitem $ \ds a'(x'' + f)^{2} + c'(x'' + f) + d'y' + e' = 0 $.
+    \subitem $ \ds a'x''^{2} + 2a'x''f + a'f^{2} + c'x'' + c'f + e' = - d'y' $.
+    \subitem $ \ds a'x''^{2} + (2a'f + c') \cdot x'' + (a'f^{2} + c'f + e') = - d'y' $.
+    \item Division by $ -d' $, and letting $ -a'/d' = a'' $ leaves \dots
+    \subitem $ \ds y' = a''x''^{2} + (2a''f + c') \cdot x'' + (a''f^{2} + c'f + e') $.
+    \item Given $ d' $ is non-zero we have thus the \textit{``standard-form parabola.''}
+    \item Under close choice of f \dots 
+    \subitem $ \ds a'' = - c'/2f = - e' $,
+    \item We find the familar $ \ds y' = a''x''^{2} $.
+    \item Else if $ d' $ is zero we have the \textit{``double line,''} of form 
+    \subitem $ \ds a'x''^{2} + (2a'f + c') \cdot x'' + (a'f^{2} + c'f + e') = 0 $.
+    \item Such called as we arrive at two vertical lines as the solution \dots
+    \subitem $ \ds x'' = \frac{\ds -(2a'f + c') \pm \sqrt{(2a'f + c')^{2} - 4(a')(a'f^{2} + c'f + e')}}{2a'} $.
+    \subitem $ \ds x'' = \frac{\ds -2a'f - c' \pm \sqrt{c'^{2} - 4f^{2} - 4a'e'}}{2} $.
+    \subitem $ \ds x'' = \ds -a'f - c'/2 \pm \sqrt{c'^{2}/4 - f^{2} - a'e'} $.
+  \end{itemize}
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [6.2.4]
+  If both $ a' $ and $ b' $ are nonzero, 
+  show that a shift of origin gives the standard form for either an ellipse or a hyperbola, or else a pair of lines.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  \begin{itemize}
+    \item If $ b' \neq 0 $, but $ a' \neq 0 $, we have \dots
+    \subitem $ \ds a'x'^{2} + b'y'^{2} + c'x' + d'y' + e' = 0 $.
+    \item Shifting the origin by the substitutions $ x' = x'' + f $ and $ y' = y'' + g $ \dots
+    \subitem $ \ds a'(x'' + f)^{2} + b'(y'' + g)^{2} + c'(x'' + f) + d'(y'' + g) + e' = 0 $.
+    \subitem $ \ds a'x''^{2} + 2a'x''f + a'f^{2} + b'y''^{2} + 2b'y''g + b'g^{2} + c'x'' + c'f + d'y'' + d'g + e' = 0 $.
+    \subitem $ \ds a'x''^{2} + ( 2a'f + c' ) \cdot x'' + b'y''^{2} + ( 2b'g + d' ) \cdot y'' = - ( a'f^{2} + b'g^{2} + c'f + d'g + e' ) $.
+    \item Division by the constant leaves \dots 
+    \subitem $ \ds a''x''^{2} + c''x'' + b''y''^{2} + d''y'' = 1 $.
+    \item Where \dots
+    \subitem $ \ds k'' = - a'f^{2} + b'g^{2} + c'f + d'g + e' $.
+    \subitem $ \ds a'' = a' / k'' $.
+    \subitem $ \ds b'' = b' / k'' $.
+    \subitem $ \ds c'' = ( 2a'f + c' ) / k'' $.
+    \subitem $ \ds d'' = ( 2b'g + d' ) / k'' $.
+    \item Letting $ c'' = 0 = d'' $ by appropriate choices of $ f $ and $ g $ \dots
+    \item[$\ast$] $ \ds a''x''^{2} + b''y''^{2} = 1 $
+    \subitem If the signs are the same for $ a'' $ and $ b'' $, our equation is an ellipse given $ k'' \neq 0 $.
+    \subitem If the signs are opposite for $ a'' $ and $ b'' $, our equation is a hyperbola given $ k'' \neq 0 $.
+    \subitem If $ k'' = 0 $, $ \ds a'x''^{2} - b'y''^{2} = 0 $, leaving our two lines $ a'x'' - b'y'' $ and $ a'x'' + b'y'' $.
+  \end{itemize}
+
+\end{proof}
+
+\newpage
+
+\end{document}
+

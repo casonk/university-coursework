@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[left = 2cm, top = 2cm, bottom = 2cm, right = 2cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+\begin{document}
+
+\title{\textbf{MTH385}: History of Mathematics - Homework \#5}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+
+\hrulefill
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [3.3.2]
+  Show that, for any integers $ a $ and $ b $, there are integers $ m $ and $ n $ such that 
+  \[
+    \gcd(a, b) = ma + nb 
+  \] 
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  Let $ G = \gcd(a, b) $.
+  We know that $ G | a $ and $ G | b $.
+
+  Thus we have some $ x = a/G $ and $ y = b/G $, where $ x, y \in \mathbb{Z} $.
+
+  This system provides that $ y | b $, as $ Gy = b $ and $ y | bx $, as $ Gx = bx/y $.
+
+  We now consider $ \gcd(x,y) = 1 $.
+
+  As $ x $ and $ y $ are relatively prime, $ mx + ny = 1 $, $ m, n \in \mathbb{Z} $.
+
+  For proof: $ mbx + nyb = b $, where $ y | bx \ ; \ y | y \ ; \ y | b $. 
+
+  Now \dots
+
+  \begin{itemize}
+    \item $ \ds ma/G + nb/G = 1 $.
+    \item $ \ds ma + nb = G $.
+  \end{itemize}
+
+  And $ \gcd(a, b) = ma + nb $.
+\end{proof}
+
+\vfill
+
+\begin{center}
+  This in turn gives a general way to find integer solutions of linear equations.
+\end{center}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [3.3.3]
+  Deduce from Exercise~3.3.2 that the equation $ax+by=c$ with integer coefficients $a$, $b$, and $c$ has an integer solution $x$, $y$ if $\gcd(a,b)$ divides $c$.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  Let $ G = \gcd(a, b) $, Thus $ G = ma + nb $, from \textbf{Ex. 1}.
+  
+  Assuming $ G|c $, $ Gi = c $ for some $ i \in \mathbb{Z} $.
+
+  Now $ \ds Gi = mai +nbi = c $
+
+  Letting $ mi = x $ and $ bi = y $, $ ax + by = c $.
+
+  As $ m, n, i \in \mathbb{Z} $, $ x, y $ are an integer solution.
+
+\end{proof}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [3.3.5]
+  (Solution of linear Diophantine equations) Give a test to decide, for any given integers $ a $, $ b $, $ c $, whether there are integers $x$, $y$ such that
+  \[
+    ax + by = c.
+  \]
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  From \textbf{Ex. 1} \& \textbf{Ex. 2}, if $\gcd(a,b)$ divides $c$, there are integers $x$, $y$ that satisfy $ax + by = c$.
+
+  \begin{itemize}
+    \item $ \ds G = ma + nb $; For any integers $a$ and $b$.
+    \item $ \ds Gi = mai + nbi $
+    \item $ \ds c = ax + by $; Where $ c,a,x,b,y \in \mathbb{Z} $.
+    \item Thus if $ G | c $; we can finx $ x,y \in \mathbb{Z} $.
+    \item Else; we contradict that $ a,b \in \mathbb{Z} $.
+  \end{itemize}
+
+\end{proof}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [3.4.3]
+  Show that
+  \[
+    \sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{\ddots}}}}
+  \]
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  The continued fraction of a real number $ \alpha_{0} > 0 $ is written 
+  \[
+    \alpha_{0} = n_{1} + \cfrac{1}{n_{2} + \cfrac{1}{n_{3} + \cfrac{1}{n_{4} + \cfrac{1}{\ddots}}}}
+  \]
+  Where, $ n_{1} = \lfloor \alpha_{0} \rfloor \ ; \ \alpha_{1} = 1/(\alpha_{0} - n_{1}) > 1 \ ; \ n_{k} = \lfloor \alpha_{k-1} \rfloor \ ; \ \alpha_{k} = 1/(\alpha_{k-1} - n_{k}) > 1, \forall k \ge 1 $ 
+  
+  We have, $ \alpha_{0} = \sqrt{2} \ ; \ n_{1} = \lfloor \sqrt{2} \rfloor = 1 \ ; \ \alpha_{1} = 1/(\sqrt{2} - 1) $.
+
+  It follows that, $ \alpha_{1} = 1 + \sqrt{2} $ as $ (1 + \sqrt{2})(\sqrt{2} - 1) = 1 $.
+
+  Thus we have, $ n_{2} = \lfloor 1 + \sqrt{2} \rfloor = 2 $ and $ \alpha_{2} = 1/(1 + \sqrt{2} - 2) = 1/(\sqrt{2} - 1) = \alpha_{1} $.
+
+  Similarly, $ n_{3} = \lfloor 1 + \sqrt{2} \rfloor = 2 = n_{2} $ .
+  
+  We can now see, $ \forall i \ge 1 ; \ \alpha_{i} = 1/(\sqrt{2} - 1) $, and $ \forall j \ge 2 ; n_{j} = 2 $.
+
+  By substitution we arrive at the requested \dots
+  \[
+    \sqrt{2} = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{\ddots}}}}
+  \]
+\end{proof}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [3.4.4]
+  Show that $\sqrt{3}+1$ also has a periodic continued fraction, and hence derive the continued fraction for $\sqrt{3}$.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  Consider, $ \alpha_{0} = \sqrt{3} + 1 \ ; \ n_{1} = \lfloor \sqrt{3} + 1 \rfloor = 2 \ ; \ \alpha_{1} = 1/(\sqrt{3} + 1 - 2) = 1/(\sqrt{3} - 1) $.
+
+  It follows that, $ \alpha_{1} = (\sqrt{3} + 1)/2 $ as $ (\sqrt{3} + 1)(\sqrt{3} - 1)/2 = 1 $.
+
+  Thus we have, $ [2 < (\sqrt{3} + 1) < 3] \ ; \ [1 < (\sqrt{3} + 1)/2 < 2] \ ; \ n_{2} = \lfloor (\sqrt{3} + 1)/2 \rfloor = 1 $.
+
+  Now, $ (\sqrt{3} + 1)/2 - 1 = (\sqrt{3} + 1 - 2)/2 = (\sqrt{3} - 1)/2 $ and $ \alpha_{2} = 2/(\sqrt{3} - 1) $.
+
+  Following again, $ \alpha_{2} = \sqrt{3} + 1 $ as $ (\sqrt{3} + 1)(\sqrt{3} - 1) = 2 $.
+
+  We can now see the following reccurance relations for $even$ and $odd$ values of $ i $ \dots
+
+  \begin{itemize}
+    \item $ \forall \ even \ i ; \ \alpha_{i} = \sqrt{3} + 1 $, and $ \forall \ odd \ i ; \ \alpha_{i} = (\sqrt{3} + 1)/2 $.
+    \item $ \forall \ even \ i ; \ n_{i} = 2 $, and $ \forall \ odd \ i ; \ n_{i} = 1 $.
+  \end{itemize}
+  
+  Now \dots
+  \[
+    \sqrt{3} + 1 = 2 + \cfrac{1}{1 + \cfrac{1}{2 + \cfrac{1}{1 + \cfrac{1}{\ddots}}}}
+  \]
+
+  And \dots
+  \[
+    \sqrt{3} = 1 + \cfrac{1}{1 + \cfrac{1}{2 + \cfrac{1}{1 + \cfrac{1}{\ddots}}}}
+  \]
+\end{proof}
+
+
+\end{document}
+

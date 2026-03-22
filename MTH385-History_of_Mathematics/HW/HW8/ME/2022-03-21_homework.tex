@@ -1,0 +1,246 @@
+\documentclass[12pt]{article}
+\usepackage{amscd,amssymb,amsthm,amsxtra,exscale,latexsym,verbatim,paralist}
+\usepackage{mathrsfs}
+\usepackage[T1]{fontenc}
+\usepackage{newtxmath,newtxtext}
+\usepackage[left = 2cm, top = 2cm, bottom = 2cm, right = 2cm]{geometry}
+
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\newcommand{\XB}{\color{black}}
+\newcommand{\XBB}{\color{blue}}
+\newcommand{\XV}{\color{violet}}
+\newcommand{\XR}{\color{red}}
+\newcommand{\ds}{\displaystyle}
+
+\setlength{\parindent}{0pt} 
+\setlength{\parskip}{\baselineskip}
+
+\theoremstyle{plain}
+\newtheorem{ex}{Exercise}
+
+\renewcommand{\proofname}{Solution}
+
+\begin{document}
+
+\title{\textbf{MTH385}: History of Mathematics - Homework \#8}
+\date{\today}
+\author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
+
+\maketitle
+
+\hrulefill
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #1     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Cardano's Fromula : $ \ds y^{3} = py + q \Rightarrow y = \sqrt[3]{ \ds \frac{q}{2} + \sqrt{ \ds \Bigl( \frac{q}{2} \Bigr)^{2} - \Bigl( \frac{p}{3} \Bigr)^{3} }} + \sqrt[3]{ \ds \frac{q}{2} - \sqrt{ \ds \Bigl( \frac{q}{2} \Bigr)^{2} - \Bigl( \frac{p}{3} \Bigr)^{3} }} $.
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.5.2]
+  Use Cardano's formula to solve $ y^{3} = 2 $. Do you get the obvious solution?
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  Using Cardano's Fromula \dots
+
+
+  \begin{itemize}
+    \item $ \ds p = 0 ; \quad q = 2 $.
+    \item $ \ds y = \sqrt[3]{ \ds \frac{2}{2} + \sqrt{ \ds \Bigl( \frac{2}{2} \Bigr)^{2} - \Bigl( \frac{0}{3} \Bigr)^{3} }} + \sqrt[3]{ \ds \frac{2}{2} - \sqrt{ \ds \Bigl( \frac{2}{2} \Bigr)^{2} - \Bigl( \frac{0}{3} \Bigr)^{3} }} $.
+    \item $ \ds y = \sqrt[3]{ \ds 1 + \sqrt{ \ds 1 }} + \sqrt[3]{ \ds 1 - \sqrt{ \ds 1 }} $.
+    \item $ \ds y = \sqrt[3]{ \ds 2 } $.
+  \end{itemize}
+
+  Yes we find the obvious solution.
+
+\end{proof}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #2     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.5.3]
+  Use Cardano's formula to solve $ y^{3} = 6y + 6 $, and check your answer by substitution.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  Using Cardano's Fromula \dots
+
+
+  \begin{itemize}
+    \item $ \ds p = 6 ; \quad q = 6 $.
+    \item $ \ds y = \sqrt[3]{ \ds \frac{6}{2} + \sqrt{ \ds \Bigl( \frac{6}{2} \Bigr)^{2} - \Bigl( \frac{6}{3} \Bigr)^{3} }} + \sqrt[3]{ \ds \frac{6}{2} - \sqrt{ \ds \Bigl( \frac{6}{2} \Bigr)^{2} - \Bigl( \frac{6}{3} \Bigr)^{3} }} $.
+    \item $ \ds y = \sqrt[3]{ \ds 3 + \sqrt{ \ds ( 3 )^{2} - ( 2 )^{3} }} + \sqrt[3]{ \ds 3 - \sqrt{ \ds ( 3 )^{2} - ( 2 )^{3} }} $.
+    \item $ \ds y = \sqrt[3]{ \ds 3 + \sqrt{ \ds 9 - 8 }} + \sqrt[3]{ \ds 3 - \sqrt{ \ds 9 - 8 }} = \sqrt[3]{ \ds 3 + \sqrt{ \ds 1 }} + \sqrt[3]{ \ds 3 - \sqrt{ \ds 1 }} $.
+    \item $ \ds y = \sqrt[3]{ \ds 4 } + \sqrt[3]{ \ds 2 } $.
+  \end{itemize}
+
+  Checking by substitution.
+  
+  \begin{itemize}
+    \item $ \ds y^{3} = (\sqrt[3]{ \ds 4 } + \sqrt[3]{ \ds 2 })^{3} = 4 + 3(\sqrt[3]{ \ds 4 })^{2}(\sqrt[3]{ \ds 2 }) + 3(\sqrt[3]{ \ds 4 })(\sqrt[3]{ \ds 2 })^{2} + 2 $. 
+    \item $ \ds y^{3} = 6 + 3(\sqrt[3]{ \ds 4 })(\sqrt[3]{ \ds 2 })(\sqrt[3]{ \ds 4 } + \sqrt[3]{ \ds 2 }) = 6 + 3(\sqrt[3]{ \ds 8 })(\sqrt[3]{ \ds 4 } + \sqrt[3]{ \ds 2 }) $. 
+    \item $ \ds y^{3} = 6 + 6(\sqrt[3]{ \ds 4 } + \sqrt[3]{ \ds 2 }) = 6 + 6y $. 
+\end{itemize}
+
+    Substitution checks out.
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$ \textit{(1)} \quad \ds x = \frac{1}{2} \sqrt[n]{ \ds y + \sqrt{ y^{2} - 1 } } + \frac{1}{2} \sqrt[n]{ \ds y - \sqrt{ y^{2} - 1 } } $.
+
+$ \textit{(2)} \quad \ds \sin{\theta} = \frac{1}{2} \sqrt[n]{ \sin{n\theta} + i\cos{n\theta} } + \frac{1}{2} \sqrt[n]{ \sin{n\theta} - i\cos{n\theta} } $.
+
+$ \textit{(3)} \quad \ds ( \cos{\theta} + i\sin{\theta} )^{n} = \cos{n\theta} + i\sin{n\theta} $.
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.6.2]
+  Use (3) and $ \sin(\alpha) = \cos(\pi/2 - \alpha) $, $ \cos(\alpha )= \sin(\pi/2 - \alpha) $ to show that
+  \[
+    (\sin\theta + i\cos\theta)^{n} = 
+    \left\{ \begin{array}{rl}
+       \sin(n\theta) + i\cos(n\theta) & \mbox{when $ n = 4m + 1 $} \\
+      -\sin(n\theta) - i\cos(n\theta) & \mbox{when $ n = 4m + 3 $.}
+    \end{array} \right.
+  \]
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  \begin{itemize}
+    \item $ \ds (\sin(\theta) + i\cos(\theta))^{n} = (\cos(\pi/2 - \theta) + i\sin(\pi/2 - \theta))^{n} $. 
+    \item $ \ds = \cos{n(\pi/2 - \theta)} + i\sin{n(\pi/2 - \theta)} $.
+    \item $ \ds = \cos(n\pi/2)\cos(-n\theta) - \sin(n\pi/2)\sin(-n\theta) + \\ i(\sin(n\pi/2)\cos(-n\theta) + \cos(n\pi/2)\sin(-n\theta)) $.
+    \item $ \ds = \cos(n\pi/2)\cos(n\theta) + \sin(n\pi/2)\sin(n\theta) + \\ i(\sin(n\pi/2)\cos(n\theta) - \cos(n\pi/2)\sin(n\theta)) $.
+  \end{itemize}
+
+  Just to be clear with the proceeding, note that \dots
+
+  \begin{itemize}
+    \item $ \ds \cos(2m\pi + \pi/2) = \cos(2m\pi + 3\pi/2) = 0 \ ; \ \forall m \in \mathbb{Z} $
+    \item $ \ds \sin(2m\pi + \pi/2) = -\sin(2m\pi + 3\pi/2) = 1 \ ; \ \forall m \in \mathbb{Z} $
+\end{itemize}
+
+  When $ n = 4m + 1 $
+  \begin{itemize}
+    \item $ \ds \cos(2m\pi + \pi/2)\cos(n\theta) + \sin(2m\pi + \pi/2)\sin(n\theta) + \\ i(\sin(2m\pi + \pi/2)\cos(n\theta) - \cos(2m\pi + \pi/2)\sin(n\theta)) $.
+    \item $ \ds (\sin(\theta) + i\cos(\theta))^{4m + 1} = \sin(n\theta) + i\cos(n\theta) $.
+  \end{itemize}
+
+  When $ n = 4m + 3 $
+  \begin{itemize}
+    \item $ \ds \cos(2m\pi + 3\pi/2)\cos(n\theta) + \sin(2m\pi + 3\pi/2)\sin(n\theta) + \\ i(\sin(2m\pi + 3\pi/2)\cos(n\theta) - \cos(2m\pi + 3\pi/2)\sin(n\theta)) $.
+    \item $ \ds (\sin(\theta) + i\cos(\theta))^{4m + 3} = -\sin(n\theta) - i\cos(n\theta) $.
+  \end{itemize}
+
+  Thus shown. 
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #4     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.6.3]
+  Deduce from Exercise~5.6.2 that (2) is correct for $ n = 4m + 1 $ and false for $ n = 4m + 3 $, and hence that (1) is a correct relation between $ y = \sin(n\theta) $ and $ x = \sin(\theta) $ only when $ n = 4m + 1 $.
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  When $ n = 4m + 1 $ \dots
+  \begin{itemize}
+    \item $ \ds \frac{1}{2} \sqrt[n]{\sin(n\theta) + i\cos(n\theta)} + \frac{1}{2} \sqrt[n]{\sin(n\theta) - i\cos(n\theta)} $.
+    \subitem $ \ds = \frac{1}{2} \bigl( \sin(n\theta) + i\cos(n\theta) \bigr)^{1/n} + \frac{1}{2} \bigl( \sin(n\theta) - i\cos(n\theta) \bigr)^{1/n} $.
+    \subitem $ \ds = \frac{1}{2} \Bigl( \bigl( \sin(\theta) + i\cos(\theta) \bigr)^{n/n} + \bigl( \sin(n\theta) + i\cos(n\theta) \bigr)^{1/-n} \Bigr) $.
+    \subitem $ \ds = \frac{1}{2} \Bigl( \sin(\theta) + i\cos(\theta) + \bigl( \sin(\theta) + i\cos(\theta) \bigr)^{n/-n} \Bigr) $.
+    \subitem $ \ds = \frac{1}{2} \bigl( \sin(\theta) + i\cos(\theta) + \sin(\theta) - i\cos(\theta) \bigr) = \frac{1}{2} \bigl( 2\sin(\theta) \bigr) $.
+    \subitem $ \ds = \sin(\theta) $.
+  \end{itemize}
+
+  When $ n = 4m + 3 $ \dots
+  \begin{itemize}
+    \item $ \ds \frac{1}{2} \sqrt[n]{\sin(n\theta) + i\cos(n\theta)} + \frac{1}{2} \sqrt[n]{\sin(n\theta) - i\cos(n\theta)} $.
+    \subitem $ \ds = \frac{1}{2} \bigl( \sin(n\theta) + i\cos(n\theta) \bigr)^{1/n} + \frac{1}{2} \bigl( \sin(n\theta) - i\cos(n\theta) \bigr)^{1/n} $.
+    \subitem $ \ds = -\frac{1}{2} \Bigl( \bigl( -\sin(n\theta) - i\cos(n\theta) \bigr)^{1/n} + \bigl( -\sin(n\theta) - i\cos(n\theta) \bigr)^{1/-n} \Bigr) $.
+    \subitem $ \ds = -\frac{1}{2} \Bigl( \bigl( \sin(\theta) + i\cos(\theta) \bigr)^{n/n} + \bigl( \sin(\theta) + i\cos(\theta) \bigr)^{n/-n} \Bigr) $.
+    \subitem $ \ds = -\frac{1}{2} \bigl( \sin(\theta) + i\cos(\theta) + \sin(\theta) - i\cos(\theta) \bigr) = -\frac{1}{2} \bigl( 2\sin(\theta) \bigr) $.
+    \subitem $ \ds = -\sin(\theta) $.
+  \end{itemize}
+
+  \newpage
+
+  When $ y = \sin(n\theta) $ and $ x = \sin(\theta) $ we have \dots
+  \begin{itemize}
+    \item $ \ds \sin(\theta) = \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) + \sqrt{ \sin^{2}(n\theta) - 1 } } + \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) - \sqrt{ \sin^{2}(n\theta) - 1 } } $.
+    \subitem $ \ds = \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) + \sqrt{ - \bigl( 1 - \sin^{2}(n\theta) \bigr) } } + \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) - \sqrt{ - \bigl( 1 - \sin^{2}(n\theta) \bigr) } } $.
+    \subitem $ \ds = \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) + \sqrt{ - \cos^{2}(n\theta) } } + \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) - \sqrt{ -\cos^{2}(n\theta) } } $.
+    \subitem $ \ds = \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) - i\cos(n\theta) } + \frac{1}{2} \sqrt[n]{ \ds \sin(n\theta) - i\cos(n\theta) } $.
+  \end{itemize}
+
+  From above this is only $ \sin(\theta) $ when  $ n = 4m + 1 $ and thus \textit{(1)} is a correct relation between 
+
+  $ y = \sin(n\theta) $ and $ x = \sin(\theta) $ only when $ n = 4m + 1 $.
+
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%     #5     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\XBB\hrulefill\XB \\
+\begin{ex} [5.6.4]
+  Show that (1) is a correct relation between $ y = \cos(n\theta) $ and $ x = \cos(\theta) $ for all $ n $ (de~Moivre (1730)).
+\end{ex}
+\XBB\hrulefill\XB \\
+
+\begin{proof}
+  \ \\
+
+  When $ y = \cos(n\theta) $ and $ x = \cos(\theta) $ we have \dots
+  \begin{itemize}
+    \item $ \ds \cos(\theta) = \frac{1}{2} \sqrt[n]{ \ds \cos(n\theta) + \sqrt{ \cos^{2}(n\theta) - 1 } } + \frac{1}{2} \sqrt[n]{ \ds \cos(n\theta) - \sqrt{ \cos^{2}(n\theta) - 1 } } $.
+    \subitem $ \ds = \frac{1}{2} \sqrt[n]{ \ds \cos(n\theta) + \sqrt{ - \sin^{2}(n\theta) } } + \frac{1}{2} \sqrt[n]{ \ds \cos(n\theta) - \sqrt{ - \sin^{2}(n\theta) } } $.
+    \subitem $ \ds = \frac{1}{2} \sqrt[n]{ \ds \cos(n\theta) + i\sin(n\theta) } + \frac{1}{2} \sqrt[n]{ \ds \cos(n\theta) - i\sin(n\theta) } $.
+    \subitem $ \ds = \frac{1}{2} \Bigl( \bigl( \cos(n\theta) + i\sin(n\theta) \bigr)^{1/n} + \bigl( \cos(n\theta) - i\sin(n\theta) \bigr)^{1/n} \Bigr) $.
+    \subitem $ \ds = \frac{1}{2} \Bigl( \bigl( \cos(\theta) + i\sin(\theta) \bigr)^{n/n} + \bigl( \cos(n\theta) + i\sin(n\theta) \bigr)^{n/-n} \Bigr) $.
+    \subitem $ \ds = \frac{1}{2} \bigl( \cos(\theta) + i\sin(\theta) + \cos(n\theta) - i\sin(n\theta) \bigr) = \frac{1}{2} \bigl( 2\cos(\theta) \bigr) $.
+    \subitem $ \ds = \cos(\theta) $.
+  \end{itemize}
+
+  This is sufficient for all $ n $ by \textit{de Moivre's formula}.
+  
+\end{proof}
+
+\newpage
+
+\end{document}
+

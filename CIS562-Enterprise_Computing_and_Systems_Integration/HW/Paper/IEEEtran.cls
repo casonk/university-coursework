@@ -4998,7 +4998,7 @@ between column types.}%
 % of the appropriate height is evaluated/output.
 %
 % The optional object decl (declarations) is code that is evaluated just
-% before the object's height is evaluated. Its intented purpose is to allow
+% before the object's height is evaluated. Its intended purpose is to allow
 % for the alteration or disabling of code within the object during internal
 % height evaluation (e.g., \long\def\thanks#1{\relax} ).
 % This special code is not invoked if/when the object is rendered at the end.

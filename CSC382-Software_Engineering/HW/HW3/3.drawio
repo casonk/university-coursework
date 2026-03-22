@@ -521,7 +521,7 @@
                 <mxCell id="v5ILuXLSrn0JniTpnWLS-13" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontColor=#095C86;strokeColor=#60E696;fillColor=#F694C1;endArrow=open;endFill=0;shadow=1;" parent="v5ILuXLSrn0JniTpnWLS-1" source="v5ILuXLSrn0JniTpnWLS-14" target="v5ILuXLSrn0JniTpnWLS-34" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="v5ILuXLSrn0JniTpnWLS-14" value="&lt;span&gt;Prompt User: 'Collect Commets As Well?'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="v5ILuXLSrn0JniTpnWLS-1" vertex="1">
+                <mxCell id="v5ILuXLSrn0JniTpnWLS-14" value="&lt;span&gt;Prompt User: 'Collect Comments As Well?'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="v5ILuXLSrn0JniTpnWLS-1" vertex="1">
                     <mxGeometry x="441" y="230" width="125" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="v5ILuXLSrn0JniTpnWLS-15" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;fontColor=#095C86;strokeColor=#60E696;fillColor=#F694C1;endArrow=open;endFill=0;shadow=1;" parent="v5ILuXLSrn0JniTpnWLS-1" source="v5ILuXLSrn0JniTpnWLS-16" target="v5ILuXLSrn0JniTpnWLS-48" edge="1">
@@ -821,7 +821,7 @@
                 <mxCell id="bL9QrLojC1jBEWXterRV-13" value="Prompt User For Data Type" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="bL9QrLojC1jBEWXterRV-12" vertex="1">
                     <mxGeometry x="70" y="50" width="125" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="bL9QrLojC1jBEWXterRV-14" value="&lt;span&gt;Prompt User: 'Collect Commets As Well?'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="bL9QrLojC1jBEWXterRV-12" vertex="1">
+                <mxCell id="bL9QrLojC1jBEWXterRV-14" value="&lt;span&gt;Prompt User: 'Collect Comments As Well?'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="bL9QrLojC1jBEWXterRV-12" vertex="1">
                     <mxGeometry x="188" y="200" width="125" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="bL9QrLojC1jBEWXterRV-15" value="Prompt User: 'Collect Submissions As Well?'" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="bL9QrLojC1jBEWXterRV-12" vertex="1">

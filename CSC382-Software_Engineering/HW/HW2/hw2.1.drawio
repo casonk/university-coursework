@@ -399,10 +399,10 @@
                 <mxCell id="73" value="&lt;span&gt;Pays With CreditCard&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="330" y="500" width="170" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="81" value="&lt;span&gt;Selects Paper Recipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="81" value="&lt;span&gt;Selects Paper Receipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="330" y="570" width="170" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="83" value="&lt;span&gt;Selects Digital Recipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
+                <mxCell id="83" value="&lt;span&gt;Selects Digital Receipt&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="330" y="630" width="170" height="55" as="geometry"/>
                 </mxCell>
                 <mxCell id="53" value="&lt;span&gt;System Auto Timed Exit&lt;/span&gt;" style="ellipse;whiteSpace=wrap;fillColor=#FFE45E;shadow=1;strokeColor=#FF6392;strokeWidth=4;html=1;labelBorderColor=none;labelBackgroundColor=none;align=center;fontSize=17;fontColor=#0000FF;fontStyle=1" parent="1" vertex="1">

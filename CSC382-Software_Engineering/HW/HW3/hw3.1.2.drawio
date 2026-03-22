@@ -42,7 +42,7 @@
                 <mxCell id="29" value="Prompt User For Data Type" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="88" vertex="1">
                     <mxGeometry x="70" y="50" width="125" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="&lt;span&gt;Prompt User: 'Collect Commets As Well?'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="88" vertex="1">
+                <mxCell id="14" value="&lt;span&gt;Prompt User: 'Collect Comments As Well?'&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="88" vertex="1">
                     <mxGeometry x="188" y="200" width="125" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="Prompt User: 'Collect Submissions As Well?'" style="rounded=1;whiteSpace=wrap;html=1;sketch=0;fontColor=#095C86;strokeColor=#AF45ED;fillColor=#F694C1;shadow=1;" parent="88" vertex="1">

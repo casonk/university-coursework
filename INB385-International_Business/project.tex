@@ -1,0 +1,385 @@
+\documentclass[a4paper, 12pt]{article} 
+% \setlength{\columnsep}{5mm}
+\usepackage[left=1in, top=1in, bottom=1in, right=1in]{geometry}
+% \usepackage{amsthm}
+% \usepackage{amsmath}
+% \usepackage{amssymb} 
+% \usepackage[fleqn]{mathtools}
+\usepackage{xcolor}
+\definecolor{umblue}{HTML}{00274C}
+\definecolor{ummaize}{HTML}{FFCB05}
+\usepackage{graphicx} 
+\usepackage{url}			       
+\usepackage{hyperref}
+% \usepackage{pgf}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows,automata}
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \pagestyle{empty} %
+\usepackage{newtxtext,newtxmath}
+% \usepackage{titlesec}
+
+\date{\today} %
+
+% \tolerance=1
+% \emergencystretch=\maxdimen
+% \hyphenpenalty=10000
+% \hbadness=10000
+
+\newcommand{\XB}{\textcolor{black}}
+\newcommand{\XBB}{\textcolor{blue}}
+\newcommand{\XV}{\textcolor{violet}}
+\newcommand{\XR}[1]{\textcolor{red}{\emph{[Find Ref: #1]}}}
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title Page
+\title{INB 385 PROJECT \\ AWS INDIA EXPANSION}
+\author{Cason Konzer   \\ 
+       University of Michigan - Flint \\ 
+       \textit{ \color{violet}
+       \href{mailto:casonk@umich.edu}{casonk@umich.edu}}  % Only one corresponding e-mail
+       }
+\maketitle
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Executive Summary
+\addcontentsline{toc}{section}{Executive Summary}
+\section*{Executive Summary}
+
+As businesses evolve hand in hand with technology, so does their need and demand for IT infrastructure. 
+Web applications, compute, storage, and networking are mission critical tasks for companies across the spectrum, especially those operating within health care, engineering (defense, automotive, etc.), financials, and software. 
+The global chip crisis, and high demand for IT components impose long delivery times and large initial investment costs to bring up infrastructure required for operating such systems. 
+Common place is to bring today's business requirements to cloud providers offering IT infrastructure as a service. 
+
+Amazon Web Services (AWS) Asia Pacific (Hyderabad) region recently launched in 2022, expanding the AWS footprint in India. 
+Hosting a broad range of expertise within software development, many companies are turing to India for talent acquisition. 
+Outsourcing and offshoring to the country brings with it the need for supporting infrastructure. 
+As in the transportation of physical goods, the transportation of data is geographically limited. 
+Similarly, as manufactures operate most efficiently when components can be sourced locally, developers operate most efficiently when in close proximity to their data. 
+
+Currently AWS is the sole division of AMAZON.COM, INC. with positive operating income.
+With the highest margins, and fierce competition, we recommend further invest in AWS. 
+To be strategically positioned for future demands, and competitive in the marketplace, we propose a buildup of AWS infrastructure in Agra, India. 
+Stocked with a dense consortium of IT firms, backed by government initiatives, and with novel locality, an introduction of the proposed AWS Asia Pacific (Agra) region provides Amazon the opportunity to be well positioned for the growing demand of cloud resources within northern India. 
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Introduction
+\section{Introduction}
+Since the onset of computing as we know it today, growth within the industry has become inevitable. 
+As of 2021 63\% of the global population, and 90\% of the population residing in developed countries, have access to the internet (Figure~\ref{fig:GLOBAL_INTERNET_ACCESS}).
+Telecommunication networks are expanding, and future growth is projected, especially in the 5G space offering faster mobile speeds (Figure~\ref{fig:PROJECTED_5G}).
+Personal computing is no longer a luxury in developed countries, as it has evolved into a necessity. 
+Business decisions, and international markets are now data driven, and traditional bargaining is found far and few between. 
+In a similar manner, cash payments are hard to come by with new digitized financial transactions. 
+Companies are collecting more fields of data, sensors technology is advancing, and the number of users is increasing. 
+As a result, data creation and access is increasing rapidly, with expectations of over 100 zetabytes of data being created, captured, copied, and consumed in 2023 and beyond (Figure~\ref{fig:TOTAL_DATA_VOLUME}). 
+Granted, nothing comes for free, and companies providing data warehousing and computing infrastructure are collecting a pretty penny. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Company Analysis
+\section{Company Analysis}
+
+AMAZON.COM, INC. (Amazon) is a well know and established company within the global economy. 
+Amazon is constructed of three branches, Amazon North America (Amazon N.A.), Amazon International (Amazon I.), and Amazon Web Services (AWS) \cite[p.~22]{AMZN_10K_2021}.
+Traditionally, and initially, Amazon is know for retail business via their online marketplace. 
+Since 2006 AWS has been hosting IT infrastructure services that provide flexible cloud solutions to customers \cite{AMZN_ABOUT_AWS}.
+While retail operates on thin margins (Amazon N.A. and Amazon I.), cloud services (AWS) offerer much better returns.
+Within the first three quarters of 2022, AWS was the only segment operating with positive income \cite[p.~24, p.~19, p.~19]{AMZN_10Q_Q1_2022, AMZN_10Q_Q2_2022, AMZN_10Q_Q3_2022}. 
+Additionally, AWS shows the highest year over year growth across all sectors within the first quarter \cite[p.~23, p.~24, p.~24]{AMZN_10Q_Q1_2022, AMZN_10Q_Q2_2022, AMZN_10Q_Q3_2022}. 
+We propose strategic expansion of AWS, focusing in on key elements of the services it provides. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Value Creation
+\subsection{Value Creation}
+In general, AWS offers computational power, data storage, and content delivery services \cite[p.~10]{AMZN_AWS_WHITEPAPER}. 
+Specific service offerings vary by region, and can be found at anytime via their global infrastructure site \cite{AMZN_AWS_REGIONAL_SERVICES}. 
+Notable service categories include: application hosting, websites, backup and storage, enterprise IT, content delivery, and databases (Figure~\ref{fig:AWS_SOLUTIONS}). 
+As the service catalog stretches far, we focus specifically on compute and data warehousing within this report.
+
+Cloud computing can be generalized to cover 3 broad categories \cite{AMZN_AWS_CLOUD_COMPUTE}. 
+Infrastructure as a Service (IaaS) provides access to dedicated or virtual hardware and is the most similar to procurement of on premise hardware. 
+Platform as a Service (PaaS) brings the consumer one abstraction higher such that AWS manages underlying infrastructure and provides it as needed. 
+PaaS allows consumers to develop applications within AWS without having the responsibility of maintaining such software. 
+Software as a Service (SaaS) differentiates itself as it provides access to software suites for consumers to use, maintained for them by AWS. 
+Compute and data warehousing services span all three types of cloud computing. 
+
+%%%%%%%%%%%%%%%% Compute Services
+\subsubsection{Compute Services}
+Compute services can be best thought of in the sense of data processing. 
+From an IaaS perspective, consumers rent and utilize computer hardware from AWS.
+Costs associated with this use case are based on the physical hardware installed on the machines. 
+Often though of in terms of the central/graphics processing unit's (C/GPU) cores/threads, and the onboard random access memory (RAM), AWS provides components based on customer requirements. 
+In general, requirements are based on design and scope of the application planed to run on the hardware. 
+For multithreading applications (parallel computing) additional CPU cores are needed. 
+In comparison, for complex visual rendering tasks GPU cores are needed. 
+Last, RAM scales with the size of datasets needed to be stored during runtime. 
+Additionally exotic hardware components may be required, such as field programmable gate arrays (FPGAs) not offered on traditional computers. 
+Dependant upon frequency of use, customers can opt to manage there resources directly via means of IaaS, or have them managed by AWS through PaaS. 
+When customers need not run their own applications, SaaS provides both managed hardware and software for their data processing needs. 
+This can be best though of as using the web version of an application rather than installing it on a local machine. 
+
+Across all use cases, compute services need access to the data in which they are processing. 
+For best performance, data, or at least a cache of the data, should be availability locally to the hardware.
+If applications need to frequently download datasets, AWS charges out the required networking costs to do so. 
+With this said, customers see cost reductions for housing datasets within AWS infrastructure when they are substantially large. 
+
+%%%%%%%%%%%%%%%% Data Warehousing Services
+\subsubsection{Data Warehousing Services}
+From a consumer perspective, two general types of data storage needed. 
+Hot data, commonly refereed to object storage, facilitate storage on devices with cutting edge read/write speeds and strong network connections. 
+Cold, archival, data facilitates storage on cost effective devices with weaker network connections. 
+Hot data is needed for software development and applications referencing databases. 
+In general hot data will need to be accessed frequently, and fast. 
+Cold data is necessary for security and regulation purposes. 
+As with legal documents, companies have required data holding periods, which they must fulfill to be in compliance. 
+Often rarely, or possibly never, accessed after archiving, cold data can is typically stored on slow devices with large memory such as tape drives. 
+
+AWS provides service for both use cases through their Amazon S3 and Amazon S3 Glacier simple storage service \cite{AMZN_AWS_SIMPLE_STORAGE}. 
+In many cases compute services generate artifacts of both the hot and cold data type. 
+Similarly, companies have demands to store both types. 
+Through AWS's flexible offerings, and the ability to easily transition data from one type to another, data warehousing services are catered to a larger target market. 
+
+With data storage comes the possibility of data corruption. 
+A mitigation strategy called redundancy allows AWS to hold industry standards for data integrity. 
+Implementation requires data to be stored at multiple locations, in the case of hardware failure or attacks on a datacenter. 
+On top of the need for redundancy, data needs to be stored in a secure manner. 
+Encryption of data is a technical topic in need of cybersecurity experts, which AWS provides as an additional service. 
+Last, countries regulate data storage, which becomes increasingly complex when bringing data across borders\footnote{For perspective on intra-datacenter connections Microsoft offers an interactive global infrastructure map for their deployments \cite{MSFT_AZURE_GLOBAL_INFRA_MAP}.}. 
+To address these nuances, datacenters are built with this in mind, and having multiple within one country allows AWS to operate most efficiently. 
+Working with customers, AWS helps to control and manage these requirements, removing burdens from corporations. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Competition
+\subsection{Competition}
+AWS is not the only company selling cloud solutions, and faces fierce competition from big players. 
+Microsoft offers Azure (Intelligent Cloud), Google offers Google Cloud Platform, and IBM offers IBM Cloud, to name a few. 
+Initial infrastructure developed is costly, but with first movers advantage, is necessary to be competitive within the market. 
+Additionally, infrastructure needs are global, and company owned infrastructure leverages economies of scale. 
+As a result cloud platforms operate in multiple regions, and offer many availability zones \cite{AMZN_AWS_GLOBAL_INFRA, GOOG_GCP_GLOBAL_INFRA, MSFT_AZURE_GLOBAL_INFRA}.
+Common across all cloud platforms is the strategy to deploy a broad range of services \cite{AMZN_AWS_CLOUD_PRODUCTS, GOOG_GCP_CLOUD_PRODUCTS, MSFT_AZURE_CLOUD_PRODUCTS}. 
+What differentiates AWS from the the other platforms is their infrastructure and service offerings. 
+Compared to competitors, AWS has the most extensive infrastructure, offers the most services, and within those services offers the most features \cite{AMZN_AWS_CLOUD_COMPUTE}.
+
+Other factors driving market share include consumer cost models and platform advertising. 
+For the 2021 fiscal year, AWS beat Alphabet's Google Cloud segment, but lost to Microsoft's Intelligent Cloud segment. 
+AWS held operating income at \$18.53 billion, Google Cloud at -\$5.28 billion, and Microsoft's Intelligent Cloud at \$26.13 billion \cite[p~.24, p.~38, p.~44]{AMZN_10K_2021, GOOG_10K_2021, MSFT_10K_2021} \footnote{Microsoft is 3 quartes behind Alphabet and Amazon, with fiscal year ending on June 30, 2021 rather than December 31, 2021.}.
+While direct comparison is not perfect due to business segmentation \cite[p.~64, p.~41, p.~21]{AMZN_ANNUAL_2021, GOOG_ANNUAL_REPORT_2021, MSFT_ANNUAL_REPORT_2022}, AWS currently brings in less net sales than Microsoft's Intelligent Cloud, and must further differentiate itself to capture market share \cite[p.~65, p.~44]{AMZN_10K_2021, MSFT_10K_2021}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Current Position
+\subsection{Current Position}
+Currently AWS operates in 30 regions across the globe, supplying 96 availability zones with over 410 points of presence \cite{AMZN_AWS_GLOBAL_INFRA}.
+Some notable customers of AWS include AstraZeneca, GE Healthcare, BMW Group, Volkswagen, NASA's Jet Propulsion Laboratory, Capital One, Goldman Sachs, Epic Games, and Netflix \cite{AMZN_AWS_CLOUD_COMPUTE}. 
+What is clear is that even in the case one industry is to collapse, AWS encapsulates many others. 
+In addition to industry, AWS supports retail, education, and government customers. 
+With a truly diverse target market, their diverse portfolio of services allows them to meet most all needs. 
+To further advance in the market, AWS must identify the next big services and regions in need of cloud computing, then capitalize on them by building infrastructure before the competition to leverage first movers advantage and economies of scale. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Country Analysis
+\section{Country Analysis}
+Of the many countries AWS operates in, India is a key player within the computing space. 
+The country is well developed and hosts a population with a broad range of technical skills. 
+From 2019-2021, surveyed literacy rates have risen to 84.4\% and 71.5\% (Figure~\ref{fig:LITERACY_INDIA}) with educational attainment of 10 or more years at 50.2\% and 41.0\% for men and women respectively (Figure~\ref{fig:EDUCATIONAL_ATTAINMENT_INDIA}).  
+In 2021, 76\% of India's service exports were based in communications, computer, information, and other services (Figure~\ref{fig:WB_COMM_COMP_SERVICE_EXPORTS_INDIA}).
+Since 2019, over 4 million have been employed within the information technology and business process management industry in India (Figure~\ref{fig:IT-BPM_INDUSTRY_INDIA}). 
+India's value to the United States (US), has proven itself with foreign direct investment (FDI) inflows from the US reaching an all time high of \$13.8 billion in 2021 (Figure~\ref{fig:FDI_US_INDIA}). 
+Breaking down FDI by sector shows that computer hardware and software draws the largest attention (Figure~\ref{fig:FDI_SECTORS_INDIA}).
+Last, reviewing total FDI for the hardware and software sector in India we can see that it also reaches all time highs in 2021 if \$26.15 billion (Figure~\ref{fig:FDI_HARDWARE_AND_SOFTWARE}). 
+Not only the US is investing in India, but many other countries are in parallel, with consensus that hardware and software is where it should take place. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Market
+\subsection{Market}
+Estimates for 2022 predict end-user spending for cloud services to grow past \$7.3 billion in India. 
+The outlook quantifies IaaS spending to overtake SaaS spending at \$2.37 and \$2.17 billion respectively (Figure~\ref{fig:PUBLIC_CLOUD_SPENDING_INDIA}). 
+Spending on public cloud services is driven by industry development and IT exports within India. 
+India's government has goals of reaching 70\% self-reliance within the defense sector by 2027 \cite[p.~10]{INDIA_DEFENSE_CORRIDOR}. 
+With self-reliance comes R\&D, and with R\&D, especially for defense systems, comes large demands for data processing. 
+Encompassing 4.7\% of India's exports, their automobile market employs 37 million \cite{INDIA_INVEST_SECTORS}.
+Over half of Indian states see subsides for both consumers and manufactures of electric vehicles (EVs) see government subsidies, incentivising both production and consumption \cite[p.~5-28]{INDIA_EV_POLICIES}. 
+Approximately \$1 billion have been allocated toward quantum computing with plans to train over 25,000 personnel within India over the next several years \cite[p~.16,20]{INDIA_EMERGING_FINANCIALS}. 
+India sees the highest global financial technology (fintech) adoption rate globally, at 87\%, with an expected 24.57\% compound annual growth rate (CGAR) of fintech market size in 2025 \cite{INDIA_INVEST_SECTORS}. 
+In 2020, India's IT software and service exports topped \$146 billion, with expected growth to come in the future (Figure~\ref{fig:IT_EXPORTS_INDIA}). 
+In summary, India currently shows large spending within the cloud computing environment, and has a large market cap of cloud reliant industries. 
+With expected future industry growth, and government spending promoting self-reliance, cloud computing infrastructure in support of industry demands is crucial to AWS's future in India. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regulation
+\subsection{Regulation}
+A common benchmark for data regulation is the European Union's (EU's) General Data Protection Regulations (GDPR) \footnote{GDPR was put into effect on May 25, 2018, and is the toughest privacy and security law in the world. Covering all EU countries, it imposes regulations onto organizations anywhere, so long as they target or collect data related to people in the EU \cite{GDPR}.}. 
+For citizens of their protection falls under "THE INFORMATION TECHNOLOGY ACT, 2000" (IT ACT) along with its following amendments, and "THE PERSONAL DATA PROTECTION BILL, 2018." 
+As with any government body, regulation is adaptive to the times.
+Recently, "THE DIGITAL PERSONAL DATA PROTECTION BILL, 2022" has been drafted and is under current review. 
+Generally speaking, the IT ACT provides less detailed definitions than GDPR. 
+Additionally, the IT ACT lacks some data protection procedures like breach notification and excessive documentation \cite[p.~18]{GDPR_AND_INDIA}. 
+Regardless of the location of an organization, one must be weary of the laws imposed on the data based on the location in which it was created. 
+
+Most often AWS is operating as an intermediary and must observe the outlined rules in the most up to IT ACT Rules \cite[p.~21-26]{INFORMATION_TECHNOLOGY_ACT_2021_RULES}. 
+Notably, as an intermediary, AWS must inform it's customers of the conditions required by law, such that the customers cannot use the platform in an unlawful manner. 
+Additionally court orders may be sent to an intermediary requesting data be removed/disabled which is in violation of regulation, of which companies must comply with and retain the data and records for investigative purposes. 
+In the cases of processing (sensitive) personal data, consent must be explicitly granted and must be conducted for a fair and reasonable purpose \cite[p.14-19]{PERSONAL_DATA_PROTECTION_BILL_2018}. 
+
+As a well developed country, India's data regulations (crucial to AWS's core intermediary function) have many overlaps with the data regulations in other well developed countries. 
+What the regulation imposes on AWS is the need for funding of legal experts to interpret and relay to the company what is necessary for their compliance. 
+As AWS already operates 2 regions within India, Mumbai and Hyderabad, they already have the competency to Interpret India law. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Venture Implementation
+\section{Venture Implementation}
+To be brief, we suggest an AWS expansion within India. 
+Currently India shows great opportunity for growth within the cloud computing domain. 
+We believe the most important service sets to offer are IaaS followed by SaaS. 
+Both of the AWS locations in India (Mumbai \& Hyderabad) are located centrally within the country. 
+Google has locations in Mumbai and Delhi, while Microsoft has operations in Pune and Chennai, with a Hyderabad location in development. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Options
+\subsection{Options}
+Within the development of a new AWS region comes 2 major parameters of interest: location and service offerings. 
+Currently Amazon, Google, and Microsoft all have cloud offerings within central India. 
+Unique to Google is their Delhi location, servicing the northern states. 
+Unique to Microsoft is their Chennai location, servicing southern states. 
+North-West India has the closest proximity to countries of defense interest such as Pakistan, Afghanistan, and Iran. 
+It follows that the state of Uttar Pradesh act as a defense corridor within India. 
+Ranking second in terms of ease of doing business, Uttar Pradesh is considered prime real estate for international operations \cite[p.~11]{INDIA_UP_TO_NEW_HEIGHTS}. 
+Additionally Uttar Pradesh is the fourth largest state and second largest economy in India, first in terms of micro-, small and medium-sided enterprises (MSMEs) \cite[p.~16]{INDIA_DEFENSE_CORRIDOR}. 
+As a result we see northern India having a strategic advantage over the souther regions. 
+Amazon established an office presence in Delhi, the capital of India, in 2016 \cite{AMZN_AWS_HYDERABAD}, but due to the location establishment of a region (large-scale datacenter) poses additional challenges. 
+Due to market share and future predictions of IaaS and PaaS outperforming SaaS we view development of these services is most crucial. 
+Of concern often with MSMEs is access to SaaS offering, and thus we cannot ignore such market demands. 
+By 2030, Amazon plans to invest \$4.4 billion in the Hyderabad Region, a similar investment is advised for this venture. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Risk Analysis
+\subsection{Risk Analysis}
+Risk Factors to Amazon as a whole are well outlined within their SEC fillings. 
+Some risks we have already mentioned include: competition, international operations, unlawful activities (while acting as an intermediary), data loss and security breaches, lack of redundancy, government regulations and government investigations. 
+Additional risks crucial to the operations of AWS include: expansion of locations and services, loss of intellectual property (IP)or acquisition of infringement upon surrounding rights, foreign exchange rate risk, interest rate risk, fluctuations in operating results and growth rate, optimization and operation efficiencies, loss of personnel or failure to hire, supplier relationships, and commercial agreements \cite[p.~6, 8-11]{AMZN_10K_2021}.
+With this said, these risks are know to the incorporation and investors, and we view future investments and an opportunity worth the cost. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Risk Mitigation
+\subsection{Risk Mitigation}
+To mitigate the internal risk implied by the aforementioned possibilities, we have a few suggestions. 
+First, AWS should leverage knowledge and competency gains in competition, government dealings, international operations, best security practices, and optimizations from the Mumbai and Hyderabad locations. 
+Second, and paired with the first, we not the markets have been substantially volatile and propose waiting until markets settle and sufficient knowledge has been gained before announcing or implementing investment activities. 
+Last, we note that through expansion, AWS gains the chance to further optimize, and utilize a new region to implement additional redundancy within their services and network. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Recommendation
+\subsection{Recommendation}
+As a result of research activities, we recommend AWS expansion within northern India. 
+Specifically, we view Agra as an optimal location due to location with the Uttar Pradesh state and close proximity to Delhi. 
+Additionally, we recommend Amazon to take its time in consideration of this investment. 
+Markets are historically volatile at the present moment and there is much to learn from the Implementation of the Hyderabad region. 
+Last, we recommend AWS focus within the IaaS and PaaS cloud services while keeping essential SaaS services to support MSMEs. 
+The aforementioned research suggests the recommendations but we note that they are not legally binding and we do not take responsibility for losses occurred from actions taken in their response. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Conclusion
+\section{Conclusion}
+In conclusion, let us summarize the research we have conducted throughout this report. 
+First, we have survey the operations of AWS along with their methods of value creation, current competition and position. 
+Second, we conducted an analysis of market and regulation within India of concern to the operations of AWS. 
+Last, we proposed a venture Implementation regarding options, risk analysis/mitigation, and our recommendations. 
+We note now that this report is quite incomplete. 
+Many additional nuances exist relating to service offerings, intra-sector cooperation, and current state exists within Amazon as an incorporation. 
+Similarly, India as a country is vast an we only scratched the surface, additional analysis of government regulation, contracts, and subsidies is required for substantially large investment such as our recommendation.
+Last Amazon holds a vast range of IP relating to business operations not available to the public sector which would greatly supplement this report.  
+
+\newpage
+\addcontentsline{toc}{section}{References}
+\bibliography{project.bib}{}
+\bibliographystyle{perception} % abbrv, acm, alpha, apalike, bestpapers, ieeetr, is-plain, munich, perception, plain, plainurl, siam, unsrt, tugboat
+
+\newpage
+\addcontentsline{toc}{section}{Appendix A: Figures}
+    \section*{Appendix A: Figures}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{GLOBAL/STATISTA_Global-Internet-Access-Rate-2005-2021.pdf}
+       \caption{Global Internet Access Trend \cite{GLOBAL_INTERNET_ACCESS}.}
+       \label{fig:GLOBAL_INTERNET_ACCESS}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{GLOBAL/STATISTA_Global-5G-Subscriptions-2019-2027.pdf}
+       \caption{Projected 5G Subscriptions \cite{GLOBAL_5G}.}
+       \label{fig:PROJECTED_5G}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{GLOBAL/STATISTA_Amount-of-Data-Created-Consumed-and-Stored-2010-2020-with-Forecasts-to-2025.pdf}
+       \caption{Projected Data Volume \cite{TOTAL_DATA_VOLUME}.}
+       \label{fig:TOTAL_DATA_VOLUME}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{AMZN/AWS_SOLUTIONS.PNG}
+       \caption{AWS Solutions \cite{AMZN_ABOUT_AWS}.}
+       \label{fig:AWS_SOLUTIONS}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_Gender-Literacy-Rate-India-2019-2021.pdf}
+       \caption{India Literacy by Gender and Location \cite{INDIA_LITERACY}.}
+       \label{fig:LITERACY_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_Women-and-Men-with-at-least-10-Years-of-Schooling-India-2019-2021.pdf}
+       \caption{India Education by Gender and Location \cite{INDIA_EDUCATION_10_YEARS}.}
+       \label{fig:EDUCATIONAL_ATTAINMENT_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/WB_COMM_COMP_SERVICE_EXPORTS_INDIA.PNG}
+       \caption{India Communications, Computer, etc. Service Exports \cite{WB_COMM_COMP_SERVICE_EXPORTS_INDIA}.}
+       \label{fig:WB_COMM_COMP_SERVICE_EXPORTS_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_IT-BPM-Industry-Employment-in-India-2009-2022.pdf}
+       \caption{India Information Technology and Business Process Management Industry \cite{INDIA_IT-BPM_INDUSTRY}.}
+       \label{fig:IT-BPM_INDUSTRY_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_Amount-of-FDI-Inflow-from-US-to-India-2013-2022.pdf}
+       \caption{US-India Foreign Direct Investment 2013-2021 \cite{INDIA_FDI_INFLOWS}.}
+       \label{fig:FDI_US_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_FDI-Equity-Inflows-Distribution-India-2021.pdf}
+       \caption{India Foreign Direct Investment by Sector 2021 \cite{INDIA_FDI_BY_SECTOR}.}
+       \label{fig:FDI_SECTORS_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_FDI-Equity-Inflow-Amount-for-Computer-Hardware-and-Software-India-2014-2022.pdf}
+       \caption{India Foreign Direct Investment (Computer Hardware and Software) 2015-2021 \cite{INDIA_FDI_HARDWARE_AND_SOFTWARE}.}
+       \label{fig:FDI_HARDWARE_AND_SOFTWARE}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_Public-Cloud-Services-End-User-Spending-in-India-2019-2022.pdf}
+       \caption{India Public Cloud Services Spending 2019-2020 \cite{INDIA_PUBLIC_CLOUD_SPENDING}.}
+       \label{fig:PUBLIC_CLOUD_SPENDING_INDIA}
+    \end{figure}
+    \begin{figure}[ht]
+       \centering
+       \includegraphics[width=0.68\textwidth]{INDIA/STATISTA_Indian-IT-Software-and-Services-Exports-2017-2021-by-type.pdf}
+       \caption{India IT Software and Service Exports 2017-2020 \cite{INDIA_EXPORT_IT}.}
+       \label{fig:IT_EXPORTS_INDIA}
+    \end{figure}
+
+
+% \addcontentsline{toc}{section}{Appendix A: Tables}
+%     \section*{Appendix A: Tables}
+%     some Tables.
+
+% \begin{appendix}
+%     \addcontentsline{toc}{section}{Figures}
+% %     \listoffigures
+%     \addcontentsline{toc}{section}{Tables}
+% %     \listoftables
+% \end{appendix}
+
+\end{document}

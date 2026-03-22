@@ -15,7 +15,7 @@
                 <mxCell id="4" value="Purpose/Definition" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" parent="1" vertex="1">
                     <mxGeometry x="510" y="457" width="580" height="52" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="- Store all events in near future that Kiosk wishes to sell tickets for, as well as their coresponding venues." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="4" vertex="1">
+                <mxCell id="5" value="- Store all events in near future that Kiosk wishes to sell tickets for, as well as their corresponding venues." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="4" vertex="1">
                     <mxGeometry y="26" width="580" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="Responsibilities" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" parent="1" vertex="1">
@@ -48,7 +48,7 @@
                 <mxCell id="15" value="- Update Venue Capacity / Seating" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="6" vertex="1">
                     <mxGeometry y="234" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="- Acquire Event Ticket / Reciept (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="6" vertex="1">
+                <mxCell id="16" value="- Acquire Event Ticket / Receipt (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="6" vertex="1">
                     <mxGeometry y="260" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="Collaborators" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" parent="1" vertex="1">
@@ -205,10 +205,10 @@
                 <mxCell id="fw3wFlMT_4OZ7Xi3affg-6" value="Responsibilities" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" parent="fw3wFlMT_4OZ7Xi3affg-1" vertex="1">
                     <mxGeometry x="510" y="509" width="320" height="286" as="geometry"/>
                 </mxCell>
-                <mxCell id="fw3wFlMT_4OZ7Xi3affg-7" value="- Stored Information For Vaild Credit Cards " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="fw3wFlMT_4OZ7Xi3affg-6" vertex="1">
+                <mxCell id="fw3wFlMT_4OZ7Xi3affg-7" value="- Stored Information For Valid Credit Cards " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="fw3wFlMT_4OZ7Xi3affg-6" vertex="1">
                     <mxGeometry y="26" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="fw3wFlMT_4OZ7Xi3affg-8" value="- Payment Processing Cabability" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="fw3wFlMT_4OZ7Xi3affg-6" vertex="1">
+                <mxCell id="fw3wFlMT_4OZ7Xi3affg-8" value="- Payment Processing Capability" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="fw3wFlMT_4OZ7Xi3affg-6" vertex="1">
                     <mxGeometry y="52" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="fw3wFlMT_4OZ7Xi3affg-9" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="fw3wFlMT_4OZ7Xi3affg-6" vertex="1">
@@ -417,7 +417,7 @@
                 <mxCell id="O1VrhB6XmFUVXczH1Wff-12" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
                     <mxGeometry y="156" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="O1VrhB6XmFUVXczH1Wff-13" value="- View Advertisment" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
+                <mxCell id="O1VrhB6XmFUVXczH1Wff-13" value="- View Advertisement" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
                     <mxGeometry y="182" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="O1VrhB6XmFUVXczH1Wff-14" value="- Select Event    " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
@@ -429,7 +429,7 @@
                 <mxCell id="O1VrhB6XmFUVXczH1Wff-16" value="- Purchase Event Ticket (Credit / Cash)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
                     <mxGeometry y="260" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="O1VrhB6XmFUVXczH1Wff-17" value="- Acquire Event Ticket / Reciept (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
+                <mxCell id="O1VrhB6XmFUVXczH1Wff-17" value="- Acquire Event Ticket / Receipt (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-6" vertex="1">
                     <mxGeometry y="286" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="O1VrhB6XmFUVXczH1Wff-18" value="Collaborators" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-1" vertex="1">
@@ -459,7 +459,7 @@
                 <mxCell id="O1VrhB6XmFUVXczH1Wff-26" value="- Bluetooth Module" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-18" vertex="1">
                     <mxGeometry y="208" width="260" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="O1VrhB6XmFUVXczH1Wff-27" value="- Advertisment DataBase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-18" vertex="1">
+                <mxCell id="O1VrhB6XmFUVXczH1Wff-27" value="- Advertisement DataBase" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-18" vertex="1">
                     <mxGeometry y="234" width="260" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="O1VrhB6XmFUVXczH1Wff-28" value=" " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" parent="O1VrhB6XmFUVXczH1Wff-18" vertex="1">

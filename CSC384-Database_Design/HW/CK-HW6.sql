@@ -104,7 +104,7 @@ commit;
 
 Write SQL queries for the following problems. Your SQL queries should work for the above data, and should also work even if the above data changes.
 In other words, the above data is given to guide you to think in the right direction -- your queries should work even if the above tables have different data.
-Also excecute the SQL query and show the results (either in text format or as a screen shot).
+Also execute the SQL query and show the results (either in text format or as a screen shot).
 Note that the queries must be in a format that will allow me to copy and paste
 If your query does not compile or gives a different result than expected, you MUST say so.
 

@@ -73,28 +73,28 @@ by both using the divergence theorem and directly by considering the flux on eac
 \textbf{Second} we will first solve by considering the flux through each face of $ T $. \\
 
 \begin{itemize}
-    \item Consider the face with verticies $ (0,0,0), (1,0,0), (0,1,0) $. \\
+    \item Consider the face with vertices $ (0,0,0), (1,0,0), (0,1,0) $. \\
     \subitem The unit normal vector at this point is strictly in the $ z $ direction. \\
     \subitem $ \displaystyle \textbf{n} = \left< 0,0,-1 \right> $ \\
     \subitem $ \displaystyle \textbf{F} \cdot \textbf{n} = \left<1-x,-y,-z-1\right> \cdot \left< 0,0,-1 \right> = z + 1 $ \\
     \subitem Across this face $ z $ is a constant of 0 $ \therefore \textbf{F} \cdot \textbf{n} = 1 $ \\
     \subitem This face is a triangle with area $ \displaystyle \frac{1}{2}m^2 $ \\
     \subitem The flux through this face is $ \displaystyle \rho \iint \limits_{S} \textbf{F} \cdot \textbf{n} \, dA = 400\tfrac{kg}{s} \cdot 1\tfrac{m}{s} \cdot \frac{1}{2}m^2 = 200\tfrac{kg}{s} $ \\
-    \item Consider the face with verticies $ (0,0,0), (1,0,0), (0,0,1) $. \\
+    \item Consider the face with vertices $ (0,0,0), (1,0,0), (0,0,1) $. \\
     \subitem The unit normal vector at this point is strictly in the $ z $ direction. \\
     \subitem $ \displaystyle \textbf{n} = \left< 0,-1,0 \right> $ \\
     \subitem $ \displaystyle \textbf{F} \cdot \textbf{n} = \left<1-x,-y,-z-1\right> \cdot \left< 0,-1,0 \right> = y $ \\
     \subitem Across this face $ y $ is a constant of 0 $ \therefore \textbf{F} \cdot \textbf{n} = 0 $ \\
     \subitem This face is a triangle with area $ \displaystyle \frac{1}{2}m^2 $ \\
     \subitem The flux through this face is $ \displaystyle \rho \iint \limits_{S} \textbf{F} \cdot \textbf{n} \, dA = 400\tfrac{kg}{s} \cdot 0\tfrac{m}{s} \cdot \frac{1}{2}m^2 = 0\tfrac{kg}{s} $ \\
-    \item Consider the face with verticies $ (0,0,0), (0,1,0), (0,0,1) $. \\
+    \item Consider the face with vertices $ (0,0,0), (0,1,0), (0,0,1) $. \\
     \subitem The unit normal vector at this point is strictly in the $ z $ direction. \\
     \subitem $ \displaystyle \textbf{n} = \left< -1,0,0 \right> $ \\
     \subitem $ \displaystyle \textbf{F} \cdot \textbf{n} = \left<1-x,-y,-z-1\right> \cdot \left< 0,0,-1 \right> = x - 1 $ \\
     \subitem Across this face $ x $ is a constant of 0 $ \therefore \textbf{F} \cdot \textbf{n} = -1 $ \\
     \subitem This face is a triangle with area $ \displaystyle \frac{1}{2}m^2 $ \\
     \subitem The flux through this face is $ \displaystyle \rho \iint \limits_{S} \textbf{F} \cdot \textbf{n} \, dA = 400\tfrac{kg}{s} \cdot -1\tfrac{m}{s} \cdot \frac{1}{2}m^2 = -200\tfrac{kg}{s} $ \\
-    \item Consider the face with verticies $ (1,0,0), (0,1,0), (0,0,1) $. \\
+    \item Consider the face with vertices $ (1,0,0), (0,1,0), (0,0,1) $. \\
     \subitem The unit normal vector at this point is equal in the $ x,y, $ and $ z $ direction. \\
     \subitem $ \displaystyle \textbf{n} = \left< \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right> $ \\
     \subitem $ \displaystyle \textbf{F} \cdot \textbf{n} = \left<1-x,-y,-z-1\right> \cdot \left< \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}} \right> =\frac{1}{\sqrt{3}} \Bigl[ 1-x+-y+-z-1 \Bigr] =\frac{1}{\sqrt{3}} \Bigl[ -x+-y+-z \Bigr] $ \\
@@ -157,7 +157,7 @@ Then, find the general solution to the ODE $ y'' + y = f(x) $. \\
     \subitem $ \displaystyle y_h = c_1 cos{(x)} + c_2 sin{(x)} $. \\
     \item Second, we must solve for a particular solution ; $ y_p \ | \ y'' + y = f(x) $. \\
     \subitem $ \displaystyle y = B\sin{(n\pi x)} \ ; \ y' = Bn\pi\cos{(n\pi x)} \ ; \ y'' = -Bn^2\pi^2\sin{(n\pi x)} $. \\
-    \item We can now substitute into the origional equation. \\
+    \item We can now substitute into the original equation. \\
     \subitem $ \displaystyle -Bn^2\pi^2\sin{(n\pi x)} + B\sin{(n\pi x)} = \frac{\cos(\pi n)}{\pi n} \sin{(n\pi x)} $. \\
     \subitem $ \displaystyle B(1 - n^2\pi^2) = \frac{\cos(\pi n)}{\pi n} \ ; \ B = \frac{\cos(\pi n)}{\pi n(1 - n^2\pi^2)} ; $ We can notice here that $ \cos{(n\pi)} = (-1)^n $. \\
     \subitem $ \displaystyle B = \frac{(-1)^n}{n\pi - n^3\pi^3} $. \\
@@ -191,7 +191,7 @@ and initial condition $ u(x,0) = f(x) $. \\
 \vspace{7.5mm}
 
 \noindent
-\textbf{First} transfrom the PDE to an ODE by the Fourier sine transform. \\
+\textbf{First} transform the PDE to an ODE by the Fourier sine transform. \\
 
 \begin{itemize}
     \item $ \mathcal{F}_{s}\{ u_{t} \} = \mathcal{F}_{s}\{ c^2 u_{tt} \} $. \\
@@ -249,7 +249,7 @@ Finally, plot $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x
 \vspace{7.5mm}
 
 \noindent
-\textbf{First} we will use seperation of variable to obtain 2 ODEs. \\
+\textbf{First} we will use separation of variable to obtain 2 ODEs. \\
 
 \begin{itemize}
     \item Assume $ \displaystyle u(x,y) = F(x)G(y) $ solve for the partial derivates \dots \\
@@ -293,7 +293,7 @@ Finally, plot $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x
     \subitem $ \displaystyle  A_{n} = 2 \int \limits_{0}^{1} f(x)\sin{(n\pi x)} \,dx - \frac{2 \int \limits_{0}^{1} [g(x) - f(x)e^{n\pi}]\sin{(n\pi x)} \,dx }{e^{-n\pi} - e^{n\pi}} $
     \subitem $ \displaystyle  A_{n} = \frac{2 \int \limits_{0}^{1} [f(x)[e^{-n\pi} - e^{n\pi}] - g(x) - f(x)e^{n\pi}]\sin{(n\pi x)} \,dx }{e^{-n\pi} - e^{n\pi}} $ \\
     \subitem $ \displaystyle  A_{n} = \frac{2 \int \limits_{0}^{1} [f(x)e^{-n\pi} - 2f(x)e^{n\pi} - g(x)]\sin{(n\pi x)} \,dx }{e^{-n\pi} - e^{n\pi}} $ \\
-    \item Substitue $ A_n $ and $ B_n $ into $ u(x,t) $. \\
+    \item Substitute $ A_n $ and $ B_n $ into $ u(x,t) $. \\
     \subitem $ \displaystyle u(x,y) = \sum \limits_{n=1}^{\infty} \sin{(n\pi x)}\Bigl[\frac{2e^{yn\pi } \int \limits_{0}^{1} [f(x)e^{-n\pi} - 2f(x)e^{n\pi} - g(x)]\sin{(n\pi x)} \,dx }{e^{-n\pi} - e^{n\pi}} + \frac{2e^{-yn\pi } \int \limits_{0}^{1} [g(x) - f(x)e^{n\pi}]\sin{(n\pi x)} \,dx }{e^{-n\pi} - e^{n\pi}}\Bigr] $ \\
     \subitem $ \displaystyle u(x,y) = 2\sum \limits_{n=1}^{\infty} \sin{(n\pi x)}\Bigl[\frac{e^{yn\pi } \int \limits_{0}^{1} [f(x)e^{-n\pi} - 2f(x)e^{n\pi} - g(x)]\sin{(n\pi x)} \,dx + e^{-yn\pi } \int \limits_{0}^{1} [g(x) - f(x)e^{n\pi}]\sin{(n\pi x)} \,dx }{e^{-n\pi} - e^{n\pi}}\Bigr] $ \\
     \item Solving for $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x)} \dots$ \\
@@ -538,7 +538,7 @@ Use your solution to provide a non-trivial example of a solution. \\
     \item Integrate to get back to $ U $ \\
     \subitem $ \displaystyle U_{v} = \phi(v) $ \\
     \subitem $ \displaystyle U(v,w) = v\phi(v) + \psi(w) $ \\
-    \item Substitue $ \displaystyle v = y + 2x \ ; \ w = y + x $ into $\displaystyle U $ to obtain $ \displaystyle u $. \\
+    \item Substitute $ \displaystyle v = y + 2x \ ; \ w = y + x $ into $\displaystyle U $ to obtain $ \displaystyle u $. \\
     \subitem $ \displaystyle U(y+2x,y+x) = (y+2x)\phi(y+2x) + \psi(y+x) $ \\
     \subitem $ \displaystyle u(x,y) = y\phi(y+2x) + 2x\phi(y+2x) + \psi(y+x) $ \\
 \end{itemize}

@@ -13,7 +13,7 @@
                 <mxCell id="69" value="Purpose/Definition" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" vertex="1" parent="1">
                     <mxGeometry x="510" y="457" width="580" height="52" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="- Store all events in near future that Kiosk wishes to sell tickets for, as well as their coresponding venues." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="69">
+                <mxCell id="70" value="- Store all events in near future that Kiosk wishes to sell tickets for, as well as their corresponding venues." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="69">
                     <mxGeometry y="26" width="580" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="71" value="Responsibilities" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" vertex="1" parent="1">
@@ -46,7 +46,7 @@
                 <mxCell id="78" value="- Update Venue Capacity / Seating" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="71">
                     <mxGeometry y="234" width="320" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="129" value="- Acquire Event Ticket / Reciept (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="71">
+                <mxCell id="129" value="- Acquire Event Ticket / Receipt (Physical / Digital)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#0000FF;shadow=1;" vertex="1" parent="71">
                     <mxGeometry y="260" width="320" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="81" value="Collaborators" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;strokeColor=#AF45ED;fillColor=#F694C1;fontColor=#0000FF;shadow=1;" vertex="1" parent="1">

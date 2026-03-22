@@ -111,7 +111,7 @@ Write SQL queries for the following problems.
  Your SQL queries should work for the above data, and should also work even if the above data changes.
   In other words, the above data is given to guide you to think in the right direction -
   - your queries should work even if the above tables have different data.
-Also excecute the SQL query and show the results.
+Also execute the SQL query and show the results.
  If your queries do not work or gives a different result than expected, include the error message that you obtained,
   or say that you got a different than expected result.
    Note that the queries must be in a format that will allow me to copy and paste.
@@ -169,7 +169,7 @@ WHERE PC.price <= 600;
       1013       3.06        512 
 */
 
--- 4. Find the model number and hard-disk size for those PCs that have a speed atleast 3.2 and a price less than $2000.
+-- 4. Find the model number and hard-disk size for those PCs that have a speed at least 3.2 and a price less than $2000.
 
 SELECT model, hd
 FROM PC

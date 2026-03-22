@@ -14,7 +14,7 @@
 \newcommand{\R}{\mathbb{R}}  % Real
 \newcommand{\Z}{\mathbb{Z}}  % Integers
 
-\title{$ \C $omplex Geometry \& $ \C $onformal Maping}
+\title{$ \C $omplex Geometry \& $ \C $onformal Mapping}
 \shorttitle{geometry \& mapping}
 \author{ $\C $ason Konzer}
 \date{April 2021}
@@ -23,7 +23,7 @@
 \abstract{In this paper we will explore aspects of complex geometry and mapping fundamentals. 
 The beginning of this paper will give background on the funadmental geometric structure of complex numbers. 
 Following we will dive into rectangular and polar coordinates, mappings from domain to co-domain, and the way regions are defined.
-A breif look at curve parameterization will be used as it will be imporntant with respect to conformal maps. 
+A brief look at curve parameterization will be used as it will be imporntant with respect to conformal maps. 
 With geometric fundamentals set, we will define holomorphic/analytic functions, then explore transformations within the complex plane.
 Focusing on locally invertable functions, we will prove such invertability in a few cases. 
 At this point the context is set and the discussion with shift towards conformal mapping. 
@@ -85,22 +85,22 @@ As consequence, we can notice $ x \coloneqq  |z|\cos(\vartheta) $, $ y \coloneqq
 \item Additionally, $ z\bar{z} = (x + iy)(x - iy) = x^2 +ixy - ixy - i^2y^2 = x^2 + y^2$  We can now see a new definition for the norm arise, as well as a relation to the conjugate.
 $ |z| = \sqrt{z\bar{z}} = |\bar{z}| $. Figure 2 summarizes these first points.
 
-\item Lastly, we can define the polar representation of $ z $ in terms of its norm, and $\vartheta$, refered to as its argument,  $ z \coloneqq  |z|e^{i\vartheta} $. This is derived from the trigonometric definitions for $ x $ and $ y $.  
+\item Lastly, we can define the polar representation of $ z $ in terms of its norm, and $\vartheta$, referred to as its argument,  $ z \coloneqq  |z|e^{i\vartheta} $. This is derived from the trigonometric definitions for $ x $ and $ y $.  
 
 \end{itemize}
 
 It is often common to consider the regions $ Z $ and $ W $ in terms of curves $ \gamma $ and $ \Gamma $.
 There are a few options for where the elements $ z $ and $ w $ are allowed to be. If elements in the given region are allowed to lie on the respective curve, it is consider closed.
-Conversly the region is considered open given the elements are not allowed on the curve. 
+Conversely the region is considered open given the elements are not allowed on the curve. 
 In specific, $ Z $ is considered open given each element $ z \in Z $ can be surrounded by an open disc of radius $ r \gneq  0 $.
 Elements of $ Z $ and $ W $ can then lie inside/outside the curve, or possibly inbetween some 2 curves  $ \gamma_{1},\gamma_{2} $ or $ \Gamma_{1},\Gamma_{2} $
-We can then paramaterize these curves in terms of $ t $ where $ \gamma(t), \Gamma(t) $ trace out the respective curves given $ t_{i} \leq t \leq t_{f} $
+We can then parameterize these curves in terms of $ t $ where $ \gamma(t), \Gamma(t) $ trace out the respective curves given $ t_{i} \leq t \leq t_{f} $
 In the case of a loop, $ t_{f} = t_{i} + 2\pi $ as the curve will end where it started, making one full revolution around a central point. 
 In other circumstances $ t_{f} = t_{i} + 2k\pi $ where $ k \in \Z $. A positive $ k $ represents an anti-clockwise loop while a negaitve $ k $ represents a clockwise loop. 
-$ k $ is refered to as the winding number. There is no limit to the number of curves that define a region, or that lie in a region. 
+$ k $ is referred to as the winding number. There is no limit to the number of curves that define a region, or that lie in a region. 
 Figures 3 and 4 take a moment to show this visually. 
 \\
-We will take a breif detour to now define a few imporntant terms. 
+We will take a brief detour to now define a few imporntant terms. 
 A function $ f $ is \textit{differentiable} provided that the limit below exits, given $ \zeta $ lives in the domain $ Z $.
 
 \begin{center}
@@ -118,8 +118,8 @@ We will then define the image of $ \zeta $ to be $ \omega $, where the co-domain
 \end{center}
 
 Following nicely, $ f $ is considered \textit{holomorphic} given $ \forall \zeta \in Z $, $ \exists \omega \in W' $, 
-such that no $ \zeta $ falls on a parametric curve $ \gamma(t) $ used to define $ Z $, hense $ Z $ must be an open region.
-Keep in mind that this image $ \omega $ is not the same as the image $ w $, in fact because $ \omega $ is the image of the derivative, it is best thought of a tanget vector. 
+such that no $ \zeta $ falls on a parametric curve $ \gamma(t) $ used to define $ Z $, hence $ Z $ must be an open region.
+Keep in mind that this image $ \omega $ is not the same as the image $ w $, in fact because $ \omega $ is the image of the derivative, it is best thought of a tangent vector. 
 In complex analysis, the term \textit{holomorphic} is often used interchangeable with the term \textit{analytic}.
 Although, in general, \textit{analytic} is the stronger of the two. 
 The difference is that \textit{analytic} implies that $ f $ has a power series representation.
@@ -144,10 +144,10 @@ Cauchy and Reimann, who have done some of the most piviotal work with developing
 
 Following the $ (C.R) $ equations, we can examine the examine the derivative of the function $ f $, and notice that there are two interpretations of the solutions.
 In the first listed, we can see that the the derivative is interpreted as the sum of the real contribution from the input, $ Re(z) = x $, seen in the outputs, $ w = \mu + i\nu $.   
-Adversly, in the equivalent definition, we see that the derivative is defined as the diffrence of the imaginary contribution, $ Im(z) = y $, of $ \nu $ and $ \mu $.
+Adversly, in the equivalent definition, we see that the derivative is defined as the difference of the imaginary contribution, $ Im(z) = y $, of $ \nu $ and $ \mu $.
 For the $ (C.R) $ equations to hold, we must verify both that $ u_{x} = v_{y} $, and $ v_{x} = -u_{y} $, in whice case $ f $ is indeed \textit{analytic}. \\
 * Figure 5 offers a geometric proof of the $ (C.R) $ equations. 
-What is particularlly intresting here is that we can see a prevelant scalling from $ |\vartriangle x| $ to $ |\vartriangle f_{1}| $ and from $ |\vartriangle y| $ to $ |\vartriangle f_{2}| $,
+What is particularlly interesting here is that we can see a prevalent scalling from $ |\vartriangle x| $ to $ |\vartriangle f_{1}| $ and from $ |\vartriangle y| $ to $ |\vartriangle f_{2}| $,
 of equal factor; And both $ \vartriangle x $ and $ \vartriangle y $ experience a rotation of $ \vartheta $ to $ \vartriangle f_{1} $ and $ \vartriangle f_{2} $ respectively. 
 
 \section{Geometric Mapping}
@@ -168,7 +168,7 @@ moves a complex variable $ z $ some distance $ \beta $ where $ z = x + iy $ and 
 
 Magnification and rotation are combined into a transformation called a dialation due to the nature of complex numbers. 
 It is useful to use the polar representation when thinking about this kind of manipulation. 
-At this point it is relevant to note that when multiplying two complex numbers, the mechanics are such that the norms are mulitplied but the arguments are added. 
+At this point it is relevant to note that when multiplying two complex numbers, the mechanics are such that the norms are multiplied but the arguments are added. 
 Considering the vector pointing to $ z $, and multiplying $ z $ by some complex number $ \alpha $, $ z $ will be scaled by $ Norm(\alpha) $, and rotated by $ Arg(\alpha) $.
 Letting $ \alpha = |\alpha |e^{i\varphi} $, and remembering the polar representation of $ z $ as $ z = |z|e^{i\vartheta} $, we can define a function D \dots
 
@@ -180,7 +180,7 @@ Letting $ \alpha = |\alpha |e^{i\varphi} $, and remembering the polar representa
 
 As a side note, a magnification is seen when we set $ Arg(\alpha) $, or $ \varphi $ equal to 0, as $ \vartheta + 0 = \vartheta $ and no rotation will occur.
 Similarly, a rotation will occur given $ Norm(\alpha) $, or $ |\alpha| $ equal to 1, as $ 1|z| = |z| $ and no magnification will occur.
-Of course, in order for either scenario to create a transformation, we must have $ |\alpha| \neq 1 $ or $ \varphi \neq 2k\pi $, with $ k \in \Z $, else $ z $ will remain in its origional positon.
+Of course, in order for either scenario to create a transformation, we must have $ |\alpha| \neq 1 $ or $ \varphi \neq 2k\pi $, with $ k \in \Z $, else $ z $ will remain in its original positon.
 \\
 Lastly, an inversion will scale and rotate a complex variable, without any other factors than $ z $ itself.
 Letting $ I $ be an inversion, $ I(z) \coloneqq \frac{1}{z} = z^{-1}$. In polar form, 
@@ -219,7 +219,7 @@ is a $ m\ddot{o}bius $ transformation that first inverts $ z $, and thereafter a
 
 \end{center}
 
-At this point it is appropriate to introduce the explict formula for a $ m\ddot{o}bius $ transformation.
+At this point it is appropriate to introduce the explicit formula for a $ m\ddot{o}bius $ transformation.
 
 \begin{center}
 
@@ -239,7 +239,7 @@ By the method of substitution, $ M(z) = w $, we can additionally solve for an ex
 \end{center}
 
 One technical term used to describe a $ m\ddot{o}bius $ transformation is linear fractional transformation. 
-This verbage stems from the fact that the numerator, $ az + b $, and the denomenator, $ cz + d $, are both of linear form.
+This verbiage stems from the fact that the numerator, $ az + b $, and the denomenator, $ cz + d $, are both of linear form.
 Parsing $ M(z) $ with a close eye, we can see that there is one zero, where $ z = \frac{-b}{a} $ and one pole, where $ z = \frac{-d}{c} $.
 From here we digress to Figure 7, characterizing the $ m\ddot{o}bius $ transformation as a map from a point $ z $ on a Reimann sphere to a point $ w $.
 Because the domain and co-domain are both the sphere, this can be thought of as a self map. It is from this interpretation that stereographic projection was set. 
@@ -258,7 +258,7 @@ Letting $ f^{-1}(z) = \xi $, We can see there is a well defined inverse function
 
 \end{center}
 
-This equation thus implies that $ f' \neq 0 $ as $ \xi = f^{-1}(z) $ is to be differentiable. We now have the full critera for conformal maps. 
+This equation thus implies that $ f' \neq 0 $ as $ \xi = f^{-1}(z) $ is to be differentiable. We now have the full criteria for conformal maps. 
 A conformal map is a complex valued function such that it is \textit{analytic} and locally invertible. 
 This requires that the function both satisfies the $ (C.R) $ equations, and it's derivative is non-zero, within the region of concern. 
 Angle preservation was hitied at earlier when exploring the $ (C.R) $ equations, and in fact, all functions that satisfy such equations, including conformal maps of course, are angle preservating.
@@ -279,7 +279,7 @@ To find these tangent lines in the region $ W $, we will need to consider $ \fra
 But first let us consider the angle $ \theta $ that occurs between $ \gamma_1 $ and $ \gamma_2 $. 
 Because it is the derivative at some point $ z $, at the intersection of $ \gamma_1 $ and $ \gamma_2 $, that 
 defines the tangent vectors, we will need to consider $ \gamma'_1(t) $ and $ \gamma'_2(t) $. These two derivatives will 
-point in the directon the paths are moving when they cross $ z $. 
+point in the direction the paths are moving when they cross $ z $. 
 An imporntant formula used to determine similarity of vectors will be used to solve for $ \theta $.
 Considering two vectors $ \jmath $ and $ \ell $, we have \dots
 
@@ -332,14 +332,14 @@ We will use the same function as before for the angle between two vectors, but c
       $ = cos^{-1}(\frac{\dot{\gamma}_1^T(\mathcal{J}_f^T\mathcal{J}_f)\dot{\gamma}_2}{\sqrt{\dot{\gamma}_1^T(\mathcal{J}_f^T\mathcal{J}_f)\dot{\gamma}_1\dot{\gamma}_2^T(\mathcal{J}_f^T\mathcal{J}_f)\dot{\gamma}_2}})$
       $ = cos^{-1}(\frac{\dot{\gamma}_1^T\dot{\gamma}_2}{\sqrt{\dot{\gamma}_1^T\dot{\gamma}_1\dot{\gamma}_2^T\dot{\gamma}_2}})$
       $ = cos^{-1}(\frac{\dot{\gamma}_1^T\dot{\gamma}_2}{\left\lVert \dot{\gamma}_1 \right\rVert \left\lVert \dot{\gamma}_2  \right\rVert })$ \\
-      Now what a suprise it it, \\
+      Now what a surprise it it, \\
       $ \Theta = cos^{-1}(\frac{\dot{\gamma}_1  \cdot \dot{\gamma}_2 }{\left\lVert \dot{\gamma}_1 \right\rVert \left\lVert \dot{\gamma}_2  \right\rVert }) = \theta $
       
 \end{center}
 
 It has come to our attention that angles are preserved as we arrive at $ \theta = \Theta $.
 Although in this walk though we make the assumption that $ \mathcal{J}_f^T\mathcal{J}_f = 1 $. 
-This does indeed happen in a few situtaions. $ \mathcal{J}_f $ could be the identity matrix, or some scalar multiple of it, as well as a rotational matrix. \dots
+This does indeed happen in a few situations. $ \mathcal{J}_f $ could be the identity matrix, or some scalar multiple of it, as well as a rotational matrix. \dots
 
 \begin{center}
 
@@ -361,7 +361,7 @@ $ \mathcal{J}_f = \begin{bmatrix}
 There are indeed many applications that come from the logic behind confromal mapping. 
 Some of these consider boundary conditions, such as the Dirchlet and Neumann boundary conditions that follow conformal maps. 
 Other applications include cartography, traditional map making, such as creating the best flat map of the globe. 
-In computer science conformal geometry is quite crucial for image manipulation and distortion, while perserving angles. 
+In computer science conformal geometry is quite crucial for image manipulation and distortion, while preserving angles. 
 In physics, conformal maps and complex alaysis provides an "elevated" perspective on many problem and is highly related to the Laplacian. 
 And of course there is the applications in pure mathematics and joy; hence, for the last Figure, I will leave an artpice by M.C. Escher which utilizes a conformal map. 
 
@@ -432,7 +432,7 @@ And of course there is the applications in pure mathematics and joy; hence, for 
       \includegraphics[width=1\textwidth]{C:/OneDriveSchool_Personal/OneDrive - Umich/Math/Classes/Winter_2021/Theory_of_Functions_of_a_Complex_Variable/PROJECT_MAPPING/Regions.png}
       \caption{\label{C:/OneDriveSchool_Personal/OneDrive - Umich/Math/Classes/Winter_2021/Theory_of_Functions_of_a_Complex_Variable/PROJECT_MAPPING/Regions.png}
       Illustrated here are closed regions where a point $ z $ may lie on the parametric curve $ \gamma $, 
-      and open regions where $ z $ can always be surronded by an open disc, as it cannot lie on $ \gamma $.}
+      and open regions where $ z $ can always be surrounded by an open disc, as it cannot lie on $ \gamma $.}
 
 \end{figure}
 
@@ -455,7 +455,7 @@ And of course there is the applications in pure mathematics and joy; hence, for 
       Second, a point $ \zeta $ replaces $ z $ and is input into the $ f' $ machine, with output $ \omega $. 
       At this point it is necessacray to consider $ \zeta $ in the $ u,iv $ plane. 
       $ \vartriangle z_{1} = \vartriangle x $ and $ \vartriangle z_{2} = \vartriangle y $. 
-      These are the changes in the real and imaginary input respective point $ z_{1} $ and $ z_{2} $ are chosen to specifcally move along these axis. 
+      These are the changes in the real and imaginary input respective point $ z_{1} $ and $ z_{2} $ are chosen to specifically move along these axis. 
       Notice $ u(x,y) + iv(x,y) = \mu + \nu $, $ \vartriangle u_{1,2} $ will move along the real axis, while $ \vartriangle v_{1,2} $ will move along the imaginary axis.
       First taking ratios of $ \frac{\vartriangle u,v_{1}}{\vartriangle x} $ and $ \frac{\vartriangle u,v_{2}}{\vartriangle y} $ then taking the limit we arrive at the $ (C.R) $ equations.
       Do notice that $ \vartriangle u_{2} $ travels along the negative real axis, hence the attributed sign.} 

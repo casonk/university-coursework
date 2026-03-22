@@ -85,7 +85,7 @@ Once networks become large, visualization and intuition fall off, and abstracts 
 In a brief overview of the study of networks \cite{struc_funct_cnets}, Newman focuses on real world network types, properties of networks, null graph models and processes taking place on networks. 
 The study of networks in general, has drawn initial attention by mathematicians, but in the recent century, and moreover the recent decades, computer and data scientists alike have been having a field day with their applications. 
 Within the even more recent years, the study of (social) media networks has grown rapidly. 
-Individuals are being persuaded by bots, Trump is banned from twitter while president, and idealogies are becoming seemingly more radicalized. 
+Individuals are being persuaded by bots, Trump is banned from twitter while president, and ideologies are becoming seemingly more radicalized. 
 Communities can be though of as densely connected groups of users of which have sparse, or otherwise less dense, connections to other groups \cite{com_struct_in_soc_and_bio}.
 Why would industry care about such a community detection algorithm? 
 Consider platforms such as Netflix or Amazon, recommender systems suggest products to a user. 
@@ -266,7 +266,7 @@ Following, it is such that analysis is conducted on a per community basis, and t
 With these assumptions there is one issue persistent, always, the trivial case where the whole graph itself is selected as one giant community, would maximize density as outlined above \cite{finding_comm_struct}. 
 
 To form modularity such that it is a useful measure, we may consider the expectation of internal and external links as well. 
-If we find that the communities detected within a graph have a higher number of internal links than the expected number of internal links, we are able to lessen the issue with finding giant communities, especially in the trival case. 
+If we find that the communities detected within a graph have a higher number of internal links than the expected number of internal links, we are able to lessen the issue with finding giant communities, especially in the trivial case. 
 In addition, it is often a question as to how many communities an algorithm should be tuned to find.
 Under a modularity maximization approach, the number is discovered and corresponds to the number of communities found when modularity is at it's maximum. 
 
@@ -477,7 +477,7 @@ Due to the small scale of this graph it is easy to identify a good partition, bu
 Algorithms are most commonly judged on complexity, but there is a clear tradeoff with accuracy (quality). 
 Modularity is a proxy metric with the ability to judge the accuracy of a community detection algorithm. 
 Traditionally, accuracy is defined with respect to a ground truth, such that the community structure is known within the network, but this information is not always available within a real world dataset. 
-Computational complexity is a good reference for scalability of an algorithm, and provides an upper limit on the size of useable networks. 
+Computational complexity is a good reference for scalability of an algorithm, and provides an upper limit on the size of usable networks. 
 Additionally as time goes one, Moore's Law realizes, technology improves allowing for denser circuitry. 
 A phenomena arises such that the size of usable networks scales proportionally, for algorithms with fixed complexity, to the temporal increase in computational power. 
 With that said, for a given dataset, one may be able to execute a more complex algorithm with increased accuracy, in the same run time as a simpler algorithm ran years prior. 

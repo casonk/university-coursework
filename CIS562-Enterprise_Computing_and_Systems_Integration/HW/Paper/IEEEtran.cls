@@ -129,7 +129,7 @@
 %    For final submission to the IEEE, authors should generally use US letter 
 %    (8.5 X 11in) paper unless otherwise instructed. Note that authors should
 %    ensure that all post-processing (ps, pdf, etc.) uses the same paper
-%    specificiation as the .tex document. Problems here are by far the number
+%    specification as the .tex document. Problems here are by far the number
 %    one reason for incorrect margins. IEEEtran will automatically set the
 %    default paper size under pdflatex (without requiring any change to
 %    pdftex.cfg), so this issue is more important to dvips users. Fix
@@ -283,7 +283,7 @@
 \newtoks\@IEEEtrantmptoksA
 
 % we use \CLASSOPTIONpt so that we can ID the point size (even for 9pt docs)
-% as well as LaTeX's \@ptsize to retain some compatability with some
+% as well as LaTeX's \@ptsize to retain some compatibility with some
 % external packages
 \def\@ptsize{0}
 % LaTeX does not support 9pt, so we set \@ptsize to 0 - same as that of 10pt
@@ -372,7 +372,7 @@
 
 % default to US letter paper, 10pt, twocolumn, one sided, final, journal
 \ExecuteOptions{letterpaper,10pt,twocolumn,oneside,final,journal}
-% overrride these defaults per user requests
+% override these defaults per user requests
 \ProcessOptions
 
 
@@ -1414,7 +1414,7 @@
   \@IEEEtrantmpdimenB\IEEEquantizedtextheightdiff\relax
   \divide\@IEEEtrantmpdimenB by 2\relax
   % a positive \IEEEquantizedtextheightdiff means we need to reduce \topmargin
-  % because \textheight has been lenghtened
+  % because \textheight has been lengthened
   \advance\topmargin by -\@IEEEtrantmpdimenB\relax
   \advance\topmargin by \@IEEEtrantmpdimenA\relax
 \else
@@ -1946,7 +1946,7 @@
 % \leftmargin, the spacing from the left margin of the main text to
 % the left of the main body of a list item is set by \list.
 % Hence this statement does nothing for lists.
-% But, quote and verse do use it for indention.
+% But, quote and verse do use it for indentation.
 \leftmargin         2em
 
 % we retain this stuff from the older IEEEtran.cls so that \list
@@ -2023,7 +2023,7 @@
 % which ITEMIZED list labels are indented to the right
 % For The Journal of Lightwave Technology (JLT) and The Journal
 % on Selected Areas in Communications (JSAC), they tend to use
-% an indention equal to \parindent. For Transactions on Communications
+% an indentation equal to \parindent. For Transactions on Communications
 % they tend to indent ITEMIZED lists a little more--- 1.3\parindent.
 % We'll provide both values here for you so that you can choose 
 % which one you like in your document using a command such as:
@@ -2041,13 +2041,13 @@
 
 % This controls the default amount the enumerated list labels
 % are indented to the right.
-% Normally, this is the same as the paragraph indention
+% Normally, this is the same as the paragraph indentation
 \newdimen\IEEEelabelindent
 \IEEEelabelindent \parindent
 
 % This controls the default amount the description list labels
 % are indented to the right.
-% Normally, this is the same as the paragraph indention
+% Normally, this is the same as the paragraph indentation
 \newdimen\IEEEdlabelindent
 \IEEEdlabelindent \parindent
 
@@ -2067,7 +2067,7 @@
 % There may not be such a thing as correct "standard IEEE"
 % values. What the IEEE actually does may depend on the specific
 % circumstances.
-% The first list level almost always has full indention.
+% The first list level almost always has full indentation.
 % The second levels I've seen have only 75% of the normal indentation
 % Three level or greater nestings are very rare. I am guessing
 % that they don't use any indentation.
@@ -3069,7 +3069,7 @@
 
 
 % IEEEyes/nonumber 
-% V1.8 add persistant * forms
+% V1.8 add persistent * forms
 % These commands can alter the type of equation an IEEEeqnarray line is.
 \def\IEEEyesnumber{\@ifstar{\global\@IEEEeqnumpersisttrue\global\@IEEEsubeqnumpersistfalse\@IEEEyesnumber}{\@IEEEyesnumber}}
 
@@ -3146,7 +3146,7 @@ Using a default centering column instead}%
 \csname @IEEEeqnarraycolPRE@IEEEdefault\endcsname
 \fi
 % The ten \relax are to help prevent misleading error messages in case a user
-% accidently inserted a macro that tries to acquire additional arguments.
+% accidentally inserted a macro that tries to acquire additional arguments.
 #3\relax\relax\relax\relax\relax\relax\relax\relax\relax\relax
 % check if column is defined for the postcolumn definition
 \expandafter\ifx\csname @IEEEeqnarraycolDEF#2\endcsname\@IEEEeqnarraycolisdefined\relax
@@ -3576,7 +3576,7 @@ Using a default centering column instead}%
 \vrule width0pt height\dimen0 depth\dimen2\relax\fi}
 
 
-% creates an invisible strut, useable even outside \IEEEeqnarray
+% creates an invisible strut, usable even outside \IEEEeqnarray
 % if \IEEEvisiblestrutstrue, the strut will be visible and 0.2pt wide. 
 % usage: \IEEEstrut[height][depth][font size commands]
 % default is \IEEEstrut[0.7\normalbaselineskip][0.3\normalbaselineskip][\relax]
@@ -3707,7 +3707,7 @@ Using a default centering column instead}%
 $$\@ignoretrue}
 
 
-% IEEEeqnarray uses a modifed \\ instead of the plain \cr to
+% IEEEeqnarray uses a modified \\ instead of the plain \cr to
 % end rows. This allows for things like \\*[vskip amount]
 % These "cr" macros are modified versions of those for LaTeX2e's eqnarray
 % the {\ifnum0=`} braces must be kept away from the last column to avoid
@@ -3915,7 +3915,7 @@ $$\@ignoretrue}
 
 
 
-% IEEEeqnarraybox uses a modifed \\ instead of the plain \cr to
+% IEEEeqnarraybox uses a modified \\ instead of the plain \cr to
 % end rows. This allows for things like \\[vskip amount]
 % This "cr" macros are modified versions those for LaTeX2e's eqnarray
 % For IEEEeqnarraybox, \\* is the same as \\
@@ -4006,7 +4006,7 @@ $$\@ignoretrue}
 % Identify and return the column specifier's type code in the given
 % \output macro:
 % n = number
-% g = glue (any other char in catagory 12)
+% g = glue (any other char in category 12)
 % c = letter
 % e = \ignorespaces (end of sequence)
 % u = undefined
@@ -4164,7 +4164,7 @@ in the IEEEeqnarray column specifications.}%
 \toks0={##}%
 % make preamble advance col counter if this environment needs this
 \if@advanceIEEEeqncolcnt\@IEEEappendtoksA{\global\advance\@IEEEeqncolcnt by 1\relax}\fi
-% insert the column defintion into the preamble, being careful not to expand
+% insert the column definition into the preamble, being careful not to expand
 % the column definition
 \@IEEEappendtoksA{\tabskip=\@IEEEBPcurglue}%
 \@IEEEappendNOEXPANDtoksA{\begingroup\csname @IEEEeqnarraycolPRE}%
@@ -4628,7 +4628,7 @@ between column types.}%
 \rule[-0.3\@IEEEtrantmpdimenA]{0pt}{\@IEEEtrantmpdimenA}}
 
 
-% blocks to hold the authors' names and affilations. 
+% blocks to hold the authors' names and affiliations. 
 % Makes formatting easy for conferences
 %
 % use real definitions in conference mode
@@ -4758,7 +4758,7 @@ between column types.}%
   \let\@makefnmark\relax% V1.7, must *really* kill footnotemark to remove all \textsuperscript spacing as well.
   \footnotesize%       equal spacing between thanks lines
   \footnotesep 0.7\baselineskip%see global setting of \footnotesep for more info
-  % V1.7 disable \thanks note indention for compsoc
+  % V1.7 disable \thanks note indentation for compsoc
   \@IEEEcompsoconly{\long\def\@makefntext##1{\parindent 1em\noindent\hbox{\@makefnmark}##1}}%
   \normalsize%
   \ifCLASSOPTIONpeerreview
@@ -5034,7 +5034,7 @@ between column types.}%
 % play unless the first line of the object is high enough to "get too close"
 % (as specified by lineskiplimit) to the line before it. The the prevdepth,
 % lineskip limit, and lineskip optional parameters are not needed for the
-% first object/line on a page (i.e., prevdepth <= -1000pt) where the simplier
+% first object/line on a page (i.e., prevdepth <= -1000pt) where the simpler
 % \topskip spacing rules are in effect.
 %
 % Offset is a manual adjustment that is added to the height calculations of
@@ -5140,7 +5140,7 @@ between column types.}%
 \advance\@IEEEquantizeheightA-\@IEEEquantizeheightB\relax
 \fi
 %
-\else % prevdepth <= -1000pt, simplier \topskip type rules in effect
+\else % prevdepth <= -1000pt, simpler \topskip type rules in effect
 \ifdim\@IEEEquantizeheightB>\@IEEEquantizetopbaselineskip
 % height of top line (already included in the total height) in excess of
 % baselineskip is the amount it will be downshifted
@@ -5521,7 +5521,7 @@ between column types.}%
 % V1.8a provide for a raised line Introduction section for use with Computer
 % Society papers. We have to remove any spacing glue after the section
 % heading and then remove the blank line for the new paragraph after it.
-% LaTeX's section handler alters \everypar and we need to propogate those
+% LaTeX's section handler alters \everypar and we need to propagate those
 % changes outside of the \parbox lest there be spacing problems at the top
 % of the next section.
 \def\IEEEraisesectionheading#1{\noindent\raisebox{1.5\baselineskip}[0pt][0pt]{\parbox[b]{\columnwidth}{#1\unskip\global\everypar=\everypar}}\vspace{-1\baselineskip}\vspace{-\parskip}\par}
@@ -5908,7 +5908,7 @@ between column types.}%
 % floating point values
 \@IEEEtrantmpdimenB=0.005\@IEEEtrantmpdimenA%
 \multiply\@IEEEtrantmpdimenB by \@IEEEtrantmpcountA%
-% \@IEEEPARstartfont is globaly set to the calculated font of the big letter
+% \@IEEEPARstartfont is globally set to the calculated font of the big letter
 % We need to carry this out of the local calculation area to to create the
 % big letter.
 \global\font\@IEEEPARstartfont\@IEEEPARstartFONTNAME\space at \@IEEEtrantmpdimenB%
@@ -5999,7 +5999,7 @@ between column types.}%
 % if this page does not have enough space, break it and lets start
 % with a new one
 \@IEEEtranneedspace{\@IEEEtrantmpdimenA}{\relax}%
-% nominal spacer can strech, not shrink use 1fil so user can out stretch with \vfill
+% nominal spacer can stretch, not shrink use 1fil so user can out stretch with \vfill
 \vskip \@IEEEBIOskipN plus 1fil minus 0\baselineskip%
 % the default box for where the photo goes
 \def\@IEEEtempbiographybox{{\setlength{\fboxsep}{0pt}\framebox{%

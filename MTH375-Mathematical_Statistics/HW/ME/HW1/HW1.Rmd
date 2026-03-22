@@ -299,7 +299,7 @@ f_{Y_1|Y_2}(y_1|y_2 = 1) = \frac{f_{Y_1,Y_2}(y_1,y_2 = 1)}{f_{Y_2}(y_2 = 1)} =
 \frac{\sqrt{2}\exp\left(-(y_{1} - 1.5)^2 \right)}{\sqrt{2\pi}} $.
 \vspace{5mm}
 \\
-It is now worthwhile to considerd the pdf of Random Variable $ X \thicksim N(\mu, \sigma^2) $.
+It is now worthwhile to considered the pdf of Random Variable $ X \thicksim N(\mu, \sigma^2) $.
 \vspace{5mm}
 \\ $ \displaystyle
 f_{X}(x) = \frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{1}{2\sigma^2}(x-\mu)^2\right) $.

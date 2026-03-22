@@ -87,11 +87,11 @@ def manhattaan(v1,v2):
 manhattaan(test_v1,test_v2)
 
 # Build our Euclidean function.
-def euclidian(v1,v2):
+def euclidean(v1,v2):
   return np.sqrt(np.sum(np.square(v2-v1)))
 
 # Test our Euclidean function.
-euclidian(test_v1,test_v2)
+euclidean(test_v1,test_v2)
 
 # 3 ---------------------------------------------------------------------------
 

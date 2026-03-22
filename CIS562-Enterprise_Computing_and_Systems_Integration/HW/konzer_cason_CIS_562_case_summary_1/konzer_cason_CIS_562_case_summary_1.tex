@@ -1,0 +1,105 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[fontsize=12pt]{fontsize}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multicol}
+
+\usetikzlibrary{automata,positioning}
+
+\linespread{1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass: \ \paprTitle}
+\rhead{\today}
+\lfoot{\hmwkTitle}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.25pt}
+\renewcommand\footrulewidth{0.25pt}
+
+\setlength\columnseprule{.25pt}
+\setlength{\columnsep}{2.5pc}
+\setcounter{secnumdepth}{0}
+
+
+\newcommand{\hmwkTitle}{Case Summary\ \#1}
+\newcommand{\paprTitle}{\\ Rolls Royce}
+\newcommand{\hmwkDueDate}{May 19, 2023 @ 23:59, EST}
+\newcommand{\hmwkClass}{CIS 562 - Enterprise Architecture}
+\newcommand{\hmwkAuthorName}{\textbf{Cason Konzer}}
+
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+    \vspace{0.1in}\Large{\textit{\paprTitle}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\tableofcontents
+\newpage
+
+\section{Summary}
+In this case study we will be focusing on an ERP (Enterprise Resource Planning) implementation at RR (Rolls Royce). 
+Industrial context places RR, a UK (United Kingdom) based company, as a global powerhouse in ``civil/defense aerospace, marine \& energy'' markets. 
+Before the implementation a plethora of legacy systems existed, with issues, which prompted identification of an ERP system need in the late 1990s. 
+In this case summary we focus of the 2001 SAP/R3 implementation in the aerospace division. 
+
+\subsection{What do you think of RR's ERP implementation project? Did they select the right
+implementation strategy?}
+Generally speaking, the RR ERP implementation strategy can be considered successful. 
+I found their strategy to be well though out, with minor areas for improvement. 
+Although the time to implement was not discussed, we can assume that at least from the late 1990s to 2001 some forethought was taking place on how such an implementation would work, as well as where and when it should be piloted. 
+In the end costly modifications were mitigated due to restructuring of business processes, and problems were deescalated due to early identification. 
+Under these conditions I find the strategy well fit. 
+
+\subsection{Discuss the critical success factors of RR's implementation strategy and the role of
+SMEs in the project.}
+Within the implementation I find a plethora of CSFs (Critical Success Factors) discussed: project management, change management, team composition, vendor consultation \& support, user involvement, user training, minimal customization, testing \& troubleshooting, transition strategy \& data migration. 
+Through change management the project was able to minimize customization, saving on costs. 
+Similarly, through vendor consultation \& support, as well as testing \& troubleshooting, problems were identified early in the implementation which mitigated future bug development. 
+It is via project management that a successful team composition evolved, segmented into ``cultural, business, \& technical'' groups. 
+The cultural team championed user involvement and user training, ensuring that the new system provided adequate functionality in terms of processes, methods, \& tools. 
+In a more straight forward manner they ensured user uptake and fostered an optimal training strategy of first bringing specialists up to speed who could then later bring experts up to speed. 
+The business team focused on change management and minimal customization, crucial variables confounding cultural success. 
+Lastly, the technical team was in consultation with EDS specialists, contracted out to perform the implementation. 
+Their focus was on the most critical aspects of testing, troubleshooting, data migration \& transition strategy. 
+It was this team who was responsible for bug identification, system accuracy, and a staged rollout of the implementation. 
+
+As in any large project, collaboration is key.
+Often cross-cutting can be identified only by those with a broad view of the business. 
+From this perspective, SMEs (Subject Matter Experts) played the key role of identifying cross-cutting issues from a technical perspective. 
+Paired OBUs (Organizational Business Units) with focused change management teams and SMEs together were able to identify both the local and broader business needs. 
+
+\subsection{What advice can you give to RR's technical team on their approach of migrating
+legacy system with the SAP software?}
+While not discussed in the case study, top management support is a topic which seems could benefit RR. 
+The specific comment which brought this to attention was that the technical lead found it hard to find the human resources to complete data cleaning prior to implementation. 
+On this note I find it due to suggest the technical team would have benefit form better communication with, and support from, top management. 
+Similarly, from a project management side, the task of cleaning up data inaccuracies could have very well been performed before the ERP implementation. 
+In this manner new possibilities to cut costs from dual operations of legacy and new systems may have been introduced. 
+Additionally, this may have allowed for an even smoother and faster implementation, while eradicating the need for a bridging UNIX server. 
+All in all, there is not much advice to give\dots hats off to this case study implementation. 
+
+
+\end{document}

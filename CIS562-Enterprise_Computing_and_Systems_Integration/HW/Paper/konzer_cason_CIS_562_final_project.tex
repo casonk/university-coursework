@@ -1,0 +1,202 @@
+\documentclass[12pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+% \usepackage{cite}
+% \usepackage[T1]{fontenc}
+% \usepackage[fontsize=12pt]{fontsize}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+% \usepackage{float}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{The Zachman Framework for Enterprise Architecture in Practice \\}
+
+\author{\IEEEauthorblockN{Cason A. Konzer}
+\IEEEauthorblockA{\textit{CIS562} \\
+\textit{University of Michigan-Flint}\\
+Holly, USA \\
+casonk@umich.edu}
+}
+
+\maketitle
+
+\begin{abstract}
+ZFEA broke ground in the domain of EA, bringing to the IS community a `seminal framework' best described as ontology and explanatory theory. 
+In this work we describe in detail the historical evolution of ZFEA along with its use cases in practice. 
+ZFEA is compared against competing EAs and found to be a foundational EAF in which the others draw from, with focus on specific abstractions. 
+ZFEA is found to be the broadest EAF, a generic tool for rationalizing complex engineered objects. 
+In practice the tool is considered too broad, best suited for ideation and EA exploration.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Zachman, Enterprise, Architecture 
+\end{IEEEkeywords}
+
+\begin{figure*}[htbp]
+    \centerline{\includegraphics[width=0.9\textwidth]{"../References/figs/1987_zachman_analogs.PNG"}}
+    \caption{1987 Analog Representations from Core Views/Perspectives \cite{zachman_ibm_1987}.}
+    \label{fig:1987_zachman_analogs}
+\end{figure*}
+
+\section{Introduction}
+ZFEA (Zachman Framework for Enterprise Architecture) was conceived by John A. Zachman in the early 1980s while working at \emph{IBM (International Business Machines Corporation)} as an account executive. 
+Inspired by 15+ years of experience in industry, Zachman's model provided a framework for business systems planning, today coined EAFs (Enterprise Architecture Frameworks).
+EA (Enterprise Architecture) encompasses information systems in organizations applicable to all employees, supporting business processes through hardware and software. 
+Made clear by Zachman, ZFEA is a schema based on primitive interrogatives (what, how, when, who, where, why) and reification, the transformation of an abstract idea into an instantiation \cite{about_the_zachman_framework}.
+Building on this note, ZFEA can be applied not only to EA, but any objects (Figure~\ref{fig:1987_zachman_analogs}).
+
+The paper follows with a detailed history of ZFEA, related works on its academic study, how it's to be used in practice, a comparison against competitors, and concluding remarks.
+In practice today, there are a plethora of EAFs, although their business use cases are quite impractical, and can be viewed more generally from a theoretical lens. 
+
+\section{History}
+Prior to the first publication of his framework \cite{zachman_ibm_1987}, Zachman created a crude representation in 1984 on transparencies for overhead projector use, both by himself and with the help from \emph{IBM} graphics support \cite{Zachman_Evolution}. 
+Notable, is that at this time the row-view of the model was not quite distinguished into stakeholder perspectives, but rather their paralleled model inputs.
+
+\subsection{ZFEA 1987 (A Framework for Information Systems Architecture)}
+In his \emph{IBM Systems Journal} seminal paper \cite{zachman_ibm_1987}, Zachman brought the row-wise perspectives to life under the following nomenclature: Ballpark, Owner, Designer, Builder, Out-of-Context, Product/System (Figure~\ref{fig:1987_zachman_analogs},\ref{fig:1987_framework_ibm}).
+In a similar manner, it is at this time that column-wise interrogatives of what, how, and where were introduced as data, process, and network descriptors respectively.
+About the remaining interrogatives, e.g. who, when, why, Zachman had these developed at the time, but felt the framework was already quite complex and would take time for the community to digest. 
+As a result, only a brief mention of the framework's extension to future state is made, and details provided in the paper appendix. 
+
+Summarizing the state upon this publication, ZFEA was a $6 \times 3$ matrix representing a set of architectural representations for IS (Information Systems), covering half of the cells realized today. 
+The framework was directed at a subset of use cases within the IS community \cite{zachman_ibm_1987}: 
+\begin{itemize}
+    \item Improving professional communications.
+    \item Understanding purpose and risks of developing an architectural representation.
+    \item Relating tools and methodologies.
+    \item Improving approaches to produce architectural representations.
+    \item Rethinking the nature of the application development process.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.45\textwidth]{"../References/figs/1987_framework_ibm.PNG"}}
+    \caption{1987 Framework for Information Systems Architecture \cite{zachman_ibm_1987}.}
+    \label{fig:1987_framework_ibm}
+\end{figure}
+
+\begin{figure*}[htbp]
+    \centerline{\includegraphics[width=0.9\textwidth]{"../References/figs/2011_framework.jpg"}}
+    \caption{2011 ZFEA V3.0 - The Enterprise Ontology \cite{Zachman_Evolution}.}
+    \label{fig:2011_framework}
+\end{figure*}
+
+\subsection{ZFEA 1992 (Extending and Formalizing the Framework for Information Systems Architecture)}\label{II-B}
+After retiring from \emph{IBM} in 1991, Zachman operated \emph{ZI (Zachman International)}, an EA consulting and certification business. 
+As a co-author, Zachman, published again in \emph{IBM Systems Journal}, a follow up to the seminal paper with J.F. Sowa, bringing insights from the few years of widespread academic and industry exposure \cite{zachman_ibm_1992}. 
+It is in this paper that the who, when, and why interrogatives were brought to fruition, despite their lack of clear empirical ties within IS.
+Additionally more granular examples were brought to the matrix entries, of which the seminal work did not have the time to cover in detail. 
+
+With the added complexity, the framework had an intrinsic chaos. 
+Here, a clear set of rules are defined to bring clarity and order \cite{zachman_ibm_1992}:
+\begin{enumerate}
+    \item The columns have no order.
+    \item Each column has a simple, basic model.
+    \item The basic model of each column must be unique. 
+    \item Each row represents a distinct, unique perspective.
+    \item Each cell is unique.
+    \item The composite or integration of all cell models in one row constitutes a complete model from the perspective of that row.
+    \item The logic is recursive.
+\end{enumerate}
+Building upon rule 6, the paper provides toy cell models in which the rows include conceptual relations across columns to provide the holistic perspective view. 
+Rule 7 is broken down into three unique dimensions, namely related frameworks, framework versions, and nesting frameworks. 
+Of course, frameworks will be updated over time, driving versioning, more interesting is the concepts of nested frameworks. 
+As ZFEA can truly be used to describe any object, the cell in on instantiation of ZFEA can become its own instance, with relations to the neighboring cells in the parent instance. 
+This recursive nature is now clearly exhibited in repositories today, such as Web Enterprise Architect, GitHub, etc.
+
+Lastly, conceptual graphs are given as a generic modeling framework of which can be uniquely developed for each cell. 
+At this point in time, the model had evolved to include use cases for EA segmentation, variable separation across cells, component design, and formalizing business EA principals. 
+With dependency knowledge across cells, the impacts of changes in a single cell become able to demonstrate influence across abstractions, perspectives, and holistically, the versions. 
+
+\subsection{ZFEA Today}
+Since the initial release, ZFEA has stood the test of time and required only minor revisions. 
+Comparing the 1992 version to the latest 2011 release, a few additions are brought, slight nomenclature has changed, and aesthetic subtleties are incorporated (Figure~\ref{fig:2011_framework}). 
+Additions include enterprise and model names, aiming for presentation to general business management rather than strictly IS professionals. 
+The current ZFEA, version 3.0, has been subtitled with \emph{The Enterprise Ontology}, as it is truly more so an ontology than a framework \cite{Zachman_Evolution}. 
+
+\section{Related Work}
+ZFEA has now 35+ years of industry and academic exposure, prompting a plethora of detailed literature on it's behalf. 
+Within the research endeavors it is notable to classify these works based on their content, review (contextual) and implementation (case) studies. 
+
+\subsection{Review Studies}
+From a review perspective, it is commonly noted that ZFEA alone is often misinterpreted, and lacks granularity for business practices. 
+Specific concerns of the framework include the following \cite{rediscovering_zachman,fake_and_real_tools}:
+\begin{itemize}
+    \item Cells in the framework lack explicit models.
+    \item Dependencies between cells are only vaguely defined and lack detail.
+    \item There is no process or methodology based in SWE (Software Engineering) prescribed.
+    \item The framework is too complex to support communication.
+    \item The framework is too abstract to capture architectural problems.
+\end{itemize}
+
+As a result of these concerns, \cite{rediscovering_zachman} partitions ZFEA according to domain engineering phases and requirements engineering techniques from the SWE field.
+Additionally, they map ZFEA to more granular ontologies grounded in EA, namely the Bunge-Wand-Weber Ontology and The Enterprise Ontology from The Enterprise Project at Artificial Intelligence Applications Institute at the University of Edinburgh.
+When viewed independently, the two ontologies both fail to encompasses ZFEA in total, only this is achieved with their combination.
+
+From an impetuous perspective, \cite{fake_and_real_tools} regards ZFEA as practically useless. 
+Characterizations of the popular `futile' EAs (ZFEA, TOGAF, ArchiMate) are given as intentionally vague, continuously hyped, containing elusive explanations and empty promises. 
+Speaking from both industry experience and academia, the author promotes individual judgement of architects and a focus on utilizing best practices from experience, suggesting the Business Capability Model as one example of a `real tool'. 
+
+In a more positive light, \cite{zfea_as_is_theory} classifies ZFEA as an explanatory theory in IS. 
+An explanatory theory is characterized as one which distinguishes what, how, why, when, and where without any aim to predict, and which is untestable by nature. 
+Generally speaking such a theory looks to provide understanding alone, noting criticism often comes from the assumption that methodologies and processes should be provided as well. 
+Here, ZFEA can be seen as a tool for contextualizing, not instantiating, an enterprise. 
+
+The last of the review studies, \cite{complex_systems_engineering}, approaches ZFEA from a SE (Systems Engineering) perspective. 
+While ZFEA is noted as an ontology in and of itself, the authors main contribution is to provide an updated version, noting that due to their generality in nature, some EAFs simply cannot be applied within various environments.
+It is their perspective, that an ES (Enterprise System) is best viewed from the lens of MBSE (Model-Based Systems Engineering).
+Proposal is made to utilize the ``Vee'' Model consisting of a top-down definition \& decomposition process, paired with integration \& verification (Figure~\ref{fig:VeeModel}). 
+Crucially elaborated is that through simulation, MBSE allows architects to begin validation prior to integration, a virtualized A/B test allowing to catch issues early on in development. 
+
+\begin{figure*}[htbp]
+    \centerline{\includegraphics[width=0.9\textwidth]{"../References/figs/VeeModel.PNG"}}
+    \caption{The ES ``Vee'' Model \cite{complex_systems_engineering}.}
+    \label{fig:VeeModel}
+\end{figure*}
+
+
+\subsection{Implementation Studies}
+For the implementation studies an equivalent approach was taken by all works. 
+In attempt to characterize aspects of an EA which were in need of improvement, a subset of ZFEA was applied with a paired questionnaire conduct a factor analysis.  
+\cite{zachman_in_decision_making} analyzed reporting tools for business intelligence in the context of an enterprise plantation management system from the planner and owner perspectives; \cite{analysis_of_application_zachman} studies knowledge management systems in banking from the planner and user perspectives; and \cite{implementation_of_impact} student an integrated data management system of student internships from the planner perspective.
+From all studies insights were gained as to how the EA could be best utilized and improved in their specific business context. 
+
+\section{Method}
+The methodology of the ZFEA is a rather simple task of filling out the matrix cells. 
+As an explanatory theory, the implementation is rather open, posing only those restrictions described in \ref{II-B}.
+In this manner, and as previously noted, ZFEA explicitly lacks methods, processes, or tools for implementation. 
+From an implementation perspective, the architect should abide by the rules and use the framework for ideation and exploratory analysis into the EA at hand. 
+Similarly, conceptual graphs are suggested for modeling (or filling the cells), such that predicate logic is implied.
+Notably, the column and row headers for classification names and audience perspective provide a clear starting template to guide ZFEA's use (Figure~\ref{fig:2011_framework}).
+
+\section{Comparison}
+The EAFs in which we consider for comparison are as follows: DoDAF (Department of Defense Architecture Framework), FEAF (Federal Enterprise Architecture Framework), TEAF (Treasury Enterprise Architecture Framework), and TOGAF (The Open Group Architectural Framework).
+As grounds for comparison we will rely strictly upon the analysis of \cite{soa_comparison}, providing a baseline across all EAFs. 
+
+In the work, the comparison is conducted along three dimensions: audience perspectives, classification names, and SDLC (Systems Development Life Cycle) phases. 
+Upon all of the dimensions, except for that of the SDLC maintenance phase, ZFEA encompasses the abstraction.
+It is only FEAF in which the SDLC maintenance phase is incorporated into the EAF although lacking the user perspective as well as the who, when, and why characteristics.  
+
+Of the EAFs, ZFEA is the most comprehensive, in part due to its basis in classical architecture and roots in historical primitives. 
+For context, DoDAF specializes is military operations, FEAF in sharing information across federal EAs, TEAF similarly in information sharing across treasury offices, and TOGAF in open systems integration of mission critical applications. 
+Revisiting the earlier criticism of ZFEA, it is becomes evident that at a certain point an EAF can become too far abstracted from reality, in which case it makes sense to choose a limited framework which is more specific to the business context. 
+
+\section{Conclusion}
+In this paper we have provided an overview of the ZFEA EAF, from inception to today, consensus from research articles based in context and case, along with a comparison to other EAFs and its practical applications. 
+We have seen that EA has evolved from previous literature on IS architecture, providing an explanatory theory.
+What the theories generally lack are methodologies and practices, to aid in their usage. 
+Commonly accepted as an ontology, ZFEA lacks the required granularity for SE. 
+Use of ZFEA in implementation studies focus primarily on factor analysis to determine prioritization of future changes. 
+From the perspective of SE, a general paradigm shift has taken place moving from EAFs to MBSE. 
+EAFs today are thus best viewed as an exploratory tool for architects, too vague for integration tasks. 
+Looking to the future, EAFs shall continue to be used and taught in academia, while in EA practice, traditional managerial and engineering tools will be used. 
+
+\bibliography{./konzer_cason_CIS_562_final_project.bib}
+\bibliographystyle{IEEEtran}
+% \bibliographystyle{./cite.sty}
+
+\end{document}

@@ -1,0 +1,84 @@
+\documentclass[a4paper, 12pt]{article} %
+\usepackage{graphicx,amssymb} %
+\usepackage{url}			       % For \url
+\usepackage{xcolor}
+\usepackage[left=1cm, top=2cm, bottom = 2cm, right=1cm, nohead, nofoot]{geometry}
+\usepackage{hyperref}
+
+%\textwidth=15cm \hoffset=-1.0cm %
+%\textheight=25cm \voffset=-1.5cm %
+
+\pagestyle{empty} %
+
+\date{\today} %
+
+\def\keywords#1{\begin{center}{\bf Keywords}\\{#1}\end{center}} %
+
+% Please, do not change any of the above lines
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\begin{document}
+
+% Type down your paper title
+\title{MTH 402 CAPSTONE - APPLICATIONS IN NETWORKS}
+
+\vspace{0.25cm}
+% Authors
+\author{Cason Konzer  \\ %
+       University of Michigan - Flint \\ % Affiliation 1
+       % Add authors and affiliation as needed 
+       \textit{ \color{violet}
+       \href{mailto:casonk@umich.edu}{casonk@umich.edu}}  % Only one corresponding e-mail
+       }%
+
+\maketitle
+
+\thispagestyle{empty}
+
+% The abstract
+%\vspace{2.5cm}
+
+\begin{abstract}
+\vspace{0.25cm}
+
+Within mathematics, there are certain esteemed historical problems widely taught and know by those studying the field. 
+To reminisce for a moment, I was introduced to two of these problems in my discrete mathematics class while in my second semester of undergraduate education. 
+The seven bridges of Königsberg and the travelling salesman problem, both problems are prominent in graph theory.
+Both of these problems can be easily visualized, land masses connected by bridges and cities by roads, map reading is instilled within common human culture. 
+In a similar manner a graph represented by nodes connected by edges is intuitive while scale is small. 
+We can represent so much in this format, infrastructure, relationships, information flow, etc. 
+Once networks become large, visualization and intuition fall off, and abstracts allow for greater understanding. 
+
+In a brief overview of the study of networks \cite{struc_funct_cnets} Newman focusing on real world network types, properties of networks, null graph models and processes taking place on networks. 
+The study of networks in general, has drawn initial attention by mathematicians, but in the recent century, and moreover the recent decades, computer and data scientists alike have been having a field day with their applications. 
+Within the even more recent years, the study of (social) media networks has grown rapidly. 
+Individuals are being persuaded by bots, Trump is banned from twitter while president, and idealogies are becoming seemingly more radicalized.
+Community detection and clustering is an interesting approach to tackle these issues, what if we could identify bot nets, or predict attacks by leveraging media networks?
+
+In 2008 the Louvain algorithm \cite{louvain} for detecting communities within networks was published, and has become increasingly popular due to its advantageous run time. 
+Additionally, the algorithm was shortly after extended to directed networks, akin to many media networks, and to include a `resolution' parameter \cite{louvain_resolution} providing the ability to tune for community size/density. 
+Additional community detections methods have emerges since such as the Leiden \cite{louvain_2_leiden} and BigCLAM \cite{bigclam} algorithms. 
+No matter the method, detecting communities is only an initial step to any research effort in media networks. 
+To be of relevance, communities must be labeled in a meaningful way, and further their characteristics must be reviewed. 
+
+This type of study has been of persistent interest within the social sciences. 
+In the late 80s Krackhardt and Stern \cite{inet_crises} used leveraged their university position to study group dynamics of organizations via student assignments. 
+A brief summary of their results finds that organizations which extend their reach externally performed superiorly. 
+The so called `EI-Index' was developed as a key metric measuring the relationship between internal and external links. 
+`Echochambers' and `filter bubbles' have become common words within the literature, and studies on media networks such as Twitter, Facebook, and Reddit \cite{eko_weko, sm_ece, ekoin_ekobtwin} are now commonplace. 
+A thorough understanding of the structure of networks, community detection algorithms, and community analysis make for a optimistic outlook on solving societal problems stemming from media networks.
+
+
+\vspace{0.25cm}
+
+\end{abstract}
+
+\keywords{Communities, Media, Networks} % Write down at least 3 Keywords
+
+\bibliography{onepager.bib}{}
+\bibliographystyle{plain}
+\end{document}

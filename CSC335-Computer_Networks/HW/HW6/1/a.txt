@@ -1,0 +1,4 @@
+ssh-keygen -b 4096
+ssh-keygen -t dsa -b 1024
+ssh-keygen -t ecdsa -b 521
+ssh-keygen -t ed25519 -b 4096

@@ -1,0 +1,24 @@
+a.
+URL: https://www.reddit.com/r/wallstreetbets/
+Destination Address: fe80::9ec9:ebff:fe89:32ea
+
+b.	
+Source Address: 192.168.0.7
+Destination Address: 146.75.9.140
+Source Port: 59438
+Destination Port: 443
+Header Checksum: 0x5d13
+
+c.
+Source Address: 146.75.9.140
+Destination Address: 192.168.0.7
+Source Port: 443
+Destination Port: 59438
+Header Checksum: 0xe31d
+
+d.
+Source Address: 192.168.0.7
+Destination Address: 146.75.9.140
+Source Port: 59438
+Destination Port: 443
+Header Checksum: 0x5d1e

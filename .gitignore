@@ -44,3 +44,6 @@ desktop.ini
 *~
 .vscode/
 .idea/
+
+# Local agent handoff log
+CHATHISTORY.md

@@ -29,3 +29,12 @@ Each top-level directory is a single course, named `<CODE>-<Title>`:
 - LaTeX presentations use beamer class and require two `pdflatex` passes.
 - Python scripts may have varying dependency requirements per course — check individual course directories.
 - Verilog test files are in `CSC565-Computer_System_Architecture/`.
+
+## Agent Memory
+
+Use `./CHATHISTORY.md` as the standard local handoff file for this repo.
+
+- It is local-only and gitignored.
+- Read it after `AGENTS.md` when resuming work.
+- Keep entries concise and focused on archival changes, fixes, and next steps.
+- Redact any private student or account data before writing to it.

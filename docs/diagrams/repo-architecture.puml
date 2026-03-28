@@ -1,0 +1,64 @@
+@startuml
+title university-coursework Repository Architecture Starter
+!pragma layout smetana
+' Deterministic starter generated from repository structure by archility.
+skinparam shadowing false
+skinparam defaultFontName Monospace
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Contributor as contributor
+rectangle "README.md\nAGENTS.md\nLESSONSLEARNED.md" as governance #E2E8F0
+rectangle "docs/contributor-architecture-blueprint.md" as blueprint #DBEAFE
+rectangle "docs/diagrams/repo-architecture.puml" as plantuml_source #FCE7F3
+rectangle "docs/diagrams/repo-architecture.drawio" as drawio_source #FCE7F3
+rectangle ".github/workflows/" as workflows #DCFCE7
+rectangle "Course Taxonomy\n5 subject areas / 24 course directories" as taxonomy_summary #E0F2FE
+rectangle "Common Nested Deliverable Families\nHW/\nProject/\nAssignments/\nExam/Exams/\nFinal/\nNotes/\nLabs/\nPresentations/\nDeliverables/" as nested_patterns #DCFCE7
+package "Subject Areas" #F8FAFC {
+  package "CIS (2 courses)" #EEF7FF {
+    folder "CIS517-Social_Computing/" as cis_1 #FFFFFF
+    folder "CIS562-Enterprise_Computing_and_Systems_Integration/" as cis_2 #FFFFFF
+  }
+  package "CSC (10 courses)" #EEF7FF {
+    folder "CSC310-Human_Computer_Interaction/" as csc_1 #FFFFFF
+    folder "CSC335-Computer_Networks/" as csc_2 #FFFFFF
+    folder "CSC382-Software_Engineering/" as csc_3 #FFFFFF
+    folder "CSC384-Database_Design/" as csc_4 #FFFFFF
+    folder "CSC487-Data_Mining/" as csc_5 #FFFFFF
+    folder "CSC535-Advanced_Computer_Networking/" as csc_6 #FFFFFF
+    folder "CSC565-Computer_System_Architecture/" as csc_7 #FFFFFF
+    folder "CSC575-Algorithm_and_Complexity_Analysis/" as csc_8 #FFFFFF
+    folder "CSC580-Advanced_Software_Engineering/" as csc_9 #FFFFFF
+    folder "CSC582-Advanced_Database_Concepts_and_Applications/" as csc_10 #FFFFFF
+  }
+  package "ECN (3 courses)" #EEF7FF {
+    folder "ECN360-International_Economics/" as ecn_1 #FFFFFF
+    folder "ECN370-Public_Finance/" as ecn_2 #FFFFFF
+    folder "ECN480-Quantatative_Methods_for_Public_Administration/" as ecn_3 #FFFFFF
+  }
+  package "INB (1 course)" #EEF7FF {
+    folder "INB385-International_Business/" as inb_1 #FFFFFF
+  }
+  package "MTH (8 courses)" #EEF7FF {
+    folder "MTH200-Proofs_and_Structures/" as mth_1 #FFFFFF
+    folder "MTH357-Advanced_Calculus/" as mth_2 #FFFFFF
+    folder "MTH372-Advanced_Probability/" as mth_3 #FFFFFF
+    folder "MTH374-Numerical_Analysis/" as mth_4 #FFFFFF
+    folder "MTH375-Mathematical_Statistics/" as mth_5 #FFFFFF
+    folder "MTH385-History_of_Mathematics/" as mth_6 #FFFFFF
+    folder "MTH402-Mathematics_Capstone/" as mth_7 #FFFFFF
+    folder "MTH470-Theory_of_Functions_of_a_Complex_Variable/" as mth_8 #FFFFFF
+  }
+}
+
+contributor --> governance
+governance --> blueprint
+blueprint --> plantuml_source
+blueprint --> drawio_source
+blueprint --> taxonomy_summary
+plantuml_source --> taxonomy_summary
+drawio_source --> taxonomy_summary
+workflows --> taxonomy_summary
+taxonomy_summary --> nested_patterns
+@enduml

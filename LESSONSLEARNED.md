@@ -13,3 +13,5 @@ Unlike `CHATHISTORY.md`, this file should keep only reusable lessons that should
 ## Lessons
 
 - No durable lessons recorded yet.
+- Architecture docs for this archive should group course directories by their stable subject prefixes, such as `CSC/`, `ECN/`, `INB/`, and `MTH/`, instead of summarizing only a few course folders.
+- When the architecture starter is refreshed, keep the grouped course taxonomy and the common nested deliverable families visible so the archive structure stays readable.

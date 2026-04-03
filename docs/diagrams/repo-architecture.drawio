@@ -57,7 +57,8 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="704" y="210" />
-              <mxPoint x="736" y="210" />
+              <mxPoint x="704" y="175" />
+              <mxPoint x="736" y="175" />
               <mxPoint x="736" y="195" />
             </Array>
           </mxGeometry>
@@ -66,7 +67,8 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="1114" y="195" />
-              <mxPoint x="1114" y="205" />
+              <mxPoint x="1114" y="245" />
+              <mxPoint x="1146" y="245" />
               <mxPoint x="1146" y="205" />
             </Array>
           </mxGeometry>
@@ -75,8 +77,8 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="1146" y="205" />
-              <mxPoint x="1146" y="438" />
-              <mxPoint x="664" y="438" />
+              <mxPoint x="1146" y="393.5" />
+              <mxPoint x="664" y="393.5" />
               <mxPoint x="664" y="510" />
             </Array>
           </mxGeometry>
@@ -85,8 +87,8 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="1146" y="355" />
-              <mxPoint x="1146" y="364" />
-              <mxPoint x="664" y="364" />
+              <mxPoint x="1146" y="411.5" />
+              <mxPoint x="664" y="411.5" />
               <mxPoint x="664" y="540" />
             </Array>
           </mxGeometry>
@@ -95,7 +97,7 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="664" y="510" />
-              <mxPoint x="696" y="510" />
+              <mxPoint x="664" y="525" />
               <mxPoint x="696" y="525" />
             </Array>
           </mxGeometry>
@@ -104,8 +106,8 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="120" y="604" />
-              <mxPoint x="281" y="604" />
-              <mxPoint x="281" y="636" />
+              <mxPoint x="360" y="604" />
+              <mxPoint x="360" y="636" />
               <mxPoint x="290" y="636" />
             </Array>
           </mxGeometry>
@@ -114,8 +116,7 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="280" y="604" />
-              <mxPoint x="532" y="604" />
-              <mxPoint x="532" y="636" />
+              <mxPoint x="770" y="604" />
               <mxPoint x="770" y="636" />
             </Array>
           </mxGeometry>
@@ -144,8 +145,8 @@
           <mxGeometry relative="1" as="geometry" archilityManagedRoute="1">
             <Array as="points">
               <mxPoint x="600" y="604" />
-              <mxPoint x="536" y="604" />
-              <mxPoint x="536" y="962" />
+              <mxPoint x="1004" y="604" />
+              <mxPoint x="1004" y="962" />
               <mxPoint x="770" y="962" />
             </Array>
           </mxGeometry>

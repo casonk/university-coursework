@@ -30,6 +30,16 @@ Each top-level directory is a single course, named `<CODE>-<Title>`:
 - Python scripts may have varying dependency requirements per course — check individual course directories.
 - Verilog test files are in `CSC565-Computer_System_Architecture/`.
 
+## Local CI Verification
+
+Run before every push:
+
+```bash
+pre-commit run --all-files
+```
+
+Do not push changes that have not passed all checks locally.
+
 ## Portfolio Standards Reference
 
 For portfolio-wide repository standards and baseline conventions, consult the control-plane repo at `./util-repos/traction-control` from the portfolio root.

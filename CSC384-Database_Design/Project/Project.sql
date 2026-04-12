@@ -5,7 +5,7 @@ RYAN - Generated Mockaroo data, update/delete/select statatements, tested sql st
 --
 NICK - ER schema, table statement debugging, data manipulation for the relation tables (Most of the insert statements), and some of the select/update/delete statements
 --
-CASON - Collaborated on ER Schema design & Revisions, Wrote Create Table Statements, Made some insert statement, 
+CASON - Collaborated on ER Schema design & Revisions, Wrote Create Table Statements, Made some insert statement,
 generated SQL SELECT/UPDATE/DELETE/INSERT/ALTER run time statements, PL/SQL statement, Debuggued Project in General
 --
 ** All statements tested by all team members before submission **
@@ -513,18 +513,18 @@ FROM Targets
 WHERE name = 'Monster Beverage Corporation';
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select companies that target males
-SELECT DISTINCT NAME 
-FROM Targets 
+SELECT DISTINCT NAME
+FROM Targets
 WHERE USERID IN (SELECT USERID FROM SUSER WHERE SEX = 'Male');
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Delete all energy companies --
-DELETE FROM Company 
+DELETE FROM Company
 WHERE sector = 'Energy';
 rollback;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Change the industry of all companies within one industry to another --
-UPDATE Company 
-SET industry = '&newind' 
+UPDATE Company
+SET industry = '&newind'
 WHERE industry = '&oldind';
 rollback;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -532,41 +532,41 @@ rollback;
 -- NICK --
 --
 -- Select the user who made a specific search in history (i.e. a specific search and date) --
-SELECT UserID 
-FROM HASA 
+SELECT UserID
+FROM HASA
 WHERE HID = '&search';
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select all histories and searches made with a particular engine --
-SELECT * 
-FROM SSearch 
+SELECT *
+FROM SSearch
 WHERE ENGINE = '&engine';
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select all Users likely to search for something.
-SELECT UserID 
-FROM Likelyto 
+SELECT UserID
+FROM Likelyto
 WHERE SSearch = '&search';
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select all history ID’s of users above an age
-SELECT USERID 
-FROM HASA 
+SELECT USERID
+FROM HASA
 WHERE USERID IN (SELECT USERID FROM SUSER WHERE age > &testage);
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Clear (delete) a given user’s history:
-DELETE FROM HASA 
+DELETE FROM HASA
 WHERE HID IN (SELECT HID FROM HISTORY WHERE UserID = '&Uid');
-DELETE FROM CONTAINS 
+DELETE FROM CONTAINS
 WHERE HID IN (SELECT HID FROM HISTORY WHERE UserID = '&Uid');
-DELETE FROM RELATEDTO 
+DELETE FROM RELATEDTO
 WHERE HID IN (SELECT HID FROM HISTORY WHERE UserID = '&Uid');
-DELETE FROM History 
+DELETE FROM History
 WHERE UserID = '&Uid';
 rollback;
 --Note: deletes all references to that history as well. Because History is not set to “on delete cascade”, this has to be done manually.
 --Note: The history table is quite large, so the “delete from history” statement may take a while
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Change All User's location at one location to a new location(i.e. they are accessing the internet from a location that has been rezoned): Nick
-UPDATE sUser 
-SET loc = '&newloc' 
+UPDATE sUser
+SET loc = '&newloc'
 WHERE loc = '&oldloc';
 rollback;
 --NOTE: first user input is the NEW location, second user input is the OLD location
@@ -634,7 +634,7 @@ WHERE LOC = '&loc';
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select all Sexes & User ID’s of users below an age --
 SELECT USERID, SEX
-FROM SUSER 
+FROM SUSER
 WHERE age < &testage;
 -- Rows Vary On Input (Only User ID is Returned)
 ----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -679,7 +679,7 @@ SELECT NAME, AMOUNT
 FROM ADVERTISERS
 WHERE AMOUNT >= ALL (SELECT AMOUNT FROM ADVERTISERS);
 -- 1 Row (The Company wity the most Advertisements)
----------------------------------------------------------------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select ads that are made by a company AND paid for --
 SELECT *
 FROM RELATEDTO
@@ -697,7 +697,7 @@ WHERE PaidAd = 1
 GROUP BY HID
 ORDER BY AMOUNT;
 -- 20 Rows (All Historical Searches That Saw Advertisements, With The Amount Of Ads)
----------------------------------------------------------------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Select all targets of company --
 SELECT *
 FROM Targets;
@@ -709,33 +709,33 @@ WHERE name = '&biz';
 -- Rows Depend On Company (All Users Targeted The Company)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
 -- Select companies that target males/females --
--- Males-- 
-SELECT * 
-FROM Targets 
+-- Males--
+SELECT *
+FROM Targets
 WHERE USERID IN (SELECT USERID FROM SUSER WHERE SEX = 'Male');
 -- 50 Rows (All Targeted Males & The Company That Targeted Them)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
 -- Generalied For Given Input (Unique Comanies that Target Given Sex)
-SELECT DISTINCT NAME 
-FROM Targets 
+SELECT DISTINCT NAME
+FROM Targets
 WHERE USERID IN (SELECT USERID FROM SUSER WHERE SEX = '&sex');
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
 -- Select companies that target age --
 -- Generalied For Given Input
-SELECT DISTINCT NAME 
-FROM Targets 
+SELECT DISTINCT NAME
+FROM Targets
 WHERE USERID IN (SELECT USERID FROM SUSER WHERE AGE = '&age');
 -- Rows Vary On Input (Only NAME is Returned)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
 -- Select companies that target location --
 -- Generalied For Given Input
-SELECT DISTINCT NAME 
-FROM Targets 
+SELECT DISTINCT NAME
+FROM Targets
 WHERE USERID IN (SELECT USERID FROM SUSER WHERE LOC = '&loc');
 -- Rows Vary On Input (Only NAME is Returned)
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 --How many users targeted saw paid ads. --
-SELECT DISTINCT USERID 
+SELECT DISTINCT USERID
 FROM TARGETS;
 --25 Rows (Returns Targeted Users)--
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
@@ -760,44 +760,44 @@ WHERE HID IN (SELECT DISTINCT HID FROM RELATEDTO WHERE PaidAd = 1) AND
 --1 Row (Returns 15, The # Of Targeted & Advertised Users)--
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Create an Executable Insert Statement For Manual Input --
-INSERT INTO SUSER (USERID, SEX, AGE, LOC) 
+INSERT INTO SUSER (USERID, SEX, AGE, LOC)
 VALUES ('&Uid', '&sex', '&age', '&loc');
 rollback;
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
-INSERT INTO SSEARCH (TEXT,ENGINE,SEARCHID,KEYWORD) 
+INSERT INTO SSEARCH (TEXT,ENGINE,SEARCHID,KEYWORD)
 VALUES ('&Search','&Engine','&Sid','&Kword');
 rollback;
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
-INSERT INTO HISTORY (HID, HDATE, USERID, SEARCHID) 
+INSERT INTO HISTORY (HID, HDATE, USERID, SEARCHID)
 VALUES ('&Hid','&date','&Uid','&Sid');
 rollback;
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
-INSERT INTO TARGETS (NAME,USERID) 
+INSERT INTO TARGETS (NAME,USERID)
 VALUES ('&biz','&id');
 rollback;
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--
-INSERT INTO COMPANY (NAME, INDUSTRY, SECTOR) 
+INSERT INTO COMPANY (NAME, INDUSTRY, SECTOR)
 VALUES ('&biz', '&ind', '&sect');
 rollback;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Strip All Identifying Data From User Table --
-ALTER TABLE SUSER 
+ALTER TABLE SUSER
 DROP COLUMN SEX;
 
-ALTER TABLE SUSER 
+ALTER TABLE SUSER
 DROP COLUMN AGE;
 
-ALTER TABLE SUSER 
+ALTER TABLE SUSER
 DROP COLUMN LOC;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Create New Identifying Data From User Table --
-ALTER TABLE SUSER 
+ALTER TABLE SUSER
 ADD COLUMN VETERAN;
 
-ALTER TABLE SUSER 
+ALTER TABLE SUSER
 ADD COLUMN ETHNICITY;
 
-ALTER TABLE SUSER 
+ALTER TABLE SUSER
 ADD COLUMN DISABILITY;
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 -- Creat A View That Strips Company Names But Still Provides Relevant Industry/Sector Info --
@@ -817,7 +817,7 @@ WITH SECTS AS(
 	FROM ENTERPRISE
 	WHERE SECTOR != 'n/a'
 	GROUP BY SECTOR)
-	
+
 SELECT SECTOR
 FROM SECTS
 WHERE AMOUNT >= ALL (SELECT AMOUNT FROM SECTS);

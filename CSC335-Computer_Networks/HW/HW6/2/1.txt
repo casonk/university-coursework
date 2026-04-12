@@ -2,7 +2,7 @@ a.
 URL: https://www.reddit.com/r/wallstreetbets/
 Destination Address: fe80::9ec9:ebff:fe89:32ea
 
-b.	
+b.
 Source Address: 192.168.0.7
 Destination Address: 146.75.9.140
 Source Port: 59438

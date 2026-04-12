@@ -25,7 +25,7 @@ module Main_Controller_test_or_then_sub;
 
 	// Simulate system clock
 	parameter    clk_period = 100;
-    always     #(clk_period/2) clk = ~clk;    
+    always     #(clk_period/2) clk = ~clk;
 
 	initial begin
 		// Initialize Inputs
@@ -35,7 +35,7 @@ module Main_Controller_test_or_then_sub;
 
 		// Wait 50 ns for global reset to finish
 		#50;
-        
+
 		// Add stimulus here: 1000 INPUTS
 
 		// Reset all registers
@@ -49,10 +49,10 @@ module Main_Controller_test_or_then_sub;
 		enable  = 2'b11;
 		#100;
 
-		// Add stimulus here	  
-		
+		// Add stimulus here
+
 		$display("STARTING Register Load");
-		
+
 		// Load R0
 		data_in = 8'b11111111; // FF
 		enable  = 2'b01;
@@ -67,45 +67,45 @@ module Main_Controller_test_or_then_sub;
 
 		// Load IR
 		data_in = 8'b00101011; // data_out, R0, R1 = R0 | R1 = FF
-		enable  = 2'b11;		 
+		enable  = 2'b11;
 		#100;
 
 		$display("STARTING OR");
-		
+
 		// Compute Data Out and Write Back
 		data_in = 8'b00000000; // R0 updates to FF
-		enable  = 2'b00;	
+		enable  = 2'b00;
 		#100;
-		
+
 		// No Op
 		data_in = 8'b00000000;
-		enable  = 2'b00;		
+		enable  = 2'b00;
 		#100;
 
 		// Load IR
 		data_in = 8'b00011011; // data_out, R0, R1 = R0 - R1 = 00
-		enable  = 2'b11;		 
-		#100; 
-		
+		enable  = 2'b11;
+		#100;
+
 		$display("STARTING SUB");
-		
+
 		// Compute Data Out and Write Back
 		data_in = 8'b00000000;
-		enable  = 2'b00;	
+		enable  = 2'b00;
 		#100;
-		
+
 
 		// No Op
 		data_in = 8'b00000000;
-		enable  = 2'b00;		
-		#100;		  
-		
+		enable  = 2'b00;
+		#100;
+
 		// No Op
 		data_in = 8'b00000000;
-		enable  = 2'b00;		
+		enable  = 2'b00;
 		#100;
-		
+
     	$stop;
-	end			
-	
+	end
+
 endmodule

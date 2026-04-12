@@ -120,7 +120,7 @@ FROM PC;
 /* Expected Result: (note, I have used ROUND function in Oracle, however you do not need to use the round function.
 AVGSPEED
 --------
-    2.48 
+    2.48
   *RETURNED Result:
 AVGSPEED
 --------
@@ -135,10 +135,10 @@ WHERE price > 1000;
 
 -- CONFIDENCE == 10;
 
-/* Expected Result: 
-AVGSPEED               
----------------------- 
-2      
+/* Expected Result:
+AVGSPEED
+----------------------
+2
   *RETURNED Result:
 AVGSPEED
 --------
@@ -153,13 +153,13 @@ WHERE (PC.model = PRODUCT.model) AND (PRODUCT.maker = 'A');
 
 -- CONFIDENCE == 10;
 
-/* Expected Result: 
-AVGPRICE               
----------------------- 
-1195.67               
-  *RETURNED Result: 
-AVGPRICE               
----------------------- 
+/* Expected Result:
+AVGPRICE
+----------------------
+1195.67
+  *RETURNED Result:
+AVGPRICE
+----------------------
 1195.666666666666666666666666666666666667
 */
 -- 4. Find the average price of computers (a computer can be a PC or a Laptop) made by manufacturer 'E'. [1.5 pts]
@@ -177,10 +177,10 @@ WHERE (CPE.model = PRODUCT.model) AND (PRODUCT.maker = 'E');
 
 -- CONFIDENCE == 10;
 
-/* Expected && RETURNED Result: 
-AVGPRICE               
----------------------- 
-1218  
+/* Expected && RETURNED Result:
+AVGPRICE
+----------------------
+1218
 */
 
 -- 5. Find for each different speed, the average price of a PC. [1 pt]
@@ -191,19 +191,19 @@ GROUP BY speed;
 
 -- CONFIDENCE == 10;
 
-/* Expected Result: 
+/* Expected Result:
 SPEED AVGPRICE
 ----- --------
- 1.42      478 
- 1.86      959 
-    2      650 
-  2.1      995 
-  2.2      640 
- 2.66     2114 
-  2.8   689.33 
- 3.06      529 
-  3.2    839.5  
-  *RETURNED Result: 
+ 1.42      478
+ 1.86      959
+    2      650
+  2.1      995
+  2.2      640
+ 2.66     2114
+  2.8   689.33
+ 3.06      529
+  3.2    839.5
+  *RETURNED Result:
 SPEED AVGPRICE
 ----- --------
 2.2   640
@@ -230,22 +230,22 @@ GROUP BY maker;
 
 -- CONFIDENCE == 10;
 
-/* Expected Result: 
+/* Expected Result:
 MAKER                AVGSCREEN
 -------------------- ---------
-A                        15.23 
-B                         13.1 
-E                         17.5 
-F                        14.75 
-G                         15.4 
-  *RETURNED Result: 
+A                        15.23
+B                         13.1
+E                         17.5
+F                        14.75
+G                         15.4
+  *RETURNED Result:
 MAKER                AVGSCREEN
 -------------------- ---------
 A	                   15.23333333333333333333333333333333333333
 B	                   13.1
 E	                   17.5
 F	                   14.75
-G	                   15.4 
+G	                   15.4
 */
 -- 7. Find manufacturers that make at least three different models of PC. [1.5 pts]
 
@@ -261,15 +261,15 @@ HAVING COUNT (model) >= 3;
 
 -- CONFIDENCE == 10;
 
-/* Expected Result: 
-MAKER              
+/* Expected Result:
+MAKER
 --------------------
-A                    
-B                    
-D                    
-E              
-  *RETURNED Result: 
-MAKER              
+A
+B
+D
+E
+  *RETURNED Result:
+MAKER
 --------------------
 D
 A
@@ -279,7 +279,7 @@ E
 
 -- 8. For each manufacturer, find the range of prices of all computers (a computer can be a PC or Laptop) sold by that manufacturer.
 --    Also ORDER the results by manufacturer.
---    Your SQL query should return a table with 3 cols (maker, minPrice, maxPrice), where minPrice is the least price among all 
+--    Your SQL query should return a table with 3 cols (maker, minPrice, maxPrice), where minPrice is the least price among all
 --    computers made by that manufacturer, and maxPrice is the max price among all computers made by that manufacturer. [1.5 pts]
 
 WITH CPS AS
@@ -298,26 +298,26 @@ ORDER BY maker;
 
 -- CONFIDENCE == 10;
 
-/* Expected && RETURNED Result: 
+/* Expected && RETURNED Result:
 MAKER                MINPRICE MAXPRICE
 -------------------- -------- --------
-A                         478     2500 
-B                         630     1429 
-C                         510      510 
-D                         650      770 
-E                         529     3673 
-F                         680      900 
-G                        2300     2300 
+A                         478     2500
+B                         630     1429
+C                         510      510
+D                         650      770
+E                         529     3673
+F                         680      900
+G                        2300     2300
 */
 
 -- 9. For each manufacturer that makes printers, find the average hard disk size of PCs made by that manufacturer. [1.5 pts]
 
 WITH PRINTPCS AS
 (SELECT DISTINCT PCMK, PCM, HD
-FROM 
-  (SELECT DISTINCT maker AS PRINTMK, PRODUCT.model AS PRINTM 
+FROM
+  (SELECT DISTINCT maker AS PRINTMK, PRODUCT.model AS PRINTM
   FROM PRODUCT, PRINTER WHERE PRODUCT.model = PRINTER.model),
-  (SELECT DISTINCT maker AS PCMK, PRODUCT.model AS PCM, hd 
+  (SELECT DISTINCT maker AS PCMK, PRODUCT.model AS PCM, hd
   FROM PRODUCT, PC WHERE PRODUCT.model = PC.model)
 WHERE PRINTMK = PCMK)
 
@@ -328,11 +328,11 @@ ORDER BY PCMK;
 
 -- CONFIDENCE == 10;
 
-/* Expected && RETURNED Result: 
+/* Expected && RETURNED Result:
 MAKER                ROUND(AVG(HD),2)
 -------------------- ----------------
-D                              266.67 
-E                              133.33 
+D                              266.67
+E                              133.33
 */
 
 -- 10. Using two INSERT statements, store in the database the fact that PC model 1100 is made by manufacturer C,
@@ -373,7 +373,7 @@ rollback;
 /* Note: You may want to delete from the Product and PC tables. */
 
 DELETE FROM PRODUCT
-WHERE EXISTS 
+WHERE EXISTS
   (SELECT PC.model FROM PC WHERE hd < 100 AND PRODUCT.model = PC.model);
 rollback;
 

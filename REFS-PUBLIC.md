@@ -1,4 +1,4 @@
-# REFS-PUBLIC.md — Public References
+# REFS-PUBLIC.md - Public References
 
 > Record external public repositories, datasets, documentation, APIs, or other
 > public resources that this repository utilizes or depends on.
@@ -6,22 +6,16 @@
 
 ## Public Repositories
 
-<!-- External repos this project depends on, forks, or integrates with:
-- https://github.com/org/repo — description of usage
--->
+- No standing external public repositories are required; the repo primarily stores coursework artifacts and notes.
 
 ## Public Datasets and APIs
 
-<!-- Publicly accessible data sources, REST APIs, or external feeds consumed here:
-- https://example.com/dataset — description of usage
--->
+- No standing public datasets or APIs are required at the repo level; external course resources vary by subdirectory and assignment.
 
 ## Documentation and Specifications
 
-<!-- Reference docs, RFCs, standards, or upstream project documentation:
-- https://docs.example.com — description
--->
+- Course-specific public syllabi, assignment pages, or reference datasets should be added here only when they become a durable part of the archive.
 
 ## Notes
 
-<!-- Any context about how these public references are used or versioned -->
+- This repository is an archive of locally stored coursework, so most durable references are institutional or course-specific rather than repo-wide.

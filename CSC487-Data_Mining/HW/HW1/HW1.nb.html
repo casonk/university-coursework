@@ -311,7 +311,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0IDwtIGRhdGEuZnJhbWUoY29uZCA9IGZhY3RvcihyZXAoYyhcIkFcIiwgXCJCXCIpLCBlYWNoID0gMjAwKSksIFxuICAgICAgICAgICAgICAgICAgcmF0aW5nID0gYyhybm9ybSgyMDApLCBybm9ybSgyMDAsIG1lYW4gPSAwLjgpKSlcbmBgYCJ9 -->
-<pre class="r"><code>dat &lt;- data.frame(cond = factor(rep(c(&quot;A&quot;, &quot;B&quot;), each = 200)), 
+<pre class="r"><code>dat &lt;- data.frame(cond = factor(rep(c(&quot;A&quot;, &quot;B&quot;), each = 200)),
                   rating = c(rnorm(200), rnorm(200, mean = 0.8)))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -322,7 +322,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGF0LCBhZXMoeCA9IHJhdGluZywgZmlsbCA9IGNvbmQpKSArIFxuICAgICAgIGdlb21faGlzdG9ncmFtKGJpbndpZHRoID0gMC41LCBhbHBoYSA9IDAuNSwgcG9zaXRpb24gPSBcImlkZW50aXR5XCIpKVxuYGBgIn0= -->
-<pre class="r"><code>plot(ggplot(dat, aes(x = rating, fill = cond)) + 
+<pre class="r"><code>plot(ggplot(dat, aes(x = rating, fill = cond)) +
        geom_histogram(binwidth = 0.5, alpha = 0.5, position = &quot;identity&quot;))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -335,7 +335,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGF0LCBhZXMoeCA9IHJhdGluZywgZmlsbCA9IGNvbmQpKSArIFxuICAgICAgIGdlb21faGlzdG9ncmFtKGJpbndpZHRoID0gMC41LCBwb3NpdGlvbiA9IFwiZG9kZ2VcIikpXG5gYGAifQ== -->
-<pre class="r"><code>plot(ggplot(dat, aes(x = rating, fill = cond)) + 
+<pre class="r"><code>plot(ggplot(dat, aes(x = rating, fill = cond)) +
        geom_histogram(binwidth = 0.5, position = &quot;dodge&quot;))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -348,7 +348,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGF0LCBhZXMoeCA9IHJhdGluZywgY29sb3VyID0gY29uZCkpICsgXG4gICAgICAgZ2VvbV9kZW5zaXR5KCkpXG5gYGAifQ== -->
-<pre class="r"><code>plot(ggplot(dat, aes(x = rating, colour = cond)) + 
+<pre class="r"><code>plot(ggplot(dat, aes(x = rating, colour = cond)) +
        geom_density())</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -361,7 +361,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGF0LCBhZXMoeCA9IHJhdGluZywgZmlsbCA9IGNvbmQpKSArIFxuICAgICAgIGdlb21fZGVuc2l0eShhbHBoYSA9IDAuMykpXG5gYGAifQ== -->
-<pre class="r"><code>plot(ggplot(dat, aes(x = rating, fill = cond)) + 
+<pre class="r"><code>plot(ggplot(dat, aes(x = rating, fill = cond)) +
        geom_density(alpha = 0.3))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -381,7 +381,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGlhYmV0ZXMsIGFlcyh4ID0gbWFzcywgZmlsbCA9IGNsYXNzKSkgKyBcbiAgICAgICBnZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IDUsIGFscGhhID0gMC41LCBwb3NpdGlvbiA9IFwiaWRlbnRpdHlcIikpXG5gYGAifQ== -->
-<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, fill = class)) + 
+<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, fill = class)) +
        geom_histogram(binwidth = 5, alpha = 0.5, position = &quot;identity&quot;))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -389,7 +389,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGlhYmV0ZXMsIGFlcyh4ID0gbWFzcywgZmlsbCA9IGNsYXNzKSkgKyBcbiAgICAgICBnZW9tX2hpc3RvZ3JhbShiaW53aWR0aCA9IDUsIHBvc2l0aW9uID0gXCJkb2RnZVwiKSlcbmBgYCJ9 -->
-<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, fill = class)) + 
+<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, fill = class)) +
        geom_histogram(binwidth = 5, position = &quot;dodge&quot;))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -397,7 +397,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGlhYmV0ZXMsIGFlcyh4ID0gbWFzcywgY29sb3IgPSBjbGFzcykpICsgXG4gICAgICAgZ2VvbV9kZW5zaXR5KCkpXG5gYGAifQ== -->
-<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, color = class)) + 
+<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, color = class)) +
        geom_density())</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -405,7 +405,7 @@ hist(p_2_b, xlim = c(-2,2))</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChnZ3Bsb3QoZGlhYmV0ZXMsIGFlcyh4ID0gbWFzcywgZmlsbCA9IGNsYXNzKSkgKyBcbiAgICAgICBnZW9tX2RlbnNpdHkoYWxwaGEgPSAwLjMpKVxuYGBgIn0= -->
-<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, fill = class)) + 
+<pre class="r"><code>plot(ggplot(diabetes, aes(x = mass, fill = class)) +
        geom_density(alpha = 0.3))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->

@@ -18,7 +18,7 @@
 \newcommand{\XR}{\color{red}}
 \newcommand{\ds}{\displaystyle}
 
-\setlength{\parindent}{0pt} 
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 
 \theoremstyle{plain}
@@ -91,9 +91,9 @@
     \item $ \ds (p(x) - p(a)) / (x - a) = p(x) / (x - a) = C + A + S + O + N = K $.
   \end{itemize}
 
-  Thus $ p(x) $, with value $ 0 $ when $ x = a $, has a factor $ (x - a) $. 
+  Thus $ p(x) $, with value $ 0 $ when $ x = a $, has a factor $ (x - a) $.
 
-  As the largest degree present in $ K $, found in $ C $, is $ k - 1 $, 
+  As the largest degree present in $ K $, found in $ C $, is $ k - 1 $,
   we are left with a polynomial of degree $ k - 1 $ when dividing the polynomial $ (p(x) - p(a)) = p(x) $ of degree $ k $ by $ (x - a) $.
 \end{proof}
 
@@ -104,9 +104,9 @@ Recall
   \binom{n}{k} = \binom{n - 1}{k - 1} + \binom{n - 1}{k}.
 \]
 
-This property gives an easy way to calculate Pascal's triangle to any depth, 
-and hence compute a fair division of stakes in a game that has to be called off with $ n $ plays remaining. 
-We suppose that players I and II have an equal chance of winning each play, 
+This property gives an easy way to calculate Pascal's triangle to any depth,
+and hence compute a fair division of stakes in a game that has to be called off with $ n $ plays remaining.
+We suppose that players I and II have an equal chance of winning each play,
 and that I needs to win $ k $ of the remaining $ n $ plays to carry off the stakes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,7 +137,7 @@ and that I needs to win $ k $ of the remaining $ n $ plays to carry off the stak
 
   Similarly there is $ \ds \sum_{j = 0}^{k-1} \binom{n}{j} $ ways for Player II to win the stakes.
 
-  Our ratio, $ P_{I_{wins \ stakes}} : P_{II_{wins \ stakes}} $, is then $ \ds \sum_{i = k}^{n} \binom{n}{i} : \sum_{j = 0}^{k-1} \binom{n}{j} $, as asked to be shown. 
+  Our ratio, $ P_{I_{wins \ stakes}} : P_{II_{wins \ stakes}} $, is then $ \ds \sum_{i = k}^{n} \binom{n}{i} : \sum_{j = 0}^{k-1} \binom{n}{j} $, as asked to be shown.
 \end{proof}
 
 \newpage
@@ -160,10 +160,10 @@ The sum property of the binomial coefficients also explains the presence of some
 
   Note first that the triangular numbers take the form, $ \ds T_{t} = \sum_{i = 1}^{t} i $.
 
-  Now note that this diagonal referenced represents the binomial coefficients $ \ds \binom{n}{2} $ such that $ n \ge 2 $. 
+  Now note that this diagonal referenced represents the binomial coefficients $ \ds \binom{n}{2} $ such that $ n \ge 2 $.
 
-  Considering an arbitrany n, we have $ \ds \binom{n}{2} = \binom{n - 1}{1} + \binom{n - 1}{2} $. 
-  
+  Considering an arbitrany n, we have $ \ds \binom{n}{2} = \binom{n - 1}{1} + \binom{n - 1}{2} $.
+
   This process is then repeated until we arrive at $ \ds \binom{n}{2} = \binom{n - 1}{1} + \binom{n - 2}{1} + \dots + \binom{3}{1} + \binom{2}{1} + \binom{2}{2} $.
 
   These combinations take the integer values : $ n - 1, n - 2, \dots, 3, 2, 1 $.
@@ -190,9 +190,9 @@ The sum property of the binomial coefficients also explains the presence of some
 
   e.g. $ 1 = 1; \ 4 = 1 + 3; \ 10 = 1 + 3 + 6; \ 20 = 1 + 3 + 6 + 10; \ 35 = 1 + 3 + 6 + 10 + 15 $ \dots
 
-  The numbers can be visualized in a similar manner to that of the triangular numbers, 
-  such that $ TT_{t} $ is a triangular pyramid with base $ T_{t} $ and each incremental level above the base, 
-  or the level below it, is the triangluar number which is index as one below, until finally reaching $ T_{1} $, 
+  The numbers can be visualized in a similar manner to that of the triangular numbers,
+  such that $ TT_{t} $ is a triangular pyramid with base $ T_{t} $ and each incremental level above the base,
+  or the level below it, is the triangluar number which is index as one below, until finally reaching $ T_{1} $,
   the single tip of the triangular pyramid.
 
 \end{proof}
@@ -200,4 +200,3 @@ The sum property of the binomial coefficients also explains the presence of some
 \newpage
 
 \end{document}
-

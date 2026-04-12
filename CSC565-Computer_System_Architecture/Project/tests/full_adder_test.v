@@ -5,22 +5,22 @@ module full_adder_test;
 	reg inbit_0;
 	reg inbit_1;
 	reg carry_in;
-	// reg borrow_in; 
+	// reg borrow_in;
 
 	// Outputs
 	wire outbit_0;
 	wire carry_out;
-	// wire borrow_out; 
+	// wire borrow_out;
 
 	// Instantiate the Unit Under Test (UUT)
 	full_adder uut (
-		.inbit_0(inbit_0), 
-		.inbit_1(inbit_1), 
+		.inbit_0(inbit_0),
+		.inbit_1(inbit_1),
 		.carry_in(carry_in),
-		// .borrow_in(borrow_in), 
+		// .borrow_in(borrow_in),
 		.outbit_0(outbit_0),
 		.carry_out(carry_out)
-		// .borrow_out(borrow_out) 
+		// .borrow_out(borrow_out)
 	);
 
 	initial begin
@@ -32,7 +32,7 @@ module full_adder_test;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+
 		// Add stimulus here: 100 INPUTS
 
         inbit_0 = 1;

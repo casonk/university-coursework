@@ -11,8 +11,8 @@ module half_adder_test;
 
 	// Instantiate the Unit Under Test (UUT)
 	half_adder uut (
-		.inbit_0(inbit_0), 
-		.inbit_1(inbit_1), 
+		.inbit_0(inbit_0),
+		.inbit_1(inbit_1),
 		.outbit_0(outbit_0),
 		.carry_out(carry_out)
 	);
@@ -24,7 +24,7 @@ module half_adder_test;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+
 		// Add stimulus here: 100 INPUTS
 
         inbit_0 = 0;

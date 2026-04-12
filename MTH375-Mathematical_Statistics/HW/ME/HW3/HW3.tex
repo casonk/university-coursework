@@ -25,7 +25,7 @@
 
 \maketitle
 \hrulefill
-\vfill 
+\vfill
     \underline{Key Concepts}: Likelihood function, sufficient statistic, Fisher-Neyman Lemma.
 
 \newpage
@@ -35,7 +35,7 @@
 
 1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid $ $ Gamma(\theta, 1) $ random variables with $ \theta \in (0, \infty) $. \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm}
 %%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -101,8 +101,8 @@ A $ Beta(a,b) $ random variable $ X $ has $ pdf $ \dots \\
     $ \displaystyle f_{X}(x) = \frac{\Gamma(a + b)}{\Gamma(a)\Gamma(b)}x^{a - 1}(1 - x)^{b - 1} $ for $ 0 \leq x \leq 1 $. \\
 \end{center}
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 %%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \XV
@@ -114,7 +114,7 @@ A $ Beta(a,b) $ random variable $ X $ has $ pdf $ \dots \\
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
+\noindent
 We know the $ pdf $ for our $ \displaystyle X_{i} \sim Beta(4, \theta) $ is $ \displaystyle f_{X_{i}}(x_{i}) = \frac{\Gamma(4 + \theta)}{\Gamma(4)\Gamma(\theta)}x_{i}^{3}(1 - x_{i})^{\theta - 1} $ for $ 0 \leq x \leq 1 $. \\
 
 We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
@@ -140,7 +140,7 @@ $ S $ for $ \theta $.
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
+\noindent
 From the Fisher–Neyman factorization lemma we will factorize the likelihood function into $ g(S, \theta) \cdot h(X_{1}, \dots , X_{n}) $. \\
 
 \begin{itemize}
@@ -161,7 +161,7 @@ We can now see that $ \displaystyle S = \prod_{i=1}^{n} (1 - x_{i}) $ is a suffi
 3. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ $ Beta(\theta_{1}, \theta_{2}) $ random variables with $ \theta \in \mathbb{R}^{+} \times \mathbb{R}^{+} $.
 Use the Fisher–Neyman factorization lemma to determine a sufficient statistic $ S $ for $ \overrightarrow{\theta} $. \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm} \\
 
 % \XV
@@ -171,7 +171,7 @@ Use the Fisher–Neyman factorization lemma to determine a sufficient statistic 
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
+\noindent
 We know the $ pdf $ for our $ \displaystyle X_{i} \sim Beta(\theta_{1}, \theta_{2}) $ is $ \displaystyle f_{X_{i}}(x_{i}) = \frac{\Gamma(\theta_{1} + \theta_{2})}{\Gamma(\theta_{1})\Gamma(\theta_{2})}x^{\theta_{1} - 1}(1 - x)^{\theta_{2} - 1} $ for $ 0 \leq x \leq 1 $. \\
 
 We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
@@ -202,7 +202,7 @@ We can now see that $ \displaystyle S = \Bigl( \prod_{i=1}^{n} x_{i} , \ \prod_{
 4. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with $ pdf $: $ f_{X}(x) = \theta x^{\theta - 1} $ for $ x \in (0, 1) $ and $ \theta \in (0, \infty) $.
 Use the Fisher–Neyman factorization lemma to determine a sufficient statistic $ S $ for $ \theta $. \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm} \\
 
 % \XV
@@ -212,7 +212,7 @@ Use the Fisher–Neyman factorization lemma to determine a sufficient statistic 
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
+\noindent
 We know the $ pdf $ for our $ \displaystyle X_{i} $ is $ \displaystyle f_{X_{i}}(x_{i}) = \theta x^{\theta - 1} $ for $ x \in (0, 1) $ and $ \theta \in (0, \infty) $. \\
 
 We can now obtain our likelihood function $ L(\theta | x_{1}, \dots x_{n}) $. \\
@@ -240,23 +240,23 @@ We can now see that $ \displaystyle S = \prod_{i=1}^{n} x_{i} $ is a sufficient 
 \newpage
 \XBB\hrulefill\XB \\
 
-5. Consider the family of distributions with $ \displaystyle pmf $: $p_{X}(x) = 
-\begin{cases} 
+5. Consider the family of distributions with $ \displaystyle pmf $: $p_{X}(x) =
+\begin{cases}
     p & \text{if} \  x = -1 \\
     2p &  \text{if} \ x = 0 \\
     1 - 3p & \text{if} \ x = 1
-\end{cases} $ \\ 
+\end{cases} $ \\
 
 Here $ p $ is an unknown parameter and $ \displaystyle 0 \leq p \leq \frac{1}{3} $. \\
 
-Let $ X_{1},\dots,X_{n} $ be $ iid $ with common $ pmf $ a member of this family. Consider the statistics: 
+Let $ X_{1},\dots,X_{n} $ be $ iid $ with common $ pmf $ a member of this family. Consider the statistics:
 \begin{center}
     $ A = \quad \text{the number of $i$ with } X_{i} = -1 $, \\
     $ B = \quad \text{the number of $i$ with } X_{i} = 0 $, \\
     $ C = \quad \text{the number of $i$ with } X_{i} = 1 $. \\
 \end{center}
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm} \\
 
 % \XV
@@ -273,8 +273,8 @@ Let $ X_{1},\dots,X_{n} $ be $ iid $ with common $ pmf $ a member of this family
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
-$ p_{X_{1}, \dots, X_{n}}(x_{1}, \dots, x_{n}) = p^{A} \cdot (2p)^{B} \cdot (1 - 3p)^{C} = p^{A} \cdot 4p^{B} \cdot (1 - 3p)^{C} = 4p^{A + B} \cdot (1 - 3p)^{C} $. \\ 
+\noindent
+$ p_{X_{1}, \dots, X_{n}}(x_{1}, \dots, x_{n}) = p^{A} \cdot (2p)^{B} \cdot (1 - 3p)^{C} = p^{A} \cdot 4p^{B} \cdot (1 - 3p)^{C} = 4p^{A + B} \cdot (1 - 3p)^{C} $. \\
 
 % \XV
 % \hspace{25mm}\rule{100mm}{0.11mm}\XB
@@ -286,13 +286,13 @@ $ p_{X_{1}, \dots, X_{n}}(x_{1}, \dots, x_{n}) = p^{A} \cdot (2p)^{B} \cdot (1 -
 % \vspace{5mm}
 
 (ii) Use the Fisher-Neyman lemma to show that $ C $ is a sufficient statistic for $ p $. \\
-(Hint: Use the fact that $ A + B + C = n $.) 
+(Hint: Use the fact that $ A + B + C = n $.)
 \vspace{2.5mm} \\
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
-We know that $ A + B = n - C $. \\ 
+\noindent
+We know that $ A + B = n - C $. \\
 
 \noindent
 Thus we have $ \displaystyle L(p | x_{1}, \dots x_{n}) = p_{X_{1}, \dots, X_{n}}(x_{1}, \dots, x_{n}) = 4p^{n - C} \cdot (1 - 3p)^{C} = \frac{4p^{n} \cdot (1 - 3p)^C}{p^{C}} $. \\
@@ -317,7 +317,7 @@ We can now see that $ \displaystyle S = C $ is a sufficient statistic for $ p $.
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
+\noindent
 $ A $ does not appear to be sufficient, as without knowing $ C $ we are unable to determine the expansion of $ (1 -3p)^{C} $. \\
 
 % \XV
@@ -327,16 +327,16 @@ $ A $ does not appear to be sufficient, as without knowing $ C $ we are unable t
 \newpage
 \XBB\hrulefill\XB \\
 
-6. Let $ X_{1}, X_{2}, X_{3} $ be a sample of $ iid $, $ Bin(1,p) $. Let $ T = X_{1} + X_{2} + 2X_{3} $. 
+6. Let $ X_{1}, X_{2}, X_{3} $ be a sample of $ iid $, $ Bin(1,p) $. Let $ T = X_{1} + X_{2} + 2X_{3} $.
 The purpose of this problem is to determine whether $ T $ is a sufficient statistic for $ p $.
 Recall that the definition says that $ T $ is sufficient for $ p $ if for all $ p \in [0, 1] $: \\
 \begin{center}
     $ p_{X_{1}, X_{2}, X_{3} | T}(x_{1}, x_{2}, x_{3} | T = x_{1} + x_{2} + 2x_{3}) $ does not depend on $ p $. \\
 \end{center}
-Let’s examine one particular instance of this definition. \\ 
+Let’s examine one particular instance of this definition. \\
 \indent Compute $ p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) $. Does it depend on $ p $? Is $ T $ a sufficient statistic for $ p $?
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm} \\
 
 % \XV
@@ -346,14 +346,14 @@ Let’s examine one particular instance of this definition. \\
 \textit{Solution}:
 \vspace{2.5mm}
 
-\noindent 
+\noindent
 We know that $ \displaystyle p_{X_{1}, X_{2}, X_{3} | T}(x_{1}, x_{2}, x_{3} | T = x_{1} + x_{2} + 2x_{3}) = \frac{p_{X_{1}, X_{2}, X_{3}}(x_{1}, x_{2}, x_{3})}{p_{T}(T = x_{1} + x_{2} + 2x_{3})} $
 
-\noindent 
+\noindent
 It follows that $ \displaystyle p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) = \frac{p_{X_{1}, X_{2}, X_{3}}(0, 0, 1)}{p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2)} $ \\
 
 \noindent
-We can see that there are only two sums such that $ T = 2 $. 
+We can see that there are only two sums such that $ T = 2 $.
 \begin{itemize}
     \item $ (x_{1} = 1, x_{2} = 1, x_{3} = 0) $.
     \item $ (x_{1} = 0, x_{2} = 0, x_{3} = 1) $.
@@ -368,7 +368,7 @@ Thus we have $ p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2) = p_{X_{1}, X_{2}, X_{3}}(1
 \end{itemize}
 
 \noindent
-We can now solve for $ p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) $. \\ 
+We can now solve for $ p_{X_{1}, X_{2}, X_{3} | T}(0, 0, 1 | T = 2) $. \\
 
 $ \displaystyle \frac{p_{X_{1}, X_{2}, X_{3}}(0, 0, 1)}{p_{T}(T = x_{1} + x_{2} + 2x_{3} = 2)} = \frac{p(1 - p)^{2}}{p(1 - p)} = 1 - p $. \\
 

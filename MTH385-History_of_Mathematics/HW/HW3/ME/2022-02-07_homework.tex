@@ -14,8 +14,8 @@
 \newcommand{\XR}{\color{red}}
 \newcommand{\ds}{\displaystyle}
 
-\pagestyle{empty} 
-\setlength{\parindent}{0pt} 
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 
 \theoremstyle{plain}
@@ -80,7 +80,7 @@
     \item $ \ds \triangle ACB $ is similar to $ \ds \triangle A'C'B' $.
   \end{itemize}
 
-  With this established we will now move forward \dots 
+  With this established we will now move forward \dots
 
   \begin{center}
     \begin{tikzpicture}[scale=7.75]
@@ -227,7 +227,7 @@
 \begin{proof}
   \ \\
 
-  Notes: 
+  Notes:
   \begin{itemize}
     \item Variables are taken from the Ellipse and Constant sum figures shown above.
     \item $ F_{1} $ and $ F_{2} $ are the foci of the ellipse.
@@ -250,12 +250,12 @@
 
   We now know that for any $ P $, the path $ \overline{F_{1}PF_{2}} $ will have constant length $ l = 2a $.
   Letting $ P = (x,y) $ we can leverage the distance equation to create the following equality \dots
-  
+
   \begin{itemize}
     \item $ \ds l = 2a = \overline{F_{1}P} + \overline{F_{2}P} = \sqrt{(x - (-d))^{2} + (y)^{2}} + \sqrt{(x - d)^{2} + (y)^{2}} $.
     \item $ \ds 2a = \sqrt{(x + d)^{2} + y^{2}} + \sqrt{(x - d)^{2} + y^{2}} = \sqrt{x^{2} + 2dx + d^{2} + y^{2}} + \sqrt{x^{2} - 2dx + d^{2} + y^{2}} $.
   \end{itemize}
-  
+
   \newpage
 
   Some rearrangement allows us to bring the roots to opposite sides and simplify our equality \dots
@@ -274,7 +274,7 @@
   \end{itemize}
 
   At this step we now consider the trivial point $ P = CV_{1} = (0,b) $. By the equation above we find \dots
-  
+
   \begin{itemize}
     \item $ \ds \frac{x^{2}}{a^{2}} + \frac{y^{2}}{a^{2} - d^{2}} = \frac{0^{2}}{a^{2}} + \frac{b^{2}}{a^{2} - d^{2}} = \frac{b^{2}}{a^{2} - d^{2}} = 1 $
     \item $ \ds b^{2} = a^{2} - d^{2} $
@@ -310,7 +310,7 @@ Another interesting property of the lines from the foci to a point $P$ on the el
   Shortest-path property
 \end{center}
 
-\vfill 
+\vfill
 
 \textbf{Shortest-path property.} The path $F_1PF_2$ of reflection in the line $L$ from $F_1$ to $F_2$ is shorter than any other path $F_1P'F_2$ from $F_1$ to $L$ to $F_2$.
 
@@ -330,16 +330,16 @@ Another interesting property of the lines from the foci to a point $P$ on the el
   It is straightforward to see that by symmetry we have similar triangles $ \triangle F_{1}PF_{2} $ and $ \triangle F_{1}P\overline{F_2} $, regardless of where on the line $ L $ it may be that $ P $ lies.
   It follows directly that $ \ds | \overline{PF_{2}} | = | \overline{P\overline{F_2}} | $.
 
-  We wish to minimize the path length $ l = | \overline{F_{1}PF_{2}} | $. 
+  We wish to minimize the path length $ l = | \overline{F_{1}PF_{2}} | $.
 
-  Utilizing the above information we can see \dots 
+  Utilizing the above information we can see \dots
 
   \begin{itemize}
-    \item $ l = | \overline{F_{1}PF_{2}} | = | \overline{F_{1}P} | + | \overline{PF_{2}} | = | \overline{F_{1}P} | + | \overline{P\overline{F_2}} | = | \overline{F_{1}P\overline{F_2}} | $. 
+    \item $ l = | \overline{F_{1}PF_{2}} | = | \overline{F_{1}P} | + | \overline{PF_{2}} | = | \overline{F_{1}P} | + | \overline{P\overline{F_2}} | = | \overline{F_{1}P\overline{F_2}} | $.
   \end{itemize}
 
   It is now evident that the choice for $ P $ we should choose to minimize the pathlength $ l = | \overline{F_{1}PF_{2}} | $ is the $ P $ that lies at the intersection of the line $ L $ and the path $ | \overline{F_{1}\overline{F_2}} | $.
-  Under this circumstance $ | \overline{F_{1}P\overline{F_2}} | = | \overline{F_{1}\overline{F_2}} | = | \overline{F_{1}F_2} | $. 
+  Under this circumstance $ | \overline{F_{1}P\overline{F_2}} | = | \overline{F_{1}\overline{F_2}} | = | \overline{F_{1}F_2} | $.
   To chose any other point $ P $ would increase the path length $ l $ as it is well known that the shortest path between any two points is the line segment that connects them.
 
 \end{proof}
@@ -361,13 +361,13 @@ Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangen
 \begin{proof}
   \ \\
 
-  In excersie 3 we made uses of the trivial point $ P = V_{2} $ to compute the constant sum path length $ l = 2a $. 
+  In excersie 3 we made uses of the trivial point $ P = V_{2} $ to compute the constant sum path length $ l = 2a $.
   It is relevant once again as we can clearly see that the path $ \overline{F_{1}PF_{2}} $ takes the shortest possible length as all points lie on the same line.
-  We followed to show that this path length $ l $ is the constant for any point $ P $ on the ellipse. 
-  In exercise 4 we proved that the shortest path is that which chooses $ P $ at the intersection of the line $ L $ and the line segment $ \overline{F_{1}\overline{F_2}} $. 
-  We will now continue to show that the line $ L $ must be tangent to the shortest path at the turning point $ P $. 
+  We followed to show that this path length $ l $ is the constant for any point $ P $ on the ellipse.
+  In exercise 4 we proved that the shortest path is that which chooses $ P $ at the intersection of the line $ L $ and the line segment $ \overline{F_{1}\overline{F_2}} $.
+  We will now continue to show that the line $ L $ must be tangent to the shortest path at the turning point $ P $.
 
-  Consider now a revised depiction of the shortest-path property. 
+  Consider now a revised depiction of the shortest-path property.
 
   \begin{center}
     \begin{tikzpicture}[scale=1.15]
@@ -397,11 +397,11 @@ Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangen
       \node [below left] at (-2,0) {$\frac{\pi - \theta}{2}$};
       \node [below right] at (-0.666,0) {$\frac{\pi - \theta}{2}$};
     \end{tikzpicture}
-  
+
     Revised shortest-path property
   \end{center}
 
-  From the above graphic we can see three pairs of similar triangles, all of which are reflections across the line $ L $. 
+  From the above graphic we can see three pairs of similar triangles, all of which are reflections across the line $ L $.
 
   \begin{itemize}
     \item $ \ds \triangle \overline{F_{1}}PF_{1}^{*} $ is the reflection over $ L $ of $ \ds \triangle F_{1}PF_{1}^{*} $.
@@ -409,7 +409,7 @@ Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangen
     \item $ \ds \triangle \overline{F_{1}}P\overline{F_{2}} $ is the reflection over $ L $ of $ \ds \triangle F_{1}PF_{2} $.
   \end{itemize}
 
-  Due to this symmetry we have the following equivalent angles. 
+  Due to this symmetry we have the following equivalent angles.
 
   \begin{itemize}
     \item $ \ds \angle F_{1}PF_{1}^{*} = \angle \overline{F_{1}}PF_{1}^{*} $.
@@ -428,7 +428,7 @@ Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangen
     \item $ \ds \angle F_{1}PF_{1}^{*} = \frac{\pi - \theta}{2} $.
   \end{itemize}
 
-  As $ \ds \angle F_{1}PF_{1}^{*} = \angle F_{2}PF_{2}^{*} = \frac{\pi - \theta}{2} $, the line $ L $ at point $ P $ is a tangent line and will be so for all values taken on by $ \theta $. 
+  As $ \ds \angle F_{1}PF_{1}^{*} = \angle F_{2}PF_{2}^{*} = \frac{\pi - \theta}{2} $, the line $ L $ at point $ P $ is a tangent line and will be so for all values taken on by $ \theta $.
 
   For good measure it is worthwhile to show that indeed $ \ds \angle F_{1}PF_{1}^{*} + \angle F_{1}PF_{2} + \angle F_{2}PF_{2}^{*} = \pi $.
 
@@ -437,8 +437,8 @@ Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangen
     \item  $ \ds 2\angle F_{1}PF_{1}^{*} + \angle F_{1}PF_{2} = 2 \cdot \frac{\pi - \theta}{2} + \theta = \pi - \theta + \theta = \pi $.
   \end{itemize}
 
-  We have shown that the lines $F_1P$ and $F_2P$ make equal angles with the line $ L $, $ L $ is the tangent, 
-  and as only this $ P $ lies on the line segment $ \overline{F_{1}\overline{F_{2}}} $; 
+  We have shown that the lines $F_1P$ and $F_2P$ make equal angles with the line $ L $, $ L $ is the tangent,
+  and as only this $ P $ lies on the line segment $ \overline{F_{1}\overline{F_{2}}} $;
   Thus $F_1PF_2$ is shorter than $F_1P'F_2$ for any other point $P'$ on the tangent at $P$.
 \end{proof}
 
@@ -446,4 +446,3 @@ Thus to prove that the lines $F_1P$ and $F_2P$ make equal angles with the tangen
 
 
 \end{document}
-

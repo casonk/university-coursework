@@ -60,7 +60,7 @@ Please use the table below for questions 1 through 3. Notice that Count column i
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{5em}|m{2cm}|m{2cm}|m{2cm}||m{2cm}|} 
+\begin{tabular}{|m{5em}|m{2cm}|m{2cm}|m{2cm}||m{2cm}|}
     \hline
     department & age & salary & status & count \\
     \hline
@@ -97,17 +97,17 @@ Please use the table below for questions 1 through 3. Notice that Count column i
 
 # load in the data...
 data = {
-    'department' : ['sales', 'sales', 'sales', 'systems', 
-                    'systems', 'systems', 'systems', 'marketing', 
+    'department' : ['sales', 'sales', 'sales', 'systems',
+                    'systems', 'systems', 'systems', 'marketing',
                     'marketing', 'secretary', 'secretary'],
-    'age' : ['31_35', '26_30', '31_35', '21_25', 
-             '31_35', '26_30', '41_45', '36_40', 
+    'age' : ['31_35', '26_30', '31_35', '21_25',
+             '31_35', '26_30', '41_45', '36_40',
              '31_35', '46_50', '26_30'],
-    'salary' : ['46K_50K', '26K_30K', '31K_35K', '46K_50K', 
-                '66K_70K', '46K_50K', '66K_70K', '46K_50K', 
+    'salary' : ['46K_50K', '26K_30K', '31K_35K', '46K_50K',
+                '66K_70K', '46K_50K', '66K_70K', '46K_50K',
                 '41K_45K', '36K_40K', '26K_30K'],
-    'status' : ['senior', 'junior', 'junior', 'junior', 
-                'senior', 'junior', 'senior', 'senior', 
+    'status' : ['senior', 'junior', 'junior', 'junior',
+                'senior', 'junior', 'senior', 'senior',
                 'junior', 'senior', 'junior'],
     'count' : [30, 40, 40, 20, 5, 3, 3, 10, 4, 4, 6]
 }
@@ -132,7 +132,7 @@ Given the data we have there is only one status that fits our situation
 
 ```{python}
 
-# mask for the given conditions and preview the satisfactory data. 
+# mask for the given conditions and preview the satisfactory data.
 dpt_mask = df1["department"] == "systems"
 age_mask = df1["age"] == "26_30"
 sal_mask = df1["salary"] == "46K_50K"
@@ -253,7 +253,7 @@ From the confusion matrix we can see \XBB 3 true positives, 4 true negatives, an
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}||m{1cm}|m{1cm}|} 
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}||m{1cm}|m{1cm}|}
     \hline
     tuple \# & class & prob & TP & FN & FP & TN & TPR & FPR \\
     \hline
@@ -283,7 +283,7 @@ From the confusion matrix we can see \XBB 3 true positives, 4 true negatives, an
 \vspace{2.5mm}
 
 \begin{center}
-\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}||m{1cm}|m{1cm}|} 
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}||m{1cm}|m{1cm}|}
     \hline
     tuple \# & class & prob & TP & FN & FP & TN & TPR & FPR \\
     \hline
@@ -342,7 +342,7 @@ plt.ylabel('$TPR$')
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|} 
+\begin{tabular}{|m{1cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|}
     \hline
       & a  & b & c & d & e & f & g & h \\
     \hline
@@ -352,7 +352,7 @@ plt.ylabel('$TPR$')
     y & 10 & 5 & 4 & 8 & 5 & 4 & 2 & 9 \\
     \hline
 \end{tabular}
-\end{center} 
+\end{center}
 \vspace{2.5mm}
 
 ```
@@ -386,7 +386,7 @@ plt.ylabel('$y$')
 
 #### a.) If *h* and *c* are selected as the initial centers for your *k*-means clustering, assign memberships for other points, and compute the means (centroids) of your initial clusters. You can use Manhattan distance.
 
---- 
+---
 
 ```{python}
 
@@ -411,7 +411,7 @@ h_dist
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|} 
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|}
     \hline
       $p_{i}$              &     a     &     b     & \XBB c \XB &     d     &      e     &      f     &      g      & \XR h \XB \\
     \hline
@@ -424,13 +424,13 @@ h_dist
 \end{center}
 \vspace{2.5mm}
 
-We can see that cluster within initial center c contains, \XBB\{c,e,f,g\}\XB, 
-and cluster with initial center h contains, \XR\{a,b,d,h\}\XB. Moving forward we will 
-reference cluster $\XBB C_{1} \XB$ as that with initial center c, 
-and cluster $\XR C_{2} \XB$ as that with initial center h. To now compute the 
-means, or centroids, of $\XBB C_{1} \XB$ and $\XR C_{2} \XB$, we will take the average 
+We can see that cluster within initial center c contains, \XBB\{c,e,f,g\}\XB,
+and cluster with initial center h contains, \XR\{a,b,d,h\}\XB. Moving forward we will
+reference cluster $\XBB C_{1} \XB$ as that with initial center c,
+and cluster $\XR C_{2} \XB$ as that with initial center h. To now compute the
+means, or centroids, of $\XBB C_{1} \XB$ and $\XR C_{2} \XB$, we will take the average
 x and y values for the points within the clusters. We will reference the centroid
-of $\XBB C_{1} \XB$ as $\XBB z_{1} \XB$ and the center of $\XR C_{2} \XB$ as $\XR z_{2} \XB$. 
+of $\XBB C_{1} \XB$ as $\XBB z_{1} \XB$ and the center of $\XR C_{2} \XB$ as $\XR z_{2} \XB$.
 
 \vspace{2.5mm}
 
@@ -494,7 +494,7 @@ plt.ylabel('$y$')
 
 #### b.) Based on the centroids you found above reassign the memberships by using Manhattan distance.
 
---- 
+---
 
 ```{python}
 
@@ -519,7 +519,7 @@ z2_dist
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|} 
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|}
     \hline
       $p_{i}$           & a  & b & c & d & e & f & g & h \\
     \hline
@@ -550,7 +550,7 @@ In fact, our clusters are unchanged.
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{0.5cm}||m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|} 
+\begin{tabular}{|m{0.5cm}||m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|}
     \hline
       & a & b & c & d & e & f & g & h \\
     \hline
@@ -572,14 +572,14 @@ In fact, our clusters are unchanged.
     h & 2 & 4 & 6 & 1 & 5 & 5 & 8 & 0 \\
     \hline
 \end{tabular}
-\end{center} 
+\end{center}
 \vspace{2.5mm}
 
 ```
 
 #### a.) Perform hierarchical clustering using *single link* measure for the above and draw the final dendrogram.
 
---- 
+---
 
 ```{r include=FALSE}
 distc = read.delim("C:\\OneDriveSchool_Personal\\OneDrive - Umich\\Computer_Science\\Classes\\Winter_2022\\Data_Mining\\Data\\hw4_distances.csv", header = T, row.names=1, sep=',')
@@ -593,7 +593,7 @@ distc = as.dist(distc)
 
 Iteration 1
 
-\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|} 
+\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|}
     \hline
           & a & b & c:e:f & d:h & g \\
     \hline
@@ -612,7 +612,7 @@ Iteration 1
 
 Iteration 2
 
-\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|} 
+\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|m{0.75cm}|}
     \hline
           & a:d:h & b & c:e:f & g \\
     \hline
@@ -629,7 +629,7 @@ Iteration 2
 
 Iteration 3
 
-\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|} 
+\begin{tabular}{|m{0.75cm}||m{0.75cm}|m{0.75cm}|m{0.75cm}|}
     \hline
           & a:d:h & b:g & c:e:f \\
     \hline
@@ -642,7 +642,7 @@ Iteration 3
     \hline
 \end{tabular}
 
-\end{center} 
+\end{center}
 \vspace{2.5mm}
 
 ```
@@ -685,14 +685,14 @@ edge from parent path =  {(\tikzparentnode\tikzparentanchor) .. controls +(0,-1)
 
 #### b.) Determine whether a point is *core* based on $\epsilon=6$ and $minPts=2$.
 
---- 
+---
 
 To meet this requirement we must have 2 points within a distance of 6 for a point to be considered *core*.
 
 ```{=latex}
 
 \begin{center}
-\begin{tabular}{|m{0.5cm}||m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|} 
+\begin{tabular}{|m{0.5cm}||m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|m{0.5cm}|}
     \hline
       &     a     &     b     &     c     &     d     &     e     &     f     &     g     &     h     \\
     \hline
@@ -704,7 +704,7 @@ To meet this requirement we must have 2 points within a distance of 6 for a poin
     c &     8     & \XR 6 \XB &     0     & \XR 5 \XB & \XR 1 \XB & \XR 2 \XB &     7     & \XR 6 \XB  \\
     \hline
     d & \XR 4 \XB & \XR 4 \XB & \XR 5 \XB &     0     & \XR 4 \XB & \XR 4 \XB &     7     & \XR 1 \XB  \\
-    \hline 
+    \hline
     e &     7     & \XR 5 \XB & \XR 1 \XB & \XR 4 \XB &     0     & \XR 1 \XB &     7     & \XR 5 \XB  \\
     \hline
     f &     8     & \XR 4 \XB & \XR 2 \XB & \XR 4 \XB & \XR 1 \XB &     0     & \XR 5 \XB & \XR 5 \XB  \\
@@ -714,10 +714,9 @@ To meet this requirement we must have 2 points within a distance of 6 for a poin
     h & \XR 2 \XB & \XR 4 \XB & \XR 6 \XB & \XR 1 \XB & \XR 5 \XB & \XR 5 \XB &     8     &     0     \\
     \hline
 \end{tabular}
-\end{center} 
+\end{center}
 \vspace{2.5mm}
 
 ```
 
 It is easy to see that under this requirement all points are *core*.
-

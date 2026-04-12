@@ -56,4 +56,3 @@ Click the plus sign that appears next to the rightmost ribbon
 Add the ability to Continue or Stop Debugging and Saving of files to the new Ribbon Menu in that order(“Put Continue/Stop from Debug and Save from File into the new Ribbon”)
 Go to Continue/Stop from the toolbar or ribbon menu and right click
 Click-drag the functions from the temporary fill-in for a search bar
-

@@ -1,6 +1,6 @@
 module Main_Controller(data_in, enable, data_out, IR, R0, R1, clk);
 // This module handles data loads, alu operations, and register write backs.
-// This is done primarily working with the enable pins and the instruction loaded. 
+// This is done primarily working with the enable pins and the instruction loaded.
     input       clk;
 	input  wire	[1:0] 	enable;
 	input  wire	[7:0] 	data_in;
@@ -37,7 +37,7 @@ module Main_Controller(data_in, enable, data_out, IR, R0, R1, clk);
                         R1       <= result;
                     end
                     2'b01 : begin                                       // R0 writeback.
-                        R0       <= result;                             
+                        R0       <= result;
                     end
                 endcase
                 data_out <= result;                                     // always send alu output to the bus.

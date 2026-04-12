@@ -11,8 +11,8 @@
 
 \usepackage{xcolor}
 
-\pagestyle{empty} 
-\setlength{\parindent}{0pt} 
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 
 \theoremstyle{plain}
@@ -48,7 +48,7 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
   \begin{tikzpicture}
     \draw [-] (-6,0) -- (6,0);
     \draw [-] (0,-6) -- (0,6);
-    
+
     \draw [red] (-5,0) -- (4,3) -- (0,0);
     \draw (4,0) -- (4,3);
     \node [above left] at (-5,0) {$Q$};
@@ -77,17 +77,17 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
 
 \begin{proof}
   \ \\
-  Integers take 2 flavors, even and odd. We will approach this by cases. 
+  Integers take 2 flavors, even and odd. We will approach this by cases.
   \begin{itemize}
     \item \textit{Even} numbers take the form $2k$, $k \in \mathbb{Z} $.
-    \subitem $(2k)^{2} = 4k^{2}$ 
+    \subitem $(2k)^{2} = 4k^{2}$
     \subitem $4k^{2} \ \% \ {4} = 0$
     \item \textit{Odd} numbers take the form $2k+1$, $k \in \mathbb{Z} $.
     \subitem $(2k+1)^{2} = 4k^{2}+4k+1 = 4(k^{2}+k)+1$
     \subitem $(4(k^{2}+k)+1) \ \% \ {4} = ((4(k^{2}+k) \ \% \ {4})+(1 \ \% \ {4})) \ \% \ {4} = (0+1) \ \% \ {4} = 1$
   \end{itemize}
   As these $2$ flavors encompass all possible integers we have shown that on division by $4$ the integer squares takes remainder $0$, or $1$.
-\end{proof} 
+\end{proof}
 
 \hrulefill
 % \newpage
@@ -130,7 +130,7 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
     \item We can divide this equation by $c^2$ to arrive at the following.
     \subitem  $\displaystyle \frac{a^{2}}{c^{2}}+\frac{b^{2}}{c^{2}}=1$ and $\displaystyle \Bigl(\frac{a}{c}\Bigr)^{2}+\Bigl(\frac{b}{c}\Bigr)^{2}=1$ , a Pythagorean triple with hypotenuse length 1.
     \item We can now leverage our pair $\displaystyle \left(\frac{1-t^2}{1+t^2},\frac{2t}{1+t^2}\right)$, as it takes the same form.
-    \subitem $\displaystyle \left(\frac{1-t^2}{1+t^2}\right)^{2}+\left(\frac{2t}{1+t^2}\right)^{2} = \frac{1-2t^{2}+t^{4}+4t^{4}}{(1+t^2)^{2}} = \frac{(1+t^2)^{2}}{(1+t^2)^{2}} = 1$ 
+    \subitem $\displaystyle \left(\frac{1-t^2}{1+t^2}\right)^{2}+\left(\frac{2t}{1+t^2}\right)^{2} = \frac{1-2t^{2}+t^{4}+4t^{4}}{(1+t^2)^{2}} = \frac{(1+t^2)^{2}}{(1+t^2)^{2}} = 1$
     \item We can now equeate our two pairs as $1=1$.
     \subitem $\displaystyle \frac{(1-t^2)^{2}}{(1+t^2)^{2}}+\frac{(2t)^{2}}{(1+t^2)^{2}} = 1 = \frac{(a)^{2}}{(c)^{2}}+\frac{(b)^{2}}{(c)^{2}}$
     \item We thus have come to the following realization (We arbitraritly choose this pair, it could have been reversed).
@@ -154,7 +154,7 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
   From 1.3.1, $a=p^{2}-q^{2}$, $b=2pq$, $c=p^2+q^{2}$
   \begin{itemize}
     \item Let us verify that Euclid's formula yields Pythagorean triples.
-    \item Consider the squares. 
+    \item Consider the squares.
     \subitem $a^{2}=(p^{2}-q^{2})^{2}=p^{4}-2p^{2}q^{2}+q^{4}$
     \subitem $b^{2}=(2pq)^{2}=4p^{2}q^{2}$
     \subitem $c^{2}=(p^2+q^{2})^{2}=p^{4}+2p^{2}q^{2}+q^{4}$
@@ -210,7 +210,7 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
   \]
 \end{ex}
 
-\begin{proof} 
+\begin{proof}
   \ \\
   Consider the following figure. \\
   \begin{center}
@@ -227,7 +227,7 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
   \end{center}
   \begin{itemize}
     \item We know that for some angle $\displaystyle \omega, \tan{\omega} = \frac{\sin{\omega}}{\cos\omega}$ .
-    \subitem $\displaystyle \tan{\theta/2} = \frac{\sin{\theta/2}}{\cos\theta/2} = \frac{t}{1} = t$ 
+    \subitem $\displaystyle \tan{\theta/2} = \frac{\sin{\theta/2}}{\cos\theta/2} = \frac{t}{1} = t$
     \item We additionally know slope is $\displaystyle \frac{rise}{run}$.
     \subitem From above we have solve the slope for this triangle as $\displaystyle \tan{\theta/2} = t$
   \end{itemize}
@@ -291,4 +291,3 @@ MTH 385 \qquad History of Maths \qquad Homework 1: due 2022-01-17 \\
   \textbf{END OF ASSIGNMENT}
 \end{center}
 \end{document}
-

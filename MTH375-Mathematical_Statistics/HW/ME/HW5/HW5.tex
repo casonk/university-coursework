@@ -26,7 +26,7 @@
 
 \maketitle
 \hrulefill
-\vfill 
+\vfill
     \underline{Key Concepts}: $ MOM $ and $ MLE $ estimators.
 
 \newpage
@@ -37,11 +37,11 @@
 \XBB\hrulefill\XB \\
 
 1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Negative \ Binomial(r = 4, p = \theta) $ random variables
-with $ \theta \in [0, 1] $. \\ 
+with $ \theta \in [0, 1] $. \\
 
 Determine the $ MLE $ and the $ MOM $ estimators of $ \theta $. \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm}
 
 \textit{Solution}:
@@ -81,8 +81,8 @@ In this problem the $ MLE $ and $ MOM $ estimators of $ \theta $ are the same. \
 2. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid \ Normal(\mu = 0, \sigma^{2} = \theta) $ random variables
 with $ \theta > 0 $. Determine \dots \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) The MLE $ \hat{\theta} $ of $ \theta $. \\
@@ -122,7 +122,7 @@ First find $ E(X_{i}) $, then $ E(X_{i})^{2} $, $ V(X_{i}) $ and $ E(X_{i}^{2}) 
     \item $ \ds E(\hat{\theta}) = E\Bigl( \frac{\Sigma_{x^{2}}}{n} \Bigr) = E(X_{i}^{2}) = \theta $.
 \end{itemize}
 
-\noindent 
+\noindent
 Next find the $ mgf $ of $ X_{i} $, then find $ E(X_{i}^{4}) $ and $ V(X_{i}^{2}) $, to last find $ V(\hat{\theta}) $. \\
 
 \begin{itemize}
@@ -140,7 +140,7 @@ Next find the $ mgf $ of $ X_{i} $, then find $ E(X_{i}^{4}) $ and $ V(X_{i}^{2}
 \noindent
 Thus we have $ \ds E(\hat{\theta}) = \theta $ and $ \ds V(\hat{\theta}) = \frac{2\theta^{2}}{n} $. \\
 
-\vspace{2.5mm} 
+\vspace{2.5mm}
 
 %%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (c) The $ MLE $ of $ SD(X_{i}) = \sqrt{\theta} $. \\
@@ -159,7 +159,7 @@ By the invariance principal, as $ \hat{\theta} $ is the $ MLE $ of $ \theta $, $
 \noindent
 Thus $ \ds \sqrt{\frac{\Sigma_{x^{2}}}{n}} $ is the $ MLE $ of $ SD(X_{i}) = \sqrt{\theta} $. \\
 
-\vspace{2.5mm} 
+\vspace{2.5mm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%     #3     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,12 +167,12 @@ Thus $ \ds \sqrt{\frac{\Sigma_{x^{2}}}{n}} $ is the $ MLE $ of $ SD(X_{i}) = \sq
 \newpage
 \XBB\hrulefill\XB \\
 
-3. Recall the family of distributions with $ \displaystyle pmf $: $p_{X}(x) = 
-\begin{cases} 
+3. Recall the family of distributions with $ \displaystyle pmf $: $p_{X}(x) =
+\begin{cases}
     p & \text{if} \  x = -1 \\
     2p &  \text{if} \ x = 0 \\
     1 - 3p & \text{if} \ x = 1
-\end{cases} $ \\ 
+\end{cases} $ \\
 
 Here $ p $ is an unknown parameter and $ \displaystyle 0 \leq p \leq \frac{1}{3} $. \\
 
@@ -180,14 +180,14 @@ Let $ X_{1}, \dots , X_{n} $ be  $ iid $ with common pmf be a member of this fam
 
 $ A = \text{the number of $i$ with } X_{i} = -1 $, $ B = \text{the number of $i$ with } X_{i} = 0 $, $ C = \text{the number of $i$ with } X_{i} = 1 $. \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     3i     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (i) Find the $ MOM $ estimator of $ p $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
 Find the expected value, $ E(X_{i}) $ then set equal to $ \overline{X} $ to find the $ MOM $. \\
@@ -259,8 +259,8 @@ with $ \alpha $ know and $ \theta > 0 $. \\
 
 Determine \dots \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) The $ MLE $ $ \hat{\theta} $ of $ \theta $. \\
@@ -287,11 +287,11 @@ Thus $ \ds \frac{\overline{X}}{\alpha} $ is the $ MLE $ estimator of $ \theta $.
 \vspace{2.5mm}
 \newpage
 
-%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (b) $ E(\hat{\theta}) $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
 First find $ E(X_{i}) $ then use to find $ E(\hat{\theta}) $. \\
@@ -307,11 +307,11 @@ We can see the expected value of the $ MLE $ estimator of $ \theta $ is $ \theta
 
 \vspace{2.5mm}
 
-%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (c) If $ \hat{\theta} $ is UMVUE for $ \theta $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
 We will first ensure $ \hat{\theta} $ is a sufficient statistic for $ \theta $. \\
@@ -341,14 +341,14 @@ Then as $ \ds E(\hat{\theta}) = \theta $, $ \hat{\theta} $ is UMVUE for $ \theta
 5. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with common pdf $ f(x_{i}; \theta_{1}, \theta_{2}) $. \\
 
 \begin{center}
-    $ \ds f(x_{i}; \theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{i} - \theta_{2}) / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2} $. 
-\end{center} 
+    $ \ds f(x_{i}; \theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{i} - \theta_{2}) / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2} $.
+\end{center}
 
 Here $ \theta_{1} > 0 $, and $ \theta_{2} $ can be any real number.
 
 Determine the $ MLE $ and the $ MOM $ estimators of $ (\theta_{1}, \theta_{2}) $. \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm}
 
 \textit{Solution}:

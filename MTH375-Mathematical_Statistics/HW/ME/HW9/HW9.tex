@@ -26,7 +26,7 @@
 
 \maketitle
 \hrulefill
-\vfill 
+\vfill
     \underline{Key Concepts}: Uniformly Most Powerful (UMP) test of hypotheses.
 
 \newpage
@@ -36,9 +36,9 @@
 \newpage
 \XBB\hrulefill\XB \\
 
-1. Let $ X_{1}, \dots , X_{n} $ be $ iid \sim Exponential(\theta) $ random variables, Determine \dots \\ 
+1. Let $ X_{1}, \dots , X_{n} $ be $ iid \sim Exponential(\theta) $ random variables, Determine \dots \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm}
 
 %%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,8 +95,8 @@ As $ X_{i} \sim Exponential(\theta) $, $ \Sigma_{X} \sim Gamma(n, \theta) $. \\
 
 2. Let $ X_{1}, \dots , X_{10} $ be $ iid \sim Binomial(1, \theta) $ random variables, Determine \dots \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) The form of the UMP test of the hypotheses $ H_{0} : \theta = 0.6 $ vs. $ H_{A} : \theta < 0.6 $. \\
@@ -139,10 +139,10 @@ Our test is thus ``Reject $ H_{0} $ if $ \Sigma_{X} < 3 $.'' \\
 
 \vspace{2.5mm}
 
-\newpage 
+\newpage
 
 %%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-(c) If we reject $ H_{0} $ given in a run of this experiment, the data came out to be, 
+(c) If we reject $ H_{0} $ given in a run of this experiment, the data came out to be,
 $ \overrightarrow{x}  = \left\{ 0, 0, 1, 0, 1, 0, 1, 0, 1, 0 \right\} $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
@@ -166,14 +166,14 @@ As $ \Sigma_{X} = 4 \nless 3 $, we fail to Reject $ H_{0} $. \\
 
 3. Let $ X_{1}, \dots , X_{10} $ be $ iid \sim Normal(\mu=0, \sigma^{2}=\theta) $ random variables, Determine \dots \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) The form of the UMP test of the hypotheses $ H_{0} : \theta = 5 $ vs. $ H_{A} : \theta < 5 $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
 I will first state the general form then elaborate on the requested solution. \\
@@ -190,7 +190,7 @@ Thus if $ \theta_{A} < \theta_{0} $, our form is ``Reject $ H_{0} $ if $ \Sigma_
 
 \vspace{2.5mm}
 
-\newpage 
+\newpage
 
 %%%%%%%%%     3b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (b) The UMP test at level of significance $ \alpha = 0.01 $. \\
@@ -238,8 +238,8 @@ As $ \Sigma_{X^{2}} = 74.59 \nless 12.79 $, we fail to Reject $ H_{0} $. \\
 
 4. Let $ X_{1}, \dots , X_{10} $ be $ iid \sim f(x; \theta) = \theta x^{\theta - 1} $ random variables, Determine \dots \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) The form of the UMP test of the hypotheses $ H_{0} : \theta = 2 $ vs. $ H_{A} : \theta > 2 $. \\
@@ -261,11 +261,11 @@ Thus if $ \theta_{A} > \theta_{0} $, our form is  ``Reject $ H_{0} $ if $ -\Sigm
 
 \vspace{2.5mm}
 
-%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (b) The UMP test at level of significance $ \alpha = 0.04 $; Given the statistic $ \ds T = - \sum_{k=1}^{10} \ln(X_{i}) \sim Gamma(10, 1/\theta) $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
 Our goal is to find $ k_{\alpha} $. \\
@@ -283,20 +283,20 @@ Our test is thus ``Reject $ H_{0} $ if $ -\Sigma_{\ln(X)} < 2.60 $.'' \\
 
 \newpage
 
-%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%     4c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (c) If we reject $ H_{0} $ given in a run of this experiment, the data came out to be,
 
 $ \overrightarrow{x}  = \left\{ 0.912, 0.839, 0.978, 0.789, 0.690, 0.502, 0.862, 0.691, 0.587, 0.557 \right\} $. \\
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
 ``Reject $ H_{0} $ if $ -\Sigma_{\ln(X)} < 2.60 $.''
 
 \begin{itemize}
-    \item $ \ds -\Sigma_{\ln(X)} = $ 
-    \subitem {\XBB \texttt{-sum(log(c(0.912, 0.839, 0.978, 0.789, 0.690, 0.502, 0.862, 0.691, 0.587, 0.557)))}} 
+    \item $ \ds -\Sigma_{\ln(X)} = $
+    \subitem {\XBB \texttt{-sum(log(c(0.912, 0.839, 0.978, 0.789, 0.690, 0.502, 0.862, 0.691, 0.587, 0.557)))}}
     \subitem $ \quad \ \ \ = 3.22 $.
 \end{itemize}
 As $ -\Sigma_{\ln(X)} = 3.22 \nless 2.60 $, we fail to Reject $ H_{0} $. \\
@@ -311,10 +311,10 @@ As $ -\Sigma_{\ln(X)} = 3.22 \nless 2.60 $, we fail to Reject $ H_{0} $. \\
 
 Extra credit: Show that, in problem 4, $ \ds T = - \sum_{k=1}^{10} \ln(X_{i}) \sim Gamma(10, 1/\theta) $. \\
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
-\vspace{2.5mm} 
+\vspace{2.5mm}
 \textit{Solution}:
 \vspace{2.5mm} \\
 

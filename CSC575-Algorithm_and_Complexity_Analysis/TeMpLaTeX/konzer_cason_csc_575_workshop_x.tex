@@ -86,11 +86,11 @@
 \definecolor{umblue}{HTML}{00274C}
 \definecolor{ummaize}{HTML}{FFCB05}
 \usepackage{colortbl}
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \usepackage{pgf}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
-\usepackage{url}			       
+\usepackage{url}
 \usepackage{hyperref}
 
 % \setbeamercolor{alerted text}{fg=orange}
@@ -165,7 +165,7 @@
 \author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
 \institute[UM FLINT]{\normalsize{\textit{\href{mailto:casonk@umich.edu}{casonk@umich.edu}}}}
 \titlegraphic{\includegraphics[scale = 0.5]{C:/Users/cason/OneDrive - Umich/TeMpLaTeX/University_of_Michigan_Flint.png}}
-\date[]{\today} 
+\date[]{\today}
 
 \begin{document}
 
@@ -256,7 +256,7 @@
 
     \vspace{2.5mm}
     \begin{multline*}
-        \ds Q = \frac{1}{s} \Biggl[ \sum_{i, j \ne i}^{n} \left( A_{i, j} - \frac{k_{i}k_{j}}{s - 1} \right) \delta(c_{i}, c_{j}) \\ 
+        \ds Q = \frac{1}{s} \Biggl[ \sum_{i, j \ne i}^{n} \left( A_{i, j} - \frac{k_{i}k_{j}}{s - 1} \right) \delta(c_{i}, c_{j}) \\
         +  \sum_{i}^{n} \left( A_{i,i} - \frac{k_{i}(k_{i} - 1)}{s - 1} \right) \Biggr].
     \end{multline*}
 
@@ -285,13 +285,13 @@
         \begin{tikzpicture}[->,>=stealth',auto,node distance=2.5cm,semithick,line width=1pt]
             \tikzstyle{be}=[color=umblue]
             \tikzstyle{be2}=[color=umblue,line width=2pt]
-            
+
             \node[state,fill=white,draw=umblue,text=umblue]   (A)                    {$a$};
             \node[state,fill=red,draw=umblue,text=ummaize]    (B) [above right of=A] {$b$};
             \node[state,fill=ummaize,draw=umblue,text=umblue] (D) [below right of=A] {$d$};
             \node[state,fill=green,draw=umblue,text=umblue]   (C) [below right of=B] {$c$};
             \node[state,fill=purple,draw=umblue,text=ummaize] (E) [below of=D]       {$e$};
-            
+
             \path   (A) edge [be,loop  left]   node {} (A)
                         edge [be]              node {} (E)
                         edge [be, bend left]   node {} (D)
@@ -304,9 +304,9 @@
                         edge [be]              node {} (A)
                     (E) edge [be, bend  left]  node {} (A)
                         edge [be]              node {} (D);
-            
+
         \end{tikzpicture}
-    \end{figure}  
+    \end{figure}
 
 \end{frame}
 
@@ -315,7 +315,7 @@
     \frametitle{Matrix}
 
     \begin{center}
-        \begin{tabular}{l | c c c c c} 
+        \begin{tabular}{l | c c c c c}
             $ \vec{A} $ & $ a $ & $ b $ & $ c $ & $ d $ & $ e $ \\
             \hline
             $ a $ & $ 1 $ & $ 0 $ & $ 0 $ & $ 1 $ & $ 1 $ \\
@@ -327,7 +327,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    The adjacency matrix is the expected form computers will store networks in. 
+    The adjacency matrix is the expected form computers will store networks in.
 
 \end{frame}
 
@@ -337,7 +337,7 @@
 
     Colored Table
     \begin{center}
-        \begin{tabular}{l | c c c c} 
+        \begin{tabular}{l | c c c c}
             $ merge    $ & $ \partial \vec{Q}_{i} $ & $ \partial \vec{Q}_{j} $ & $ \partial \vec{Q}_{i'} $ & $ \Delta \vec{Q} $ \\
             \hline
             \rowcolor{ummaize}
@@ -352,7 +352,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    The best merge for nodes $ a $, and $ e $, is to merge them together, similarly, the best for $ b $, and $ c $, is to merge them together, last, the best merge for $ d $ is to merge it with $ a $. 
+    The best merge for nodes $ a $, and $ e $, is to merge them together, similarly, the best for $ b $, and $ c $, is to merge them together, last, the best merge for $ d $ is to merge it with $ a $.
 
 \end{frame}
 
@@ -366,7 +366,7 @@
     We truly covered a lot, and yet this is only a glimpse.\pause
 
     \hrulefill \\
-    \Large{\centerline{\XR QUESTIONS?\XB}} 
+    \Large{\centerline{\XR QUESTIONS?\XB}}
     \normalsize{\centerline{\textit{\href{mailto:casonk@umich.edu}{casonk@umich.edu}}}}
 
 \end{frame}
@@ -398,5 +398,4 @@
 
 \end{frame}
 
-\end{document} 
-
+\end{document}

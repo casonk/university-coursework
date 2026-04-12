@@ -10,8 +10,8 @@ module module_test;
 
 	// Instantiate the Unit Under Test (UUT)
 	module uut (
-		.inx(inx), 
-		.iny(iny), 
+		.inx(inx),
+		.iny(iny),
 		.ouz(ouz)
 	);
 
@@ -22,7 +22,7 @@ module module_test;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+
 		// Add stimulus here: 1000 INPUTS
 
         inx = 01011000;

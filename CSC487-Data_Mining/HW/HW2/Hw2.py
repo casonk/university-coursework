@@ -12,7 +12,7 @@ table1 = {
   "test-2 (ordinal)" : ["excellent","fair","good","excellent"],
   "test-3 (numeric)" : [45,22,64,28]
   }
-  
+
 df1 = pd.DataFrame(table1)
 
 # Set the index.
@@ -65,7 +65,7 @@ def dist(i,j, df):
   print('denomenator:',denom)
   print('\ntotal distance:')
   return neum/denom
-  
+
 # Compute the distance between object 1 & 3
 d_1_3 = dist(1,3, df1)
 
@@ -101,7 +101,7 @@ table2 = {
   "Pass" : [25,8,33],
   "Fail" : [6,15,21]
   }
-  
+
 df2 = pd.DataFrame(table2)
 df2
 
@@ -113,7 +113,7 @@ df2
 expectation_df2 = df2.copy()
 expectation_df2
 
-# Compute probabilities on attendance status 
+# Compute probabilities on attendance status
 expectation_df2["Total"] = expectation_df2["Total"].apply(
   lambda x: x / expectation_df2["Total"].max()
   )

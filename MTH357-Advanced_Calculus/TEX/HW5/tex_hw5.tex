@@ -41,7 +41,7 @@
 \noindent
 Derive a formula for $ \mathcal{F}_c\{f^{(4)}(x)\} $ in terms of $ \mathcal{F}_c\{f(x)\} $ and $ \mathcal{F}_s\{f(x)\} $. \\
 \vspace{2.5mm}
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -49,27 +49,27 @@ Derive a formula for $ \mathcal{F}_c\{f^{(4)}(x)\} $ in terms of $ \mathcal{F}_c
 \textbf{Solve} iteratively. \\
 
 \begin{itemize}
-    \item $ \mathcal{F}_c\{f^{(4)}(x)\} = \mathcal{F}_c\{(f^{(3)}(x))^\prime\} 
-    = \mathcal{F}_c\{(f^{\prime\prime}(x))^{\prime\prime}\} 
+    \item $ \mathcal{F}_c\{f^{(4)}(x)\} = \mathcal{F}_c\{(f^{(3)}(x))^\prime\}
+    = \mathcal{F}_c\{(f^{\prime\prime}(x))^{\prime\prime}\}
     = \mathcal{F}_c\{(f^{\prime}(x))^{(3)}\} $.
     \vspace{2.5mm}
-    \item $ \displaystyle \mathcal{F}_c\{f^{\prime}(x)\} = w\mathcal{F}_s\{f(x)\} - \sqrt{\dfrac{2}{\pi}}f(0) \ \ 
+    \item $ \displaystyle \mathcal{F}_c\{f^{\prime}(x)\} = w\mathcal{F}_s\{f(x)\} - \sqrt{\dfrac{2}{\pi}}f(0) \ \
     ; \ \ \mathcal{F}_s\{f^{\prime}(x)\} = -w\mathcal{F}_c\{f(x)\} $.
     \vspace{2.5mm}
-    \item $ \displaystyle \mathcal{F}_c\{f^{\prime\prime}(x)\} 
-    = \mathcal{F}_c\{(f^{\prime}(x))^{\prime}\} 
+    \item $ \displaystyle \mathcal{F}_c\{f^{\prime\prime}(x)\}
+    = \mathcal{F}_c\{(f^{\prime}(x))^{\prime}\}
     = w\mathcal{F}_s\{f^{\prime}(x)\} - \sqrt{\dfrac{2}{\pi}}f^{\prime}(0) $.
     \vspace{2.5mm}
     \subitem $ \displaystyle = -w^2\mathcal{F}_c\{f(x)\} - \sqrt{\dfrac{2}{\pi}}f^{\prime}(0) $.
     \vspace{2.5mm}
-    \item $ \displaystyle \mathcal{F}_c\{f^{(3)}(x)\} 
-    = \mathcal{F}_c\{(f^{\prime\prime}(x))^{\prime}\} 
+    \item $ \displaystyle \mathcal{F}_c\{f^{(3)}(x)\}
+    = \mathcal{F}_c\{(f^{\prime\prime}(x))^{\prime}\}
     = -w^2\mathcal{F}_c\{f^{\prime}(x)\} - \sqrt{\dfrac{2}{\pi}}f^{\prime\prime}(0) $.
     \vspace{2.5mm}
     \subitem $ \displaystyle = -w^3\mathcal{F}_s\{f(x)\} + w^2\sqrt{\dfrac{2}{\pi}}f(0) - \sqrt{\dfrac{2}{\pi}}f^{\prime\prime}(0) $.
     \vspace{2.5mm}
-    \item $ \displaystyle \mathcal{F}_c\{f^{(4)}(x)\} 
-    = \mathcal{F}_c\{(f^{(3)}(x))^{\prime}\} 
+    \item $ \displaystyle \mathcal{F}_c\{f^{(4)}(x)\}
+    = \mathcal{F}_c\{(f^{(3)}(x))^{\prime}\}
     = -w^3\mathcal{F}_s\{f^{\prime}(x)\} + w^2\sqrt{\dfrac{2}{\pi}}f^{\prime}(0) - \sqrt{\dfrac{2}{\pi}}f^{\prime\prime\prime}(0) $.
     \vspace{2.5mm}
     \subitem $ \displaystyle = w^4\mathcal{F}_c\{f(x)\} + w^2\sqrt{\dfrac{2}{\pi}}f^{\prime}(0) - \sqrt{\dfrac{2}{\pi}}f^{\prime\prime\prime}(0) $.
@@ -90,7 +90,7 @@ Find $ \mathcal{F}_s\{f(x)\} $ for an odd function with $ f(x)=\left\{\begin{arr
 \end{array}
 \right. $.  \\
 \vspace{2.5mm}
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -213,7 +213,7 @@ Find $ \mathcal{F}_s\{f(x)\} $ for an odd function with $ f(x)=\left\{\begin{arr
 \begin{itemize}
     \item $ \displaystyle \mathcal{F}_s\{f(x)\} = \sqrt{\dfrac{2}{\pi}} \int_{0}^{\infty} f(x) \sin(vx) \,dx $
     \subitem  $ \displaystyle = \sqrt{\dfrac{2}{\pi}} \int_{0}^{1} x \sin(vx) \,dx + \sqrt{\dfrac{2}{\pi}} \int_{1}^{2} 1 \sin(vx) \,dx + \sqrt{\dfrac{2}{\pi}} \int_{2}^{\infty} 0 \sin(vx) \,dx $
-    \subitem  $ \displaystyle = \sqrt{\dfrac{2}{\pi}}x \int_{0}^{1} \sin(vx) \,dx + \sqrt{\dfrac{2}{\pi}} \int_{1}^{2} \sin(vx) \,dx 
+    \subitem  $ \displaystyle = \sqrt{\dfrac{2}{\pi}}x \int_{0}^{1} \sin(vx) \,dx + \sqrt{\dfrac{2}{\pi}} \int_{1}^{2} \sin(vx) \,dx
     = \sqrt{\dfrac{2}{\pi}} \Big[\dfrac{\sin{wx}}{w^2} - \dfrac{x\cos{wx}}{w} \Big|_{0}^{1} \Big] \,dx - \sqrt{\dfrac{2}{\pi}} \Big[\dfrac{\cos{wx}}{w} \Big|_{1}^{2} \Big] $
     \subitem  $ \displaystyle = \sqrt{\dfrac{2}{\pi}}x \Big[\dfrac{\sin{w}}{w^2} - \dfrac{\cos{w}}{w} - \dfrac{\cos{2w}}{w} + \dfrac{\cos{w}}{w} \Big] $
     \subitem  $ \displaystyle = \sqrt{\dfrac{2}{\pi}}x \Big[\dfrac{\sin{w}}{w^2} - \dfrac{\cos{2w}}{w} \Big] $
@@ -228,7 +228,7 @@ Find $ \mathcal{F}_s\{f(x)\} $ for an odd function with $ f(x)=\left\{\begin{arr
 \noindent
 Find $ \mathcal{F}\{f(x)\} $, where $ f(x)=e^{-|x|} $ for $ -\infty < x < \infty $. (Hint: you cannot use a table for this). \\
 \vspace{2.5mm}
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -344,14 +344,14 @@ Find $ \mathcal{F}\{f(x)\} $, where $ f(x)=e^{-|x|} $ for $ -\infty < x < \infty
 \begin{itemize}
     \item $ \displaystyle \mathcal{F}\{f(x)\} = \sqrt{\dfrac{1}{2\pi}} \int_{-\infty}^{\infty} f(x) e^{-iwx} \,dx = \sqrt{\dfrac{1}{2\pi}} \int_{-\infty}^{\infty} e^{-|x|}e^{-iwx} \,dx  $
     \vspace{2.5mm}
-    \subitem $ \displaystyle = \sqrt{\dfrac{1}{2\pi}} \int_{-\infty}^{0} e^{x - iwx} \,dx + \sqrt{\dfrac{1}{2\pi}} \int_{0}^{\infty} e^{-x - iwx} \,dx 
+    \subitem $ \displaystyle = \sqrt{\dfrac{1}{2\pi}} \int_{-\infty}^{0} e^{x - iwx} \,dx + \sqrt{\dfrac{1}{2\pi}} \int_{0}^{\infty} e^{-x - iwx} \,dx
     = \sqrt{\dfrac{1}{2\pi}} \int_{-\infty}^{0} e^{x(1 - iw)} \,dx + \sqrt{\dfrac{1}{2\pi}} \int_{0}^{\infty} e^{-x(1 + iw)} \,dx $
     \vspace{2.5mm}
-    \subitem $ \displaystyle = \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{e^{x(1 - iw)}}{1 - iw} \Big|_{-\infty}^{0}\Big] + \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{e^{-x(1 + iw)}}{-1 - iw} \Big|_{0}^{\infty}\Big] 
+    \subitem $ \displaystyle = \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{e^{x(1 - iw)}}{1 - iw} \Big|_{-\infty}^{0}\Big] + \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{e^{-x(1 + iw)}}{-1 - iw} \Big|_{0}^{\infty}\Big]
     = \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{e^{0(1 - iw)}}{1 - iw} - \dfrac{e^{-\infty(1 - iw)}}{1 - iw} + \dfrac{e^{-\infty(1 + iw)}}{-1 - iw} - \dfrac{e^{0(1 + iw)}}{-1 - iw}\Big] $
     \vspace{2.5mm}
-    \subitem $ = \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{1}{1 - iw} - \dfrac{0}{1 - iw} + \dfrac{0}{-1 - iw} - \dfrac{1}{-1 - iw}\Big] 
-    = \sqrt{\dfrac{1}{2\pi}}\Big[\dfrac{(-1 - iw) - (1 - iw)}{(1 - iw)(-1 - iw)}\Big] 
+    \subitem $ = \sqrt{\dfrac{1}{2\pi}} \Big[\dfrac{1}{1 - iw} - \dfrac{0}{1 - iw} + \dfrac{0}{-1 - iw} - \dfrac{1}{-1 - iw}\Big]
+    = \sqrt{\dfrac{1}{2\pi}}\Big[\dfrac{(-1 - iw) - (1 - iw)}{(1 - iw)(-1 - iw)}\Big]
     = \sqrt{\dfrac{1}{2\pi}}\Big[\dfrac{-2}{-1 - w^2}\Big] $
     \vspace{2.5mm}
     \subitem $ \displaystyle = \dfrac{2}{\sqrt{2\pi}(1 + w^2)} $.

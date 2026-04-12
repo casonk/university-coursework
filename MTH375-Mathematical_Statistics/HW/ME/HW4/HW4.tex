@@ -26,7 +26,7 @@
 
 \maketitle
 \hrulefill
-\vfill 
+\vfill
     \underline{Key Concepts}: Rao-Blackwell Theorem, Exponential Families of Distributions, UMVUEs, Lehman-Sheff\'e Theorem.
 
 \newpage
@@ -36,7 +36,7 @@
 
 1. Let $ X_{1}, \dots , X_{n} $ be a sample of $ iid $ $ Binomial(k=1, p) $ random variables. \\
 
-\XBB\hrulefill\XB 
+\XBB\hrulefill\XB
 \vspace{5mm}
 
 %%%%%%%%%     1a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -54,7 +54,7 @@ With this we can compute the likelihood function $ L(p | x_{1}, \dots, x_{n}) = 
     \item $ \ds L(p) = p^{x_{1}}(1 - p)^{1 - x_{1}} \cdots p^{x_{n}}(1 - p)^{1 - x_{n}} $.
     \item $ \ds L(p) = p^{x_{1} + . + . + x_{n}}(1 - p)^{n - x_{1} - . - . - x_{n}} $.
     \item $ \ds L(p) = p^{\sum_{i=1}^{n} x_{i}}(1 - p)^{n - \sum_{i=1}^{n} x_{i}} $.
-\end{itemize} 
+\end{itemize}
 
 \noindent
 We can now see that $ \ds T = \sum_{i=1}^{n} x_{i} $ is a sufficient statistic for $ p $. \\
@@ -133,8 +133,8 @@ We can now see that $ \ds \frac{n\overline{X}^{2} - \overline{X}}{n - 1} $ is an
 
 2. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ $ Normal(\mu, 1) $ random variables. We know $ \overline{X} $ is UMVUE for $ \mu $.
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     2a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) Find an UMVUE for $\mu^{2} $.
@@ -147,7 +147,7 @@ We know $ \ds E(X_{i}) = \mu $, $ \ds E(\overline{X}) = \frac{nE(X_{i})}{n} = \m
 
 Thus $ \ds \overline{X} \sim N(\mu,\frac{1}{n}) $. \\
 
-From above $ \ds E(\overline{X}^{2}) = V(\overline{X}) + E(\overline{X})^{2} $. 
+From above $ \ds E(\overline{X}^{2}) = V(\overline{X}) + E(\overline{X})^{2} $.
 
 \begin{itemize}
     \item $ \ds E(\overline{X}^{2}) = \frac{1}{n} + \mu^{2} $.
@@ -162,7 +162,7 @@ We can now see that $ \ds \overline{X}^{2} - \frac{1}{n} $ is an UMVUE for $ \mu
 \newpage
 
 %%%%%%%%%     2b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-(b) Use the MGF of $ \overline{X} $ to compute $ E(\overline{X}^{3}) $. 
+(b) Use the MGF of $ \overline{X} $ to compute $ E(\overline{X}^{3}) $.
 \vspace{2.5mm} \\
 \textit{Solution}:
 \vspace{2.5mm} \\
@@ -185,7 +185,7 @@ We need to solve for the third moment of $ \overline{X} $. \\
 \vspace{2.5mm}
 
 %%%%%%%%%     2c     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-(c) Use (b) to find an UMVUE for $ \mu^{3} $. 
+(c) Use (b) to find an UMVUE for $ \mu^{3} $.
 \vspace{2.5mm} \\
 \textit{Solution}:
 \vspace{2.5mm} \\
@@ -211,23 +211,23 @@ We can now see that $ \ds \overline{X}^{3} - \frac{3\overline{X}}{2} $ is an UMV
 3. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with common pdf $ f(x_{i}; \theta) $. \\
 
 \begin{center}
-    $ \ds f(x_{i}; \theta) = \frac{3x_{i}^{2}}{\theta^{3}} \quad $ for $ \quad 0 \le x_{i} \le \theta $. 
+    $ \ds f(x_{i}; \theta) = \frac{3x_{i}^{2}}{\theta^{3}} \quad $ for $ \quad 0 \le x_{i} \le \theta $.
 \end{center}
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     3a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) the likelihood function $ L(\theta | x_{1}, \dots x_{n}) $, and find a sufficient statistic $ T $ for $ \theta $.
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
-We can compute the likelihood function $ L(\theta | x_{1}, \dots, x_{n}) = f(x_{1}; \theta) \cdots f(x_{n}; \theta) $. 
+We can compute the likelihood function $ L(\theta | x_{1}, \dots, x_{n}) = f(x_{1}; \theta) \cdots f(x_{n}; \theta) $.
 
 \begin{itemize}
-    \item $ \ds L(\theta) = \frac{3x_{1}^{2}}{\theta^{3}} \cdots \frac{3x_{n}^{2}}{\theta^{3}} = \Bigl( \frac{3}{\theta^{3}} \Bigr)^{n} \prod_{i=1}^{n} x_{i}^{2} \quad $ for $ \quad 0 \le x_{i} \le \theta $. 
+    \item $ \ds L(\theta) = \frac{3x_{1}^{2}}{\theta^{3}} \cdots \frac{3x_{n}^{2}}{\theta^{3}} = \Bigl( \frac{3}{\theta^{3}} \Bigr)^{n} \prod_{i=1}^{n} x_{i}^{2} \quad $ for $ \quad 0 \le x_{i} \le \theta $.
 \end{itemize}
 
 \noindent
@@ -242,7 +242,7 @@ We can now see that $ \ds T = \max\{X_{i},...,X_{n}\} $ is a sufficient statisti
 \vspace{2.5mm} \\
 
 \noindent
-We will first solve for the $CDFs$ of $X_{i}$ and $T$ then the requested \dots 
+We will first solve for the $CDFs$ of $X_{i}$ and $T$ then the requested \dots
 
 \begin{itemize}
     \item $ \ds F_{X_{i}} = \int_{0}^{x_{i}} \frac{3x^{2}}{\theta^{3}} \,dx = \frac{x^{3}}{\theta^{3}} \Big|_{0}^{x_{i}} = \frac{x_{i}^{3}}{\theta^{3}} $.
@@ -276,11 +276,11 @@ We can now see that $ \ds T^{*} = \max\{X_{i},...,X_{n}\} \frac{3n+1}{3n} $ is a
 4. Let $ X_{1},\dots,X_{n} $ be a sample of $ iid $ random variables with common pdf $ f(x_{i}; \theta_{1}, \theta_{2}) $. \\
 
 \begin{center}
-    $ \ds f(x_{i}; \theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{i} - \theta_{2}) / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2} $. 
+    $ \ds f(x_{i}; \theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{i} - \theta_{2}) / \theta_{1}} \quad $ for $ \quad  x_{i} > \theta_{2} $.
 \end{center}
 
-\XBB\hrulefill\XB 
-\vspace{5mm} 
+\XBB\hrulefill\XB
+\vspace{5mm}
 
 %%%%%%%%%     4a     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (a) Show that the pair $ \ds \bigl( \sum_{k=1}^{n} X_{k} , X_{(1)} \bigr) $ is sufficient for $ (\theta_{1}, \theta_{2}) $. We use the notation $ X_{(1)} = \min\{ X{1}, \dots, X{n} \} $, the $1^{st}$ order statistic.
@@ -289,7 +289,7 @@ We can now see that $ \ds T^{*} = \max\{X_{i},...,X_{n}\} \frac{3n+1}{3n} $ is a
 \vspace{2.5mm} \\
 
 \noindent
-We can compute the likelihood function $ L(\theta_{1}, \theta_{2} | x_{1}, \dots, x_{n}) = f(x_{1}; \theta_{1}, \theta_{2}) \cdots f(x_{n}; \theta_{1}, \theta_{2}) $. 
+We can compute the likelihood function $ L(\theta_{1}, \theta_{2} | x_{1}, \dots, x_{n}) = f(x_{1}; \theta_{1}, \theta_{2}) \cdots f(x_{n}; \theta_{1}, \theta_{2}) $.
 
 \begin{itemize}
     \item $ \ds L(\theta_{1}, \theta_{2}) = \frac{1}{\theta_{1}}e^{-(x_{1} - \theta_{2}) / \theta_{1}} \cdots \frac{1}{\theta_{1}}e^{-(x_{n} - \theta_{2}) / \theta_{1}} = \frac{1}{\theta_{1}^{n}} \Bigl( e^{\theta_{2} / \theta_{1} - x_{1} / \theta_{1}} \cdots  e^{\theta_{2} / \theta_{1} - x_{n} / \theta_{1}} \Bigr) $.
@@ -303,21 +303,21 @@ For clarity, $ X_{(1)} $ is in this pair as $ \theta_{2} $ has an upperbound of 
 \vspace{2.5mm}
 \newpage
 
-%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%     4b     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 (b) Find a pair $ (T_{1}, T_{2}) $ which is an UMVUE for $ (\theta_{1}, \theta_{2}) $.
 \vspace{2.5mm} \\
 \textit{Solution}:
-\vspace{2.5mm} \\ 
+\vspace{2.5mm} \\
 
 \noindent
-We will first solve for $ F( x_{i}; \theta_{1}, \theta_{2} ) $. 
+We will first solve for $ F( x_{i}; \theta_{1}, \theta_{2} ) $.
 
 \begin{itemize}
     \item $ \ds F_{X_{i}} = \int_{\theta_{2}}^{x_{i}} \frac{1}{\theta_{1}}e^{\theta_{2} / \theta_{1} - x / \theta_{1}} \,dx = -e^{\theta_{2} / \theta_{1} - x / \theta_{1}} \Big|_{\theta_{2}}^{x_{i}} = e^{\theta_{2} / \theta_{1} - \theta_{2} / \theta_{1}} -e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} = 1 - e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} $.
 \end{itemize}
 
 \noindent
-Next we will need $ F_{X_{(1)}} $. 
+Next we will need $ F_{X_{(1)}} $.
 
 \begin{itemize}
     \item $ \ds F_{X_{(1)}}(m) = P(\min\{ X{1}, \dots, X{n} \} \le m) = 1 - P(\min\{ X{1}, \dots, X{n} \} > m) $.
@@ -332,7 +332,7 @@ Following $ f_{X_{(1)}} $ \dots
 \end{itemize}
 
 \noindent
-Continuing, we will now solve for $ E( X_{(1)} ) $. 
+Continuing, we will now solve for $ E( X_{(1)} ) $.
 
 \begin{itemize}
     \item $ \ds E( X_{(1)} ) = \int_{\theta_{2}}^{\infty} \frac{nm}{\theta_{1}}e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}} \, dm = - \frac{nm + \theta_{1}}{n} e^{n\theta_{2} / \theta_{1} - nm / \theta_{1}} \Big|_{\theta_{2}}^{\infty} $.
@@ -341,7 +341,7 @@ Continuing, we will now solve for $ E( X_{(1)} ) $.
 \end{itemize} \XB
 
 \noindent
-We will now solve for $ E( X_{i} ) $. 
+We will now solve for $ E( X_{i} ) $.
 
 \begin{itemize}
     \item $ \ds E( X_{i} ) = \int_{\theta_{2}}^{\infty} \frac{x_{i}}{\theta_{1}}e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} \,dx = -(x_{i} + \theta_{1}) e^{\theta_{2} / \theta_{1} - x_{i} / \theta_{1}} \Big|_{\theta_2}^{\infty} $.

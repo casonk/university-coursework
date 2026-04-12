@@ -87,11 +87,11 @@
 \definecolor{umblue}{HTML}{00274C}
 \definecolor{ummaize}{HTML}{FFCB05}
 \usepackage{colortbl}
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \usepackage{pgf}
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata}
-\usepackage{url}			       
+\usepackage{url}
 \usepackage{hyperref}
 
 % \setbeamercolor{alerted text}{fg=orange}
@@ -164,7 +164,7 @@
 \author{\XV\textit{\large{\href{https://github.com/casonk}{Cason Konzer}}}\XB}
 \institute[UM FLINT]{\normalsize{\textit{casonk@umich.edu}}}
 \titlegraphic{\includegraphics[scale = 0.5]{University_of_Michigan_Flint.png}}
-\date[]{\today} 
+\date[]{\today}
 
 \begin{document}
 
@@ -194,7 +194,7 @@
         \item[$\diamond$] the objects may have attributes such as age, expertise, and city.\pause
         \item Objects are then connected by edges which represent node relations.\pause
         \item[$\diamond$] for example references, and transit paths.\pause
-        \item[$\diamond$] the connections may also have attributes such as hyperlink, road, and shipping lane.   
+        \item[$\diamond$] the connections may also have attributes such as hyperlink, road, and shipping lane.
     \end{itemize}
 
 \end{frame}
@@ -237,7 +237,7 @@
         \item[$\diamond$] communities may be disjoint, hierarchical, or overlapping.\pause
         \item[$\ast$] think of sets.\pause
         \item We expect nodes within a community to share similar attributes.\pause
-        \item[$\diamond$] often communities are considered to have a high density of internal edges compared to that of external edges. 
+        \item[$\diamond$] often communities are considered to have a high density of internal edges compared to that of external edges.
     \end{itemize}
 
 \end{frame}
@@ -268,7 +268,7 @@
         \item[$\diamond$] community connecting edges may be of concern.\pause
         \item[$\ast$] finding roads in need of additional lanes.\pause
         \item[$\ast$] finding authors with cross domain knowledge.\pause
-        \item[$\diamond$] etc. 
+        \item[$\diamond$] etc.
     \end{itemize}
 
 \end{frame}
@@ -286,7 +286,7 @@
         \item Shortest Path Betweenness.\pause
         \item Random Walk Betweenness.\pause
         \item Modularity Maximization.\pause
-        \item Maximum Likelihood Estimation. 
+        \item Maximum Likelihood Estimation.
     \end{itemize}
 
 \end{frame}
@@ -307,7 +307,7 @@
     \end{itemize}
 
     \vspace{2.5mm}
-    Today we will focus on Modularity Maximization methods. 
+    Today we will focus on Modularity Maximization methods.
 
 \end{frame}
 
@@ -328,7 +328,7 @@
         \item Let $ k_{i}^{in} $ be the number of inbound edges for a node $ i $.\pause
         \item Let $ k_{i}^{out} $ be the number of outbound edges for a node $ i $.\pause
         \item Let $ A $ be an adjacency matrix with entries $ A_{i, j} $ representing the number of spokes connecting nodes $ i $ and $ j $.\pause
-        \item Let $ \vec{A} $ be a directed adjacency matrix with entries $ \vec{A}_{i, j} $ representing an edge from node $ i $ to $ j $. 
+        \item Let $ \vec{A} $ be a directed adjacency matrix with entries $ \vec{A}_{i, j} $ representing an edge from node $ i $ to $ j $.
     \end{itemize}
 
 \end{frame}
@@ -370,8 +370,8 @@
     \end{itemize}
     \vspace{2.5mm}
 
-    In general different models generate graphs based on an underlying theory of how edges are formed between nodes. 
-    Modularity Maximization leverages the configuration model. 
+    In general different models generate graphs based on an underlying theory of how edges are formed between nodes.
+    Modularity Maximization leverages the configuration model.
 
 \end{frame}
 
@@ -387,7 +387,7 @@
         \item Graphs generated from the configuration model must obey the set degree distribution.\pause
         \item[$\diamond$] many graphs may be possible with the same degree distribution.\pause
         \item[$\diamond$] the model creates edges between nodes based on the probability of them existing.\pause
-        \item[$\ast$] this probability is derived from the degree distribution.  
+        \item[$\ast$] this probability is derived from the degree distribution.
     \end{itemize}
 
 \end{frame}
@@ -426,7 +426,7 @@
         \item $ \ds \sum_{i}^{n} k_{i} \sum_{j}^{n} k_{j} = s^{2} $.\pause
         \item[$\diamond$] undirected case (spokes).\pause
         \item $ \ds \sum_{i}^{n} k_{i}^{out} \sum_{j}^{n} k_{j}^{in} = m^{2} $.\pause
-        \item[$\diamond$] directed case (edges). 
+        \item[$\diamond$] directed case (edges).
     \end{itemize}
 
 \end{frame}
@@ -435,10 +435,10 @@
 
     \frametitle{Spoke/Edge Expectation}
 
-    When summing over the expected number of spokes for each undirected node pair we should get the total number of spokes ($ s $).\pause 
+    When summing over the expected number of spokes for each undirected node pair we should get the total number of spokes ($ s $).\pause
 
     \vspace{2.5mm}
-    When summing over the expected number of edges for each directed node pair we should get the total number of edges ($ m $).\pause 
+    When summing over the expected number of edges for each directed node pair we should get the total number of edges ($ m $).\pause
 
     \vspace{2.5mm}
     Building upon the previous slide we can retrieve the expected number of spokes/edges $ \mathbb{E}_{i, j} $ and $ \vec{\mathbb{E}}_{i, j} $ in an undirected and directed network.\pause
@@ -447,7 +447,7 @@
     \begin{itemize}
         \item $ \ds \mathbb{E}_{i, j \ne i} = \frac{k_{i} k_{j}}{s - 1} $.\pause
         \item $ \ds \mathbb{E}_{i, i} = \frac{k_{i} (k_{i} - 1)}{s - 1} $.\pause
-        \item $ \ds \vec{\mathbb{E}}_{i, j} = \frac{k_{i}^{out} k_{j}^{in}}{m} $. 
+        \item $ \ds \vec{\mathbb{E}}_{i, j} = \frac{k_{i}^{out} k_{j}^{in}}{m} $.
     \end{itemize}
 
 \end{frame}
@@ -502,7 +502,7 @@
 
     \vspace{2.5mm}
     \begin{multline*}
-        \ds Q = \frac{1}{s} \Biggl[ \sum_{i, j \ne i}^{n} \left( A_{i, j} - \frac{k_{i}k_{j}}{s - 1} \right) \delta(c_{i}, c_{j}) \\ 
+        \ds Q = \frac{1}{s} \Biggl[ \sum_{i, j \ne i}^{n} \left( A_{i, j} - \frac{k_{i}k_{j}}{s - 1} \right) \delta(c_{i}, c_{j}) \\
         +  \sum_{i}^{n} \left( A_{i,i} - \frac{k_{i}(k_{i} - 1)}{s - 1} \right) \Biggr].
     \end{multline*}
 
@@ -525,7 +525,7 @@
     \end{enumerate}
 
     \begin{flalign*}
-        & \ds Q = \frac{1}{s} \Biggl[ \sum_{i, j}^{n} \left( A_{i, j} - \frac{k_{i}k_{j}}{s} \right) \delta(c_{i}, c_{j})  \Biggr]. 
+        & \ds Q = \frac{1}{s} \Biggl[ \sum_{i, j}^{n} \left( A_{i, j} - \frac{k_{i}k_{j}}{s} \right) \delta(c_{i}, c_{j})  \Biggr].
     \end{flalign*}
 
 \end{frame}
@@ -571,7 +571,7 @@
     In an iterative fashion, we can performed the reassignment with the greatest increase in modularity.\pause
 
     \vspace{2.5mm}
-    One note on modularity maximization methods is that they detect disjoint communities, so it has a decreased accuracy for networks with underlying hierarchical or overlapping mechanics. 
+    One note on modularity maximization methods is that they detect disjoint communities, so it has a decreased accuracy for networks with underlying hierarchical or overlapping mechanics.
 
 \end{frame}
 
@@ -588,7 +588,7 @@
     \begin{itemize}
         \item How we reassign communities.\pause
         \item How we calculate modularity changes.\pause
-        \item When we stop iterating. 
+        \item When we stop iterating.
     \end{itemize}
 
 \end{frame}
@@ -604,7 +604,7 @@
         \item Reassign multiple node communities in each iteration.\pause
         \item Consider reassignments only within node neighborhoods (the neighbors of a node are all nodes in which it shares an edge).\pause
         \item Cache relevant values (node degrees, expectations) rather than computing during runtime.\pause
-        \item Halt the algorithm once the highest possible change in modularity is below a set threshold. 
+        \item Halt the algorithm once the highest possible change in modularity is below a set threshold.
     \end{itemize}
 
 \end{frame}
@@ -620,13 +620,13 @@
         \begin{tikzpicture}[->,>=stealth',auto,node distance=2.5cm,semithick,line width=1pt]
             \tikzstyle{be}=[color=umblue]
             \tikzstyle{be2}=[color=umblue,line width=2pt]
-            
+
             \node[state,fill=white,draw=umblue,text=umblue]   (A)                    {$a$};
             \node[state,fill=red,draw=umblue,text=ummaize]    (B) [above right of=A] {$b$};
             \node[state,fill=ummaize,draw=umblue,text=umblue] (D) [below right of=A] {$d$};
             \node[state,fill=green,draw=umblue,text=umblue]   (C) [below right of=B] {$c$};
             \node[state,fill=purple,draw=umblue,text=ummaize] (E) [below of=D]       {$e$};
-            
+
             \path   (A) edge [be,loop  left]   node {} (A)
                         edge [be]              node {} (E)
                         edge [be, bend left]   node {} (D)
@@ -639,9 +639,9 @@
                         edge [be]              node {} (A)
                     (E) edge [be, bend  left]  node {} (A)
                         edge [be]              node {} (D);
-            
+
         \end{tikzpicture}
-    \end{figure}  
+    \end{figure}
 
 \end{frame}
 
@@ -650,7 +650,7 @@
     \frametitle{Example: Adjacency Matrix}
 
     \begin{center}
-        \begin{tabular}{l | c c c c c} 
+        \begin{tabular}{l | c c c c c}
             $ \vec{A} $ & $ a $ & $ b $ & $ c $ & $ d $ & $ e $ \\
             \hline
             $ a $ & $ 1 $ & $ 0 $ & $ 0 $ & $ 1 $ & $ 1 $ \\
@@ -662,7 +662,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    The adjacency matrix is the expected form computers will store networks in. 
+    The adjacency matrix is the expected form computers will store networks in.
 
 \end{frame}
 
@@ -671,7 +671,7 @@
     \frametitle{Example: Out-Degree Calculations}
 
     \begin{center}
-        \begin{tabular}{l | c c c c c} 
+        \begin{tabular}{l | c c c c c}
             $ \vec{A} $ & $ a $ & $ b $ & $ c $ & $ d $ & $ e $ \\
             \hline
             \rowcolor{ummaize}
@@ -684,7 +684,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    $ \ds k_{a}^{out} = 1 + 0 + 0 + 1 + 1 = 3 $. 
+    $ \ds k_{a}^{out} = 1 + 0 + 0 + 1 + 1 = 3 $.
 
 \end{frame}
 
@@ -693,7 +693,7 @@
     \frametitle{Example: In-Degree Calculations}
 
     \begin{center}
-        \begin{tabular}{l | >{\columncolor{ummaize}}c c c c c} 
+        \begin{tabular}{l | >{\columncolor{ummaize}}c c c c c}
             $ \vec{A} $ & $ a $ & $ b $ & $ c $ & $ d $ & $ e $ \\
             \hline
             $ a $ & $ 1 $ & $ 0 $ & $ 0 $ & $ 1 $ & $ 1 $ \\
@@ -705,7 +705,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    $ k_{a}^{in} = 1 + 0 + 0 + 1 + 1 = 3 $. 
+    $ k_{a}^{in} = 1 + 0 + 0 + 1 + 1 = 3 $.
 
 \end{frame}
 
@@ -714,7 +714,7 @@
     \frametitle{Example: All Degree Calculations}
 
     \begin{center}
-        \begin{tabular}{l | c c c c c} 
+        \begin{tabular}{l | c c c c c}
             $ i           $ & $ a $ & $ b $ & $ c $ & $ d $ & $ e $ \\
             \hline
             \rowcolor{ummaize}
@@ -726,7 +726,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    $ m = 3 + 2 + 4 + 2 + 2 \pause = 3 + 2 + 3 + 3 + 2 \pause = 13 $. 
+    $ m = 3 + 2 + 4 + 2 + 2 \pause = 3 + 2 + 3 + 3 + 2 \pause = 13 $.
 
 \end{frame}
 
@@ -773,8 +773,8 @@
     \vspace{2.5mm}
     By doing so we can treat merged nodes as meta nodes, and form a new adjacency matrix with them.\pause
 
-    \vspace{2.5mm} 
-    As a result we need only update the cached values which change. 
+    \vspace{2.5mm}
+    As a result we need only update the cached values which change.
 
 \end{frame}
 
@@ -790,8 +790,8 @@
     \vspace{2.5mm}
     Similarly, for recalculating $ k_{i}^{out} $ and $ k_{i}^{in} $ we need only one addition.\pause
 
-    \vspace{2.5mm} 
-    Last, we will only consider merges for nodes which are neighbors. 
+    \vspace{2.5mm}
+    Last, we will only consider merges for nodes which are neighbors.
 
 \end{frame}
 
@@ -803,7 +803,7 @@
 
     \vspace{2.5mm}
     \begin{center}
-        \begin{tabular}{l | c} 
+        \begin{tabular}{l | c}
             $ i           $ & $ neighborhood $ \\
             \hline
             $ a $ & $ \{d, e\}    $ \\
@@ -823,7 +823,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    The merges we need consider should be much less that the $ \ds \binom{n}{2} $ node pairs.  
+    The merges we need consider should be much less that the $ \ds \binom{n}{2} $ node pairs.
 
 \end{frame}
 
@@ -835,7 +835,7 @@
 
     \vspace{2.5mm}
     \begin{center}
-        \begin{tabular}{l | c c c c c} 
+        \begin{tabular}{l | c c c c c}
             $ merge    $ & $ A_{i,i} $ & $ A_{j,j} $ & $ A_{i,j} $ & $ A_{j,i} $ & $ A_{i',i'} $  \\
             \hline
             $ \{a, d\} $ & $ 1 $ & $ 1 $ & $ 1 $ & $ 1 $ & $ 4 $ \\
@@ -847,7 +847,7 @@
     \end{center}\pause
 
     \begin{center}
-        \begin{tabular}{l | c c c c c c} 
+        \begin{tabular}{l | c c c c c c}
             $ merge    $ & $ k_{i}^{out} $ & $ k_{j}^{out} $ & $ k_{i'}^{out} $ & $ k_{i}^{in} $ & $ k_{j}^{in} $ & $ k_{i'}^{in} $ \\
             \hline
             $ \{a, d\} $ & $ 3 $ & $ 2 $ & $ 5 $ & $ 3 $ & $ 3 $ & $ 6 $ \\
@@ -874,7 +874,7 @@
 
     \vspace{2.5mm}
     \begin{center}
-        \begin{tabular}{l | c c c c} 
+        \begin{tabular}{l | c c c c}
             $ merge    $ & $ \partial \vec{Q}_{i} $ & $ \partial \vec{Q}_{j} $ & $ \partial \vec{Q}_{i'} $ & $ \Delta \vec{Q} $ \\
             \hline
             $ \{a, d\} $ & $ 4/13  $ & $  7/13  $ & $ 22/13 $ & $ 11/169 $ \\
@@ -890,7 +890,7 @@
     We see now the best node merge is $ \{a, e\} $.\pause
 
     \vspace{2.5mm}
-    The process should continue until the best change in modularity is lower than a set threshold. 
+    The process should continue until the best change in modularity is lower than a set threshold.
 
 \end{frame}
 
@@ -908,7 +908,7 @@
 
     \vspace{2.5mm}
     \begin{center}
-        \begin{tabular}{l | c c c c} 
+        \begin{tabular}{l | c c c c}
             $ merge    $ & $ \partial \vec{Q}_{i} $ & $ \partial \vec{Q}_{j} $ & $ \partial \vec{Q}_{i'} $ & $ \Delta \vec{Q} $ \\
             \hline
             \rowcolor{ummaize}
@@ -923,7 +923,7 @@
     \end{center}\pause
 
     \vspace{2.5mm}
-    The best merge for nodes $ a $, and $ e $, is to merge them together, similarly, the best for $ b $, and $ c $, is to merge them together, last, the best merge for $ d $ is to merge it with $ a $. 
+    The best merge for nodes $ a $, and $ e $, is to merge them together, similarly, the best for $ b $, and $ c $, is to merge them together, last, the best merge for $ d $ is to merge it with $ a $.
 
 \end{frame}
 
@@ -945,7 +945,7 @@
     \end{itemize}
 
     \vspace{2.5mm}
-    Thus nodes $ a, d, e $ form one community, and nodes $ b, c $ another. 
+    Thus nodes $ a, d, e $ form one community, and nodes $ b, c $ another.
 
 \end{frame}
 
@@ -969,7 +969,7 @@
         \item[$\diamond$] Calculation of $ k_{i}^{in} $ or $ k_{i}^{out} $: $ \mathcal{O}(n) $.\pause
         \item[$\ast$] $ n $ adjacency matrix retrievals.\pause
         \item[$\ast$] $ n - 1 $ additions.\pause
-        \item[$\ast$] $ \mathcal{O}(2n - 1) = \mathcal{O}(n) $. 
+        \item[$\ast$] $ \mathcal{O}(2n - 1) = \mathcal{O}(n) $.
     \end{itemize}
 
 \end{frame}
@@ -1017,7 +1017,7 @@
         \item[$\ast$] $ \mathcal{O}(6n -3 + (n - 1)^{2} + n^{2}) = \mathcal{O}(n^{2}) $.\pause
         \item[$\diamond$] Do such for each possible merge: $ \mathcal{O}(mn^{2}) $.\pause
         \item[$\ast$] $ m $ edges.\pause
-        \item[$\ast$] $ \mathcal{O}(m(n^{2})) = \mathcal{O}(mn^{2}) $. 
+        \item[$\ast$] $ \mathcal{O}(m(n^{2})) = \mathcal{O}(mn^{2}) $.
     \end{itemize}
 
 \end{frame}
@@ -1037,7 +1037,7 @@
         \item[$\ast$] $ \mathcal{O}(n + mn^{2}) = \mathcal{O}(mn^{2}) $.\pause
         \item[$\diamond$] Run for each possible node merge.\pause
         \item[$\ast$] $ n - 1 $ possible merges.\pause
-        \item[$\ast$] $ \mathcal{O}((n - 1)(mn^{2})) = \mathcal{O}(mn^{3}) $. 
+        \item[$\ast$] $ \mathcal{O}((n - 1)(mn^{2})) = \mathcal{O}(mn^{3}) $.
     \end{itemize}
 
 \end{frame}
@@ -1055,7 +1055,7 @@
     Papers are still coming out on the topic, and new methods are being invented.\pause
 
     \hrulefill \\
-    \Large{\centerline{\XR QUESTIONS?\XB}} 
+    \Large{\centerline{\XR QUESTIONS?\XB}}
     \normalsize{\centerline{\textit{casonk@umich.edu}}}
 
 \end{frame}
@@ -1164,5 +1164,4 @@
 
 \end{frame}
 
-\end{document} 
-
+\end{document}

@@ -280,7 +280,7 @@ table2 = {
   "Not basketball" : [203,110,313],
   "Sum (row)" : [416,248,664],
   }
-  
+
 df3 = pd.DataFrame(table2)
 
 # Set the index.
@@ -295,7 +295,7 @@ expectation_df3
 ```
 
 ```{python}
-# Compute probabilities on basketball status 
+# Compute probabilities on basketball status
 expectation_df3["Sum (row)"] = expectation_df3["Sum (row)"].apply(
   lambda x: x / expectation_df3["Sum (row)"].max()
   )
@@ -370,7 +370,7 @@ A $\chi^{2}$ chart will clearly show that a test statistic of  \XBB $1.231$ \XB 
 \newpage
 ```
 
-### 4. Using the data table below, calculate the information gain for gender and age. 
+### 4. Using the data table below, calculate the information gain for gender and age.
 
 ---
 
@@ -388,7 +388,7 @@ table3 = {
                   "yes","no","yes","yes","yes"],
   "count" : [30,20,30,20,15,30,13,10,4],
   }
-  
+
 df4 = pd.DataFrame(table3)
 df4
 ```
@@ -397,7 +397,7 @@ df4
 def gainer(df, label, counts):
   # Create DataFrame for storing gain.
   gainz = pd.DataFrame(index=['entropy', 'gain'])
-  
+
   # Find total observations.
   total = df[counts].sum()
 
@@ -447,9 +447,3 @@ We can now see that the information gain for age when using gender as labels is 
 
 \hrulefill
 ```
-
-
-
-
-
-

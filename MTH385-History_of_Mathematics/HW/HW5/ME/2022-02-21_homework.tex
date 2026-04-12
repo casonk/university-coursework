@@ -15,7 +15,7 @@
 \newcommand{\XR}{\color{red}}
 \newcommand{\ds}{\displaystyle}
 
-\setlength{\parindent}{0pt} 
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 
 \theoremstyle{plain}
@@ -40,10 +40,10 @@
 
 \XBB\hrulefill\XB \\
 \begin{ex} [3.3.2]
-  Show that, for any integers $ a $ and $ b $, there are integers $ m $ and $ n $ such that 
+  Show that, for any integers $ a $ and $ b $, there are integers $ m $ and $ n $ such that
   \[
-    \gcd(a, b) = ma + nb 
-  \] 
+    \gcd(a, b) = ma + nb
+  \]
 \end{ex}
 \XBB\hrulefill\XB \\
 
@@ -61,7 +61,7 @@
 
   As $ x $ and $ y $ are relatively prime, $ mx + ny = 1 $, $ m, n \in \mathbb{Z} $.
 
-  For proof: $ mbx + nyb = b $, where $ y | bx \ ; \ y | y \ ; \ y | b $. 
+  For proof: $ mbx + nyb = b $, where $ y | bx \ ; \ y | y \ ; \ y | b $.
 
   Now \dots
 
@@ -94,7 +94,7 @@
   \ \\
 
   Let $ G = \gcd(a, b) $, Thus $ G = ma + nb $, from \textbf{Ex. 1}.
-  
+
   Assuming $ G|c $, $ Gi = c $ for some $ i \in \mathbb{Z} $.
 
   Now $ \ds Gi = mai +nbi = c $
@@ -151,12 +151,12 @@
 \begin{proof}
   \ \\
 
-  The continued fraction of a real number $ \alpha_{0} > 0 $ is written 
+  The continued fraction of a real number $ \alpha_{0} > 0 $ is written
   \[
     \alpha_{0} = n_{1} + \cfrac{1}{n_{2} + \cfrac{1}{n_{3} + \cfrac{1}{n_{4} + \cfrac{1}{\ddots}}}}
   \]
-  Where, $ n_{1} = \lfloor \alpha_{0} \rfloor \ ; \ \alpha_{1} = 1/(\alpha_{0} - n_{1}) > 1 \ ; \ n_{k} = \lfloor \alpha_{k-1} \rfloor \ ; \ \alpha_{k} = 1/(\alpha_{k-1} - n_{k}) > 1, \forall k \ge 1 $ 
-  
+  Where, $ n_{1} = \lfloor \alpha_{0} \rfloor \ ; \ \alpha_{1} = 1/(\alpha_{0} - n_{1}) > 1 \ ; \ n_{k} = \lfloor \alpha_{k-1} \rfloor \ ; \ \alpha_{k} = 1/(\alpha_{k-1} - n_{k}) > 1, \forall k \ge 1 $
+
   We have, $ \alpha_{0} = \sqrt{2} \ ; \ n_{1} = \lfloor \sqrt{2} \rfloor = 1 \ ; \ \alpha_{1} = 1/(\sqrt{2} - 1) $.
 
   It follows that, $ \alpha_{1} = 1 + \sqrt{2} $ as $ (1 + \sqrt{2})(\sqrt{2} - 1) = 1 $.
@@ -164,7 +164,7 @@
   Thus we have, $ n_{2} = \lfloor 1 + \sqrt{2} \rfloor = 2 $ and $ \alpha_{2} = 1/(1 + \sqrt{2} - 2) = 1/(\sqrt{2} - 1) = \alpha_{1} $.
 
   Similarly, $ n_{3} = \lfloor 1 + \sqrt{2} \rfloor = 2 = n_{2} $ .
-  
+
   We can now see, $ \forall i \ge 1 ; \ \alpha_{i} = 1/(\sqrt{2} - 1) $, and $ \forall j \ge 2 ; n_{j} = 2 $.
 
   By substitution we arrive at the requested \dots
@@ -203,7 +203,7 @@
     \item $ \forall \ even \ i ; \ \alpha_{i} = \sqrt{3} + 1 $, and $ \forall \ odd \ i ; \ \alpha_{i} = (\sqrt{3} + 1)/2 $.
     \item $ \forall \ even \ i ; \ n_{i} = 2 $, and $ \forall \ odd \ i ; \ n_{i} = 1 $.
   \end{itemize}
-  
+
   Now \dots
   \[
     \sqrt{3} + 1 = 2 + \cfrac{1}{1 + \cfrac{1}{2 + \cfrac{1}{1 + \cfrac{1}{\ddots}}}}
@@ -217,4 +217,3 @@
 
 
 \end{document}
-

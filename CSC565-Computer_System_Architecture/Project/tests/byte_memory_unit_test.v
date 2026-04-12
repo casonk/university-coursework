@@ -37,24 +37,24 @@ module byte_memory_unit_test;
 
 	// Instantiate the Unit Under Test (UUT)
 	byte_memory_unit uut (
-		// .signed_flag(signed_flag), 
-		.load_flag(load_flag), 
-		.inbit_0_0(inbit_0_0), 
-		.inbit_0_1(inbit_0_1), 
-		.inbit_0_2(inbit_0_2), 
-		.inbit_0_3(inbit_0_3), 
-		.inbit_0_4(inbit_0_4), 
-		.inbit_0_5(inbit_0_5), 
-		.inbit_0_6(inbit_0_6), 
-		.inbit_0_7(inbit_0_7), 
-		// .inbit_1_0(inbit_1_0), 
-		// .inbit_1_1(inbit_1_1), 
-		// .inbit_1_2(inbit_1_2), 
-		// .inbit_1_3(inbit_1_3), 
-		// .inbit_1_4(inbit_1_4), 
-		// .inbit_1_5(inbit_1_5), 
-		// .inbit_1_6(inbit_1_6), 
-		// .inbit_1_7(inbit_1_7), 
+		// .signed_flag(signed_flag),
+		.load_flag(load_flag),
+		.inbit_0_0(inbit_0_0),
+		.inbit_0_1(inbit_0_1),
+		.inbit_0_2(inbit_0_2),
+		.inbit_0_3(inbit_0_3),
+		.inbit_0_4(inbit_0_4),
+		.inbit_0_5(inbit_0_5),
+		.inbit_0_6(inbit_0_6),
+		.inbit_0_7(inbit_0_7),
+		// .inbit_1_0(inbit_1_0),
+		// .inbit_1_1(inbit_1_1),
+		// .inbit_1_2(inbit_1_2),
+		// .inbit_1_3(inbit_1_3),
+		// .inbit_1_4(inbit_1_4),
+		// .inbit_1_5(inbit_1_5),
+		// .inbit_1_6(inbit_1_6),
+		// .inbit_1_7(inbit_1_7),
 		.outbit_0_0(outbit_0_0),
 		.outbit_0_1(outbit_0_1),
 		.outbit_0_2(outbit_0_2),
@@ -91,7 +91,7 @@ module byte_memory_unit_test;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+
 		// Add stimulus here: 100 INPUTS
 
 		load_flag = 1;

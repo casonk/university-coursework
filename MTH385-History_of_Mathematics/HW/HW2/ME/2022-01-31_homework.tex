@@ -13,8 +13,8 @@
 \newcommand{\XV}{\color{violet}}
 \newcommand{\XR}{\color{red}}
 
-\pagestyle{empty} 
-\setlength{\parindent}{0pt} 
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 
 \theoremstyle{plain}
@@ -70,11 +70,11 @@
   \begin{itemize}
     \item \textit{Common Notions} $1$ says : Things which are equal to the same thing are also equal to one another.
     \subitem From this notion we will take two things equal to the same thing, $ a = b $ and $ c = b $.
-    \subitem It can be seen that from the notion as both $ a $ and $ c $ are equal to the same thing, $ b $, then $ a $ and $ c $ are equal to one another. 
+    \subitem It can be seen that from the notion as both $ a $ and $ c $ are equal to the same thing, $ b $, then $ a $ and $ c $ are equal to one another.
     \subitem This can be interpreted as the \textit{transitive} property: $ a \cong b, \ b \cong c \Rightarrow a \cong c $.
     \item \textit{Common Notions} $4$ says : Things which coincide with one another are equal to one another.
-    \subitem Having two things coincide can be thought of as two points taking the same coordinates, or two lines/angles laid on oneanother. 
-    \subitem We conclude from this notion that these two objects are equal to one another, of which they are then the same base object. 
+    \subitem Having two things coincide can be thought of as two points taking the same coordinates, or two lines/angles laid on oneanother.
+    \subitem We conclude from this notion that these two objects are equal to one another, of which they are then the same base object.
     \subitem Taking the points as an example, we have $ p_1 \cong p_2 \cong p $ and $ p_2 \cong p_1 \cong p $ where $ p $ is the base object.
     \subitem The reflexive property follows nicely as $ p \cong  p $.
   \end{itemize}
@@ -126,7 +126,7 @@
     \end{tikzpicture}
   \end{center}
   \begin{itemize}
-    \item We will utilize the cross sectional square of the cube, with side length $l$, shown above. 
+    \item We will utilize the cross sectional square of the cube, with side length $l$, shown above.
     \subitem From basic geometry we can see that  $\displaystyle r_{in} = \frac{l}{2}$.
     \item We can also see that $r_{out}$ is the hypotenuse of the tiangle with base and height $r_{in}$.
     \subitem From the Pythagorean Theorem, $r_{out}^{2} = r_{in}^{2} + r_{in}^{2} $
@@ -136,13 +136,13 @@
     \item $r_{out}$ is the distance from $(0,0,0)$ to $(1,1,0)$.
     \subitem This distance $d_{out}$ is simply $\sqrt{(1-0)^2 + (1-0)^2 + (0-0)^2} = \sqrt{2} $.
     \item $r_{circum}$ is the distance from $(0,0,0)$ to $(1,1,1)$.
-    \subitem This distance $d_{circum}$ is simply $\sqrt{(1-0)^2 + (1-0)^2 + (1-0)^2} = \sqrt{3} $.  
+    \subitem This distance $d_{circum}$ is simply $\sqrt{(1-0)^2 + (1-0)^2 + (1-0)^2} = \sqrt{3} $.
     \item Thus we have $\displaystyle d_{circum} = \frac{d_{out}\sqrt{3}}{\sqrt{2}}$.
     \subitem It follows that $\displaystyle r_{circum} = \frac{r_{out}\sqrt{3}}{\sqrt{2}} = \frac{\frac{l}{\sqrt{2}}\sqrt{3}}{\sqrt{2}} = \frac{l\sqrt{3}}{2} $.
     \item We now have acquired the relevant information to compute $\displaystyle \frac{\text{circumradius}}{\text{inradius}}$.
     \subitem $\displaystyle \frac{r_{circum}}{r_{in}} = \frac{\frac{l}{2}\sqrt{3}}{\frac{l}{2}} = \sqrt{3}$.
     \item We have show that $\displaystyle \frac{\text{circumradius}}{\text{inradius}}=\sqrt{3}$ for the cube.
-  \end{itemize} 
+  \end{itemize}
   Consider next the following figure. \\
   \begin{center}
     \begin{tikzpicture}
@@ -160,7 +160,7 @@
     \end{tikzpicture}
   \end{center}
   \begin{itemize}
-  \item We will utilize the cross sectional square of the octahedron, with side length $l$, shown above. 
+  \item We will utilize the cross sectional square of the octahedron, with side length $l$, shown above.
   \item We can see that $l$ is the hypotenuse of the triangle with base and height $r_{circum}$.
   \subitem From the Pythagorean Theorem $ l^{2} = r_{circum}^{2} + r_{circum}^{2} = 2r_{circum}^{2} $.
   \subitem It follows that $\displaystyle r_{circum}^{2} = \frac{l^{2}}{2} $ and $\displaystyle r_{circum} = \frac{l}{\sqrt{2}} $.
@@ -212,8 +212,7 @@
     \subitem $ \displaystyle = \sqrt{\Bigl( \frac{\tau^2 -2\tau + 1}{4} \Bigr) + \Bigl( \frac{1}{4} \Bigr) + \Bigl( \frac{\tau^2}{4} \Bigr)} = \sqrt{ \frac{\tau + 1 -2\tau + 1}{4} + \frac{1}{4} + \frac{\tau + 1}{4} } $.
     \subitem $ \displaystyle = \sqrt{ \frac{2 -\tau + 1 + \tau + 1}{4} } = \sqrt{\frac{4}{4}} = \sqrt{1} = 1 $.
     \item We can now see that $AB=BC=CA=1$ and that \textit{Pacioli's} construction of the icosahedron holds.
-  \end{itemize} 
+  \end{itemize}
 \end{proof}
 
 \end{document}
-

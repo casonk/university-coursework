@@ -115,7 +115,7 @@ Also execute the SQL query and show the results.
  If your queries do not work or gives a different result than expected, include the error message that you obtained,
   or say that you got a different than expected result.
    Note that the queries must be in a format that will allow me to copy and paste.
-    The most convenient is if you include a .sql file with your queries, results, error messages and any notes. 
+    The most convenient is if you include a .sql file with your queries, results, error messages and any notes.
 
 Note unless there is an order by, you can get results in different order than what is given as expected results, and this is not an error.
 
@@ -130,13 +130,13 @@ SELECT model
 FROM PC
 WHERE PC.price <= 600;
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL
 ----------
-      1003 
-      1007 
-      1013 
+      1003
+      1007
+      1013
 */
 
 -- 2. Find the model number, speed and ram size for all PCs whose price is $600 or below.
@@ -145,13 +145,13 @@ SELECT model, speed, ram
 FROM PC
 WHERE PC.price <= 600;
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL      SPEED        RAM
 ---------- ---------- ----------
-      1003       1.42        512 
-      1007        2.2       1024 
-      1013       3.06        512 
+      1003       1.42        512
+      1007        2.2       1024
+      1013       3.06        512
 */
 
 -- 3. Do the same as Qn 2, but rename the speed column speedInGH and the ram column ramInMB.
@@ -160,13 +160,13 @@ SELECT model, speed AS speedInGH, ram AS ramInMB
 FROM PC
 WHERE PC.price <= 600;
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL  SPEEDINGH    RAMINMB
 ---------- ---------- ----------
-      1003       1.42        512 
-      1007        2.2       1024 
-      1013       3.06        512 
+      1003       1.42        512
+      1007        2.2       1024
+      1013       3.06        512
 */
 
 -- 4. Find the model number and hard-disk size for those PCs that have a speed at least 3.2 and a price less than $2000.
@@ -175,12 +175,12 @@ SELECT model, hd
 FROM PC
 WHERE (PC.price <= 2000) AND (PC.speed >= 3.2);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL         HD
 ---------- ----------
-      1005        250 
-      1006        320 
+      1005        250
+      1006        320
 */
 
 -- 5. Find the manufacturer and speed of PCs with a price of $600 or below.
@@ -189,13 +189,13 @@ SELECT maker, speed
 FROM PRODUCT, PC
 WHERE (PRODUCT.model = PC.model) AND (PC.price <= 600);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
 MAKER                     SPEED
 -------------------- ----------
-A                          1.42 
-C                           2.2 
-E                          3.06 
+A                          1.42
+C                           2.2
+E                          3.06
 */
 
 -- 6. Find the model number and price of all products (of any type) made by manufacturer A.
@@ -212,16 +212,16 @@ UNION
 FROM PRODUCT, PRINTER
 WHERE (PRODUCT.model = PRINTER.model) AND (PRODUCT.maker = 'A'));
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL      PRICE
 ---------- ----------
-      1001       2114 
-      1002        995 
-      1003        478 
-      2004       1150 
-      2005       2500 
-      2006       1700 
+      1001       2114
+      1002        995
+      1003        478
+      2004       1150
+      2005       2500
+      2006       1700
 */
 
 -- 7. Find those manufacturers that sell Laptops but not PCs.
@@ -236,10 +236,10 @@ WHERE PRODUCT.model IN PC.model);
 
 -- confidence = 10
 /* Expected && RETURNED Results
-MAKER              
+MAKER
 --------------------
-F                    
-G  
+F
+G
 */
 
 -- 8. Find the model numbers of printers with the highest price
@@ -248,12 +248,12 @@ SELECT model
 FROM PRINTER
 WHERE price >= ALL (SELECT price FROM PRINTER);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL
 ----------
 	3003
-	3007 
+	3007
 */
 
 -- 9. Find the model numbers of PCs whose speed is slower than that of all Laptops.
@@ -262,11 +262,11 @@ SELECT model
 FROM PC
 WHERE PC.speed <= ALL (SELECT speed FROM LAPTOP);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL
 ----------
-      1003 
+      1003
 */
 
 -- 10. Find the model number of the item (PC, Laptop, or Printer) with the highest price.
@@ -281,15 +281,15 @@ UNION
 (SELECT DISTINCT model, price
 FROM PRINTER))
 
-SELECT model 
+SELECT model
 FROM MP
 WHERE price >= ALL (SELECT price FROM MP);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
      MODEL
 ----------
-      2001 
+      2001
 */
 
 -- 11. Find the maker of the color printer with the lowest price.
@@ -303,11 +303,11 @@ SELECT maker
 FROM PRODUCT
 WHERE PRODUCT.model = (SELECT model FROM COLORP);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
-MAKER              
+MAKER
 --------------------
-E                    
+E
 
 */
 
@@ -316,7 +316,7 @@ E
 WITH OPTIMUMPC AS
 (SELECT model
 FROM
-(SELECT model, speed 
+(SELECT model, speed
 FROM PC
 WHERE PC.ram <= ALL (SELECT ram FROM PC))
 WHERE speed >= ALL (SELECT speed FROM PC WHERE PC.ram <= ALL (SELECT ram FROM PC)))
@@ -325,33 +325,33 @@ SELECT maker
 FROM PRODUCT
 WHERE PRODUCT.model = (SELECT model FROM OPTIMUMPC);
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
-MAKER              
+MAKER
 --------------------
-B 
+B
 */
 
 -- 13. Find those hard-disk sizes that occur in 2 or more PCs.
 
-SELECT hd 
+SELECT hd
 FROM PC
 GROUP BY hd
 HAVING COUNT (model) >= 2;
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
         HD
 ----------
-       250 
-        80 
-       160 
+       250
+        80
+       160
 */
 
 -- 14. Find the manufacturers of at least 2 different computers (PCs or Laptops) with speeds of at least 3.0
 
 WITH FASTER AS
-((SELECT model 
+((SELECT model
 FROM PC
 WHERE PC.speed >= 3.0)
 UNION
@@ -365,10 +365,10 @@ WHERE PRODUCT.model = ANY (SELECT model FROM FASTER)
 GROUP BY maker
 HAVING COUNT (model) >= 2;
 
--- confidence = 10 
+-- confidence = 10
 /* Expected && RETURNED Results
-MAKER              
+MAKER
 --------------------
-B                    
+B
 
 */

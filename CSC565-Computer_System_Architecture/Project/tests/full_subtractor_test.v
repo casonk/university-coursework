@@ -12,8 +12,8 @@ module full_subtractor_test;
 
 	// Instantiate the Unit Under Test (UUT)
 	full_subtractor uut (
-		.inbit_0(inbit_0), 
-		.inbit_1(inbit_1), 
+		.inbit_0(inbit_0),
+		.inbit_1(inbit_1),
 		.borrow_in(borrow_in), // .carry_in(carry_in),
 		.outbit_0(outbit_0),
 		.borrow_out(borrow_out) // .carry_out(carry_out)
@@ -22,12 +22,12 @@ module full_subtractor_test;
 	initial begin
 		// Initialize Inputs
 		inbit_0 = 0;
-		inbit_1 = 0;	  
+		inbit_1 = 0;
 		borrow_in = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-        
+
 		// Add stimulus here: 100 INPUTS
 
         inbit_0 = 1;

@@ -15,7 +15,7 @@
 \newcommand{\XR}{\color{red}}
 \newcommand{\ds}{\displaystyle}
 
-\setlength{\parindent}{0pt} 
+\setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 
 \theoremstyle{plain}
@@ -35,9 +35,9 @@
 
 \newpage
 
-Like the binomial theorem, 
-the multinomial theorem can be proved combinatorially by considering the number of ways a term 
-$ a_{1}^{q_{1}} a_{2}^{q_{2} }\cdots a_{n}^{q_{n}} $ 
+Like the binomial theorem,
+the multinomial theorem can be proved combinatorially by considering the number of ways a term
+$ a_{1}^{q_{1}} a_{2}^{q_{2} }\cdots a_{n}^{q_{n}} $
 can arise from the factors of $ ( a_{1} + a_{2} + \cdots + a_{n})^{p} $.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -50,7 +50,7 @@ can arise from the factors of $ ( a_{1} + a_{2} + \cdots + a_{n})^{p} $.
   \[
     \binom{p}{q_{1}, q_{2}, \ldots, q_{n}} = \frac{p!}{q_{1}!q_{2}! \cdots q_{n}!}
   \]
-  by observing that the coefficient equals the number of ways of writing a 
+  by observing that the coefficient equals the number of ways of writing a
   $ p $-element set as a disjoint union of subsets of sizes $ q_{1}, q_{2}, \ldots, q_{n} $.
 \end{ex}
 \XBB\hrulefill\XB \\
@@ -66,7 +66,7 @@ can arise from the factors of $ ( a_{1} + a_{2} + \cdots + a_{n})^{p} $.
     \item[$\ast$] In the numerator all but the $ p! $ cancels with the corresponding term in the denemonator.
     \item[$\ast$] In the denemonator the $ (p - q_{1} - q_{2} - \cdots - q_{n})! = 0! = 1 $ as $ q_{1} + q_{2} + \dots + q_{n} = n $.
     \item[$\ast$] Thus the denemonator contains only the $ q_{i} !'s $.
-    \item As a result we are left with the requested formula. 
+    \item As a result we are left with the requested formula.
   \end{itemize}
 
 \end{proof}
@@ -77,8 +77,8 @@ As we now know, all conic sections may be given by the following standard form e
 \[
   \frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} = 1\text{ (ellipse)},\qquad y = ax^{2} \text{ (parabola)}, \qquad \frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = 1\text{ (hyperbola)}.
 \]
-The reduction of an arbitrary quadratic equation in $ x $ and $ y $ to one of these forms depends 
-on suitable choice of origin and axes, as Fermat and Descartes discovered. 
+The reduction of an arbitrary quadratic equation in $ x $ and $ y $ to one of these forms depends
+on suitable choice of origin and axes, as Fermat and Descartes discovered.
 The main steps are outlined in the following exercises.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +87,7 @@ The main steps are outlined in the following exercises.
 
 \XBB\hrulefill\XB \\
 \begin{ex} [6.2.1]
-  Show that a \emph{quadratic form} $ \ds ax^{2} + bxy + cy^{2} $ may be converted to a form 
+  Show that a \emph{quadratic form} $ \ds ax^{2} + bxy + cy^{2} $ may be converted to a form
   $ \ds a'x'^{2} + b'y'^{2} $ by suitable choice of $ \theta $ in the substitution
   \begin{align*}
     x &= x' \cdot \cos(\theta) - y' \cdot \sin(\theta), \\
@@ -176,7 +176,7 @@ The main steps are outlined in the following exercises.
 
 \XBB\hrulefill\XB \\
 \begin{ex} [6.2.3]
-  If $ b' = 0 $, but $ a' \neq 0 $, show that the substitution $ x' = x'' + f $ gives either standard-form parabola, 
+  If $ b' = 0 $, but $ a' \neq 0 $, show that the substitution $ x' = x'' + f $ gives either standard-form parabola,
   or the ``double line'' $ x''^{2} = 0 $. \\
   (Why is this called a ``double line,'' and is it a section of a cone?)
 \end{ex}
@@ -188,17 +188,17 @@ The main steps are outlined in the following exercises.
   \begin{itemize}
     \item If $ b' = 0 $, but $ a' \neq 0 $, we have \dots
     \subitem $ \ds a'x'^{2} + c'x' + d'y' + e' = 0 $.
-    \item By substitution \dots 
+    \item By substitution \dots
     \subitem $ \ds a'(x'' + f)^{2} + c'(x'' + f) + d'y' + e' = 0 $.
     \subitem $ \ds a'x''^{2} + 2a'x''f + a'f^{2} + c'x'' + c'f + e' = - d'y' $.
     \subitem $ \ds a'x''^{2} + (2a'f + c') \cdot x'' + (a'f^{2} + c'f + e') = - d'y' $.
     \item Division by $ -d' $, and letting $ -a'/d' = a'' $ leaves \dots
     \subitem $ \ds y' = a''x''^{2} + (2a''f + c') \cdot x'' + (a''f^{2} + c'f + e') $.
     \item Given $ d' $ is non-zero we have thus the \textit{``standard-form parabola.''}
-    \item Under close choice of f \dots 
+    \item Under close choice of f \dots
     \subitem $ \ds a'' = - c'/2f = - e' $,
     \item We find the familiar $ \ds y' = a''x''^{2} $.
-    \item Else if $ d' $ is zero we have the \textit{``double line,''} of form 
+    \item Else if $ d' $ is zero we have the \textit{``double line,''} of form
     \subitem $ \ds a'x''^{2} + (2a'f + c') \cdot x'' + (a'f^{2} + c'f + e') = 0 $.
     \item Such called as we arrive at two vertical lines as the solution \dots
     \subitem $ \ds x'' = \frac{\ds -(2a'f + c') \pm \sqrt{(2a'f + c')^{2} - 4(a')(a'f^{2} + c'f + e')}}{2a'} $.
@@ -216,7 +216,7 @@ The main steps are outlined in the following exercises.
 
 \XBB\hrulefill\XB \\
 \begin{ex} [6.2.4]
-  If both $ a' $ and $ b' $ are nonzero, 
+  If both $ a' $ and $ b' $ are nonzero,
   show that a shift of origin gives the standard form for either an ellipse or a hyperbola, or else a pair of lines.
 \end{ex}
 \XBB\hrulefill\XB \\
@@ -231,7 +231,7 @@ The main steps are outlined in the following exercises.
     \subitem $ \ds a'(x'' + f)^{2} + b'(y'' + g)^{2} + c'(x'' + f) + d'(y'' + g) + e' = 0 $.
     \subitem $ \ds a'x''^{2} + 2a'x''f + a'f^{2} + b'y''^{2} + 2b'y''g + b'g^{2} + c'x'' + c'f + d'y'' + d'g + e' = 0 $.
     \subitem $ \ds a'x''^{2} + ( 2a'f + c' ) \cdot x'' + b'y''^{2} + ( 2b'g + d' ) \cdot y'' = - ( a'f^{2} + b'g^{2} + c'f + d'g + e' ) $.
-    \item Division by the constant leaves \dots 
+    \item Division by the constant leaves \dots
     \subitem $ \ds a''x''^{2} + c''x'' + b''y''^{2} + d''y'' = 1 $.
     \item Where \dots
     \subitem $ \ds k'' = - a'f^{2} + b'g^{2} + c'f + d'g + e' $.
@@ -251,4 +251,3 @@ The main steps are outlined in the following exercises.
 \newpage
 
 \end{document}
-

@@ -43,7 +43,7 @@ Refer to the table below for questions 1-4 and suppose the minimum support is 2.
 
 ```{=latex}
 \begin{center}
-\begin{tabular}{|m{1.25cm}||m{2.5cm}|} 
+\begin{tabular}{|m{1.25cm}||m{2.5cm}|}
     \hline
     TID & Basket \\
     \hline
@@ -60,7 +60,7 @@ Refer to the table below for questions 1-4 and suppose the minimum support is 2.
     \hline
     T6 & B,C \\
     \hline
-    T7 & A,C \\ 
+    T7 & A,C \\
     \hline
     T8 & A,B,C,E \\
     \hline
@@ -108,7 +108,7 @@ Of these six baskets two contain $\{ B, E \}$. Our confidence is thus \XBB $P( \
 
 ```{=latex}
 \begin{center}
-\begin{tabular}{|m{1.5cm}|m{2cm}|m{2.5cm}|m{3cm}|} 
+\begin{tabular}{|m{1.5cm}|m{2cm}|m{2.5cm}|m{3cm}|}
     \hline
     k=1 & k=2 & k=3 & k=4 \\
     \hline
@@ -136,7 +136,7 @@ Of these six baskets two contain $\{ B, E \}$. Our confidence is thus \XBB $P( \
 \end{tabular}
 \end{center}
 
-All \XBB Blue \XB item sets are frequent. 
+All \XBB Blue \XB item sets are frequent.
 
 \hrulefill
 ```
@@ -148,10 +148,10 @@ All \XBB Blue \XB item sets are frequent.
 ------------------------------------------------------------------------
 
 ```{=latex}
-We have the header table and ordered sets as follows: 
+We have the header table and ordered sets as follows:
 
 \begin{center}
-\begin{tabular}{|m{1.25cm}||m{2cm}|} 
+\begin{tabular}{|m{1.25cm}||m{2cm}|}
     \hline
     Item & Frequency \\
     \hline
@@ -166,7 +166,7 @@ We have the header table and ordered sets as follows:
     E & 2 \\
     \hline
 \end{tabular}
-\begin{tabular}{|m{1.25cm}||m{2.5cm}|} 
+\begin{tabular}{|m{1.25cm}||m{2.5cm}|}
     \hline
     TID & Ordered Set \\
     \hline
@@ -191,7 +191,7 @@ We have the header table and ordered sets as follows:
 \end{tabular}
 \end{center}
 
-The growth tree can the be visualized as follows: 
+The growth tree can the be visualized as follows:
 
 \begin{center}
 \begin{tikzpicture}

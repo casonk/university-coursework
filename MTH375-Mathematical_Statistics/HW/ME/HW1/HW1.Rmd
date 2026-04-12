@@ -30,7 +30,7 @@ standalone: true
 ```
 
 ```{=latex}
-\vfill 
+\vfill
     \underline{Key Concepts}:  Multivariate normal({$\bm{\mu},\Sigma)$, $\chi^2$ with $n$ df, $t$ with $n$ df, $F$ with $m,n$ df
 \newpage
 ```
@@ -50,15 +50,15 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 ```
 
 ```{=latex}
-1.  Suppose that $Z_1,Z_2$ are independent standard normal random variables.  
+1.  Suppose that $Z_1,Z_2$ are independent standard normal random variables.
 
 \noindent Let $Y_1=Z_1-2Z_2$, $Y_2=Z_1-Z_2$.
 
-\hrulefill 
+\hrulefill
 ```
 
 ```{=latex}
-(a)  Find the joint pdf $f_{Y_1,Y_2}(y_1,y_2)$. \ \ 
+(a)  Find the joint pdf $f_{Y_1,Y_2}(y_1,y_2)$. \ \
 
 You may do this either of two ways.  Either (i) use the change of variables theorem from MTH 372, OR   (ii)  evaluate the matrices  $\Sigma$ and $\Sigma^{-1}$ from class, then multiply the necessary matrices and vectors to obtain a formula for  $f_{Y_1,Y_2}(y_1,y_2)$. In either case, obtain a formula containing no matrices and no vectors.
 \vspace{10mm}
@@ -66,8 +66,8 @@ You may do this either of two ways.  Either (i) use the change of variables theo
 \textit{Solution}:
 
 \vspace{2.5mm}
-We have a system of equations, $\displaystyle 
-\bm{Y} = 
+We have a system of equations, $\displaystyle
+\bm{Y} =
 \begin{bmatrix}
 Y_{1} \\
 Y_{2}
@@ -79,7 +79,7 @@ Y_{2}
 \begin{bmatrix}
 Z_{1} \\
 Z_{2}
-\end{bmatrix} + 
+\end{bmatrix} +
 \begin{bmatrix}
 0 \\
 0
@@ -87,7 +87,7 @@ Z_{2}
 $.
 \vspace{5mm}
 \\
-We can solve for $ \displaystyle 
+We can solve for $ \displaystyle
 \bm{\Sigma} = \bm{AA^{T}} =
 \begin{bmatrix}
 1 & -2 \\
@@ -96,7 +96,7 @@ We can solve for $ \displaystyle
 \begin{bmatrix}
 1 & 1 \\
 -2 & -1
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 5 & 3 \\
 3 & 2
@@ -104,26 +104,26 @@ We can solve for $ \displaystyle
 $.
 \vspace{5mm}
 \\
-We can now evaluate $ \displaystyle 
+We can now evaluate $ \displaystyle
 \bm{\Sigma}^{-1}.
 \vspace{5mm}
 \\
 \begin{bmatrix}
 5 & 3 & 1 & 0 \\
 3 & 2 & 0 & 1
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 10 & 6 & 2 & 0 \\
 3 & 2 & 0 & 1
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 1 & 0 & 2 & -3 \\
 3 & 2 & 0 & 1
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 1 & 0 & 2 & -3 \\
 0 & 2 & -6 & 10
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 1 & 0 & 2 & -3 \\
 0 & 1 & -3 & 5
@@ -131,8 +131,8 @@ We can now evaluate $ \displaystyle
 $.
 \vspace{5mm}
 \\
-Our solution yields $ \displaystyle 
-\bm{\Sigma}^{-1} = 
+Our solution yields $ \displaystyle
+\bm{\Sigma}^{-1} =
 \begin{bmatrix}
 2 & -3 \\
 -3 & 5
@@ -143,29 +143,29 @@ $.
 The last piece we need to evaluate before solving for the joint pdf is $ \displaystyle ||\bm{\Sigma}|| $ .
 \vspace{5mm}
 \\
-$ \displaystyle 
-||\bm{\Sigma}|| = 
+$ \displaystyle
+||\bm{\Sigma}|| =
 \left|\left|
 \begin{bmatrix}
 5 & 3 \\
 3 & 2
 \end{bmatrix}
-\right|\right| = 
+\right|\right| =
 |10 -9| = |1|=1
 $.
 \vspace{5mm}
 \\
-We can now solve for $ \displaystyle f_{Y_1,Y_2}(y_1,y_2) = 
-\frac{e^{-\frac{(\bm{y-\mu)}^{T}\bm{\Sigma}^{-1}(\bm{y-\mu)}}{2}}}{(2\pi)^{\frac{n}{2}}\sqrt{||\bm{\Sigma}||}} = 
-\frac{e^{-\frac{(\bm{y)}^{T}\bm{\Sigma}^{-1}(\bm{y)}}{2}}}{(2\pi)^{\frac{2}{2}}\sqrt{1}} = 
+We can now solve for $ \displaystyle f_{Y_1,Y_2}(y_1,y_2) =
+\frac{e^{-\frac{(\bm{y-\mu)}^{T}\bm{\Sigma}^{-1}(\bm{y-\mu)}}{2}}}{(2\pi)^{\frac{n}{2}}\sqrt{||\bm{\Sigma}||}} =
+\frac{e^{-\frac{(\bm{y)}^{T}\bm{\Sigma}^{-1}(\bm{y)}}{2}}}{(2\pi)^{\frac{2}{2}}\sqrt{1}} =
 \frac{e^{-\frac{(\bm{y)}^{T}\bm{\Sigma}^{-1}(\bm{y)}}{2}}}{2\pi}
 $.
 \vspace{5mm}
 \\
-$\displaystyle 
-\bm{y}^{T}\bm{\Sigma}^{-1}\bm{y} = 
+$\displaystyle
+\bm{y}^{T}\bm{\Sigma}^{-1}\bm{y} =
 \begin{bmatrix}
-y_{1} & y_{2} 
+y_{1} & y_{2}
 \end{bmatrix}
 \begin{bmatrix}
 2 & -3 \\
@@ -174,14 +174,14 @@ y_{1} & y_{2}
 \begin{bmatrix}
 y_{1} \\
 y_{2}
-\end{bmatrix} = 
+\end{bmatrix} =
 \begin{bmatrix}
 2y_{1} - 3y_{2} & -3y_{1} + 5y_{2}
 \end{bmatrix}
 \begin{bmatrix}
 y_{1} \\
 y_{2}
-\end{bmatrix} 
+\end{bmatrix}
 $.
 \vspace{5mm}
 \\
@@ -207,9 +207,9 @@ $
 \textit{Solution}:
 
 \vspace{2.5mm}
-We have one equation, $\displaystyle 
-\bm{Y} = 
-Y_{2} = 
+We have one equation, $\displaystyle
+\bm{Y} =
+Y_{2} =
 A\bm{Z} + \bm{\mu} =
 \begin{bmatrix}
 1 & -1
@@ -217,7 +217,7 @@ A\bm{Z} + \bm{\mu} =
 \begin{bmatrix}
 Z_{1} \\
 Z_{2}
-\end{bmatrix} + 
+\end{bmatrix} +
 \begin{bmatrix}
 0 \\
 0
@@ -226,21 +226,21 @@ Z_{2}
 $.
 \vspace{5mm}
 \\
-We can solve for $ \displaystyle 
+We can solve for $ \displaystyle
 \bm{\Sigma} = \bm{AA^{T}} =
 \begin{bmatrix}
 1 & -1
 \end{bmatrix}
 \begin{bmatrix}
 1 \\
--1 
-\end{bmatrix} = 
+-1
+\end{bmatrix} =
 2 = \bm{\Sigma}.
 $
 \vspace{5mm}
 \\
-We can now evaluate $ \displaystyle 
-\bm{\Sigma}^{-1} 
+We can now evaluate $ \displaystyle
+\bm{\Sigma}^{-1}
 = \frac{1}{2}.
 $
 \vspace{5mm}
@@ -248,15 +248,15 @@ $
 The last piece we need to evaluate before solving for the joint pdf is $ \displaystyle ||\bm{\Sigma}|| = 2 $.
 \vspace{5mm}
 \\
-We can now solve for $ \displaystyle f_{Y_2}(y_2) = 
-\frac{e^{-\frac{(\bm{y-\mu)}^{T}\bm{\Sigma}^{-1}(\bm{y-\mu)}}{2}}}{(2\pi)^{\frac{n}{2}}\sqrt{||\bm{\Sigma}||}} = 
-\frac{e^{-\frac{(\bm{y)}^{T}\bm{\Sigma}^{-1}(\bm{y)}}{2}}}{(2\pi)^{\frac{1}{2}}\sqrt{2}} = 
+We can now solve for $ \displaystyle f_{Y_2}(y_2) =
+\frac{e^{-\frac{(\bm{y-\mu)}^{T}\bm{\Sigma}^{-1}(\bm{y-\mu)}}{2}}}{(2\pi)^{\frac{n}{2}}\sqrt{||\bm{\Sigma}||}} =
+\frac{e^{-\frac{(\bm{y)}^{T}\bm{\Sigma}^{-1}(\bm{y)}}{2}}}{(2\pi)^{\frac{1}{2}}\sqrt{2}} =
 \frac{e^{-\frac{(\bm{y)}^{T}\bm{\Sigma}^{-1}(\bm{y)}}{2}}}{\sqrt{2}\sqrt{2\pi}}.
 $
 \vspace{5mm}
 \\
-$\displaystyle 
-\bm{y}^{T}\bm{\Sigma}^{-1}\bm{y} = 
+$\displaystyle
+\bm{y}^{T}\bm{\Sigma}^{-1}\bm{y} =
 y_{2}\frac{1}{2}y_{2} = \frac{y_{2}^{2}}{2}.
 $
 \vspace{5mm}
@@ -276,23 +276,23 @@ $
 \textit{Solution}:
 
 \vspace{2.5mm}
-$ \displaystyle 
-f_{Y_1|Y_2}(y_1|y_2) = \frac{f_{Y_1,Y_2}(y_1,y_2)}{f_{Y_2}(y_2)} = 
-\frac{\frac{1}{2\pi}\exp\left(\frac{-2y_{1}^{2} + 6y_{1}y_{2} - 5y_{2}^{2}}{2}\right)}{\frac{1}{\sqrt{2}\sqrt{2\pi}}\exp\left({\frac{-y_{2}^{2}}{4}}\right)} = 
+$ \displaystyle
+f_{Y_1|Y_2}(y_1|y_2) = \frac{f_{Y_1,Y_2}(y_1,y_2)}{f_{Y_2}(y_2)} =
+\frac{\frac{1}{2\pi}\exp\left(\frac{-2y_{1}^{2} + 6y_{1}y_{2} - 5y_{2}^{2}}{2}\right)}{\frac{1}{\sqrt{2}\sqrt{2\pi}}\exp\left({\frac{-y_{2}^{2}}{4}}\right)} =
 \frac{\sqrt{2}\exp\left(\frac{-2y_{1}^{2} + 6y_{1}y_{2} - 5y_{2}^{2}}{2}\right)}{\sqrt{2\pi}\exp\left({\frac{-y_{2}^{2}}{4}}\right)}.
 \vspace{5mm}
 \\ =
-\frac{\sqrt{2}\exp\left(\frac{-4y_{1}^{2} + 12y_{1}y_{2} - 10y_{2}^{2}}{4} - \frac{-y_{2}^{2}}{4}\right)}{\sqrt{2\pi}} = 
+\frac{\sqrt{2}\exp\left(\frac{-4y_{1}^{2} + 12y_{1}y_{2} - 10y_{2}^{2}}{4} - \frac{-y_{2}^{2}}{4}\right)}{\sqrt{2\pi}} =
 \frac{\sqrt{2}\exp\left(\frac{-4y_{1}^{2} + 12y_{1}y_{2} - 9y_{2}^{2}}{4} \right)}{\sqrt{2\pi}}.
 \vspace{5mm}
 \\
-f_{Y_1|Y_2}(y_1|y_2 = 1) = \frac{f_{Y_1,Y_2}(y_1,y_2 = 1)}{f_{Y_2}(y_2 = 1)} = 
-\frac{\sqrt{2}\exp\left(\frac{-4y_{1}^{2} + 12y_{1}(1) - 9(1)^{2}}{4} \right)}{\sqrt{2\pi}} = 
+f_{Y_1|Y_2}(y_1|y_2 = 1) = \frac{f_{Y_1,Y_2}(y_1,y_2 = 1)}{f_{Y_2}(y_2 = 1)} =
+\frac{\sqrt{2}\exp\left(\frac{-4y_{1}^{2} + 12y_{1}(1) - 9(1)^{2}}{4} \right)}{\sqrt{2\pi}} =
 \frac{\sqrt{2}\exp\left(\frac{-4y_{1}^{2} + 12y_{1} - 9}{4} \right)}{\sqrt{2\pi}}.
 \vspace{5mm}
 \\ =
-\frac{\sqrt{2}\exp\left(-(\frac{1}{2})(\frac{4y_{1}^{2} - 12y_{1} + 9}{2}) \right)}{\sqrt{2\pi}} = 
-\frac{\sqrt{2}\exp\left(-(\frac{1}{2})(2y_{1}^{2} - 6y_{1} + 4.5) \right)}{\sqrt{2\pi}} = 
+\frac{\sqrt{2}\exp\left(-(\frac{1}{2})(\frac{4y_{1}^{2} - 12y_{1} + 9}{2}) \right)}{\sqrt{2\pi}} =
+\frac{\sqrt{2}\exp\left(-(\frac{1}{2})(2y_{1}^{2} - 6y_{1} + 4.5) \right)}{\sqrt{2\pi}} =
 \frac{\sqrt{2}\exp\left(-(y_{1}^{2} - 3y_{1} + 2.25) \right)}{\sqrt{2\pi}}.
 \vspace{5mm}
 \\ =
@@ -304,8 +304,8 @@ It is now worthwhile to considered the pdf of Random Variable $ X \thicksim N(\m
 \\ $ \displaystyle
 f_{X}(x) = \frac{1}{\sigma\sqrt{2\pi}}\exp\left(-\frac{1}{2\sigma^2}(x-\mu)^2\right) $.
 \vspace{5mm}
-\\ 
-Under close inspection, we can see that our above distribution for $ f_{Y_1|Y_2}(y_1|y_2=1) $ 
+\\
+Under close inspection, we can see that our above distribution for $ f_{Y_1|Y_2}(y_1|y_2=1) $
 is normal, taking $\displaystyle \sigma = \frac{1}{\sqrt{2}}$, $\displaystyle \sigma^2 = \frac{1}{2}$, and $\displaystyle \mu = 1.5$.
 
 ```
@@ -317,9 +317,9 @@ is normal, taking $\displaystyle \sigma = \frac{1}{\sqrt{2}}$, $\displaystyle \s
 ```
 
 ```{=latex}
-2.  Suppose $Z_1,Z_2,\ldots,Z_6$ are independent standard normal random variables.   
+2.  Suppose $Z_1,Z_2,\ldots,Z_6$ are independent standard normal random variables.
 
-\hrulefill 
+\hrulefill
 
 \vspace{5mm}
 ```
@@ -392,18 +392,18 @@ We can see here that $ a = 0.0 $ and $ b = 16.81189 $ is one solution.
 Let $\displaystyle C = \frac{Z_1}{\sqrt{Z^2_2+Z^2_3+\cdots+Z^2_6}} $.
 
 \vspace{2.5mm}
-We will leverage the following two points to solve this problem: 
+We will leverage the following two points to solve this problem:
 \vspace{2.5mm}
 \begin{itemize}
   \item $\displaystyle C\sqrt{5} = \frac{Z_1\sqrt{6}}{\sqrt{Z^2_2+Z^2_3+\cdots+Z^2_6}} \thicksim T_5$.
   \vspace{2.5mm}
-  \item $\displaystyle P\left( -a < \frac{Z_1}{\sqrt{Z^2_2+Z^2_3+\cdots+Z^2_6}} < a \right) = 
+  \item $\displaystyle P\left( -a < \frac{Z_1}{\sqrt{Z^2_2+Z^2_3+\cdots+Z^2_6}} < a \right) =
   P\left( -a\sqrt{5} < \frac{Z_1\sqrt{5}}{\sqrt{Z^2_2+Z^2_3+\cdots+Z^2_6}} < a\sqrt{5} \right)$.
 \end{itemize}
 \vspace{5mm}
 We now wish to have probabilities for $ -a\sqrt{5} $ corresponding to $ 0.005 $ and $ a\sqrt{5} $ corresponding to $ 0.995 $.
 
-In particular, we will solve $\displaystyle P\left( -a\sqrt{5} < T_5 < a\sqrt{5} \right) = 0.99$. 
+In particular, we will solve $\displaystyle P\left( -a\sqrt{5} < T_5 < a\sqrt{5} \right) = 0.99$.
 \vspace{5mm}
 ```
 
@@ -432,13 +432,13 @@ We can see here that $ a = 1.803229 $ is the solution.
 Let $\displaystyle D = \frac{Z^2_1+Z^2_2+Z^2_3+Z^2_4}{Z^2_5+Z^2_6} $.
 
 \vspace{2.5mm}
-We will leverage the following two points to solve this problem: 
+We will leverage the following two points to solve this problem:
 \vspace{2.5mm}
 \begin{itemize}
-  \item $\displaystyle \frac{D}{2} = \frac{1}{2} \cdot \frac{Z^2_1+Z^2_2+Z^2_3+Z^2_4}{Z^2_5+Z^2_6} 
+  \item $\displaystyle \frac{D}{2} = \frac{1}{2} \cdot \frac{Z^2_1+Z^2_2+Z^2_3+Z^2_4}{Z^2_5+Z^2_6}
   = \frac{2\chi_4}{4\chi_2} \thicksim F_{4,2}$.
   \vspace{2.5mm}
-  \item $\displaystyle P\left( a < \frac{Z^2_1+Z^2_2+Z^2_3+Z^2_4}{Z^2_5+Z^2_6} < b \right) = 
+  \item $\displaystyle P\left( a < \frac{Z^2_1+Z^2_2+Z^2_3+Z^2_4}{Z^2_5+Z^2_6} < b \right) =
   P\left( \frac{a}{2} < \frac{1}{2} \cdot \frac{Z^2_1+Z^2_2+Z^2_3+Z^2_4}{Z^2_5+Z^2_6} < \frac{b}{2} \right)$.
 \end{itemize}
 \vspace{5mm}
@@ -446,7 +446,7 @@ Let us make the generalizing assumption $ a = 0$.
 
 We now wish to have probabilities for $ a $ corresponding to $ 0.0 $ and $ b $ corresponding to $ 0.99 $.
 
-In particular, we will solve $\displaystyle P\left( 0 < F_{4,2} < \frac{b}{2} \right) = 0.99$. 
+In particular, we will solve $\displaystyle P\left( 0 < F_{4,2} < \frac{b}{2} \right) = 0.99$.
 \vspace{5mm}
 ```
 
@@ -470,19 +470,19 @@ We can see here that $ a = 0.0 $ and $ b = 198.4987 $ is one solution.
 ```{=latex}
 % https://online.stat.psu.edu/stat414/lesson/26/26.3
 
-3.  Let $X_1,X_2,\ldots,X_8$ be independent normal($\mu,\sigma^2$)  random variables, 
+3.  Let $X_1,X_2,\ldots,X_8$ be independent normal($\mu,\sigma^2$)  random variables,
 
 \noindent $\displaystyle \overline{X} = \frac{X_1+X_2+\ldots+X_8}{8}$, and $\displaystyle S^2 = \frac17\sum_{i=1}^8 (X_i- \overline{X})^2$.
 
-Find a number $a$ such that $\displaystyle  P\left( -a<  \frac{\overline{X} - \mu}{S}  <a\right) =.99$. 
+Find a number $a$ such that $\displaystyle  P\left( -a<  \frac{\overline{X} - \mu}{S}  <a\right) =.99$.
 
-\hrulefill 
+\hrulefill
 \vspace{10mm}
 \\
 \textit{Solution}:
 
 \vspace{2.5mm}
-We will leverage the following from class in this solution... 
+We will leverage the following from class in this solution...
 \vspace{2.5mm}
 \begin{itemize}
   \item $ \displaystyle \overline{X} \thicksim N(\mu, \frac{\sigma^2}{n}) $.
@@ -495,29 +495,29 @@ We will leverage the following from class in this solution...
 
 Letting $ \displaystyle Y = \frac{\overline{X} - \mu}{S} $.
 
-Under close inspection, for arbitrary $n$, we can see the following... 
+Under close inspection, for arbitrary $n$, we can see the following...
 \vspace{2.5mm}
 \\
-$ \displaystyle 
-Y \cdot \sqrt{n} = 
-\frac{\overline{X} - \mu}{\color{purple}S\color{black}} \cdot \sqrt{n} \cdot \frac{\color{purple}\sigma}{\color{black}\sigma} \cdot \frac{\color{blue}\sqrt{n-1}}{\color{purple}\sqrt{n-1}\color{black}} = 
-\frac{(\overline{X} - \mu)\sqrt{n}}{\sigma} \cdot \color{purple} \frac{\sqrt{\sigma^2}}{\sqrt{S^2}\sqrt{n-1}} \color{black} \cdot \color{blue} \frac{\sqrt{n-1}}{1} \color{black} \thicksim 
-Z \cdot \frac{\color{blue}\sqrt{n-1}\color{black}}{\color{purple}\sqrt{\chi_{n-1}^{2}}\color{black}} \thicksim 
+$ \displaystyle
+Y \cdot \sqrt{n} =
+\frac{\overline{X} - \mu}{\color{purple}S\color{black}} \cdot \sqrt{n} \cdot \frac{\color{purple}\sigma}{\color{black}\sigma} \cdot \frac{\color{blue}\sqrt{n-1}}{\color{purple}\sqrt{n-1}\color{black}} =
+\frac{(\overline{X} - \mu)\sqrt{n}}{\sigma} \cdot \color{purple} \frac{\sqrt{\sigma^2}}{\sqrt{S^2}\sqrt{n-1}} \color{black} \cdot \color{blue} \frac{\sqrt{n-1}}{1} \color{black} \thicksim
+Z \cdot \frac{\color{blue}\sqrt{n-1}\color{black}}{\color{purple}\sqrt{\chi_{n-1}^{2}}\color{black}} \thicksim
 T_{n-1} $.
 
 \vspace{2.5mm}
-We will thus leverage the following two points to solve this problem: 
+We will thus leverage the following two points to solve this problem:
 \vspace{2.5mm}
 \begin{itemize}
   \item $\displaystyle Y\sqrt{8} = \frac{(\overline{X} - \mu)\sqrt{8}}{\sigma} \cdot \color{purple} \frac{\sqrt{\sigma^2}}{\sqrt{S^2}\sqrt{7}} \color{black} \cdot \color{blue} \frac{\sqrt{7}}{1} \color{black} \thicksim Z \cdot \frac{\color{blue}\sqrt{7}\color{black}}{\color{purple}\sqrt{\chi_{7}^{2}}\color{black}} \thicksim  T_7$.
   \vspace{2.5mm}
-  \item $\displaystyle P\left( -a < \frac{\overline{X} - \mu}{S} < a \right) = 
+  \item $\displaystyle P\left( -a < \frac{\overline{X} - \mu}{S} < a \right) =
   P\left( -a\sqrt{8} < \frac{(\overline{X} - \mu)\sqrt{8}}{\sigma} \cdot \color{purple} \frac{\sqrt{\sigma^2}}{\sqrt{S^2}\sqrt{7}} \color{black} \cdot \color{blue} \frac{\sqrt{7}}{1} \color{black} < a\sqrt{8} \right)$.
 \end{itemize}
 \vspace{5mm}
 We now wish to have probabilities for $ -a\sqrt{8} $ corresponding to $ 0.005 $ and $ a\sqrt{8} $ corresponding to $ 0.995 $.
 
-In particular, we will solve $\displaystyle P\left( -a\sqrt{8} < T_7 < a\sqrt{8} \right) = 0.99$. 
+In particular, we will solve $\displaystyle P\left( -a\sqrt{8} < T_7 < a\sqrt{8} \right) = 0.99$.
 \vspace{5mm}
 ```
 
@@ -537,4 +537,3 @@ We can see here that $ a = 1.237254 $ is the solution.
 ```{=latex}
 \newpage
 ```
-

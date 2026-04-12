@@ -51,7 +51,7 @@ Let us first load in the data...
 
 ```{python}
 # load in the data...
-nums = [13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25, 
+nums = [13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25,
         25, 30, 33, 33, 35, 35, 35, 35, 36, 40, 45, 46, 52, 70]
 df1 = pd.DataFrame()
 df1['nums'] = nums
@@ -67,7 +67,7 @@ df1
 
 #### a.) Use smoothing by bin means to smooth the above data, using a bin depth of 3. Illustrate your steps. Comment on the effect of this technique for the given data. *(5 points)*
 
---- 
+---
 
 ```{python}
 # length of data.
@@ -219,7 +219,7 @@ def min_max_mapper(np_array, new_min, new_max):
     mx = np_array.max()
     r = mx - mn
     a = (np_array - mn) / r
-    new_r = new_max - new_min 
+    new_r = new_max - new_min
     return (a * new_r) + new_min
 
 # Test with data.
@@ -244,17 +244,17 @@ Solution writted in \XBB python \XB dependent on \XBB numpy \XB.
 ```{python}
 # load in the data...
 table1 = {
-    'department' : ['sales', 'sales', 'sales', 'systems', 
-                    'systems', 'systems', 'systems', 'marketing', 
+    'department' : ['sales', 'sales', 'sales', 'systems',
+                    'systems', 'systems', 'systems', 'marketing',
                     'marketing', 'secretary', 'secretary'],
-    'age' : ['31_35', '26_30', '31_35', '21_25', 
-             '31_35', '26_30', '41_45', '36_40', 
+    'age' : ['31_35', '26_30', '31_35', '21_25',
+             '31_35', '26_30', '41_45', '36_40',
              '31_35', '46_50', '26_30'],
-    'salary' : ['46K_50K', '26K_30K', '31K_35K', '46K_50K', 
-                '66K_70K', '46K_50K', '66K_70K', '46K_50K', 
+    'salary' : ['46K_50K', '26K_30K', '31K_35K', '46K_50K',
+                '66K_70K', '46K_50K', '66K_70K', '46K_50K',
                 '41K_45K', '36K_40K', '26K_30K'],
-    'status' : ['senior', 'junior', 'junior', 'junior', 
-                'senior', 'junior', 'senior', 'senior', 
+    'status' : ['senior', 'junior', 'junior', 'junior',
+                'senior', 'junior', 'senior', 'senior',
                 'junior', 'senior', 'junior'],
     'count' : [30, 40, 40, 20, 5, 3, 3, 10, 4, 4, 6]
 }
@@ -274,7 +274,7 @@ def gainer(df, label, counts):
     total = df[counts].sum()
     print('{} total observations'.format(total))
     print()
-    
+
     # Find total observations per label.
     sum0 = pd.DataFrame(
         df.groupby(by=label)[counts].apply(
@@ -362,7 +362,7 @@ g2
 ```
 
 ```{=latex}
-As \XBB department \XB and \XBB age \XB have equal information gain we can use \XBB either \XB for the level 2 split. 
+As \XBB department \XB and \XBB age \XB have equal information gain we can use \XBB either \XB for the level 2 split.
 
 \hrulefill
 ```
@@ -404,8 +404,8 @@ As \XBB department \XB and \XBB age \XB have equal information gain we can use \
     \end{tikzpicture}
 
     Tree 1: Level 2 Split on Department
-    
-    
+
+
     \begin{tikzpicture}[scale=2.75]
         \draw (0,0) circle (1);
         \draw (-2,-2) circle (1);
@@ -429,9 +429,9 @@ As \XBB department \XB and \XBB age \XB have equal information gain we can use \
         \node [red] at (-2,-6) {$junior$};
         \node [red] at (2,-6) {$senior$};
     \end{tikzpicture}
-    
+
     Tree 2: Level 2 Split on Age
-    
+
 \end{center}
 
 ```

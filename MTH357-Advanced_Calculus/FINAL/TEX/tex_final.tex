@@ -42,15 +42,15 @@
 \label{sec: Problem 1}
 
 \noindent
-The velocity field of a fluid with density $ \rho = 400\ \tfrac{kg}{m^3} $ 
-is given by $ \textbf{F}(x,y,z) = \left<1-x,-y,-z-1\right> $ $ \tfrac{m}{s} $. 
-Let $ T $ be the polyhedral region with vertices 
-$ (0,0,0) $, $ (1,0,0) $, $ (0,1,0) $, and $ (0,0,1) $.  $ S $ is the boundary of $ T $. \\ 
-Compute $ \displaystyle \iint \limits_{S} \rho \textbf{F} \cdot \textbf{n}\ dA $ 
+The velocity field of a fluid with density $ \rho = 400\ \tfrac{kg}{m^3} $
+is given by $ \textbf{F}(x,y,z) = \left<1-x,-y,-z-1\right> $ $ \tfrac{m}{s} $.
+Let $ T $ be the polyhedral region with vertices
+$ (0,0,0) $, $ (1,0,0) $, $ (0,1,0) $, and $ (0,0,1) $.  $ S $ is the boundary of $ T $. \\
+Compute $ \displaystyle \iint \limits_{S} \rho \textbf{F} \cdot \textbf{n}\ dA $
 by both using the divergence theorem and directly by considering the flux on each face. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -58,7 +58,7 @@ by both using the divergence theorem and directly by considering the flux on eac
 \textbf{First} we will first solve via the divergence theorem. \\
 
 \begin{itemize}
-    \item We know by the divergence theorem that 
+    \item We know by the divergence theorem that
     $ \displaystyle \rho \iint \limits_{S} \textbf{F} \cdot \textbf{n} \, dA = \rho \iiint \limits_{T} \nabla \cdot \textbf{F} \, dV $ \\
     \item We will first solve for $ \nabla \cdot \textbf{F} $. \\
     \subitem $ \displaystyle \nabla \cdot \textbf{F} = \left<\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right> \cdot \left<1-x,-y,-z-1\right> \tfrac{m}{s}= [(1-x)_{x} + (-y)_{y} + (-1-z)_{z}] \tfrac{m}{s} = [-1 -1 -1] \tfrac{m}{s} $ \\
@@ -116,13 +116,13 @@ by both using the divergence theorem and directly by considering the flux on eac
 \label{sec: Problem 2}
 
 \noindent
-Let $ f(x) = -x $ for $ 0 < x < 1 $.  
-Find the Fourier series for an \textbf{odd} periodic extension of $ f $, 
+Let $ f(x) = -x $ for $ 0 < x < 1 $.
+Find the Fourier series for an \textbf{odd} periodic extension of $ f $,
 listing the first 4 non-zero terms. \\
 Then, find the general solution to the ODE $ y'' + y = f(x) $. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -180,13 +180,13 @@ Then, find the general solution to the ODE $ y'' + y = f(x) $. \\
 \label{sec: Problem 3}
 
 \noindent
-Use the Fourier sine transform to derive the solution formula for the heat equation 
-$ u_{t} = c^2u_{xx} $ on the half-infinite bar ($ 0 \le x < \infty $) 
-with Dirichlet boundary condition $ u(0,t) = a $, for some constant $ a $, 
+Use the Fourier sine transform to derive the solution formula for the heat equation
+$ u_{t} = c^2u_{xx} $ on the half-infinite bar ($ 0 \le x < \infty $)
+with Dirichlet boundary condition $ u(0,t) = a $, for some constant $ a $,
 and initial condition $ u(x,0) = f(x) $. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -231,20 +231,20 @@ and initial condition $ u(x,0) = f(x) $. \\
 \label{sec: Problem 4}
 
 \noindent
-Once the temperature in an object reaches a steady state, 
-the heat equation becomes the Laplace equation.  
-Use separation of variables to derive the steady-state solution to the heat equation on the rectangle 
-$ R = [0,1] \times [0,1] $ with the following Dirichlet boundary conditions: 
-$ u = 0 $ on the left and right sides; 
-$ u = f(x) $ on the bottom; 
-$ u = g(x) $ on the top. 
-That is, solve $ u_{xx} + u_{yy} = 0 $ subject to 
-$ u(0,y) = u(1,y) = 0 $, $ u(x,0) = f(x) $, and $ u(x,1) = g(x) $. 
-You may assume the separation constant is negative: $ F'' / F = -k $, for $ k > 0 $. 
+Once the temperature in an object reaches a steady state,
+the heat equation becomes the Laplace equation.
+Use separation of variables to derive the steady-state solution to the heat equation on the rectangle
+$ R = [0,1] \times [0,1] $ with the following Dirichlet boundary conditions:
+$ u = 0 $ on the left and right sides;
+$ u = f(x) $ on the bottom;
+$ u = g(x) $ on the top.
+That is, solve $ u_{xx} + u_{yy} = 0 $ subject to
+$ u(0,y) = u(1,y) = 0 $, $ u(x,0) = f(x) $, and $ u(x,1) = g(x) $.
+You may assume the separation constant is negative: $ F'' / F = -k $, for $ k > 0 $.
 Finally, plot $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x)} $. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -254,12 +254,12 @@ Finally, plot $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x
 \begin{itemize}
     \item Assume $ \displaystyle u(x,y) = F(x)G(y) $ solve for the partial derivates \dots \\
     \subitem $ \displaystyle u_{x} = F'G $ \\
-    \subitem $ \displaystyle u_{xx} = F''G $ \\   
+    \subitem $ \displaystyle u_{xx} = F''G $ \\
     \subitem $ \displaystyle u_{y} = FG' $ \\
     \subitem $ \displaystyle u_{yy} = FG'' $ \\
     \item Substitute into the know equation $ \displaystyle u_{xx} + u_{yy} = 0 $. \\
     \subitem $ \displaystyle F''G + FG'' = 0 $ \\
-    \subitem $ \displaystyle F''G = - FG''$ \\ 
+    \subitem $ \displaystyle F''G = - FG''$ \\
     \subitem $ \displaystyle \frac{F''}{F} =  - \frac{G''}{G} = -k $ \\
     \subitem $ \displaystyle F'' = -kF \ ; \ G'' = kG $ \\
     \item Solve the ODEs\dots \\
@@ -285,7 +285,7 @@ Finally, plot $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x
     \subitem $ \displaystyle u(x,0) = f(x) = \sum \limits_{n=1}^{\infty} \sin{(n\pi x)}\Bigl[A_{n} + B_{n}\Bigr] $ \\
     \subitem $ \displaystyle A_{n} + B_{n} = 2 \int \limits_{0}^{1} f(x) \sin{(n\pi x)} \,dx $ \\
     \subitem $ \displaystyle A_{n} = 2 \int \limits_{0}^{1} f(x) \sin{(n\pi x)} \,dx - B_{n} $ \\
-    \subitem $ \displaystyle u(x,1) = g(x) = \sum \limits_{n=1}^{\infty} \sin{(n\pi x)}\Bigl[A_{n}e^{n\pi} + B_{n}e^{-n\pi}\Bigr] $ \\ 
+    \subitem $ \displaystyle u(x,1) = g(x) = \sum \limits_{n=1}^{\infty} \sin{(n\pi x)}\Bigl[A_{n}e^{n\pi} + B_{n}e^{-n\pi}\Bigr] $ \\
     \subitem $ \displaystyle A_{n}e^{n\pi} + B_{n}e^{-n\pi} = 2 \int \limits_{0}^{1} g(x) \sin{(n\pi x)} \,dx $ \\
     \subitem $ \displaystyle 2 \int \limits_{0}^{1} f(x) \sin{(n\pi x)}e^{n\pi} \,dx - B_{n}e^{n\pi} + B_{n}e^{-n\pi} = 2 \int \limits_{0}^{1} g(x) \sin{(n\pi x)} \,dx $ \\
     \subitem $ \displaystyle  B_{n}\Bigl[e^{-n\pi} - e^{n\pi}\Bigr] = 2 \int \limits_{0}^{1} g(x) \sin{(n\pi x)} \,dx - 2 \int \limits_{0}^{1} f(x) \sin{(n\pi x)}e^{n\pi} \,dx $ \\
@@ -322,14 +322,14 @@ Finally, plot $ u(x,y) $ when $ f(x) = \sin{(\pi x)} $ and $ g(x) = \sin{(3\pi x
 \label{sec: Problem 5}
 
 \noindent
-Let $ \displaystyle u(x,t) $ be the solution to $ \displaystyle u_{tt} = 16u_{xx} $ 
-for $ \displaystyle 0 \leq x \leq 2 $ and $ \displaystyle t \geq 0 $, 
-where: $ \displaystyle u(0,t) = 0 $, $ u(2,t) = 0 $, and $ \displaystyle u(x,0) = f(x) = 1 - |x-1| $ 
-for $ \displaystyle 0 \le x \le 2 $. Use D'Alembert's solution to find $ \displaystyle u(1,0.1) $ and $ \displaystyle u(1,0.6) $. 
+Let $ \displaystyle u(x,t) $ be the solution to $ \displaystyle u_{tt} = 16u_{xx} $
+for $ \displaystyle 0 \leq x \leq 2 $ and $ \displaystyle t \geq 0 $,
+where: $ \displaystyle u(0,t) = 0 $, $ u(2,t) = 0 $, and $ \displaystyle u(x,0) = f(x) = 1 - |x-1| $
+for $ \displaystyle 0 \le x \le 2 $. Use D'Alembert's solution to find $ \displaystyle u(1,0.1) $ and $ \displaystyle u(1,0.6) $.
 Be careful to consider that D'Alembert's solution uses the odd periodic extension of $ \displaystyle f(x) $. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -497,15 +497,15 @@ Be careful to consider that D'Alembert's solution uses the odd periodic extensio
 \label{sec: Problem 6}
 
 \noindent
-Find the general solution of $ \displaystyle u_{xx} - 3u_{xy} + 2u_{yy} = 0 $ using the  the method of characteristics: 
-let $ \displaystyle v = y + 2x $ and $ \displaystyle w = y + x $; 
-define $ \displaystyle U(v,w) $ to be $ \displaystyle U(v,w) = U(y + 2x,y + x) = u(x,y) $; 
-derive and solve a PDE for $ \displaystyle U(v,w) $; 
-convert back to $ \displaystyle u(x,y) $. 
+Find the general solution of $ \displaystyle u_{xx} - 3u_{xy} + 2u_{yy} = 0 $ using the  the method of characteristics:
+let $ \displaystyle v = y + 2x $ and $ \displaystyle w = y + x $;
+define $ \displaystyle U(v,w) $ to be $ \displaystyle U(v,w) = U(y + 2x,y + x) = u(x,y) $;
+derive and solve a PDE for $ \displaystyle U(v,w) $;
+convert back to $ \displaystyle u(x,y) $.
 Use your solution to provide a non-trivial example of a solution. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 

@@ -41,19 +41,19 @@
 \label{sec: Problem 1}
 
 \noindent
-Find the Fourier integral representation of the solution, $ u(x,t) $, 
-to the heat equation on a metal bar of infinite length in both directions, 
+Find the Fourier integral representation of the solution, $ u(x,t) $,
+to the heat equation on a metal bar of infinite length in both directions,
 with arbitrary $ c $ and $ u(x,0) = f(x) = e^{-|x|} $. Simplify the inner integral. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
 \begin{itemize}
     \item Solve for $ \displaystyle A(p) = \dfrac{1}{\pi} \int_{-\infty}^{\infty} f(v)\cos{pv} \,dv $.
     \subitem $ \displaystyle A(p) = \dfrac{1}{\pi} \int_{-\infty}^{\infty} e^{-|x|}\cos{pv} \,dv $
-    \subitem $ \displaystyle A(p) = \dfrac{2}{\pi(p^2 + 1)} $ ; Integration in notebook. 
+    \subitem $ \displaystyle A(p) = \dfrac{2}{\pi(p^2 + 1)} $ ; Integration in notebook.
     \item Solve for $ \displaystyle B(p) = \dfrac{1}{\pi} \int_{-\infty}^{\infty} f(v)\sin{pv} \,dv $.
     \subitem $ \displaystyle B(p) = \dfrac{1}{\pi} \int_{-\infty}^{\infty} e^{-|x|}\sin{pv} \,dv $
     \subitem $ \displaystyle B(p) = 0 $ ; Integration in notebook.
@@ -69,11 +69,11 @@ with arbitrary $ c $ and $ u(x,0) = f(x) = e^{-|x|} $. Simplify the inner integr
 \label{sec: Problem 2}
 
 \noindent
-Use Mathematica to plot your solution from \#1 (with $ c = 1 $), 
+Use Mathematica to plot your solution from \#1 (with $ c = 1 $),
 plotting $ u(x,0) $, $ u(x,1) $, and $ u(x,2) $ on the same graph. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
@@ -91,20 +91,20 @@ plotting $ u(x,0) $, $ u(x,1) $, and $ u(x,2) $ on the same graph. \\
 \label{sec: Problem 3}
 
 \noindent
-Find the Fourier integral representation of the solution, $ u(x,t) $, 
-to the heat equation on a half-infinite metal bar of, with arbitrary $ c $, 
-$ u(0,t) = 0 $, and $ u(x,0) = f(x) = Boole[0 < x < 2] (1 - (x - 1)^2) $. 
+Find the Fourier integral representation of the solution, $ u(x,t) $,
+to the heat equation on a half-infinite metal bar of, with arbitrary $ c $,
+$ u(0,t) = 0 $, and $ u(x,0) = f(x) = Boole[0 < x < 2] (1 - (x - 1)^2) $.
 Simplify the inner integral.  \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 
 \begin{itemize}
     \item Solve for $ \displaystyle \hat{f_{s}}(w) = \int_{0}^{\infty} f(p)\sin{wp} \,dp $.
     \subitem $ \displaystyle \hat{f_{s}}(w) = \int_{0}^{2} (1-(p-1)^2)\sin{wp} \,dp $
-    \subitem $ \displaystyle \hat{f_{s}}(w) = -\dfrac{4\sin{(w)}(w\cos{(w)} -\sin{(w)})}{w^{3}} $ ; Integration in notebook. 
+    \subitem $ \displaystyle \hat{f_{s}}(w) = -\dfrac{4\sin{(w)}(w\cos{(w)} -\sin{(w)})}{w^{3}} $ ; Integration in notebook.
     \item Substitute $ \hat{f_{s}}(w) $ into $ \displaystyle u(x,t) = \int_{0}^{\infty} \hat{f_{s}}(w) \sin{(wx)} e^{-c^2w^2t} \, dw $.
     \subitem $  \displaystyle u(x,t) = \dfrac{2}{\pi} \int_{0}^{\infty} -\dfrac{4\sin{(w)}(w\cos{(w)} -\sin{(w)})}{w^{3}} \sin{(wx)} e^{-c^2w^2t} \, dw $
     \item Simplify the solution.
@@ -120,11 +120,11 @@ Simplify the inner integral.  \\
 \label{sec: Problem 4}
 
 \noindent
-Use Mathematica to plot your solution from \#3 (with $ c = 1 $), 
+Use Mathematica to plot your solution from \#3 (with $ c = 1 $),
 plotting $ u(x,0) $ and $ u(x,0.5) $ on the same graph. \\
 \vspace{2.5mm}
 
-\hrule 
+\hrule
 
 \vspace{7.5mm}
 

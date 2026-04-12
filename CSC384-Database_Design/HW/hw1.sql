@@ -13,15 +13,15 @@ CREATE TABLE studentInfo (
 
 -- set timing on;
 
-/* 
-    #2 SELECT COUNT (*) FROM studentInfo; 
+/*
+    #2 SELECT COUNT (*) FROM studentInfo;
 
-    #3 SELECT COUNT(*) FROM studentInfo s1, studentInfo s2 
+    #3 SELECT COUNT(*) FROM studentInfo s1, studentInfo s2
     WHERE s1.studentNum=s2.studentNum;
 
-    #4 SELECT COUNT(*) FROM studentInfo s1 
+    #4 SELECT COUNT(*) FROM studentInfo s1
     WHERE s1.studentNum IN (SELECT studentNum FROM studentInfo);
 
     #5 UPDATE studentinfo SET marks = marks - 1
-    WHERE studentNum IN (SELECT studentNum FROM studentInfo);   
+    WHERE studentNum IN (SELECT studentNum FROM studentInfo);
 */

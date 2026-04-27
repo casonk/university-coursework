@@ -14,7 +14,7 @@
 
 ## Documentation and Specifications
 
-- Course-specific public syllabi, assignment pages, or reference datasets should be added here only when they become a durable part of the archive.
+- [Pillow (PIL Fork)](https://pillow.readthedocs.io/) — Python imaging library used by `scripts/gen_timeline.py` for course-timeline Gantt chart rendering.
 
 ## Notes
 

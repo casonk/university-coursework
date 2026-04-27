@@ -19,7 +19,7 @@ Templates cover the full PM lifecycle:
 
 ## Formats
 
-`.doc` / `.docx` — Word documents  
-`.xls` / `.xlsx` — Excel spreadsheets  
-`.ppt` — PowerPoint (cause/effect diagram, org chart, probability-impact matrix)  
+`.doc` / `.docx` — Word documents
+`.xls` / `.xlsx` — Excel spreadsheets
+`.ppt` — PowerPoint (cause/effect diagram, org chart, probability-impact matrix)
 `.mpp` — MS Project (project schedule)

@@ -6,16 +6,16 @@ skinparam defaultFontName Monospace
 skinparam linetype ortho
 entity "ACCOUNTS\nCSC384-Database_Design/HW/hw3.sql" as table_accounts #DCFCE7
 entity "BUSINESS\nCSC384-Database_Design/HW/hw3.sql" as table_business #DCFCE7
-entity "COMPANY\nCSC384-Database_Design/Project/Project.sql" as table_company #DCFCE7
-entity "CONTAINS\nCSC384-Database_Design/Project/Project.sql" as table_contains #DCFCE7
+entity "COMPANY\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_company #DCFCE7
+entity "CONTAINS\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_contains #DCFCE7
 entity "CUSTOMER\nCSC384-Database_Design/HW/hw3.sql" as table_customer #DCFCE7
 entity "CUSTOMERS\nCSC384-Database_Design/HW/hw3.sql" as table_customers #DCFCE7
 entity "EMPLOYEE\nCSC384-Database_Design/HW/hw3.sql" as table_employee #DCFCE7
-entity "HASA\nCSC384-Database_Design/Project/Project.sql" as table_hasa #DCFCE7
-entity "HISTORY\nCSC384-Database_Design/Project/Project.sql" as table_history #DCFCE7
+entity "HASA\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_hasa #DCFCE7
+entity "HISTORY\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_history #DCFCE7
 entity "INCLUDES\nCSC384-Database_Design/HW/hw3.sql" as table_includes #DCFCE7
 entity "LEAGUE\nCSC384-Database_Design/HW/hw3.sql" as table_league #DCFCE7
-entity "LIKELYTO\nCSC384-Database_Design/Project/Project.sql" as table_likelyto #DCFCE7
+entity "LIKELYTO\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_likelyto #DCFCE7
 entity "Laptop\n3 schema files\nexamples: CSC384-Database_Design/HW/CK-HW4.sql, CSC384-Database_Design/HW/CK-HW5.sql" as table_laptop #DCFCE7
 entity "MARKETING\nCSC384-Database_Design/HW/hw3.sql" as table_marketing #DCFCE7
 entity "OWNS\nCSC384-Database_Design/HW/hw3.sql" as table_owns #DCFCE7
@@ -26,14 +26,14 @@ entity "PLAYER\nCSC384-Database_Design/HW/hw3.sql" as table_player #DCFCE7
 entity "PRODUCT\n2 schema files\nexamples: CSC384-Database_Design/HW/CK-HW4.sql, CSC384-Database_Design/HW/hw3.sql" as table_product #DCFCE7
 entity "Printer\n2 schema files\nexamples: CSC384-Database_Design/HW/CK-HW5.sql, CSC384-Database_Design/HW/CK-HW6.sql" as table_printer #DCFCE7
 entity "Product\n2 schema files\nexamples: CSC384-Database_Design/HW/CK-HW5.sql, CSC384-Database_Design/HW/CK-HW6.sql" as table_product_2 #DCFCE7
-entity "RELATEDTO\nCSC384-Database_Design/Project/Project.sql" as table_relatedto #DCFCE7
+entity "RELATEDTO\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_relatedto #DCFCE7
 entity "SALE\nCSC384-Database_Design/HW/hw3.sql" as table_sale #DCFCE7
-entity "SSEARCH\nCSC384-Database_Design/Project/Project.sql" as table_ssearch #DCFCE7
+entity "SSEARCH\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_ssearch #DCFCE7
 entity "STORES\nCSC384-Database_Design/HW/hw3.sql" as table_stores #DCFCE7
-entity "SUGGESTION\nCSC384-Database_Design/Project/Project.sql" as table_suggestion #DCFCE7
-entity "SUSER\nCSC384-Database_Design/Project/Project.sql" as table_suser #DCFCE7
-entity "Statements\nCSC384-Database_Design/Project/Project.sql" as table_statements #DCFCE7
-entity "TARGETS\nCSC384-Database_Design/Project/Project.sql" as table_targets #DCFCE7
+entity "SUGGESTION\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_suggestion #DCFCE7
+entity "SUSER\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_suser #DCFCE7
+entity "Statements\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_statements #DCFCE7
+entity "TARGETS\nCSC384-Database_Design/Project/konzer_cason_csc_384_project.sql" as table_targets #DCFCE7
 entity "TEAM\nCSC384-Database_Design/HW/hw3.sql" as table_team #DCFCE7
 entity "TECHNICAL\nCSC384-Database_Design/HW/hw3.sql" as table_technical #DCFCE7
 entity "WASAT\nCSC384-Database_Design/HW/hw3.sql" as table_wasat #DCFCE7

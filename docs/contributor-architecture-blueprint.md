@@ -55,7 +55,7 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m archility render ../../doc-r
 
 - `ECN360-International_Economics/`
 - `ECN370-Public_Finance/`
-- `ECN480-Quantatative_Methods_for_Public_Administration/`
+- `ECN480-Quantitative_Methods_for_Public_Administration/`
 
 ### `INB/` — 1 course directory
 

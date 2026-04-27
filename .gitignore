@@ -54,3 +54,6 @@ CLAUDE.md
 .tachometer/
 
 /REFS-LOCAL.md
+
+# Private transcripts & derived course data (local only)
+transcripts/

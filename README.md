@@ -25,7 +25,7 @@ A consolidated mono-repo of all university coursework, organized by course.
 |--------|-------|
 | [ECN360](./ECN360-International_Economics) | International Economics |
 | [ECN370](./ECN370-Public_Finance) | Public Finance |
-| [ECN480](./ECN480-Quantatative_Methods_for_Public_Administration) | Quantitative Methods for Public Administration |
+| [ECN480](./ECN480-Quantitative_Methods_for_Public_Administration) | Quantitative Methods for Public Administration |
 
 ## International Business
 

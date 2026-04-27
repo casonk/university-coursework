@@ -1,0 +1,7 @@
+@startuml packages_university-coursework
+set namespaceSeparator none
+top to bottom direction
+skinparam componentStyle rectangle
+rectangle "gen_timeline\n1 python file" as gen_timeline
+rectangle "rename_submissions\n1 python file" as rename_submissions
+@enduml

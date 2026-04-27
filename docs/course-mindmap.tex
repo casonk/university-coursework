@@ -1,0 +1,126 @@
+% Course curriculum mind map — University of Michigan-Flint
+% Compile: pdflatex course-mindmap.tex
+% Requires: TikZ + mindmap library (standard TeX Live install)
+
+\documentclass[tikz, border=2cm]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\definecolor{umblue}{HTML}{00274C}
+\definecolor{bsblue}{HTML}{1A237E}
+\definecolor{msblue}{HTML}{0D47A1}
+\definecolor{mthpurple}{HTML}{6A1B9A}
+\definecolor{csmblue}{HTML}{1565C0}
+\definecolor{ecngreen}{HTML}{2E7D32}
+\definecolor{csgray}{HTML}{283593}
+\definecolor{cisblue}{HTML}{0277BD}
+\definecolor{genbrown}{HTML}{5D4037}
+
+\begin{document}
+\begin{tikzpicture}[
+    mindmap,
+    every node/.style={concept, text=white, font=\sffamily, align=center,
+                       execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
+    concept color=umblue,
+    %% explicit grow= angles used per child — no grow cyclic
+    level 1/.append style={level distance=7cm},
+    level 2/.append style={level distance=5.5cm},
+]
+
+%% ── Root ────────────────────────────────────────────────────────────────────
+\node[minimum size=4cm, font=\sffamily\bfseries\normalsize] {
+    Cason Konzer\\[3pt]
+    \small University of\\Michigan-Flint
+}
+
+%% ── BS Mathematics (left) ────────────────────────────────────────────────────
+child[concept color=bsblue, grow=180] {
+    node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
+        BS Mathematics\\[2pt]
+        \tiny Applied Math Major\\
+        2017\,--\,2022 $\cdot$ GPA 3.95
+    }
+    %% Applied Mathematics sub-branch (upper-left)
+    child[concept color=mthpurple, grow=110] {
+        node[minimum size=3.2cm] {
+            \textbf{\small Applied Math}\\[3pt]
+            \tiny
+            MTH\,193 $\cdot$ MTH\,200\\
+            MTH\,357 $\cdot$ MTH\,372\\
+            MTH\,374 $\cdot$ MTH\,375\\
+            MTH\,377 $\cdot$ MTH\,385\\
+            MTH\,402 $\cdot$ MTH\,470
+        }
+    }
+    %% CS Courses sub-branch (left-upper)
+    child[concept color=csmblue, grow=160] {
+        node[minimum size=3.2cm] {
+            \textbf{\small CS Courses}\\[3pt]
+            \tiny
+            CSC\,122 $\cdot$ CSC\,127\\
+            CSC\,310 $\cdot$ CSC\,335\\
+            CSC\,382 $\cdot$ CSC\,384\\
+            CSC\,487
+        }
+    }
+    %% Economics & Business sub-branch (left-lower)
+    child[concept color=ecngreen, grow=210] {
+        node[minimum size=3.2cm] {
+            \textbf{\small Econ \& Business}\\[3pt]
+            \tiny
+            ECN\,202 $\cdot$ ECN\,360\\
+            ECN\,370 $\cdot$ ECN\,480\\
+            INB\,385
+        }
+    }
+    %% General Education sub-branch (lower-left)
+    child[concept color=genbrown, grow=255] {
+        node[minimum size=3.2cm] {
+            \textbf{\small General Ed}\\[3pt]
+            \tiny
+            EHS\,220 $\cdot$ EIM\,340\\
+            HCR\,107 $\cdot$ PHY\,245\\
+            PHS\,420 $\cdot$ PHL\,101
+        }
+    }
+}
+
+%% ── MS Computer Science (right) ──────────────────────────────────────────────
+child[concept color=msblue, grow=0] {
+    node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
+        MS Computer Science\\[2pt]
+        \tiny 2023\,--\,2024 $\cdot$ GPA 3.97
+    }
+    %% Information Systems sub-branch (upper-right)
+    child[concept color=cisblue, grow=72] {
+        node[minimum size=3.2cm] {
+            \textbf{\small Information Systems}\\[3pt]
+            \tiny
+            CIS\,517 $\cdot$ CIS\,562
+        }
+    }
+    %% Core CS sub-branch (straight right)
+    child[concept color=csgray, grow=0] {
+        node[minimum size=3.2cm] {
+            \textbf{\small Core CS}\\[3pt]
+            \tiny
+            CSC\,535 $\cdot$ CSC\,565\\
+            CSC\,570 $\cdot$ CSC\,575
+        }
+    }
+    %% Advanced Applications sub-branch (lower-right)
+    child[concept color=csgray!80!black, grow=-60] {
+        node[minimum size=3.2cm] {
+            \textbf{\small Advanced Apps}\\[3pt]
+            \tiny
+            CSC\,580 $\cdot$ CSC\,582\\
+            CSC\,592
+        }
+    }
+}
+;
+
+\end{tikzpicture}
+\end{document}

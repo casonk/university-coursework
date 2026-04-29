@@ -17,6 +17,10 @@
 \definecolor{csgray}{HTML}{283593}
 \definecolor{cisblue}{HTML}{0277BD}
 \definecolor{genbrown}{HTML}{5D4037}
+\definecolor{preunivgray}{HTML}{37474F}
+\definecolor{wstrteal}{HTML}{006064}
+\definecolor{occred}{HTML}{BF360C}
+\definecolor{hspurp}{HTML}{4A148C}
 
 \begin{document}
 \begin{tikzpicture}[
@@ -24,99 +28,155 @@
     every node/.style={concept, text=white, font=\sffamily, align=center,
                        execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
     concept color=umblue,
-    %% explicit grow= angles used per child — no grow cyclic
     level 1/.append style={level distance=7cm},
-    level 2/.append style={level distance=5.5cm},
+    level 2/.append style={level distance=6cm},
+    level 3/.append style={level distance=5.5cm},
+    %% Hide the root junction node
+    root concept/.append style={
+        fill=none, draw=none, text opacity=0,
+        minimum size=0pt, inner sep=0pt,
+        circular drop shadow/.style={}
+    },
 ]
 
-%% ── Root ────────────────────────────────────────────────────────────────────
-\node[minimum size=4cm, font=\sffamily\bfseries\normalsize] {
-    Cason Konzer\\[3pt]
-    \small University of\\Michigan-Flint
-}
+%% ── Root (invisible junction) ────────────────────────────────────────────────
+\node {}
 
-%% ── BS Mathematics (left) ────────────────────────────────────────────────────
-child[concept color=bsblue, grow=180] {
+%% ── BS Mathematics (upper-left) ──────────────────────────────────────────────
+%% MS CS is a child of BS Math to show the BS→MS progression.
+%% BS Math children fan from 113° (upper) to 245° (lower-left) plus
+%% MS CS at 52° (back toward upper-right).
+child[concept color=bsblue, grow=170] {
     node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
         BS Mathematics\\[2pt]
         \tiny Applied Math Major\\
         2017\,--\,2022 $\cdot$ GPA 3.95
     }
-    %% Applied Mathematics sub-branch (upper-left)
-    child[concept color=mthpurple, grow=110] {
-        node[minimum size=3.2cm] {
-            \textbf{\small Applied Math}\\[3pt]
+    child[concept color=mthpurple, grow=113] {
+        node[minimum size=4.2cm] {
+            \textbf{\small Applied Math}\\[2pt]
             \tiny
-            MTH\,193 $\cdot$ MTH\,200\\
-            MTH\,357 $\cdot$ MTH\,372\\
-            MTH\,374 $\cdot$ MTH\,375\\
-            MTH\,377 $\cdot$ MTH\,385\\
-            MTH\,402 $\cdot$ MTH\,470
+            MTH\,193 A+\quad MTH\,200 A\\
+            MTH\,357 A\quad MTH\,372 A-\\
+            MTH\,374 A+\quad MTH\,375 A\\
+            MTH\,377 A\quad MTH\,385 A\\
+            MTH\,402 A\quad MTH\,470 A\\[2pt]
+            {\scriptsize GPA 3.97}
         }
     }
-    %% CS Courses sub-branch (left-upper)
-    child[concept color=csmblue, grow=160] {
-        node[minimum size=3.2cm] {
-            \textbf{\small CS Courses}\\[3pt]
+    child[concept color=csmblue, grow=152] {
+        node[minimum size=3.9cm] {
+            \textbf{\small CS Courses}\\[2pt]
             \tiny
-            CSC\,122 $\cdot$ CSC\,127\\
-            CSC\,310 $\cdot$ CSC\,335\\
-            CSC\,382 $\cdot$ CSC\,384\\
-            CSC\,487
+            CSC\,122 A+\quad CSC\,127 A+\\
+            CSC\,310 A\quad CSC\,335 A+\\
+            CSC\,382 A+\quad CSC\,384 A+\\
+            CSC\,487 A+\\[2pt]
+            {\scriptsize GPA 4.00}
         }
     }
-    %% Economics & Business sub-branch (left-lower)
-    child[concept color=ecngreen, grow=210] {
-        node[minimum size=3.2cm] {
-            \textbf{\small Econ \& Business}\\[3pt]
+    child[concept color=ecngreen, grow=200] {
+        node[minimum size=3.6cm] {
+            \textbf{\small Econ \& Business}\\[2pt]
             \tiny
-            ECN\,202 $\cdot$ ECN\,360\\
-            ECN\,370 $\cdot$ ECN\,480\\
-            INB\,385
+            ECN\,202 A\quad ECN\,360 A+\\
+            ECN\,370 A+\quad ECN\,480 A+\\
+            INB\,385 A+\\[2pt]
+            {\scriptsize GPA 4.00}
         }
     }
-    %% General Education sub-branch (lower-left)
-    child[concept color=genbrown, grow=255] {
-        node[minimum size=3.2cm] {
-            \textbf{\small General Ed}\\[3pt]
+    child[concept color=genbrown, grow=244] {
+        node[minimum size=3.7cm] {
+            \textbf{\small General Ed}\\[2pt]
             \tiny
-            EHS\,220 $\cdot$ EIM\,340\\
-            HCR\,107 $\cdot$ PHY\,245\\
-            PHS\,420 $\cdot$ PHL\,101
+            EHS\,220 B\quad EIM\,340 A+\\
+            HCR\,107 A\quad PHY\,245 A+\\
+            PHS\,420 A\quad PHL\,101 A+\\[2pt]
+            {\scriptsize GPA 3.83}
+        }
+    }
+    %% MS CS: progression from BS Math, grows back upper-right
+    child[concept color=msblue, grow=52] {
+        node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
+            MS Computer\\Science\\[2pt]
+            \tiny 2023\,--\,2024 $\cdot$ GPA 3.97
+        }
+        child[concept color=cisblue, grow=78] {
+            node[minimum size=3.4cm] {
+                \textbf{\small Info Systems}\\[2pt]
+                \tiny
+                CIS\,517 A+\\
+                CIS\,562 A+\\[2pt]
+                {\scriptsize GPA 4.00}
+            }
+        }
+        child[concept color=csgray, grow=38] {
+            node[minimum size=3.6cm] {
+                \textbf{\small Core CS}\\[2pt]
+                \tiny
+                CSC\,535 A+\quad CSC\,565 A+\\
+                CSC\,570 A-\quad CSC\,575 A\\[2pt]
+                {\scriptsize GPA 3.93}
+            }
+        }
+        child[concept color=csgray!80!black, grow=-15] {
+            node[minimum size=3.4cm] {
+                \textbf{\small Advanced Apps}\\[2pt]
+                \tiny
+                CSC\,580 A+\quad CSC\,582 A+\\
+                CSC\,592 A\\[2pt]
+                {\scriptsize GPA 4.00}
+            }
         }
     }
 }
 
-%% ── MS Computer Science (right) ──────────────────────────────────────────────
-child[concept color=msblue, grow=0] {
-    node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
-        MS Computer Science\\[2pt]
-        \tiny 2023\,--\,2024 $\cdot$ GPA 3.97
+%% ── Pre-University Transfer Credits (bottom) ─────────────────────────────────
+%% grow=265 ≈ straight down — clearly separated from Gen Ed (244° off BS Math).
+%% Holly HS is a child of OCC (dual-enrollment relationship).
+child[concept color=preunivgray, grow=263] {
+    node[minimum size=3.5cm, font=\sffamily\bfseries\small] {
+        Pre-University\\[2pt]
+        \tiny
+        75 cr Transferred\\
+        WSTR / OCC / HS
     }
-    %% Information Systems sub-branch (upper-right)
-    child[concept color=cisblue, grow=72] {
-        node[minimum size=3.2cm] {
-            \textbf{\small Information Systems}\\[3pt]
+    child[concept color=wstrteal, grow=210, level distance=7.5cm] {
+        node[minimum size=5.2cm] {
+            \textbf{\small Westminster College}\\[2pt]
             \tiny
-            CIS\,517 $\cdot$ CIS\,562
+            CSC\,175\quad CSC\,1XX\\
+            CSC\,276\quad COM\,272\\
+            HUM\,2XX\quad MTH\,122\\
+            MTH\,1XX\quad MTH\,220\\
+            MTH\,222\quad MTH\,230\\
+            MTH\,3XX\quad PSY\,100\\
+            SOC\,215\quad SPN\,111\\[2pt]
+            52 cr\;Transferred\\[1pt]
+            {\scriptsize GPA 3.80}
         }
     }
-    %% Core CS sub-branch (straight right)
-    child[concept color=csgray, grow=0] {
-        node[minimum size=3.2cm] {
-            \textbf{\small Core CS}\\[3pt]
+    %% OCC: Holly HS is nested here to show dual-enrollment link
+    child[concept color=occred, grow=296] {
+        node[minimum size=4.0cm] {
+            \textbf{\small Oakland CC}\\[2pt]
             \tiny
-            CSC\,535 $\cdot$ CSC\,565\\
-            CSC\,570 $\cdot$ CSC\,575
+            BUS\,110\quad ECN\,201\\
+            EGR\,165\quad ENG\,112\\
+            MTH\,305\quad PHY\,243\\[2pt]
+            23 cr\;Transferred\\[1pt]
+            {\scriptsize GPA 3.62}
         }
-    }
-    %% Advanced Applications sub-branch (lower-right)
-    child[concept color=csgray!80!black, grow=-60] {
-        node[minimum size=3.2cm] {
-            \textbf{\small Advanced Apps}\\[3pt]
-            \tiny
-            CSC\,580 $\cdot$ CSC\,582\\
-            CSC\,592
+        %% Holly HS as child of OCC — dual-enrollment courses counted via OCC
+        child[concept color=hspurp, grow=345] {
+            node[minimum size=3.3cm] {
+                \textbf{\small Holly HS}\\[2pt]
+                \tiny
+                Grad 2017\\
+                GPA 3.739\\[2pt]
+                Dual Enroll\\
+                via OCC
+            }
         }
     }
 }

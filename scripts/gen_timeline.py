@@ -27,27 +27,34 @@ FONT_BOLD = "/usr/share/fonts/liberation-sans-fonts/LiberationSans-Bold.ttf"
 
 # ── Colors ────────────────────────────────────────────────────────────────────
 # Bright = courses with repo folders; _d = dimmed = no submitted work
+# wstr/occ/hs = transfer-institution bars (always no repo)
 C = {
-    "bg":       "#2B2B2B",
-    "hdr":      "#141414",
-    "lbl":      "#1E1E1E",
-    "stroke":   "#555555",
-    "font":     "#EEEEEE",
-    "grp_cs":   "#0C3361",
-    "grp_mt":   "#3A0D60",
-    "grp_ec":   "#0B431A",
-    "grp_gen":  "#3E2A1A",
-    "bar_ug":   "#1565C0",
-    "bar_ug_d": "#4A6FA5",
-    "bar_gr":   "#283593",
-    "bar_gr_d": "#3D4D80",
-    "bar_mt":   "#6A1B9A",
-    "bar_mt_d": "#7B4D9A",
-    "bar_ec":   "#2E7D32",
-    "bar_ec_d": "#4E7A52",
-    "bar_inb":  "#1B5E20",
-    "bar_inb_d":"#2E5E33",
-    "bar_gen":  "#546E7A",
+    "bg":        "#2B2B2B",
+    "hdr":       "#141414",
+    "lbl":       "#1E1E1E",
+    "stroke":    "#555555",
+    "font":      "#EEEEEE",
+    "grp_cs":    "#0C3361",
+    "grp_mt":    "#3A0D60",
+    "grp_ec":    "#0B431A",
+    "grp_gen":   "#3E2A1A",
+    "grp_wstr":  "#004D5C",
+    "grp_occ":   "#7F2700",
+    "grp_hs":    "#4A0E5C",
+    "bar_ug":    "#1565C0",
+    "bar_ug_d":  "#4A6FA5",
+    "bar_gr":    "#283593",
+    "bar_gr_d":  "#3D4D80",
+    "bar_mt":    "#6A1B9A",
+    "bar_mt_d":  "#7B4D9A",
+    "bar_ec":    "#2E7D32",
+    "bar_ec_d":  "#4E7A52",
+    "bar_inb":   "#1B5E20",
+    "bar_inb_d": "#2E5E33",
+    "bar_gen":   "#546E7A",
+    "bar_wstr":  "#0097A7",
+    "bar_occ":   "#F4511E",
+    "bar_hs":    "#8E24AA",
 }
 
 
@@ -56,10 +63,16 @@ def hex2rgb(h):
     return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
 
 
-def _bar_key(code, repo):
-    """Derive the color key from course code prefix and repo flag."""
-    prefix, num_str = code.split()
-    num = int(num_str)
+def _bar_key(code, repo, source="umf"):
+    """Derive the color key from course code, repo flag, and source institution."""
+    if source != "umf":
+        return f"bar_{source}"
+    parts = code.split()
+    prefix = parts[0]
+    try:
+        num = int(parts[1]) if len(parts) > 1 else 0
+    except ValueError:
+        return "bar_gen"
     if prefix in ("CSC", "CIS"):
         base = "bar_gr" if num >= 500 else "bar_ug"
     elif prefix == "MTH":
@@ -154,7 +167,7 @@ def generate_drawio(data):
             code  = course["code"]
             title = course["title"]
             col   = course["term"]
-            bkey  = _bar_key(code, course["repo"])
+            bkey  = _bar_key(code, course["repo"], course.get("source", "umf"))
 
             parts.append(_cell(f"{code} — {title}", _s_lbl(), LX, y, LABEL_W, ROW_H))
             for i in range(nc):
@@ -290,7 +303,7 @@ def render_png(data):
             code  = course["code"]
             title = course["title"]
             col   = course["term"]
-            bkey  = _bar_key(code, course["repo"])
+            bkey  = _bar_key(code, course["repo"], course.get("source", "umf"))
 
             rect(LX, y, LABEL_W, ROW_H, hex2rgb(C["lbl"]))
             lbl_text = f"{code} — {title}"

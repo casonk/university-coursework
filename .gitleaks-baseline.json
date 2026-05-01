@@ -1,0 +1,26 @@
+[
+ {
+  "RuleID": "portfolio-git-workspace-path",
+  "Description": "Hardcoded absolute path to local git workspace in config/code/scripts",
+  "StartLine": 9,
+  "EndLine": 9,
+  "StartColumn": 10,
+  "EndColumn": 25,
+  "Match": "/mnt/4tb-m2/git/",
+  "Secret": "/mnt/4tb-m2/git/",
+  "File": "scripts/rename_submissions.py",
+  "SymlinkFile": "",
+  "Commit": "d34dd431107c381d034c295c669a3e996679f08b",
+  "Link": "https://github.com/casonk/university-coursework/blob/d34dd431107c381d034c295c669a3e996679f08b/scripts/rename_submissions.py#L9",
+  "Entropy": 3.0778196,
+  "Author": "casonk",
+  "Email": "72440835+casonk@users.noreply.github.com",
+  "Date": "2026-04-27T01:06:57Z",
+  "Message": "refactor: standardize coursework file naming and folder structure\n\n- Rename 229 assignment files to konzer_cason_COURSE_type_N convention\n- Normalize Acalog PDF names to course-information.pdf across 23 courses\n- Fix folder casing: EXAM/Exams→Exam, FINAL→Final, Assignments→HW\n- Split MTH470 HW+EXAM into separate subdirectories\n- Normalize .PNG→.png for 32 files, update .tex references\n- Centralize LaTeX templates to _templates/latex/\n- Rename TeMpLaTeX→Templates, WorkShop→Workshop\n- Add course timeline generator and submission rename scripts\n- Add archility diagram renderings\n- Update course READMEs with catalog descriptions\n\nCo-authored-by: Copilot \u003c223556219+Copilot@users.noreply.github.com\u003e",
+  "Tags": [
+   "local-path",
+   "machine-specific"
+  ],
+  "Fingerprint": "d34dd431107c381d034c295c669a3e996679f08b:scripts/rename_submissions.py:portfolio-git-workspace-path:9"
+ }
+]

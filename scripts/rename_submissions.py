@@ -5,8 +5,9 @@ Also updates \\bibliography{} references inside .tex files whose .bib is being r
 
 import os
 import re
+from pathlib import Path
 
-BASE = "/mnt/4tb-m2/git/doc-repos/university-coursework"
+BASE = str(Path(__file__).parent.parent)
 
 
 def p(rel):

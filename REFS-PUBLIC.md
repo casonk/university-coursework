@@ -15,6 +15,8 @@
 ## Documentation and Specifications
 
 - [Pillow (PIL Fork)](https://pillow.readthedocs.io/) — Python imaging library used by `scripts/gen_timeline.py` for course-timeline Gantt chart rendering.
+- [pandas](https://pandas.pydata.org/docs/) — DataFrame library used by tracked data-mining coursework scripts.
+- [NumPy](https://numpy.org/doc/) — numerical-array library used by tracked data-mining coursework scripts.
 
 ## Notes
 

@@ -10,7 +10,7 @@
     <tspan x="40" y="148">pydeps produced no visible dependency graph for this target.</tspan>
     <tspan x="40" y="170">Detected only stdlib import roots, so the graph would otherwise appear blank.</tspan>
     <tspan x="40" y="192">Relative imports: none</tspan>
-    <tspan x="40" y="214">Stdlib imports: os, re</tspan>
+    <tspan x="40" y="214">Stdlib imports: os, pathlib, re</tspan>
     <tspan x="40" y="236">Other imports: none</tspan>
   </text>
 </svg>

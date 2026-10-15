@@ -29,3 +29,13 @@ This repository is an archival mono-repo of university coursework. Favor preserv
 - For LaTeX changes, run the course-appropriate compile command when practical.
 - For code changes, follow any instructions documented in the affected course directory.
 - If you fix links or references, verify that the referenced paths still resolve from the repository root.
+
+## AI Contribution Disclosure
+
+Parts of this repository's code, documentation and commit history were drafted
+with AI coding assistants, including Claude Code, OpenAI Codex, GitHub Copilot
+and Continue. The maintainer directs that work, reviews and tests each change
+before it merges, and is responsible for the result.
+
+This section is the repository-wide disclosure. Individual commits, pull
+requests and files do not carry per-tool attribution lines.

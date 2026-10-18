@@ -31,27 +31,16 @@
     level 1/.append style={level distance=7cm},
     level 2/.append style={level distance=6cm},
     level 3/.append style={level distance=5.5cm},
-    %% Hide the root junction node
-    root concept/.append style={
-        fill=none, draw=none, text opacity=0,
-        minimum size=0pt, inner sep=0pt,
-        circular drop shadow/.style={}
-    },
 ]
 
-%% ── Root (invisible junction) ────────────────────────────────────────────────
-\node {}
-
-%% ── BS Mathematics (upper-left) ──────────────────────────────────────────────
-%% MS CS is a child of BS Math to show the BS→MS progression.
-%% BS Math children fan from 113° (upper) to 245° (lower-left) plus
-%% MS CS at 52° (back toward upper-right).
-child[concept color=bsblue, grow=170] {
-    node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
-        BS Mathematics\\[2pt]
-        \tiny Applied Math Major\\
-        2017\,--\,2022 $\cdot$ GPA 3.95
-    }
+%% ── BS Mathematics (root) ────────────────────────────────────────────────────
+%% BS Math is the root: MS CS grows upper-right (BS→MS progression) and
+%% Pre-University grows down-right (transfer credits feeding the BS).
+\node[concept color=bsblue, minimum size=3.6cm, font=\sffamily\bfseries\small] {
+    BS Mathematics\\[2pt]
+    \tiny Applied Math Major\\
+    2017\,--\,2022 $\cdot$ GPA 3.95
+}
     child[concept color=mthpurple, grow=113] {
         node[minimum size=4.2cm] {
             \textbf{\small Applied Math}\\[2pt]
@@ -95,8 +84,8 @@ child[concept color=bsblue, grow=170] {
             {\scriptsize GPA 3.83}
         }
     }
-    %% MS CS: progression from BS Math, grows back upper-right
-    child[concept color=msblue, grow=52] {
+    %% MS CS: progression from BS Math, grows upper-right
+    child[concept color=msblue, grow=40] {
         node[minimum size=3.6cm, font=\sffamily\bfseries\small] {
             MS Computer\\Science\\[2pt]
             \tiny 2023\,--\,2024 $\cdot$ GPA 3.97
@@ -129,19 +118,18 @@ child[concept color=bsblue, grow=170] {
             }
         }
     }
-}
-
 %% ── Pre-University Transfer Credits (bottom) ─────────────────────────────────
-%% grow=265 ≈ straight down — clearly separated from Gen Ed (244° off BS Math).
+%% grow=290 (down-right), clear of Gen Ed at 244°.
+%% NB: no blank lines between children — a \par breaks TikZ child parsing.
 %% Holly HS is a child of OCC (dual-enrollment relationship).
-child[concept color=preunivgray, grow=263] {
+child[concept color=preunivgray, grow=290] {
     node[minimum size=3.5cm, font=\sffamily\bfseries\small] {
         Pre-University\\[2pt]
         \tiny
         75 cr Transferred\\
         WSTR / OCC / HS
     }
-    child[concept color=wstrteal, grow=210, level distance=7.5cm] {
+    child[concept color=wstrteal, grow=245, level distance=7.5cm] {
         node[minimum size=5.2cm] {
             \textbf{\small Westminster College}\\[2pt]
             \tiny
@@ -157,7 +145,7 @@ child[concept color=preunivgray, grow=263] {
         }
     }
     %% OCC: Holly HS is nested here to show dual-enrollment link
-    child[concept color=occred, grow=296] {
+    child[concept color=occred, grow=320] {
         node[minimum size=4.0cm] {
             \textbf{\small Oakland CC}\\[2pt]
             \tiny
@@ -168,7 +156,7 @@ child[concept color=preunivgray, grow=263] {
             {\scriptsize GPA 3.62}
         }
         %% Holly HS as child of OCC — dual-enrollment courses counted via OCC
-        child[concept color=hspurp, grow=345] {
+        child[concept color=hspurp, grow=15] {
             node[minimum size=3.3cm] {
                 \textbf{\small Holly HS}\\[2pt]
                 \tiny

@@ -1,4 +1,4 @@
-@startuml classes_university-coursework
+@startuml classes_checkout
 set namespaceSeparator none
 note as archilityPythonSurfaceNote
 Minimal class surface detected.

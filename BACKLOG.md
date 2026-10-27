@@ -19,12 +19,12 @@ Mark items `[x]` when complete and move them to Done.
   this done when an old hash returns 404 here. Never push an old clone's
   history back.
 
-- [ ] Add course description to `CSC580-Advanced_Software_Engineering/README.md` — currently only has the h1, no catalog text [manual:2026-04-24]
-- [ ] Consider adding Holly High School as a node in the mindmap for completeness of educational history (zero UMF transfer credits; dual enrollment coursework appears under OCC) [manual:2026-04-27]
-
 ## In Progress
 
 ## Done
+
+- [x] Add Holly High School under the OCC branch in the course mindmap, showing dual enrollment and zero direct UM-Flint transfer credits [manual:2026-04-27]
+- [x] Add a syllabus-based course description to `CSC580-Advanced_Software_Engineering/README.md` [manual:2026-04-24]
 
 - [x] Standardize assignment file naming convention to `konzer_cason_COURSE_type_N` across all 23 courses — 229 files renamed, 10 bibliography references updated in `.tex` files [manual:2026-04-25]
 - [x] Generate `docs/course-timeline.drawio` — Gantt chart of all 24 UM-Flint courses across 12 semesters (Fall 2020 → Winter 2024), grouped by CSC/CIS, MTH, ECN/INB; sourced from official transcript [manual:2026-04-25]

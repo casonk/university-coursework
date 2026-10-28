@@ -1,5 +1,5 @@
 @startuml
-title university-coursework Database Schema Overview
+title checkout Database Schema Overview
 left to right direction
 skinparam shadowing false
 skinparam defaultFontName Monospace

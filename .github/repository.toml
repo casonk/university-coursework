@@ -4,6 +4,7 @@
 [repository]
 # One line shown on GitHub. Keep it free of private repository names and local paths.
 description = "Consolidated mono-repo of all university coursework"
+topics = ["coursework", "university", "computer-science", "mathematics", "economics"]
 
 [main_branch]
 # Direct commits and pushes to main are refused unless this is true.
